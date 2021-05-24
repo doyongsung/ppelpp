@@ -19,22 +19,17 @@ public class Calculator {
 	void div(int n1, int n2) {
 		System.out.println(n1 / n2);
 	}
+	
+	public static void main(String[] args) {
+		
+		// 인스턴스 생성 -> 클래스의 정의가 필요 (필요한 변수, 필요한 메소드)
+		// 클래스이름 참조변수 = new 클래스이름
+		Calculator cal = new Calculator();
+	    cal.plus(1, 2);
+	    cal.minus(5, 5);
+	    cal.multi(5, 5);
+	    cal.div(5, 5);
+		
+	}
 }
-//	int add(int a, int b) { return a + b;}
-//
-//    int sub (int a, int b) {return a - b;}
-//    int mul (int a, int b) {return a * b;}
-//    int iMul (int a, int b) {return a / b;}
-//    
-//	public static void main(String[] args) {
-//		
-//		Calculator cal = new Calculator();
-//		
-//		System.out.println(cal.add(5, 5));
-//		System.out.println(cal.sub(5, 5));
-//		System.out.println(cal.mul(5, 5));
-//		System.out.println(cal.iMul(5, 5));
-//
-//	}
-//
-//}
+
