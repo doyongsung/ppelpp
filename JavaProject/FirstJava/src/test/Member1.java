@@ -15,10 +15,14 @@ public static void  vaccination () {
    }
 public static void inoculation() {
 	int year = getUserInput();
-
-	if(year % 2 == 0 || year >= 20) {
-		System.out.println("무료대상 입니다.");
-	}
+	int now = getUserInput();
+	
+if(year % 2 == now % 2) {
+	System.out.println("건강검진 대상 입니다.");
+    if(now >= 40) {
+    	System.out.println("암검사 무료입니다.");
+    }
+}
 }
 
 	public static void main(String[] args) {

@@ -83,6 +83,9 @@ public class Calculator {
         int num2 = getInputInteger();
         
         System.out.println(num1 +" + " + num2 + " = " + (num1 + num2));
+        System.out.println(num1 +" - " + num2 + " = " + (num1 - num2));
+        System.out.println(num1 +" * " + num2 + " = " + (num1 * num2));
+        System.out.println(num1 +" / " + num2 + " = " + (num1 / num2));
         
         System.out.println("반지름을 입력해주세요.");
         float r = getInputInteger();
