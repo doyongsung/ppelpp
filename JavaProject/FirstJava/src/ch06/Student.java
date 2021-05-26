@@ -9,7 +9,6 @@ public class Student {
 	private int englishScore;
 	private int mathScore;
 	
-	
 	public String getName() {
 		return name;
 	}
@@ -39,7 +38,7 @@ int getAllScore() {
 	 
 }
 float getAverage() {
-	return this.getAllScore() / 3;
+	return this.getAllScore() / 3f;
 }
 
 	
