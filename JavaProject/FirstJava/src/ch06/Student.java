@@ -65,14 +65,26 @@ float getAverage() {
         	 stu[i].setKoreaScore(koreaScore);
         	 stu[i].setEnglishScore(englishScore);
         	 stu[i].setMathScore(mathScore);
-        	 System.out.println();
-        	 
+        	 System.out.println();                	
         	 
          }
+         System.out.println("이름 \t 국어\t 영어\t 수학\t 총점수\t 평균");
+    	 System.out.println("================================================");
+    	 
          
          for(Student s : stu) {
-        	 System.out.println("국어점수는 : " + s.koreaScore + "\n영어점수는 : " + s.englishScore + "\n수학점수는 : " + s.mathScore + "\n총 점수는 : " + s.getAllScore());
-        	 System.out.println("평균 점수는 : " + s.getAverage());
+        	 System.out.print(s.name);
+        	 System.out.printf("\t ");
+        	 System.out.print(s.koreaScore);
+        	 System.out.printf("\t ");
+        	 System.out.print(s.englishScore);
+        	 System.out.printf("\t ");
+        	 System.out.print(s.mathScore);
+        	 System.out.printf("\t ");
+        	 System.out.print(s.getAllScore());
+        	 System.out.printf("\t ");
+        	 System.out.print(s.getAverage());
+        	 System.out.printf("\t ");
         	 System.out.println();
          }
 		
