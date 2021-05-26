@@ -82,6 +82,7 @@ void showInfo(){//String name)을 쓸때는 무조건 this.  쓰지않으면 지
 }
 
 
+
  public void setName(String name) {
 	 this.name = name;
  }
