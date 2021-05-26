@@ -10,7 +10,8 @@ public class Member {
 //데이터를 저장 -> 변수를 이용해서 메모리에 저장
 
 private String name; //클래스의 영역에서 정의 -> 인스턴스 변수, 인스턴스가 생성될때 변수의 메모리 공간이 생성된다.
-private final String phoneNumber; // 참조형 변수의 기본 값;
+ final String phoneNumber; // 참조형 변수의 기본 값;
+//final 바뀌면 안되는 변수
 private String major;
 private int grade;
 private String email;
@@ -55,7 +56,7 @@ Member(String name, String phoneNumber, String major){
 
 	
 }
-Member(){
+Member(){ //final 을 썻을경우 
 	this.phoneNumber = "000-0000-0000";
 }
 
@@ -97,7 +98,8 @@ void showInfo(){//String name)을 쓸때는 무조건 this.  쓰지않으면 지
 		Member member1 = new Member("철수","010-0000-0000", "음악", 4, "ch@gmail.com", "2020-10-10", "서울");
 		member1.name = "영희";
 		member1.showInfo();
-        
+       // member1.phoneNumber = "0000000"; fianl 생성자에서 처리해서 값을 변경할수없음
+         
 		System.out.println("==================");
 		Member member2 = new Member("손흥민", "010 -9999-9999", "축구", 1, "son@naver.com");
 		member2.showInfo();
