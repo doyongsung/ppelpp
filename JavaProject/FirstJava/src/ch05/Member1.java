@@ -29,7 +29,7 @@ public class Member1 {
 		this(name, phone, major, grade,email,0, null);
 	}
 	public void information() {
-		System.out.println("이름 : " + this.name); 
+		System.out.println("이름 : " + name); 
 		System.out.println("전화번호 : " + phone);
 		System.out.println("전공 : " + major);
 		System.out.println("학년 : " + grade);
