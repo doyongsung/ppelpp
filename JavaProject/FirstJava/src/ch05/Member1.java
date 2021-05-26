@@ -26,18 +26,28 @@ public class Member1 {
 		this.address = address;
 	}
 	Member1(String name, String phone, String major, int grade, String email ){
-		this(name, phone, major, grade,email,0, "없음");
+		this(name, phone, major, grade,email,0, null);
 	}
 	public void information() {
-		System.out.println("이름 : " + name);
+		System.out.println("이름 : " + this.name); 
 		System.out.println("전화번호 : " + phone);
 		System.out.println("전공 : " + major);
 		System.out.println("학년 : " + grade);
-		System.out.println("email : " + email);
-		System.out.println("생일 : " + HBD);
-		System.out.println("주소 : " + address);
+		System.out.println("이메일 : " + email);
+		
+		if(this.HBD == 0) {
+			System.out.println("생일 : 입력된 데이터가 없습니다.");
+		}else {
+			System.out.println("생일 : " + HBD);
+		}
+		
+		if(this.address != null) {
+			System.out.println("주소 : " + address);
+		}else
+		System.out.println("주소 : 입력된 데이터가 없습니다.");	
 	}
-	
+
+
 	
 	public static void main(String[] args) {
 		
