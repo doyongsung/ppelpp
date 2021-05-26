@@ -1,4 +1,4 @@
-package test;
+package ch03;
 
 import java.util.*;
 
@@ -49,6 +49,8 @@ public class Calculator {
 	float circum(float r) {
 		return 2 * PI * r; // int * float *float
 	}
+
+	
 	
 	float cirArea(float r) {
 		return PI * r * r; // float * float * float

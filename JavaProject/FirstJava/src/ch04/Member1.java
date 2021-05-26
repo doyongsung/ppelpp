@@ -1,4 +1,4 @@
-package test;
+package ch04;
 
 import java.util.*;
 

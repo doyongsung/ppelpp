@@ -1,11 +1,11 @@
-package test;
+package ch05;
 
 import java.util.Scanner;
 
-public class Member2 {
+public class Member1 {
 
 	private String name;
-	private String phon;
+	private String phone;
 	private String major;
 	private int grade;
 	private String email;	
@@ -14,23 +14,23 @@ public class Member2 {
 	
 	
 	
-	Member2(){}
+	Member1(){}
 	
-	Member2(String name, String phon, String major,int grade, String email, int HBD,String address){
+	Member1(String name, String phone, String major,int grade, String email, int HBD,String address){
 		this.name = name;
-		this.phon = phon;
+		this.phone = phone;
 		this.major = major;
 		this.grade = grade;
 		this.email = email;
 		this.HBD = HBD;
 		this.address = address;
 	}
-	Member2(String name, String phon, String major, int grade, String email ){
-		this(name, phon, major, grade,email,0, "없음");
+	Member1(String name, String phone, String major, int grade, String email ){
+		this(name, phone, major, grade,email,0, "없음");
 	}
 	public void information() {
 		System.out.println("이름 : " + name);
-		System.out.println("전화번호 : " + phon);
+		System.out.println("전화번호 : " + phone);
 		System.out.println("전공 : " + major);
 		System.out.println("학년 : " + grade);
 		System.out.println("email : " + email);
@@ -44,7 +44,7 @@ public class Member2 {
 		System.out.print("이름을 입력해주세요");
 		String name = getInputString();
 		System.out.print("전화번호를 입력해주세요");
-		String phon = getInputString();
+		String phone = getInputString();
 		System.out.print("전공을 입력해주세요");
 		String major = getInputString();
 		System.out.print("학년을 입력해주세요");
@@ -56,8 +56,8 @@ public class Member2 {
 		System.out.print("주소를 입력해주세요");
 		String address = getInputString();
 		
-		Member2 mb = new Member2(name, phon, major, grade, email);
-		Member2 mb2 = new Member2(name, phon, major,grade, email, HBD, address);
+		Member1 mb = new Member1(name, phone, major, grade, email);
+		Member1 mb2 = new Member1(name, phone, major,grade, email, HBD, address);
 		
 		mb.information();
 		mb2.information();

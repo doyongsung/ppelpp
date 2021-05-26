@@ -1,4 +1,4 @@
-package ch00;
+package ch02;
 
 public class Person {
 	//클래수의 구성 -> 인스턴수 변수, 메소드
