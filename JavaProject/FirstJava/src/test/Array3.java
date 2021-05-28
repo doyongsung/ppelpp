@@ -5,7 +5,7 @@ public class Array3 {
 	public static int maxValue(int[] arr) {
 	int max = arr[0];
 	for(int j = 1; j<arr.length; j++) {
-		if(arr[j] < max) {
+		if(arr[j] > max) {
 			max = arr[j];
 		}
 	}
@@ -17,7 +17,7 @@ public static int miniValue(int[] arr) {
 	int min = arr[0];
 	
 	for(int i = 1; i< arr.length; i++) {
-		if(arr[i] > min) {
+		if(arr[i] < min) {
 			min = arr[i];
 		}			
 	}
