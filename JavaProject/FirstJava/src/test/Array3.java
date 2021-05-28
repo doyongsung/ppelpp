@@ -1,6 +1,29 @@
+package test; 
 import java.util.Scanner;
 
-public class Array3 {
+public class Array3 {	
+	public static int maxValue(int[] arr) {
+	int max = arr[0];
+	for(int j = 1; j<arr.length; j++) {
+		if(arr[j] < max) {
+			max = arr[j];
+		}
+	}
+	return max;
+}
+
+public static int miniValue(int[] arr) {
+	  
+	int min = arr[0];
+	
+	for(int i = 1; i< arr.length; i++) {
+		if(arr[i] > min) {
+			min = arr[i];
+		}			
+	}
+	return min;
+}
+
 
 	
 	
@@ -25,28 +48,7 @@ public class Array3 {
 
 	}
 
-	public static int maxValue(int[] arr) {
-		int max = arr[0];
-		for(int j = 1; j<arr.length; j++) {
-			if(arr[j] < max) {
-				max = arr[j];
-			}
-		}
-		return max;
-	}
 
-	public static int miniValue(int[] arr) {
-		  
-		int min = arr[0];
-		
-		for(int i = 1; i< arr.length; i++) {
-			if(arr[i] > min) {
-				min = arr[i];
-			}			
-		}
-		return min;
-	}
-	
 	
 
 }
