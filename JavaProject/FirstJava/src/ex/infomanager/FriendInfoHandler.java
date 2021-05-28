@@ -33,16 +33,9 @@ public class FriendInfoHandler {
 	    	
 	    	//인스턴스 생성 
 	    	//HighFriend hFriend = new HighFriend(name, phoneNumber, address, work);
-	    	addFriendInfo(new HighFriend(name, phoneNumber, address, work);
+	    	addFriendInfo(new HighFriend(name, phoneNumber, address, work));
 	    	
-	    	//인스턴스 생성
-	    	//UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
-	    	addFriendInfo(new UnivFriend(name, phoneNumber, address, major);
-	    	
-	    	
-	    	//배열에 요소 추가.
-//	    	friends[numOfFriend] = hFriend;
-//	    	numOfFriend++;
+	    
 	    	
 	    	//배열의 요소 추가
 //	    	friends[numOfFriend] = uFriend;
@@ -51,14 +44,22 @@ public class FriendInfoHandler {
 	    	System.out.println("전공을 입력해주세요");
 	    	String major = sc.nextLine();
 	    		    	
-	        	
+	    	//인스턴스 생성
+	    	//UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
+	    	addFriendInfo(new UnivFriend(name, phoneNumber, address, major));
+	    	
+	    	
+	    	//배열에 요소 추가.
+//	    	friends[numOfFriend] = hFriend;
+//	    	numOfFriend++;
 
 	    }
 	    
 	}
 	    //Friend 클래스를 상속하는 타입의 인스턴스를 받아 배열에 저장.
 	    public void addFriendInfo(Friend f) {
-	    	
+	    	friends[numOfFriend++] = f;
+	    	System.out.println("정보가 저장되었습니다.");
 	    }
 	    //모든 데이터를 출력하는 메소드
 	    public void showAllData() {
