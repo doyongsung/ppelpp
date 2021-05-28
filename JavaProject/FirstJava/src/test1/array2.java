@@ -1,4 +1,4 @@
-
+package test1;
 public class array2 {
 	public static int[] addAllArray(int[] ar, int addVal) {
 		for(int i = 0; i < ar.length; i++) {
