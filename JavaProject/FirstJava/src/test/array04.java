@@ -1,3 +1,4 @@
+package test; 
 import java.util.Scanner;
 
 public class array04 {
@@ -26,7 +27,7 @@ public class array04 {
 			}
 		}
 	}
-	private static void showInputScore(int[][] score) {
+	private static void InputScore(int[][] score) {
 		System.out.println("현재 상황 : ");
 		for(int[] s : score) {
 			for(int i : s) {
@@ -41,10 +42,10 @@ public class array04 {
 		
 		int[][] score = setArray();
 		setArrayScore(score);
-		showInputScore(score);
+		InputScore(score);
 		int add = getInputInt();
 		addOneDArr(score,add);
-		showInputScore(score);
+		InputScore(score);
 		
 		
 		
