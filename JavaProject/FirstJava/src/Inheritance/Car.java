@@ -1,4 +1,4 @@
-package ex;
+package Inheritance;
 
 class Car {
 	int gasolinegauge;		
