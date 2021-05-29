@@ -1,13 +1,16 @@
 package ch01;
-
-public class Contact {
-	
+//interface ShowData{
+//	public abstract void showData();
+//}
+//public abstract class Contact implements ShowData{
+	public class Contact{
 	private String name;
 	private	String phone;
 	private	String email;
 	private	String address;
 	private	int events;
 	private	String groups;
+	
 	
 	Contact(String name, String phone, String email, String address, int events, String groups){
 		this.name = name;
@@ -66,7 +69,7 @@ public class Contact {
 		this.groups = groups;
 	}
 
-	
+
 public void showInfo() {
 	System.out.println("Name : " + name);
 	System.out.println("Phone : " + phone);
