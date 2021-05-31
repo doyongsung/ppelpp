@@ -33,7 +33,7 @@ public static void main(String[] args) {
 	case 2:
 		break;
 	case 3:
-		sp.showSetCount();
+		sp.remContact();
 		break;
 	case 4:	
 		sp.showAllContact();
