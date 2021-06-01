@@ -1,3 +1,4 @@
+package test1; 
 public class InstanceOfMain {
 
 	public static void main(String[] args) {

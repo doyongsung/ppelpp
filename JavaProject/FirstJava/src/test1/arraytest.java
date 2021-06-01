@@ -1,4 +1,4 @@
-
+package test1; 
 public class arraytest {
 private static void input() {
 	  int score = 9;
