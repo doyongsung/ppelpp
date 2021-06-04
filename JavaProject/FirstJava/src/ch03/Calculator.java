@@ -23,6 +23,7 @@ public class Calculator {
 //		System.out.println(n1 / n2);
 //	}
 	long plus(int num1, int num2) {
+
 //		long result = num1 + num2;
 //		return result;
 		return (long)num1 + num2;

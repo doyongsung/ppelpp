@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class File1 {
+	public static void adas() {
+		
+	}
 
 	public static void main(String[] args)  {
 		Scanner sc = new Scanner(System.in);

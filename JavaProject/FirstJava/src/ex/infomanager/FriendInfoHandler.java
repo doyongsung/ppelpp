@@ -13,6 +13,7 @@ public class FriendInfoHandler {
 	
 	// 생성자
 	public FriendInfoHandler(int num) { // 배열의 사이즈 -> 배열 인스턴스 생성
+		
 		this.friends = new Friend[num];
 		this.numOfFriend = 0;
 	}
