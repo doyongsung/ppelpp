@@ -19,13 +19,7 @@ public class SmartPhone {
 		int count = 0;
 		ContactkMap = new HashMap<>();
 	}
-	
 
-	
-	
-	
-	
-	
 	public void save() {
 		
 		System.out.println("============================================================");
@@ -163,11 +157,6 @@ public class SmartPhone {
 		System.out.print("번호를 입력해주세요 >> ");		
 	}
 	
-	
-	
-		
-		
-		
 
 
 }
