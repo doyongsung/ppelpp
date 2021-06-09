@@ -10,6 +10,7 @@ import common.util.ScannerUtil;
 
 
 public class SmartPhone {
+	// HashMap를 이용해서 key값에 문자 , value값에 Contact 클래스 값. 
 	private  Map<String, Contact> ContactkMap;
 	
 	public SmartPhone() {
@@ -43,17 +44,15 @@ public class SmartPhone {
 		System.out.println("정보가 저장되었습니다.");
 		System.out.println("============================================================");
 		ContactkMap.put(name, new Contact(name, phone, email, address, birthday, group));
-		
-	
-	
-		
-		
+
 	}
 	public void correct() {
 		System.out.println();
 		System.out.println("새롭게 수정할 전화번호를 입력해주세요");
 		System.out.print("이 름 >>");
 		String name = ScannerUtil.getInputString();
+		//수정할 정보가 있는지 검사
+		//get 메서드로 값을 가져올때 name 이 다르면 null을 반환한다.
 		if(ContactkMap.get(name) == null) {
 			System.out.println(name + "님은 전화번호 정보가 없습니다.");
 			return;
@@ -70,6 +69,7 @@ public class SmartPhone {
 		String group = ScannerUtil.getInputString();
 		
 		Contact c = new Contact(name, phone, email, address, birthday, group);
+		//String 값과 Contact 값 출력
 		ContactkMap.put(name, c);
 		
 		System.out.println(name + " 수정 완료");
@@ -155,23 +155,7 @@ public class SmartPhone {
 			}
 		
 	}
-	public void ContactInfo() {
-		System.out.print("이 름 >>");
-		String name = ScannerUtil.getInputString();
-		System.out.print("전화번호: ");
-		String phone = ScannerUtil.getInputString();
-		System.out.print("이메일: ");
-		String email = ScannerUtil.getInputString();
-		System.out.print("주소: ");
-		String address = ScannerUtil.getInputString();
-		System.out.print("생일: ");
-		int birthday = ScannerUtil.getInputInteger();
-		System.out.print("그룹: ");
-		String group = ScannerUtil.getInputString();
-		
-		Contact c = new Contact(name, phone, email, address, birthday, group);
-		ContactkMap.put(name, c);
-	}
+
 	public void ContactMenu() {
 		System.out.println("============================================================");
 		System.out.println("1. 등록    2. 수정    3.삭제    4.검색    5.리스트   0.프로그램 종료");
