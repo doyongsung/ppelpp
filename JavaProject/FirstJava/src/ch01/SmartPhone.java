@@ -3,25 +3,24 @@ package ch01;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
-
 import ch02.common.util.ScannerUtil;
 
 
 public class SmartPhone {
 	// HashMap를 이용해서 key값에 문자 , value값에 Contact 클래스 값. 
 	private  Map<String, Contact> ContactkMap;
+	private  Map<String, CompanyContact> CompanyMap;
+	private  Map<String, CustomerContact> CustomerMap;
 	
 	public SmartPhone() {
-		
-		Contact[] contacts = new Contact[10];
-		int count = 0;
 		ContactkMap = new HashMap<>();
+		CompanyMap = new HashMap<>();
+		CustomerMap = new HashMap<>();
 	}
 
 	public void save() {
-		
+		try {
 		System.out.println("============================================================");
 		System.out.print("이름을 입력해주세요: ");
 	    String name = ScannerUtil.getInputString();
@@ -35,13 +34,46 @@ public class SmartPhone {
 		int birthday = ScannerUtil.getInputInteger();
 		System.out.print("그룹을 입력해주세요: ");
 		String group = ScannerUtil.getInputString();
+		System.out.println("1. Company       2. Customer");
+		System.out.print("소속을 선택해주세요: ");
+		int check = ScannerUtil.getInputInteger();
+		switch(check) {
+		case 1:		
+		System.out.print("회사이름을 입력해주세요: ");
+		String cpName = ScannerUtil.getInputString();
+		System.out.print("부서이름을 입력해주세요: ");
+		String department = ScannerUtil.getInputString();
+		System.out.print("직급을 입력해주세요: ");
+		String position = ScannerUtil.getInputString();
+		Contact c1 = new CompanyContact(name, phone, email, address, birthday, group, cpName, department, position);
+		CompanyMap.put(name, (CompanyContact) c1);
+		System.out.println("확인되었습니다.");
+		break;
+		case 2 :
+		System.out.print("거래처회사 이름을 입력해주세요: ");
+		String ctName = ScannerUtil.getInputString();
+		System.out.print("거래품목을 입력해주세요: ");
+		String ctList = ScannerUtil.getInputString();
+		System.out.print("직급을 입력해주세요: ");
+		String position2 = ScannerUtil.getInputString();
+        Contact c2 = new CustomerContact(name, phone, email, address, birthday, group, ctName, ctList, position2);
+		//String 값과 Contact 값 출력
+        CustomerMap.put(name, (CustomerContact) c2);
+		System.out.println("확인되었습니다.");
+		}	
 		System.out.println("정보가 저장되었습니다.");
 		System.out.println("============================================================");
 		System.out.println();
 		ContactkMap.put(name, new Contact(name, phone, email, address, birthday, group));
-
+		}catch (NumberFormatException e) {
+			System.out.println("올바른 정보를 다시 입력해주세요");
+			
+		}
+			
+	
 	}
 	public void correct() {
+		try {
 		System.out.println();
 		System.out.println("새롭게 수정할 전화번호를 입력해주세요");
 		System.out.print("이 름 >>");
@@ -61,15 +93,17 @@ public class SmartPhone {
 		System.out.print("생일: ");
 		int birthday = ScannerUtil.getInputInteger();
 		System.out.print("그룹: ");
-		String group = ScannerUtil.getInputString();
-		
-		Contact c = new Contact(name, phone, email, address, birthday, group);
+		String group = ScannerUtil.getInputString();	
+        Contact c2 = new Contact(name, phone, email, address, birthday, group);
 		//String 값과 Contact 값 출력
-		ContactkMap.put(name, c);
-		
+		ContactkMap.put(name, c2);
+
 		System.out.println(name + " 수정 완료");
-		
+		}catch(NumberFormatException e) {
+			System.out.println("올바른 입");
+		}
 	}
+	
 	public void delete() {
 		System.out.println();
 		System.out.print("삭제할 정보의 이름을 입력해주세요: ");
@@ -104,10 +138,10 @@ public class SmartPhone {
 		System.out.println("검색 작업 완료");
 	}
 	public void print() {
-				Set<String> keySet = ContactkMap.keySet();
+				Set<String> keySet = CompanyMap.keySet();
 				
 				System.out.println("============================================================");
-				System.out.println("이름 \t전화번호 \t이메일 \t주소 \t생일 \t그룹");
+				System.out.println("이름 \t전화번호 \t이메일 \t주소 \t생일 \t그룹 \t회사이름 \t 부서이름 \t직급");
 				System.out.println("============================================================");
 				
 				if(keySet.size() == 0) {
@@ -119,17 +153,20 @@ public class SmartPhone {
 					while(it.hasNext()) {
 						cnt++;
 						String name = it.next();
-						Contact c = ContactkMap.get(name);
+						CompanyContact c = CompanyMap.get(name);
 						System.out.println(" " + cnt + "\t" + c.getName() + "\t" + c.getPhone() + "\t" 
 						                   + c.getEmail() + "\t" + c.getAddress() + "t" + c.getBirthday()
-						                   + "\t" + c.getGroup());
+						                   + "\t" + c.getGroup() + "\t" + c.getCpNmae() + "\t" + c.getDepartment()
+						                   + "\t" + c.getPosition());
 				System.out.println("============================================================");
 				System.out.println("출력 완료");
 				System.out.println();
 					}
+					
 				}
 	}
 	public void Menu() {
+		try {
 		while(true) {
 			ContactMenu();
 		    int menuNum = ScannerUtil.getInputInteger();
@@ -148,17 +185,22 @@ public class SmartPhone {
 		    	  System.out.println("프로그램을 종료 합니다.");
 		    	  return;
 		      }
-		   
+		}
+			}catch(NumberFormatException e) {
+				System.out.println("잘못된 입력입니다. 숫자를 입력해주세요");
 			}
 		
 	}
 
 	public void ContactMenu() {
+	
 		System.out.println("============================================================");
 		System.out.println("1. 등록    2. 수정    3.삭제    4.검색    5.리스트   0.프로그램 종료");
 		System.out.println("============================================================");
 		System.out.print("번호를 입력해주세요 >> ");		
-	}
+		
+		}
+	
 	
 
 

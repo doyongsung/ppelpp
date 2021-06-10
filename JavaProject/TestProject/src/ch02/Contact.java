@@ -1,6 +1,8 @@
 package ch02;
 
-public class Contact {
+import ch01.ShowData;
+
+public class Contact implements ShowData{
  
 	private String name;
 	private String phone;
