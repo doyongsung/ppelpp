@@ -1,4 +1,4 @@
-package common.util;
+package ch02.common.util;
 
 import java.util.Scanner;
 

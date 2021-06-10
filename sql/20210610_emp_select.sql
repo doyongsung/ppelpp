@@ -6,7 +6,7 @@ from emp
 ;
 
 --2. 사원의 이름, 급여, 연간 총 수입을 총 수입이 많은 것부터 작은 순으로 출력하시오, 연간 총수입은 월급에 12를 곱한 후 $100의 상여금을 더해서 계산하시오.
-select ename, sal, sal * 12 +100 as upsal
+select ename, sal, (sal * 12 )+100 as upsal
 from emp
 order by upsal desc
 ;
@@ -36,13 +36,13 @@ where hiredate >='1981-2-20' and hiredate <= '1981-5-1'
 --7. 부서번호가 20 및 30에 속한 사원의 이름과 부서번호를 출력, 이름을 기준(내림차순)으로 영문자순으로 출력하시오.
 select ename, deptno
 from emp
-where deptno = 20 or deptno = 30
+where deptno in (20,30)
 order by ename asc
 ;
 --8. 사원의 급여가 2000에서 3000사이에 포함되고 부서번호가 20 또는 30인 사원의 이름, 급여와 부서번호를 출력, 이름순(오름차순)으로 출력하시오.
 select ename, sal, deptno
 from emp
-where sal >= 2000 and sal <=3000 and deptno = 20 or deptno = 30
+where sal >= 2000 and sal <=3000 and deptno in(20,30)
 order by ename asc
 ;
 
@@ -76,10 +76,10 @@ where ename like '%A%E%'
 --14. 담당업무가 CLERK, 또는 SALESMAN이면서 급여가 $1600, $950 또는 $1300이 아닌 사원의 이름, 담당업무, 급여를 출력하시오.
 select ename, job, sal
 from emp
-where (job = 'CLERK' or job = 'SALESMAN') and not (sal = 1600 or sal = 950 or sal = 1300)
+where (job = 'CLERK' or job = 'SALESMAN') and not sal in(1600,950,1300)
 ;
 --15. 커미션이 $500 이상인 사원의 이름과 급여 및 커미션을 출력하시오.
 select ename, sal ,comm
 from emp
-where not comm is null and comm >= 500
+where comm >= 500
 ;

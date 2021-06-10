@@ -1,26 +1,23 @@
 package ch01;
-//interface ShowData{
-//	public abstract void showData();
-//}
-//public abstract class Contact implements ShowData{
-	public class Contact{
+
+public class Contact {
+ 
 	private String name;
-	private	String phone;
-	private	String email;
-	private	String address;
-	private	int events;
-	private	String groups;
+	private String phone;
+	private String email;
+	private String address;
+	private int birthday;
+	private String group;
 	
-	
-	Contact(String name, String phone, String email, String address, int events, String groups){
+	Contact(String name, String phone, String email, String address, int birthday, String group){
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 		this.address = address;
-		this.events = events;
-		this.groups = groups;
+		this.birthday = birthday;
+		this.group = group;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -53,32 +50,25 @@ package ch01;
 		this.address = address;
 	}
 
-	public int getEvents() {
-		return events;
+	public int getBirthday() {
+		return birthday;
 	}
 
-	public void setEvents(int events) {
-		this.events = events;
+	public void setBirthday(int birthday) {
+		this.birthday = birthday;
 	}
 
-	public String getGroups() {
-		return groups;
+	public String getGroup() {
+		return group;
 	}
 
-	public void setGroups(String groups) {
-		this.groups = groups;
+	public void setGroup(String group) {
+		this.group = group;
 	}
 
-
-public void showInfo() {
-	System.out.println("Name : " + name);
-	System.out.println("Phone : " + phone);
-	System.out.println("Email : " + email);
-	System.out.println("Address : " + address);
-	System.out.println("Events : " + events);
-	System.out.println("Groups : " + groups);
-	
-}
-	
-
+	public void showInfo() {
+		System.out.println("이름 \t전화번호 \t이메일 \t주소 \t생일 \t그룹");
+		System.out.println(name + "\t" + phone + "\t" + email + "\t" + address 
+				           + "\t" + birthday + "t" + group);
+	}
 }
