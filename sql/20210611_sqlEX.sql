@@ -102,13 +102,31 @@ group by deptno
  group by job,deptno
  order by deptno
  ;
---select deptno as dno, job,
---       nvl(sum(decode (deptno, 10, sal)),0) as "부서 10",
---        nvl(sum(decode (deptno, 20, sal)),0) as "부서 20",
---          nvl(sum(decode (deptno, 30, sal)),0) as "부서 30",              
---         sum(sal) as "총액"
---from emp
---group by job,deptno
---order by deptno
---;
+ 
+ --null 값 0으로 표시
+select deptno as dno, job,
+       nvl(sum(decode (deptno, 10, sal)),0) as "부서 10",
+        nvl(sum(decode (deptno, 20, sal)),0) as "부서 20",
+          nvl(sum(decode (deptno, 30, sal)),0) as "부서 30",              
+         sum(sal) as "총액"
+from emp
+group by job,deptno
+order by deptno
+;
 --( hint. Decode, group by )
+
+-- 조인 이용
+select e.deptno, d.loc, d.dname, round(avg(sal),2), count(*)
+from emp e, dept d
+where e.deptno = d.deptno
+group by e.deptno, d.loc, d.dname
+order by e.deptno
+;
+
+--서브쿼리 이용
+select deptno,
+          (select dname from dept d where e.deptno = d.deptno),
+          (select loc from dept d where e.deptno=d.deptno)
+from emp e
+group by deptno
+;
