@@ -71,7 +71,7 @@ where ename like '__R%'
 --13. 이름에 A와 E를 모두 포함하고 있는 사원의 이름을 표시하시오.
 select ename
 from emp
-where ename like '%A%E%'
+where ename like '%A%' and ename like '%E%'
 ;
 --14. 담당업무가 CLERK, 또는 SALESMAN이면서 급여가 $1600, $950 또는 $1300이 아닌 사원의 이름, 담당업무, 급여를 출력하시오.
 select ename, job, sal
