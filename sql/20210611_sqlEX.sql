@@ -92,14 +92,23 @@ select deptno,
 from emp
 group by deptno
 ;
---31. 업무를 표시한 다음 해당 업무에 대해 부서 번호별 급여 및 부서 10, 20, 30의 급여 총액을 각각 출력하시오. 별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. 
-select deptno as dno, job,
-       decode (deptno, 10, sum(sal)) as "부서 10",
+-- 31. 업무를 표시한 다음 해당 업무에 대해 부서 번호별 급여 및 부서 10, 20, 30의 급여 총액을 각각 출력하시오. 별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. 
+ select deptno as dno, job,
+      decode (deptno, 10, sum(sal)) as "부서 10",
          decode (deptno, 20, sum(sal)) as "부서 20",
           decode (deptno, 30, sum(sal)) as "부서 30",              
          sum(sal) as "총액"
-from emp
-group by job,deptno
-order by deptno
-;
+ from emp
+ group by job,deptno
+ order by deptno
+ ;
+--select deptno as dno, job,
+--       nvl(sum(decode (deptno, 10, sal)),0) as "부서 10",
+--        nvl(sum(decode (deptno, 20, sal)),0) as "부서 20",
+--          nvl(sum(decode (deptno, 30, sal)),0) as "부서 30",              
+--         sum(sal) as "총액"
+--from emp
+--group by job,deptno
+--order by deptno
+--;
 --( hint. Decode, group by )
