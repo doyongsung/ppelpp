@@ -5,7 +5,7 @@ public class CustomerContact extends Contact {
 	String ctName;
 	String ctList;
 	String position2;
-	CustomerContact(String name, String phone, String email, String address, int birthday, String group,
+	CustomerContact(String name, String phone, String email, String address, String birthday, String group,
 			        String ctName, String ctList, String position) {
 		super(name, phone, email, address, birthday, group);
 		this.ctName = ctName;

@@ -6,7 +6,7 @@ public class CompanyContact extends Contact{
 	String department;
 	String position;
 	
-	public CompanyContact(String name, String phone, String email, String address, int birthday, String group,
+	public CompanyContact(String name, String phone, String email, String address, String birthday, String group,
 			String cpName, String department, String position) {
 		super(name,phone,email,address,birthday,group);
 		this.cpNmae = cpName;
