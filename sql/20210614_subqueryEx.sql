@@ -51,8 +51,8 @@ where deptno = (select deptno from emp where ename ='BLAKE') and ename != 'BLAKE
 ;
 --52. 급여가 평균 급여보다 많은 사원들의 사원 번호와 이름을 표시하되 결과를 급여에 대해서 오름차순으로 정렬하시오.
 select empno, ename
-from emp e
-where sal > (select avg(sal) from emp m) order by sal asc
+from emp
+where sal > (select avg(sal) from emp ) order by sal asc
 ;
 
 select avg(sal) from emp;
@@ -62,20 +62,12 @@ select empno,ename
 from emp
 where deptno in (select deptno from emp where ename like '%K%')
 ;
-
-select * 
-from emp
-where deptno in (10,30)
-;
 --54. 부서위치가 DALLAS인 사원의 이름과 부서번호 및 담당업무를 표시하시오.
 select empno, deptno,ename 
 from emp
 where deptno = (select deptno from dept d where d.loc ='DALLAS') 
 ;
 
-select *
-from emp,dept
-;
 --55. KING에게 보고하는 사원의 이름과 급여를 표시하시오.
 select ename,sal
 from emp
