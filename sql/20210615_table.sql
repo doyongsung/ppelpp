@@ -150,7 +150,7 @@ where idx=1
 -- 대학친구의 정보를 입력
 -- 1 basic 정보 입력
 insert into phoneinfo_basic
-values (3, 'SON', '010-1111-1111', 'son@gmail.com', 'KOREA', sysdate)
+values (5, 'SON', '010-1111-1111', 'son@gmail.com', 'KOREA', sysdate)
 ;
 -- 2. univ 정보 입력
 insert into phoneinfo_univ
@@ -215,4 +215,15 @@ select *
 from phoneinfo_basic pb , phoneinfo_univ pu, phoneinfo_com pc
 where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 ;
+----------------------------------------------------------------------
+--대학친구,회사 친구 테이블 -> 기본키(대리키) -> sequence 생성 -> insert 개선
+
+-- sequence :번호 재생기
+create sequence phoneInfo_basic_dxi_pk;
+create sequence phoneInfo_univ_idx_pk start with 2 increment by 1;
+create sequence phoneInfo_com_idx_pk start with 2 increment by 1;
+
+DROP TABLE phoneinfo_basic;
+drop table phoneinfo_univ;
+drop table phoneinfo_com;
 
