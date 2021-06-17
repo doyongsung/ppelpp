@@ -120,7 +120,7 @@ desc emp02
 
 
 
-drop table emp02;
+drop table emp03;
 
 create table emp02
 as
@@ -138,26 +138,26 @@ create table emp02 (
 
 desc dept;
 
-desc emp02;
+desc emp03;
 -- values(); 안에 값을 집어넣을때는 컬럼 순서대로 입력        -- sal 1000.00 (6)       --deptno 50부터 없어서 오류
-insert into emp02 (empno,ename,sal,job,deptno)
+insert into emp03 (empno,ename,sal,job,deptno)
        values(1000, 'SON', 4000, 'MANAGER',40); --not null 컬럼이면 null값을 집어넣을수없다고 오류
        
 -- 모든 컬럼에 데이터를 넣을 수도 있다. 다만 모든컬럼에 입력할때 생략가능 
 insert into emp02 values(null, null, 10000, 'MANAGER');
 
-SELECT * from emp02 ;
+SELECT * from emp03 ;
 
---테이블 레벨에서 제약 사항 정의
+-- 테이블 레벨에서 제약 사항 정의
 create table emp03 (
-        empno number(4),-- constraint emp02_empno_pk primary key,--not null unique,
-        ename varchar2(20), constraint emp03_ename_nn not null, -- not null 제약은 컬럼 레벨에서만 정의 가능
-        sal number(6,2), constraint emp03_sal_ck check (sal > 500 and sal < 5000), --6자리 소수점2자리
-        job varchar(20),-- default '미지정',
-        deptno number,-- constraint emp02_deptno_fk REFERENCES dept(deptno), --외래키 정의 foreign key
-        ----------------------------------------------------------------------------------
-        --제약 정의
-        constraint emp03_empno_pk primary key(empno), -- pk 제약
-        constraint emp03_deptno foreign key(deptno) REFERENCES dept(deptno)
-
+    empno number(4), -- constraint emp02_empno_pk primary key,   -- not null unique,
+    ename varchar2(20) constraint emp03_ename_nn not null, -- not null 제약은 컬럼 레벨에서만 정의 가능
+    sal number(6,2) constraint emp03_sal_ck check (sal > 500 and sal < 5000),
+    job varchar(20), -- DEFAULT '미지정',
+    deptno number, -- constraint emp02_deptno_fk REFERENCES dept(deptno),
+    -------------------------------------------------------------------
+    -- 제약 정의
+    constraint emp03_empno_pk PRIMARY KEY (empno), -- PK 제약
+    constraint emp03_deptno FOREIGN KEY (deptno) REFERENCES dept(deptno)
+    
 );

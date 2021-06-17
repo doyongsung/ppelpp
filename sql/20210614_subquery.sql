@@ -73,7 +73,7 @@ select avg(saleprice) from orders;
 -- 큰 금액의 주문 내역에 대해서 
 -- 주문번호, 고객번호, 금액을 보이시오.
 
-SELECT *
+SELECT * 
 from orders o1
 where saleprice > 
             (select avg(saleprice) from orders o2 where o2.custid=o1.custid)

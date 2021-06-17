@@ -82,6 +82,11 @@ select *
 from emp NATURAL JOIN dept
 ;
 
+select *
+from emp ,dept
+where emp.deptno = dept.deptno
+;
+
 
 
 
@@ -127,6 +132,11 @@ from orders o , customer c
 where o.custid(+)=c.custid
 group by c.name
 order by c.name
+;
+
+select name
+from orders NATURAL join customer 
+group by name
 ;
 
 select * from customer;

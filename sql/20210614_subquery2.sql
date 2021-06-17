@@ -149,10 +149,36 @@ HAVING AVG(SALEPRICE)>(
 --3. 마당서점에서 다음의 심화된 질문에 대해 SQL 문을 작성하시오.
 
 --(1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
+
+SELECT *
+FROM ORDERS O, CUSTOMER C, BOOK B
+WHERE O.CUSTID=C.CUSTID AND O.BOOKID=B.BOOKID
+;
+
 select name
 from customer c , book b, orders o
 where c.custid = o.custid and b.bookid = o.bookid and name = '박지성'
 ;
 
---(2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+SELECT *
+FROM ORDERS O, CUSTOMER C, BOOK B
+WHERE O.CUSTID=C.CUSTID AND O.BOOKID=B.BOOKID
+AND B.PUBLISHER IN (
+    SELECT DISTINCT B.PUBLISHER
+    FROM ORDERS O, CUSTOMER C, BOOK B
+    WHERE O.CUSTID=C.CUSTID AND O.BOOKID=B.BOOKID
+    AND C.NAME='박지성'
+)
 
+AND C.NAME!='박지성'
+
+;
+
+
+--(2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+SELECT C.NAME, COUNT(DISTINCT PUBLISHER)
+FROM ORDERS O, CUSTOMER C, BOOK B
+WHERE O.CUSTID=C.CUSTID AND O.BOOKID=B.BOOKID
+GROUP BY C.NAME
+HAVING COUNT(DISTINCT PUBLISHER) >= 2
+;
