@@ -29,3 +29,7 @@ from dual;
 
 select pi_idx_pk.currval
 from dual;
+
+
+-- 사원 번호, 사원이름, 지급, sal, 부서이름, 부서위치
+select e.empno, e.ename, e.job, e.sal, d.dname, d.loc from emp e, dept d where e.deptno = d.deptno;
