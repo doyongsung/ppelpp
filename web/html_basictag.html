@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 웹 문서의 추가적인 속성들을 정의 -->
+<head>
+    <!-- 문서의 제목 -->
+    <title>HTML5 기본 태그</title>
+    <!-- 문서의 추가적인 속성 -->
+    <meta charset="utf-8"> <!--웹 문서의 문자 셑 설정-->
+</head>
+<style>
+div{
+    background-color: yellow;
+    margin-top: 10px;
+    height: 50px;
+}
+span{
+    background-color: blue;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+}
+</style>
+
+<script></script>
+
+<body>
+
+    <form action="#" method="get">
+        <fieldset>
+        <legend>회원가입 폼</legend>
+        <table>
+        <tr>
+        <th><label for="userid">아이디</label></th>
+        <td>
+        <input type="text" id="userid" name="userid">
+        </td>
+        </tr>
+        <tr>
+        <th><label for="pw">비밀번호</label></th>
+        <td>
+        <input type="password" id="pw" name="pw">
+        </td>
+        </tr>
+        <tr>
+        <td></td>
+       <td>
+        <input type="submit" value="로그인">
+        </td>
+        </tr>
+        </table>
+        </fieldset>
+        </form>
+<!-- 서버로 전송하고자 하는 폼 데이터를 묶는다.
+ action : 데이터를 전송할 경로(위치)
+ method : 전송 방식 ( GET / POST ) -->
+ <form action="#" method="get">
+    type=text : <input type="text" name="username" value="tester"> <br>
+    type=password : <input type="password" name="pw"> <br>
+    type=checkbox : <input type="checkbox" name="chk" value="ok1">
+    <input type="checkbox" name="chk" value="ok2"><br>
+    type=radio : A<input type="radio" name="choice" value="A">
+    B<input type="radio" name="choice" value="B">
+    C<input type="radio" name="choice" value="C">
+    D<input type="radio" name="choice" value="D">
+    F<input type="radio" name="choice" value="F"> <br>
+    type=color : <input type="color" name="color"> <br>
+    type=datetime-local : <input type="datetime-local" name="localDatetime"><br>
+    type=date : <input type="date" name="date"><br>
+    type=time : <input type="time" name="time"><br>
+    type=month : <input type="month"><br>
+    type=week : <input type="week"> <br>
+    type=email : <input type="email" name="email"><br>
+    type=file : <input type="file" name="userPhoto"><br>
+    type=hidden : 화면에는 표현되지 않는다.
+    <input type="hidden" name="idx" value="1"> <br>
+    type=image : <input type="image" src="mini1.jpg" height="50"><br>
+    type=number : <input type="number" name="num"> <br>
+    type=range : <input type="range" name="age" min="0" , max="150"> <br>
+    type= tel : <input type="tel"> <br>
+    type=url : <input type="url" name="url"><br> <br> <br>
+
+    <select name="year">
+
+
+    </select>
+    <input type="submit"> <input type="reset">
+    </form>
+
+
+
+
+
+    <video src="media/trailer.mp4" controls preload="auto" poster="images/mini1.jpg"></video>
+    
+    <audio src="media/old_pop.mp3" controls autoplay></audio>
+<hr>
+
+ <div>div -1</div>
+ <div>div -2</div>
+ <div>div -3</div>
+
+<span>span -1</span>
+<span>span -2</span>
+<span>span -3</span>
+
+<hr>
+<img src="mini3.jpg" width="100">
+<img src="mini2.jpg" width="100">
+<img src="images/mini1.jpg" width="100" alt="미니언즈">
+
+<hr>
+
+    <table border = "1">
+        <thead>
+            <tr>
+                <td>thead 1</td>
+                <td>thead 2</td>
+                <td>thead 3</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tbody 1 - 1</td>
+                <td>tbody 1 - 2</td>
+            </tr>
+            <tr>
+                <td>tbody 2 - 1</td>
+                <td>tbody 2 - 2</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>222</td>
+                <td>333</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>tfoot - 1</td>
+                <td>tfoot - 2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+    <table border = "1">
+            <tr>
+                <th colspan="2">thead 1</th> <!-- 가운데정렬 볼드처리 라벨 -->
+                <th>thead 2</th>
+                <th>thead 3</th>
+            </tr>
+            <tr>
+                <td rowspan="3">tbody 1 - 1</td>
+                <td>tbody 1 - 2</td>
+            </tr>
+            <tr>
+                <td>tbody 2 - 1</td>
+                <td>tbody 2 - 2</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>222</td>
+                <td>333</td>
+            </tr>
+            <tr>
+                <td>tfoot - 1</td>
+                <td>tfoot - 2</td>
+            </tr>
+    </table>
+
+<table border="1">
+
+    <tr>
+        <td colspan="2">cell</td>
+    </tr>
+    <tr>
+        <td rowspan="3">cell</td>
+        <td>cell</td>
+    </tr>
+    <tr>
+        <td>cell</td>
+    </tr>
+    <tr>
+        <td>cell</td>
+    </tr>
+    <tr>
+        <td rowspan="4">cell</td>
+        <td>cell</td>
+    </tr>
+    <tr>
+        <td>cell</td>
+    </tr>
+    <tr>
+        <td>cell</td>
+    </tr>
+    <tr>
+        <td>cell</td>
+    </tr>
+</table>
+
+<table border="1">
+<tr>
+    <th rowspan="2">구분</th>
+    <th colspan="3">내행성</th>
+    <th colspan="5">외행성</th>
+</tr>
+<tr>
+    <th>수성</th>
+    <th>금성</th>
+    <th>지구</th>
+    <th>화성</th>
+    <th>목성</th>
+    <th>토성</th>
+    <th>천왕성</th>
+    <th>해왕성</th>
+</tr>
+<tr>
+    <th>지름비</th>
+    <td>0.383</td>
+    <td>0.949</td>
+    <td>1.000</td>
+    <td>0.532</td>
+    <td>11.209</td>
+    <td>9.449</td>
+    <td>4.07</td>
+    <td>3.883</td>
+
+</tr>
+<tr>
+
+</tr>
+
+</table>
+
+
+
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+    </ul>
+    <ol>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+    </ol>
+
+
+<a href="http://www.bitcamp.co.kr">비트캠프</a>
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.hamail.net">다음</a>
+<a href="#c-1">홍차</a>
+<a href="#c-2">LG</a>
+<a href="#c-3">header Tag</a>
+
+<hr>
+
+<h1>홍차</h1>
+<hr>
+<h3>정의</h3>
+<p>
+홍차는 백차,녹차,우롱차보다 더 많이 발효된 차의 일종이다
+
+</p>
+<p>
+
+<h3>등급</h3>
+<p>
+홍차는 여러 가지로 등급이 매겨진다
+
+
+</p>
+<p>- 브로큰 페코</p> 
+<p>- 브로큰 페코 수숑</p>
+<p>- 브로큰 오렌지 페코 수숑</p>
+
+
+<hr>
+
+    <h1 id= > 제목 </h1>
+    <p>
+        sdlfkl;sdfk;sdlfksd;lfdsl;fds;fsl
+    </p>
+    <p>
+        gfdgfdgfdgfdgfdg
+    </p>
+    <h2>header - h1</h2>
+    <h3>header - h1</h3>
+    <h4>header - h1</h4>
+    <h5>header - h1</h5>
+    <h6>header - h1</h6>
+</body>
+
+</html>
