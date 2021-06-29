@@ -15,7 +15,7 @@ public class array {
 					System.out.println(arr[i][j]+" ");
 				}
 			}
-			System.out.println("");
+			
 		
 
 	}
