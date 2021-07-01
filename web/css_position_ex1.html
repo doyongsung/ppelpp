@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            
+            /* 블럭의 표현 영역 설정 */
+            width: 600px;
+            height: 300px;
+
+            /* 태두리 설정 */
+            border : 1px solid #AAA;
+            /* 배경 이미지 설정 */
+            background-color: honeydew;
+
+            /* 요소들의 절대좌표 기준점으로 설정 */
+            position: relative;
+        }
+
+        div.circle {
+            /* 블럭의 사이즈 */
+            width: 100px;
+            height: 100px;
+            
+            /* 테두리 */
+            border: 1px solid #DDD;
+
+            /* 원만들기 */
+            border-radius: 50%;
+
+            /*배경 이미지 설정 */
+            background-image: url(../web/mini2.jpg);
+            background-size: contain;
+            
+            /* 절대 좌표 위치지정 */
+            position: absolute;
+        }   
+
+        #c1 {
+            left : 10px;
+            top : 10px;
+        } 
+        #c2 {
+            top: 10px;
+            right:10px;
+        }
+        #c3 {
+            left:10px;
+            bottom:10px;
+        }
+        #c4 {
+            right: 10px;
+            bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="c1" class="circle"></div>
+        <div id="c2" class="circle"></div>
+        <div id="c3" class="circle"></div>
+        <div id="c4" class="circle"></div>
+    </div>
+    
+</body>
+</html>

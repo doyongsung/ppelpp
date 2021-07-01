@@ -14,7 +14,7 @@
 <body>
     <div class="main"></div>
     <!--웹페이지 상단-->
-    <header>
+    <header class="header">
         <!--language select-->
 
         <div class="select-lang">
@@ -33,13 +33,11 @@
 
     <!--로그인 부분-->
     <section class ="login-wrap">
-
-        <input class="login-id-wrap">
-            <input placeholder="아이디" type="text" class="input-id"></input>
-        </div>
-        <input class="login-pw-wrap">
-            <input placeholder="비밀번호" type="password" class="input-pw"></input>
-        </div>
+        <button class="login-btn">로그인</button>
+        <div class="login-id-wrap">
+            <input placeholder="아이디" type="text" class="input-id"></div>
+        <div class="login-pw-wrap">
+            <input placeholder="비밀번호" type="password" class="input-pw"></div>
         <div class ="login-btn-wrap">
             <button class="login-btn">로그인</button>
         </div>
@@ -47,10 +45,10 @@
             <span class="stay-check">
                 <input type="checkbox" name="stay-btn" value ="stay" class="stay-checkbox">로그인 상태 유지
             </span>
-           
+            <span class="ip-check">
+                IP 보안<input type="checkbox" name="stay-btn" value="stay" class ="stay-checkbox">
+            </span>           
         </div>
-
     </section>
-  
 </body>
 </html>

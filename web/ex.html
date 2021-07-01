@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          *{
+        margin:0;
+        padding:0;
+    }
+    header{
+        padding: 30px;
+    }
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    header >p{
+        margin-top: 5px;
+        margin-left: 40px;
+    }
+
+    #jb-container {
+        width: 50%;
+        margin: 0px auto;
+        padding: 0 20px;
+        border-radius: 5px;
+        border: 10px solid #ddd;
+        
+      }
+      #jb-header {
+     margin: 0;
+      }
+      #jb-content{
+        width: 580px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: left;
+        padding-bottom: 0;
+        margin-bottom: 0;;
+      }
+      #jb-footer {
+        clear: both;
+        padding: 20px;
+      }
+      nav{
+          clear: both;
+          height: 40px;
+          line-height: 40px;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;;
+      }
+      nav ul{
+          display: flex;
+          float: left;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+      nav li{
+          margin:0 15px;
+      }
+      
+      .btn{
+          float: right;
+          right: 0;
+          display: flex;
+          height: 26px;
+          margin: 6px 0;
+          align-items: center;
+      }
+      .btn > input{
+          height: 100%;;
+          outline: none;
+      }
+      .btn >input[type=text]{
+          padding:0;
+          margin: 0;
+          width: 55%;
+          height: 24px;
+          border:1px solid #ddd;
+          border-radius: 20px 0 0 20px;
+          padding: 0 0 0 15px
+    
+      }
+      .btn >input[type=button]{
+         width: 25%;
+         border-radius: 0 20px 20px 0;
+         border: 1px solid #ddd;
+         border-left: 0;
+         cursor:pointer;
+      }
+   
+        #content_header{
+            padding: 5px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        #jb-sidebar{
+            padding-top: 30px;
+            padding-right: 170px;
+            text-align: center;
+            float: right;   
+        }
+        #jb-sidebar li{
+            overflow: hidden;
+            list-style: none;
+        }
+        #img{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        #jb-footer{
+            margin :0;
+            padding: 0;
+            padding-left: 20px;
+        }
+        #sub{
+            padding-top: 15px;
+            padding-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="jb-container">
+    <header> 
+        <div id="jb-header">
+          <h1>HTML5 Example Preview</h1>
+          <p>한빛아카데미</p>
+    </header>
+        <nav id=jb-nav>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+            </ul>
+            <form class="btn">
+                <input type="text">
+                <input type="button" value="검색">
+            </form>
+        </nav>
+        <div id="jb-content">
+            <section>
+                <article>
+          <h2 id="sub">HTML5 개요와 활용</h2>
+          <p>2013년 02월 14일</p>
+          <p id="img"><img src="../web/430x280.png"></p>
+          <p id="content_header">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget, adipiscing risus.</p>
+          <h2 id="sub">HTML5 응용과 실습</h2>
+          <P>2013년 02월 17일</P>
+          <p id="img"><img src="../web/430x280.png"></p>
+          <p id="content_header">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget, adipiscing risus.</p>       </div>
+        <div id="jb-sidebar">
+          <h4>카테고리</h4>
+          <li>데이터</li>
+          <li>데이터</li>
+          <li>데이터</li>
+          <br>
+          <br>
+            <h4>최근 글</h4>
+            <li>데이터</li>
+            <li>데이터</li>
+            <li>데이터</li>
+            <li>데이터</li>    
+        </div>
+    </article>
+    </section>
+        <div id="jb-footer">
+                <p>Created By Team-HeXagon</p>        
+        </div>
+      </div>
+    </div>
+</body>
+</html>

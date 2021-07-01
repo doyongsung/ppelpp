@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.box{
+            width: 100px;
+            height: 100px;
+
+            background-color: hotpink;
+            text-align: center;
+            line-height: 100px; /*박스의 정가운데에 텍스트가 오게만듦*/
+
+            border: 3px solid #ddd;
+
+            float:left;
+        }
+        #wrap{
+            /* overflow: hidden; 내부 벗어나면 옆공간쓰지않겠다. */
+        }
+        #footer{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="wrap">
+        <div class ="box">1</div>
+        <div class ="box">2</div>
+        <div class ="box">3</div>
+    </div>
+    <div>
+        <footer id ="footer">
+            footer
+        </footer>
+    </div>
+</body>
+</html>
