@@ -1,5 +1,6 @@
 body {
   background-color: #f5f6f7;
+  margin-top: 40px;
 }
 select {
   width: 85px;
@@ -33,8 +34,11 @@ a {
 /* 언어설정 */
 .select-lang {
   position: absolute;
-  top: 20px;
-  right: 10px;
+  top: 5px;
+  right: 50px;
+}
+.selectbox {
+  float: right;
 }
 /* 네이버 로고설정 */
 .image {
@@ -54,7 +58,7 @@ a {
 }
 /* input 아이디박스 */
 .login-id-wrap {
-  margin: 0px 10px 8px 10px;
+  margin: 0px 5px 8px 5px;
   padding: 10px;
   border: solid 1px #dadada;
   background: #fff;
@@ -67,7 +71,7 @@ a {
 }
 /* input 패스워드박스 */
 .login-pw-wrap {
-  margin: 0px 10px 8px 10px;
+  margin: 0px 5px 8px 5px;
   padding: 10px;
   border: solid 1px #dadada;
   background: #fff;
@@ -83,11 +87,12 @@ a {
   text-align: center;
   height: 52px;
   line-height: 55px;
-  margin: 0px 10px 8px 10px;
+  margin: 0px 5px 8px 5px;
   border: solid 1px rgba(0, 0, 0, 1);
   background-color: #03c75a;
   color: #fff;
   cursor: pointer;
+  border: 1px solid #03c75a;
 }
 /* 로그인버튼 */
 .login-btn {
@@ -101,9 +106,13 @@ a {
 }
 /* 로그인 아래 박스 */
 .under-login {
-  height: 50px;
+  height: 40px;
   border-bottom: 1px solid gainsboro;
-  mmargin: 0px 10px 35px 10px;
+  margin: 0px 10px 35px 10px;
+  line-height: 30px;
+}
+.IP-check {
+  float: right;
 }
 
 /* 가로 800px 이상일때 */
@@ -125,4 +134,26 @@ a {
   margin-top: 20px;
   width: 550px;
   padding-right: 10px;
+}
+.name {
+  text-align: center;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.second-login input[type="text"] {
+  height: 42px;
+  text-align: center;
+  margin: 0px 5px 0px 0px;
+  padding: 5px 20px;
+  border: 1px solid #03c75a;
+}
+.nav {
+  float: left;
+  list-style: none;
+  padding: 0 8px;
+  font-size: 14px;
+}
+.stay-check input[type="checkbox"] {
+  border-radius: 20px;
 }

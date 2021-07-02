@@ -14,7 +14,7 @@
 <body>
     <div class="main"></div>
     <!--웹페이지 상단-->
-    <header class="header">
+    <header>
         <!--language select-->
 
         <div class="select-lang">
@@ -27,17 +27,18 @@
         <!--NAVER LOGO-->
         <div class="logo">
             <a href="https://www.naver.com/" target="_blank" title="네이버 홈페이지">
-            <img src="NAVER_LOGO.png" class="image"></a>
+            <img src="../NAVER_LOGO.png" class="image"></a>
         </div>
     </header>
 
     <!--로그인 부분-->
     <section class ="login-wrap">
-        <button class="login-btn">로그인</button>
         <div class="login-id-wrap">
             <input placeholder="아이디" type="text" class="input-id"></div>
+        </div>
         <div class="login-pw-wrap">
             <input placeholder="비밀번호" type="password" class="input-pw"></div>
+        </div>
         <div class ="login-btn-wrap">
             <button class="login-btn">로그인</button>
         </div>
@@ -45,10 +46,28 @@
             <span class="stay-check">
                 <input type="checkbox" name="stay-btn" value ="stay" class="stay-checkbox">로그인 상태 유지
             </span>
-            <span class="ip-check">
-                IP 보안<input type="checkbox" name="stay-btn" value="stay" class ="stay-checkbox">
-            </span>           
+                <span class="IP-check">IP 보안 ON
+                </span>    
+            </div>
+        <div class="name">
+           <p>더욱 간편한 로그인</p>
+           <div class="second-login">
+            <input type="text" value="QR코드 로그인">
+            <input type="text" value="일회용 번호 로그인">
         </div>
+        </div>
+       
+        <DIV class="nav">
+            <div>       
+            <a href="#">아이디 찾기</a>
+            <span>l</span>
+            <a href="#">비밀번호 찾기</a>
+            <span>l</span>
+            <a href="#">회원가입</a>
+            <span>l</span>
+        </DIV>
+    </div>
     </section>
+  
 </body>
 </html>
