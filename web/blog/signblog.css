@@ -42,31 +42,36 @@ footer {
   text-align: center;
 }
 .input-size {
-  width: 93.5%;
-  padding: 15px;
+  width: 92.5%;
+  padding: 17px;
 }
 .button-size {
   width: 100%;
-  padding: 15px;
+  padding: 17px;
+  margin-bottom: 10px;
 }
 .input-size2 {
-  width: 65%;
-  padding: 15px;
+  width: 63%;
+  padding: 17px;
 }
 .button-size2 {
-  width: 26%;
-  padding: 15px 10px;
+  width: 27.5%;
+  padding: 16px;
 }
 .input-size3 {
   width: 26%;
-  padding: 17px;
+  padding: 17px 17px;
 }
 .button-size3 {
   width: 29.5%;
-  padding: 18px 10px;
+  padding: 17px 10px;
   padding-bottom: 15px;
 }
-input[value="@naver.com"] {
+input[placeholder="@naver.com"] {
+  top: 16px;
+  right: 13px;
+  font-size: 15px;
+  color: #8e8e8e;
   text-align: right;
 }
 select {
@@ -76,4 +81,21 @@ button {
   background-color: #03c75a;
   border: 1px solid #ddd;
   color: white;
+}
+.input-back {
+  background-color: #f5f6f7;
+}
+
+.button {
+  padding-top: 14px;
+}
+.span {
+  color: #ddd;
+  font-size: 12px;
+}
+.sign-up-pw2 {
+  padding-bottom: 20px;
+}
+.email {
+  padding-bottom: 20px;
 }

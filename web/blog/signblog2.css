@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f5f6f7;
+}
+.main-wrap {
+  text-align: center;
+  width: 520px;
+  margin: 0 auto;
+}
+.logo {
+  text-align: center;
+  padding-top: 75px;
+  padding-bottom: 40px;
+}
+.image {
+  width: 300px;
+  height: 55px;
+}
+h3 {
+  text-align: left;
+  font-size: 14px;
+  margin: 19px 0px 8px;
+}
+.signup-input {
+  display: flex;
+  padding: 10px;
+  border: 1px solid #dadada;
+  background: #fff;
+  cursor: pointer;
+}
+.signup-input-c {
+  display: flex;
+  padding: 10px;
+  border: 1px solid #dadada;
+  background: #f5f6f7;
+  cursor: pointer;
+}
+.signup-input-c input {
+  background: #f5f6f7;
+}
+#signup-id,
+#signup-pw,
+#signup-pww {
+  height: 29px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+#signup-btn {
+  width: 100%;
+  padding: 18px;
+}
+#signup-birth-yy,
+#signup-birth-dd,
+#signup-birth-mm {
+  width: 113px;
+  height: 29px;
+  border: 1px solid #ddd;
+  outline: none;
+}
