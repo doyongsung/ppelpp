@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://code.jquery.com/jquery-1.12.4.js"
@@ -16,34 +15,33 @@
         // 동적 html 요소 생성
         $("<h1></h1>");
         $("<h1></h1>").html("Hello~!!");
-        $("<h1>Hello~!!</h1>");
+        $("<h1>Hello~!!!!/h1>");
 
-        // 요소를 추가
+        // html에 요소를 추가
         $("<h1></h1>").html("Hello~!!").appendTo("body");
         $("<h1>Hello~!!! Javascript</h1>").appendTo("body");
 
-        // $('<img>').attr('src','../images/mini1.jpg').attr('width',100).appendTo('body');
-        $("<img>")
-          .attr({
-            src: "../images/mini1.jpg",
-            width: 200,
-          })
-          .prependTo("body");
+        //이미지 body에 추가
+        // $("<img>")
+        //   .attr("src", "../images/mini1.jpg")
+        //   .attr("width", 100)
+        //   .appendTo("body");
 
-        var html1 = '<a href="#">test</a>';
+        var html1 = '<a href="#">text</a>';
         var html2 = "<p>TEST</p>";
         var html3 = "<div>DIV-0</div><div>DIV-1</div><div>DIV-2</div>";
 
         $("body").append("<h3>Hello~!! JS</h3>");
         $("body").append(html1, html2, html3, "<hr>");
 
-        //배열 생성
+        // 배열 생성
         var links = [
           { name: "네이버", url: "http://www.naver.com" },
           { name: "다음", url: "http://www.daum.net" },
           { name: "카카오", url: "http://www.kakao.com" },
         ];
 
+        //링크 넣기
         $("div").append(function (index) {
           return (
             '<h3><a href="' +

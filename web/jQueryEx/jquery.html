@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.js"
+      integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+      crossorigin="anonymous"
+    ></script>
+    <title>jquery</title>
+    <style>
+      #wrap {
+        overflow: hidden;
+      }
+      .title {
+        background-color: crimson;
+        color: floralwhite;
+        float: left;
+      }
+    </style>
+    <script>
+      //$() -> jquery 객체 생성 : 메소드
+      //document 객체를 -> jquery 객체로 변환
+      $(document).ready(function () {
+        //get 메소드
+        var value = $("input[type=text]").val();
+        // var userid = document.querySelector('#userID').value
+        console.log(value);
+        // $("input[type=text]").val("안녕");
+        $("input:text").val("안녕하세요");
+
+        // 5초 루에 select의 선택 항목의 value 값을 확인
+        setTimeout(function () {
+          var selVal = $("select>option:selected").val();
+          console.log(selVal);
+
+          var chk = $("input:checkbox:checked").val();
+          console.log(chk);
+        }, 5000);
+
+        $("table tr:odd").css("background-color", "#ddd");
+        // $("table tr:even").css("background-color", "#aaa");
+        //filter 메소드를 이용해서 탐색
+        $("table tr").filter(":even").css("background-color", "#aaa");
+
+        $("table tr:first")
+          .css("background-color", "#000")
+          .css("color", "#fff");
+        $("table tr:last").css("background-color", "#fff");
+
+        // 배열을 다루는 .each() 메소드
+        // $.each(배열원본, callback :배열의 하나의 요소를 처리하는 함수, 매개변수 배열의 index 값, 요소 데이터)
+
+        // 배열 생성
+        var links = [
+          { name: "네이버", url: "http://www.naver.com" },
+          { name: "다음", url: "http://www.daum.net" },
+          { name: "카카오", url: "http://www.kakao.com" },
+        ];
+
+        var output = "";
+
+        //html에 링크 차례대로 만들기
+        $.each(links, function (index, item) {
+          console.log(index, item.name);
+          output += '<a href="' + item.url + '">' + item.name + "</a>\n";
+        });
+        console.log(output);
+
+        //html body 태그 다불러오기
+        // console.log($("body").html()); //getter
+
+        // document.body.innerHTML = output;
+        // $("body").html(output);
+        $("#links").html(output);
+
+        //h1 배열로 리스트 불러오기
+        $("h1").each(function (index, item) {
+          console.log(index, item.innerHTML);
+          console.log(index, $(item).html());
+        });
+
+        // h1에 태그에 class = "title" 을 추가
+        $("h1").addClass("title");
+
+        //3
+        $("h3")
+          .filter(function (index) {
+            return index % 3 == 0;
+          })
+          .css({
+            backgroundColor: "black",
+            color: "white",
+          });
+
+        //end(); 앞에있는 필터를 지ㅜㅁ
+        $("h2")
+          .css("background", "orange")
+          .filter(":even")
+          .css("color", "white")
+          .end()
+          .filter(":odd")
+          .css("color", "red");
+
+        //eq index위치 지정
+        $("h1").eq(3).css("background", "orange");
+        $("h1").last().css("background", "blue");
+        $("h1").first().css("background", "green");
+
+        $("h1").css("background", "gray").add("h3").css("float", "left");
+      });
+    </script>
+  </head>
+  <body>
+    <h2>header - 0</h2>
+    <h2>header - 1</h2>
+    <h2>header - 2</h2>
+    <h2>header - 3</h2>
+    <h2>header - 4</h2>
+    <h2>header - 5</h2>
+
+    <h3>header - 0</h3>
+    <h3>header - 1</h3>
+    <h3>header - 2</h3>
+    <h3>header - 3</h3>
+    <h3>header - 4</h3>
+    <h3>header - 5</h3>
+
+    <div id="wrap">
+      <h1>header - 0</h1>
+      <h1>header - 1</h1>
+      <h1>header - 2</h1>
+      <h1>header - 3</h1>
+      <h1>header - 4</h1>
+    </div>
+
+    <div id="links"></div>
+
+    <table border="1">
+      <tr>
+        <th>thead 1</th>
+        <th>thead 2</th>
+      </tr>
+      <tr>
+        <td>tbody 1 - 1</td>
+        <td>tbody 1 - 2</td>
+      </tr>
+      <tr>
+        <td>tbody 2 - 1</td>
+        <td>tbody 2 - 2</td>
+      </tr>
+      <tr>
+        <td>111</td>
+        <td>222</td>
+      </tr>
+      <tr>
+        <td>tfoot - 1</td>
+        <td>tfoot - 2</td>
+      </tr>
+    </table>
+
+    개인정보 보호정책 보기 <input type="checkbox" value="ok" />
+    <select>
+      <option value="21">2021</option>
+      <option>2020</option>
+      <option>2019</option>
+    </select>
+
+    <input id="userID" type="text" value="hello" />
+  </body>
+</html>

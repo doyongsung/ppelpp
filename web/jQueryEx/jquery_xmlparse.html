@@ -2,26 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jQuery XML Parsing</title>
     <script
       src="https://code.jquery.com/jquery-1.12.4.js"
       integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
       crossorigin="anonymous"
     ></script>
-    <style>
-      div {
-        width: 300px;
-        border: 1px solid #aaa;
-        border-radius: 10px;
-      }
-
-      div > h1,
-      div > p {
-        padding: 5px;
-      }
-    </style>
+    <title>Document</title>
     <script>
       // xml 문자열을 만든다.
       var xml = "";
@@ -49,6 +36,11 @@
 
       var html = "";
 
+      // xml 요소 엘리먼트를 찾아주는 메소드 -> find(엘리먼트 이름)
+      // xml 문서객체 -> $
+
+      var html = "";
+
       $(xmlDoc)
         .find("link")
         .each(function (index) {
@@ -57,16 +49,16 @@
           console.log(name, url);
 
           html += "<div>";
-          html += "   <h1>" + name + "</h1>";
-          html += "   <p>" + url + "</p>";
+          html += "  <h1>" + name + "</h1>";
+          html += "  <p>" + url + "</p>";
           html += "</div>";
         });
 
+      //html xml문서 출력
       $(document).ready(function () {
         $("body").html(html);
       });
     </script>
   </head>
-
   <body></body>
 </html>
