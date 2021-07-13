@@ -25,6 +25,7 @@ var members = []; // new Array()
 
 window.onload = function () {
 
+
     // 테이블 세팅
     setList();
 
@@ -83,6 +84,7 @@ window.onload = function () {
             document.querySelector('#userName+div.msg').style.display = 'block';
             return false;
         }
+        
 
         console.log(userid.value);
         console.log(pw.value);
@@ -262,3 +264,4 @@ function editMember(index){
 function editMemberClose(){
     document.querySelector('#editFormArea').style.display = 'none';
 }
+

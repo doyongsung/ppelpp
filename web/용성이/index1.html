@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <script>
+        function checks(){
+            var hobbyCheck = false;
+            var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+            var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
+            var getName = RegExp(/&[가-힣]+$/);
+            var fmt = RegExp(/^\d{6}[1234]\d{6}$/); 형식설정
+            var buf = new Array(13); //주민번호 배열
+          
+            //아이디 공백 확인
+            if($('#id').val() == ''){
+                alert("아이디 입력바람");
+                $("#id").focus();
+                return false;
+            }
+
+            //아이디 유효성 검사
+            if(!getCheck.test($("#id").val())){
+                alert("형식에 맞게 입력해주세요");
+                $("#id").val("");
+                $("#id").focus();
+                return false;
+            }
+            
+            //비밀번호 공백 확인
+            if($("#passowrd").val() ==""){
+                alert("패스워드 입력바람");
+                $("#password").focus();
+                return false;
+            }
+
+            //아이디 비밀번호 같음 확인
+            if($("#id").val() == $("#password").val()){
+                alert("아이디와 비밀번호가 같습니다.");
+                $("#password").val("");
+                $("#password").focus();
+                return false;
+            } 
+
+            //비밀번호 유효성 검사
+            if(!getCheck.test($("#password").val())){
+                alert("형식에 맞게 입력해주세요");
+                $("#password").val();
+                $("#password").focus();
+                return false;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form> 
+        <table border ="1" bordercolor ="grey" align ="center">
+            <tbody>
+                <tr>
+                    <td colspan="2" bgcolor ="lightblue" align ="center">회원 기본 정보></td>
+                </tr>
+                <tr>
+                    <td bgcolor="lightgrey" align ="center">아이디</td>
+                    <td><input size="15" type="text" id="id" placeholder="아이디를 입력해주세요"> 4~12자의 영문 대소문자와 숫자로만 입력</td>
+                </tr>
+                <tr>
+                    <td bgcolor="lightgrey" align="center">비밀번호</td>
+                    <td><input size="15" type="password" id="password" placeholder="비밀번호를 입력해주세요">4~12자의 영문 대소문자와 숫자로만 입력</td>
+                </tr>
+                <tr>
+                    <td bgcolor="lightgrey" align="center">비밀번호 확인</td>
+                    <td><input size="15" type="password" id="passowrd_check" placeholder="비밀번호를 재입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td bgcolor="lightgrey" align="center">메일 주소</td>
+                    <td><input type="text" id="mail" placeholder="@domain.com">예)id@domain.com</td>
+                </tr>
+                <tr>
+                    <td bgcolor="lightgrey" align="center">이름</td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" bgcolor="lightblue" align="center">개인 신상 정보</td>
+                </tr>
+            </tbody>
+        </table>
+        <p align="center">
+            <input type="submit" value="회원 가입">
+            <input type="reset" value="다시 입력">
+        </p>
+    </form>
+    
+</body>
+</html>

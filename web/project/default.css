@@ -56,14 +56,16 @@ form label {
 #regForm input[type="submit"],
 #editForm input[type="submit"] {
   width: 100px;
-  height: 56px;
+  height: 35px;
+  margin-top: 20px;
 
   border: 2px solid #aaa;
 
   font-size: 1.5em;
   font-family: "Jua", sans-serif;
 
-  background-color: greenyellow;
+  background-color: black;
+  color: white;
 }
 
 div.msg {
@@ -80,7 +82,7 @@ div.msg {
 #listArea > table {
   margin: 10px 0;
 
-  width: 600px;
+  width: 65%;
   border-collapse: collapse;
 }
 
@@ -103,10 +105,8 @@ div.msg {
   padding: 20px;
 
   position: absolute;
-  left: 50%;
+  left: 65%;
   top: 100px;
-  margin-left: -175px;
-
   display: none;
 }
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"
+  ></script>
+
+  <style>
+      div{
+          border : 1px solid #aaa;
+          padding: 10px;
+      }
+
+      h1{
+          border: 3px solid #000;;
+      }
+  </style>
+  <script>
+      $(document).ready(function(){
+          
+        // $('h1').click(function(){
+        // var length = $('h1').length;
+        // var oldHtml = $(this).html();
+
+        // $('#wrap').append('<h1>'+length+' - ' +oldHtml+ '</h1>');
+    // });
+
+    //클릭할때마다 html에 요소추가 
+    $('#wrap').on('click','h1',function(){
+        var length = $('h1').length;
+        var oldHtml = $(this).html();
+        $('#wrap').append('<h1>'+length+' - ' +oldHtml+ '</h1>');
+    });
+
+    $('#myForm').submit(function(){
+
+        alert('myForm submit !!');
+
+        //새로운 창으로 넘어가지않음
+        return false;
+    });
+
+    //하나클릭하면 전체선택
+    $('#allcheck').change(function(){
+        
+        // 선택 상태이면 true, 미 선택 상태이면 false; 
+        if(this.checked){
+            // #checkItem 안에 있는 input type = checkbox -> checked = true
+            $('#checkItem').children().prop('checked',true);
+        }else{
+            $('#cehckItem').children().prop('checked',false);
+        }
+
+    });
+      });
+  </script>
+
+
+</head>
+<body>
+
+
+    <input type="checkbox" id="allcheck">
+    <label for="allcheck">all</label>
+
+    <div id="checkItem">
+        <input type="checkbox"> <label>A type</label>
+        <input type="checkbox"> <label>B type</label>
+        <input type="checkbox"> <label>C type</label>
+
+    </div>
+
+
+    <form id="myForm">
+
+        <input type="submit">
+    </form>
+    
+    <div id = "wrap">
+        <h1>header</h1>
+    </div>
+</body>
+</html>
