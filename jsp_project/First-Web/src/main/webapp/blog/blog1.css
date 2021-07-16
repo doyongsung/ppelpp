@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f5f6f7;
+  display: block;
+}
+#header {
+  float: right;
+  padding: 3px;
+}
+#locale_switch {
+  padding: 6px 12px;
+  margin: 0 auto;
+  background-color: #f5f6f7;
+  float: right;
+  overflow: hidden;
+}
+#wrap {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+.logo {
+  text-align: center;
+  overflow: hidden;
+  display: block;
+  width: 231px;
+  margin: 0 auto;
+  height: 44px;
+  padding: 106px 0 53px;
+}
+
+#section input[type="text"] {
+  padding: 15px 150px;
+  height: 10px;
+}
+#section input[type="submit"] {
+  padding: 17px 215px;
+}
+#section input[value="아이디"] {
+}

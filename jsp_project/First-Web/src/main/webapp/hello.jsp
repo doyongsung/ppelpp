@@ -8,6 +8,13 @@
 </head>
 <body>
 
-연동테스트
+<%
+        String name = "SON";
+%>
+  안녕하세요 <%= name %>
+  
+  <%= request.getContextPath() %>
+  
+
 </body>
 </html>

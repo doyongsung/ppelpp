@@ -1,0 +1,184 @@
+@import url();
+/* 브라우저와 상관없이 간격,위치잡을때 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h4,
+h5,
+h6,
+table,
+input,
+header,
+nav,
+aside,
+section,
+article p {
+  font-size: 16px;
+  font-family: "돋움체", Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: cornsilk;
+}
+#main_wrap {
+  /* 패딩  -10 -10 border -1 -1 shadow -2*/
+  width: 776px; /*-10 -10 -1 -1 -2 */
+  background-color: #fff;
+  border: 1px solid #aaa;
+
+  /* 왼 오 오아 왼아 */
+  border-radius: 5px;
+
+  margin: 10px auto;
+  /* 박스 그림자 */
+  box-shadow: 2px 2px 3px#DDD;
+
+  padding: 10px;
+}
+
+/* header 영역 */
+header {
+  padding: 20px;
+}
+
+header > h1 {
+  font-size: 2em;
+  font-weight: 400px;
+}
+/* navigation 영역 */
+nav {
+  height: 35px;
+  border-top: 1px solid#ddd;
+  border-bottom: 1px solid#ddd;
+
+  /*다른칸에서 올라오는걸 막을 수 있음.*/
+  overflow: hidden;
+}
+nav > ul {
+  float: left;
+  overflow: hidden;
+  list-style: none;
+}
+nav > ul > li {
+  float: left;
+  /* 상하 0 좌우20px; */
+  /* padding: 0 20px; */
+  /* nav 사이즈 35px 늘리고 안에서 35px하면(가운데 정렬)*/
+  height: 35px;
+  line-height: 35px;
+}
+nav > ul > li > a {
+  display: block;
+  padding: 0 20px;
+}
+nav > ul > li > a:hover {
+  background-color: khaki;
+}
+nav > div {
+  float: right;
+}
+
+nav > div > input[type="text"] {
+  height: 22px;
+  margin-top: 4px;
+  border-radius: 11px 0 0 11px;
+  padding: 0 -7px;
+  border: 1px solid#ddd;
+}
+nav > div > input[type="submit"] {
+  height: 24px;
+  margin-top: 4px;
+  border-radius: 0 13px 13px 0;
+  margin-left: -10px;
+  margin-right: 5px;
+  padding: 0 15px;
+  border: 1px solid#ddd;
+}
+
+/* 컨텐츠 영역*/
+#content_wrap {
+  overflow: hidden;
+
+  margin-top: 20px;
+}
+
+section {
+  float: left;
+  width: 600px;
+  padding: 5px;
+}
+
+aside {
+  float: right;
+  width: 160px;
+}
+aside > ul {
+  list-style: none;
+}
+aside > h3 {
+  font-size: 120%;
+  margin-top: 20px;
+}
+aside > ul > li {
+  padding-left: 10px;
+  line-height: 30px;
+}
+
+/* footer 영역 */
+footer {
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+/*공통으로 사용할 클래스*/
+.font_jua {
+  font-family: "Jua", sans-serif;
+}
+
+.border_bottom_a {
+  border-bottom: 1px solid #aaa;
+}
+
+.margin_bottom_20 {
+  margin-bottom: 20px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: hotpink;
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 5px 0;
+}
+.date {
+  font-weight: 550px;
+  font-style: italic;
+}
+
+.post_img {
+  width: 300px;
+  height: 240px;
+  margin: 10px 5px;
+  border: 0;
+}
+
+.postcontent {
+  font-family: "Sunflower", sans-serif;
+  line-height: 180%;
+  margin-bottom: 15px;
+}

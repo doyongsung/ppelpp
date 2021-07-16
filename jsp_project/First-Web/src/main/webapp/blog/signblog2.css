@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  background: #f5f6f7;
+}
+
+.container {
+  width: 100%;
+  max-width: 767px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.logo {
+  height: 50px;
+  text-align: center;
+}
+
+.join_section {
+  margin: 30px 0;
+  padding: 0 150px;
+}
+
+.join_section .join > label {
+  font-weight: 600;
+  display: block;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.join_section .join > label .form_wrap {
+  position: relative;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+}
+
+.join_section .join > label input {
+  display: block;
+  width: calc(100% - 22px);
+  padding: 10px;
+  position: relative;
+  margin-top: 10px;
+  border: 1px solid #d7d7d7;
+  height: 23px;
+}
+
+.join_section .join > label input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px #03c75a;
+}
+
+.join_section .join > label .form_wrap > span {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  line-height: normal;
+  margin-top: -2px;
+  font-size: 14px;
+  color: #c7c7c7;
+  font-weight: 400;
+}
+.join_section .join > label .form_wrap > span.icon_img {
+  margin: 0;
+}
+
+.join_section .join .birthday_form .form_wrap {
+  display: flex;
+}
+
+.join_section .join .form_wrap > select {
+  margin-top: 10px;
+  height: 45px;
+  line-height: 45px;
+  border: 1px solid #d7d7d7;
+  padding: 0 10px;
+}
+
+.join_section .join .form_wrap > select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px #03c75a;
+}
+.join_section .join .birthday_form .form_wrap * {
+  width: 33.3333%;
+}
+.join_section .join .birthday_form .form_wrap * + * {
+  margin-left: 10px;
+}
+
+.join_section .join .gender_form .form_wrap > select {
+  width: 100%;
+}
+
+.join_section .join .email_form > .sub {
+  font-size: 11px;
+  color: #8e8e8e;
+  font-weight: 400;
+}
+
+.join_section .join .phone_form .form_wrap {
+  height: auto;
+}
+
+.join_section .join .phone_form .form_wrap > select {
+  width: 100%;
+}
+
+.join_section .join .phone_form .form_wrap > div {
+  display: flex;
+}
+
+.join_section .join .phone_form .form_wrap > div input {
+  width: calc(100% - 140px);
+}
+.join_section .join .phone_form .form_wrap > div .certification_btn {
+  height: 45px;
+  float: left;
+  width: 130px;
+  margin-left: 10px;
+  background: #03c75a;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.join_section .join .join_btn {
+  width: 100%;
+  background: #03c75a;
+  color: #fff;
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  font-size: 18px;
+  border: 1px solid #03c75a;
+}

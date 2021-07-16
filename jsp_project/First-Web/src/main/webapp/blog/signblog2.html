@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signblog2.css">
+    <script src="signblog.js"></script>
+    <title>NAVER</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/NAVER_LOGO.png" alt="logo" class="logo">
+            </div>
+            <div class="join_section">
+                <form action="" class="join">
+                    <label for="id" class="id_form">아이디
+                        <span class="form_wrap">
+                            <input type="text" id="id">
+                            <span>@naver.com</span>
+                        </span>
+                    </label>
+                    <label for="pw" class="password_form">비밀번호
+                        <span class="form_wrap">
+                            <input type="password" id="pw">
+                            <span class="icon_img"><img src="../images/icon.png" alt="icon"></span>
+                        </span>
+                    </label>
+                    <label for="pw_re" class="password_re_form">비밀번호 재확인
+                        <span class="form_wrap">
+                            <input type="password" id="pw_re">
+                            <span class="icon_img"><img src="../images/icon.png" alt="icon"></span>
+                        </span>
+                    </label>
+                    <label for="name" class="name_form">이름
+                        <span class="form_wrap">
+                            <input type="text" id="name">
+                        </span>
+                    </label>
+                    <label for="birthday" class="birthday_form">생년월일
+                        <span class="form_wrap">
+                            <input type="text" id="birthday" name="year" placeholder="년(4자)">
+                            <select name="month" id="month">
+                                <option value="월">월</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <input type="text" id="birthday" name="day" placeholder="일">
+                        </span>
+                    </label>
+                    <label for="gender" class="gender_form">성별
+                        <span class="form_wrap">
+                            <select name="gender" id="gender">
+                                <option value="성별">성별</option>
+                                <option value="남자">남자</option>
+                                <option value="여자">여자</option>
+                                <option value="선택안함">선택안함</option>
+                            </select>
+                        </span>
+                    </label>
+                    <label for="email" class="email_form">본인 확인 이메일<span class="sub">(선택)</span>
+                        <span class="form_wrap">
+                            <input type="text" id="email" placeholder="선택입력">
+                        </span>
+                    </label>
+                    <label for="phone" class="phone_form">휴대전화
+                        <span class="form_wrap">
+                            <select name="phone" id="phone">
+                                <option value="대한민국 +82">대한민국 +82</option>
+                                <option value="덴마크 +45">덴마크 +45</option>
+                            </select>
+                            <div>
+                                <input type="text" id="email" placeholder="전화번호 입력" class="write_phone_num">
+                                <a href="#" class="certification_btn">인증번호 받기</a>
+                            </div>
+                            <input type="text" placeholder="인증번호 입력하세요">
+                        </span>
+                    </label>
+                    <button type="button" class="join_btn">
+                        가입하기
+                    </button>
+                </form>
+            </div>
+        </div><!-- container-->
+    </div><!-- wrap-->
+</body>
+</html>

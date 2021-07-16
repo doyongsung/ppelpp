@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#main-wrap {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+article input {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+.sign up-name > p {
+  margin-top: 10px;
+}
+
+header {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  margin: 0 15px;
+  overflow: hidden;
+}
+p {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+body {
+  background-color: #f5f6f7;
+}
+section {
+  width: 460px;
+  margin: 0 auto;
+}
+footer {
+  width: 460px;
+  margin: 0 auto;
+}
+.text-align {
+  text-align: center;
+}
+.input-size {
+  width: 92.5%;
+  padding: 17px;
+}
+.button-size {
+  width: 100%;
+  padding: 17px;
+  margin-bottom: 10px;
+}
+.input-size2 {
+  width: 63%;
+  padding: 17px;
+}
+.button-size2 {
+  width: 27.5%;
+  padding: 16px;
+}
+.input-size3 {
+  width: 26%;
+  padding: 17px 17px;
+}
+.button-size3 {
+  width: 29.5%;
+  padding: 17px 10px;
+  padding-bottom: 15px;
+}
+input[placeholder="@naver.com"] {
+  top: 16px;
+  right: 13px;
+  font-size: 15px;
+  color: #8e8e8e;
+  text-align: right;
+}
+select {
+  border: 1px solid #ddd;
+}
+button {
+  background-color: #03c75a;
+  border: 1px solid #ddd;
+  color: white;
+}
+.input-back {
+  background-color: #f5f6f7;
+}
+
+.button {
+  padding-top: 14px;
+}
+.span {
+  color: #ddd;
+  font-size: 12px;
+}
+.sign-up-pw2 {
+  padding-bottom: 20px;
+}
+.email {
+  padding-bottom: 20px;
+}
