@@ -1,0 +1,6 @@
+C:\Users\강효진\Documents\GitHub\ppelpp\jsp_project
+\.metadata
+\.plugins
+\org.eclipse.wst.server.core
+\tmp1
+\wtpwebapps
