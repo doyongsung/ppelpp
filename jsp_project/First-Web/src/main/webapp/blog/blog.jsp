@@ -12,13 +12,13 @@
 <body>
     
     <div id="main_wrap">
-
+        <!-- header 시작-->
        <%@ include file="../include2/header.jsp" %>
+        <!-- header 끝-->
+        
+        <!-- navigation 시작 --> 
        <%@ include file="../include2/nav.jsp" %>
-       
-      
-       
- 
+        <!-- navigation 끝 -->
 
         <!-- content 영역 시작 -->
         <div id="content_wrap">
@@ -40,12 +40,11 @@
             </section>
             <%@ include file="../include2/aside.jsp" %>
 
-           
-
         </div>
         <!-- content 영역 끝 -->
-
+        <!-- footer 시작 -->
   <%@ include file="../include2/footer.jsp" %>
+        <!-- footer 끝 -->
 
     </div>
 </body>
