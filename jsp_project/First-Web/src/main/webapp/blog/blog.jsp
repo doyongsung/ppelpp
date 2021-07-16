@@ -38,7 +38,10 @@
                         전 확실히 가까운 거리는 아니지만, 여자친구랑 재방문 할 의향 100% 있습니다.</p>
                 </article>
             </section>
-            <%@ include file="../include2/aside.jsp" %>
+            
+        <!-- aside 영역 시작 -->
+        <%@ include file="../include2/aside.jsp" %>
+        <!-- aside 영역 끝 -->
 
         </div>
         <!-- content 영역 끝 -->
