@@ -11,10 +11,14 @@
      <hr>
      <%@ include file="include/nav.jsp" %>
      <div id="wrap">
-          <%@ include file="include/news.jsp" %>
-          <%@ include file="include/shopping.jsp" %>
+     <%@ include file="include/news.jsp" %>
+     <%@ include file="include/shopping.jsp" %>
           
 </div>
 
+<jsp:include page="footer.jsp">
+<jsp:param value="test@gmail.com" name="email"/>
+<jsp:param value="010-0000-0000" name="tel"/>
+</jsp:include>a
 </body>
 </html>
