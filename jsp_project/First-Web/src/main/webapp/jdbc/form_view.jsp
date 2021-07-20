@@ -1,4 +1,4 @@
-<%@page import="domain.Dept"%>
+<%@page import="dept.domain.Dept"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%

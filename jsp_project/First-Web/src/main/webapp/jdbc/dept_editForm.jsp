@@ -1,4 +1,5 @@
-<%@page import="domain.Dept"%>
+<%@page import="jdbc.util.ConnectionProvider"%>
+<%@page import="dept.domain.Dept"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -17,11 +18,7 @@
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	// jdbcUrl 
-	String jdbcUrl = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
-	String user = "bit";
-	String pw = "1234";
-	conn = DriverManager.getConnection(jdbcUrl, user, pw);
+	conn = ConnectionProvider.getConnection();
 	
 	Dept dept = null;
 	
@@ -45,6 +42,9 @@
 	
 %>
 <jsp:forward page="form_view.jsp"/>
+
+
+
 
 
 

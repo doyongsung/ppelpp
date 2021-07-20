@@ -1,4 +1,4 @@
-package domain;
+package dept.domain;
 
 public class Dept {
 
