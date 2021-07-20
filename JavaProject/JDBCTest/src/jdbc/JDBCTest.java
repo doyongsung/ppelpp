@@ -35,7 +35,7 @@ public class JDBCTest {
 			String jdbcUrl = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
 			
 			String user = "bit";
-			String pw = "bit";
+			String pw = "1234";
 			
 			conn = DriverManager.getConnection(jdbcUrl, user, pw);
 			System.out.println("데이터베이스 연결 성공!!!");
