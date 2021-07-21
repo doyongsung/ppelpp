@@ -63,14 +63,13 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into project.member1 values (?,?,?,?)";
+		String sql ="INSERT INTO member1 (memberId, memberPw, memberName) VALUES (?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getMemberPw());
 			pstmt.setString(3, member.getMemberName());
-			pstmt.setString(4, member.getRegdate());
 			
 			resultCnt = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -82,5 +81,49 @@ public class MemberDao {
 		return resultCnt;
 	}
 
+	public Member selectById(Connection conn,String memberId) {
+		Member member = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member1 where memberId = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return member;
+	}
 
+	public int updateMember(Connection conn, Member member) {
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update member1 set memberPw = ?, memberName = ?, where memberId = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getMemberPw());
+			pstmt.setString(2, member.getMemberName());
+			pstmt.setString(3, member.getMemberId());
+			
+			resultCnt = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return resultCnt;
+	}
 }

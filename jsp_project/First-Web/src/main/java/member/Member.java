@@ -1,7 +1,5 @@
 package member;
 
-import java.sql.Timestamp;
-
 // 빈즈 클래스 생성
 public class Member {
 

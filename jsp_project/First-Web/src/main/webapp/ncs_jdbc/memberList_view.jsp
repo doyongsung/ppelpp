@@ -52,7 +52,7 @@
 			   <td><%= list.get(i).getMemberName() %></td>
 			   <td><%= list.get(i).getRegdate() %></td>
 			   <td>
-			   <a href="#">수정</a>
+			   <a href="member_editForm.jsp?memberId=<%= list.get(i).getMemberId() %>">수정</a>
 			   <a href="#">삭제</a>
 			   </td>
 			   </tr>
