@@ -43,7 +43,7 @@ public class MemberDao {
 		list = new ArrayList<Member>();
 		
 		while(rs.next()) {
-			list.add(new Member(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
+			list.add(new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
 		}
 		}catch (SQLException e) {
 			// TODO: handle exception

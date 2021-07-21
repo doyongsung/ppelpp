@@ -32,7 +32,7 @@
 	   %>
 	   <script>
 	   alert('등록되었습니다.');
-	   location.href = 'member_list.jsp';
+	   location.href = 'member_List.jsp';
 	   </script>
 	   <%
    }else{

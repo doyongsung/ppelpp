@@ -12,6 +12,11 @@ public class ConnectionProvider {
 		String user = "bit";
 		String pw = "1234";
 
+		try {
+	        Class.forName("com.mysql.jdbc.Driver");
+	 
+	} catch (ClassNotFoundException e) {
+	}
 		return DriverManager.getConnection(jdbcUrl, user, pw);
 	}
 

@@ -15,7 +15,7 @@
     <h1>멤버 정보 등록</h1>
     <hr>
     
-    <fomr action="regMember.jsp" method ="post">
+    <form action="regMember.jsp" method ="post">
     <table>
     <tr>
     	<td>아이디</td>
@@ -37,6 +37,6 @@
     </td>
     </tr>
     </table>
-    </fomr>
+    </form>
 </body>
 </html>
