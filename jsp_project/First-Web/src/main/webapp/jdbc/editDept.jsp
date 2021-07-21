@@ -1,3 +1,6 @@
+<%@page import="dept.domain.Dept"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -19,21 +22,20 @@
 	// 2. DB 처리 : insert
 	
 	// 데이터베이스 드라이버 로드
-	Class.forName("com.mysql.cj.jdbc.Driver");
-	
 	
 	Connection conn = null;
-	PreparedStatement pstmt = null;
-	
+	DeptDao dao = null;
+	try{
 	conn = ConnectionProvider.getConnection();
+	dao = DeptDao.getInstance();
 	
-	String sqlUpdate = "update dept set dname=?, loc=? where deptno=?";
-	pstmt = conn.prepareStatement(sqlUpdate);
-	pstmt.setString(1, dname);
-	pstmt.setString(2, loc);
-	pstmt.setInt(3, Integer.parseInt(deptno));
+	resultCnt = dao.updateDept(conn,new Dept(Integer.parseInt(deptno), dname, loc));
+	}catch(SQLException e){
+		e.printStackTrace();
+		
+	}
 	
-	resultCnt = pstmt.executeUpdate();
+	
 	
 	if(resultCnt>0){
 		%>
