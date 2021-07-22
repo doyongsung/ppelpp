@@ -16,6 +16,7 @@
  		
  		<h2>Login</h2>
  		<hr>
+ <form action ="login.jsp">
  	<table>
  		<tr>
  		<th>ID</th>
@@ -34,6 +35,7 @@
  		<td><input type="submit"></td>
  		</tr>
  	</table>
+ </form>
  		
  		
  		</div>

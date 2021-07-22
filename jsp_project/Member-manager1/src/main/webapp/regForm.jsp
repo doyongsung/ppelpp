@@ -15,6 +15,30 @@
 		<div class="contents">
 		
 		<h2>회원가입</h2>
+		<hr>
+<form action="memberReg.jsp" method="post">
+	<table>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="memberid"></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="password" name="password"></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="membername"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+			<input type ="submit">
+			<input type ="reset">
+			</td>
+		</tr>
+	</table>
+</form>
 		</div>
 </body>
 </html>

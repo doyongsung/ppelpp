@@ -20,7 +20,7 @@ nav>ul {
 	border-bottom: 2px solid #AAA;
 }
 
-nav>ul>li {
+nav>ul>li>a {
 	float: left;
 	padding : 5px 10px;
 }
