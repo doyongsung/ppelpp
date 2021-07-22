@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+*{
+	margin :0;
+	padding: 0;
+}
+
+header {
+	padding : 20px;
+}
+
+nav> ul{
+	/* 넘치는 부분은 잘려서 보이지 않음 */
+	overflow : hidden;
+	
+	margin : 10px;
+	
+	list-style:none;
+	
+	border-top: 2px solid #AAA;
+	border-bottom: 2px solid #AAA;
+}
+div.contents {
+	margin : 10px;
+	padding : 10px;
+}
+
+div.contents>h2{
+	margin: 5px;
+}
+hr{
+	border :0;
+	border-top : 1px solid #AAA;
+	margin : 10px 0;
+}

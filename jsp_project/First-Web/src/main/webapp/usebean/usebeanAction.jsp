@@ -23,7 +23,7 @@
 
 		<%= member %>
 		<br>
-		<%= member.getName() %>
+		<<%--   %= member.getName() %>  --%>
 	
 </body>
 </html>

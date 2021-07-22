@@ -63,7 +63,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql ="INSERT INTO member1 (memberId, memberPw, memberName) VALUES (?, ?, ?)";
+		String sql ="INSERT INTO project.member1 (memberId, memberPw, memberName) VALUES (?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
