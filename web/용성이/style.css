@@ -1,59 +1,61 @@
 * {
   margin: 0;
   padding: 0;
-  
+
   /* 보더박스의 기준값으로 바꿈 */
-  box-sizing: border-box;ㅇㅋ
+  box-sizing: border-box;
 }
 
-body{
-    background-color: #483d8b;
+body {
+  background-color: #483d8b;
 }
 
- /* 수평과 수직 맞추기 */
- /* 정가운데로오게하기 */
- .wrap{
-     position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%, -50%);
-     color:white;
-     text-align: center;
- }
-
-.material-icons{
-    font-size:10rem;
-}
-.lg-text{
-    font-size:2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
+/* 수평과 수직 맞추기 */
+/* 정가운데로오게하기 */
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
 }
 
-.sm-text{
-    font-size:1.5rem;
+.wrap .material-icons {
+  font-size: 10rem;
 }
-#dynamic{
-    position: relative;
+.lg-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-    /* 글씨가줄어들떄마다 커서표시 줄어들기 */
-    display: inline-block;
+.sm-text {
+  font-size: 1.5rem;
+}
+#dynamic {
+  position: relative;
+
+  /* 글씨가줄어들떄마다 커서표시 줄어들기 */
+  display: inline-block;
 }
 
 /* 가상요소만들기 */
 /* 커서 표시 오른쪽으로 만들기 */
-#dynamic::after{
-    content:"";
-    display:block;
-    position:absolute;
-    top:0;
-    right:-10px;
-    width:4px;
-    height:100%;
-    background-color:white
+#dynamic::after {
+  content: "";
+  display: block;
+
+  /* 항상 오른쪽에 위치 */
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  background-color: white;
 }
 
-#dynamic.active::after{
-    display:none;
-
+/* active가 생기면 일시적으로 감춰지게 */
+#dynamic.active::after {
+  display: none;
 }

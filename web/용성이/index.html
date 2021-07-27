@@ -4,23 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    </style>
-    <script>
-    </script>
-
+    <link rel="stylesheet" href="../용성이/style.css">
+    <script src="../용성이/main.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Typing text</title>
 </head>
 <body>
-
-    <form action="resultPage.jsp">
-        <select name= "select">
-            <option value="0">forward</option>
-            <option value="1">sendRedirect</option>
-        </select>
-        <br>
-        <input type="submit">
-    </form>
-
+    <div class="wrap">
+        <h1>
+            <span class="material-icons">language</span>
+        </h1>
+        <p id="dynamic" class="lg-text">
+          Learn to HTML
+        </p>
+        <p class="sm-text">Youtube | 100 Subscribe</p>
+    </div>
+    
 </body>
+<script>
+let target = document.querySelector("#dynamic");
+let stringArr = ["Learn to HTML",
+                "Learn to CSS",
+                "Learn to Javascript"
+                ,"Learn to Python"
+                ,"Learn to Ruby"];
+
+// 소수점없에고 랜덤숫자뽑기
+let selectString = stringArr[Math.floor(Math.random() * stringArr.length)];
+//단어 하나하나쪼개져서 배열로 변경
+let selectStringArr = selectString.split("");
+
+//타이핑 리셋
+function resetTyping(){
+    target.textContent="";
+}
+
+//한글자씩 텍스트 출력 함수
+function dynamic(randomArr){
+
+    if(randomArr.length > 0){
+        target.textContent += randomArr.shift();
+        setTimeout(function(){
+            dynamic(randomArr);
+        }, 80);
+    }else{
+        setTimeout(resetTyping.3000);
+    }
+}
+
+dynamic(selectStringArr);
+
+console.log(selectStringArr)
+
+
+
+// 커서 깜빡임 효과
+function blink(){
+    target.classList.toggle("active");
+    setInterval(blink, 500);
+}
+
+</script>
 </html>
