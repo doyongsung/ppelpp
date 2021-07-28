@@ -1,0 +1,90 @@
+@font-face {
+  font-family: abster;
+  src: url(../project_1/font/abster-webfont.woff) format("woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  /*width 100% 로하면 100%로 받지못함*/
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../project_1/images/room2.jpg) no-repeat center;
+}
+
+.container .header {
+  width: 80%;
+  height: 80px;
+  /*margin-right: auto, margin-left: auto만 필요하지만;
+    margin-top,margin-bottom 이 0이여도 상관이 없기 때문*/
+  margin: 0 auto;
+  display: flex;
+  /*이 요소가 좌우로 붙어서 출력이되게*/
+  justify-content: space-between;
+  /*중앙 정렬*/
+  align-items: center;
+}
+
+.container .header h1 a {
+  text-decoration: none;
+  color: white;
+  font-family: abster;
+}
+
+.container .nav ul li {
+  /*가로로 정렬*/
+  display: inline-block;
+  margin: 0 10px;
+}
+.container .nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+.container .nav ul li a:hover {
+  color: #1fdfd1;
+}
+
+.container .hero {
+  /*무조건 정중앙에 위치하게*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container .hero h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.container .hero p {
+  font-size: 22px;
+}
+
+.container .hero button {
+  /*배경 날리기*/
+  background: none;
+  border: 2px solid darkseagreen;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-top: 30px;
+
+  /*클릭했을때 잔상없에기*/
+  outline: none;
+  cursor: pointer;
+
+  /*입체적으로 보이기위해*/
+  transition: all 0.4s;
+}
+.container .hero button:hover {
+  background-color: darkslategray;
+}

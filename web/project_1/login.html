@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="login.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <section class ="login-form">
+        <h1><span class="material-icons-outlined">meeting_room</span>
+            EAGLE
+        </h1>
+        <form action="">
+            <div class="int-area">                   <!-- autocomplete :자동 완성 기능을 사용할지 여부 -->
+                                                     <!-- required : 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 -->
+                <input type="text" name="id" id="id" autocomplete="off" required>
+                <label for="id">ID</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="pw" id="pw" autocomplete="off" required>
+                <label for="pw">Password</label>
+            </div>
+            <div class ="btn-area">
+                <button id="btn" type="submit">SIGN UP</button>
+            </div>
+        </form>
+        <div class="caption">
+            <a href="">아이디/비밀번호 찾기</a>
+        </div>
+    </section>
+</div>
+
+</body>
+<script>
+    
+</script>
+</html>
