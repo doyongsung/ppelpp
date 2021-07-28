@@ -22,25 +22,34 @@ public class MemberDao {
 		return dao;
 	}
 
-	public int insertMember(Connection conn, Member member) {
+	public int insertMember(Connection conn, Member member) throws SQLException {
 
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into member (memberid,password,membername) values (?, ?, ?)";
+		String sql1 = "insert into member (memberid,password,membername) values (?, ?, ?)";
+		String sql2 = "insert into member (memberid,password,membername, memberphoto) values (?, ?, ?,?)";
 
 		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getMemberid());
-			pstmt.setString(2, member.getPassword());
-			pstmt.setString(3, member.getMembername());
-
+			
+			if(member.getMemberphoto() == null) {
+				pstmt = conn.prepareStatement(sql1);
+				pstmt.setString(1, member.getMemberid());
+				pstmt.setString(2, member.getPassword());
+				pstmt.setString(3, member.getMembername());
+			} else {
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setString(1, member.getMemberid());
+				pstmt.setString(2, member.getPassword());
+				pstmt.setString(3, member.getMembername());
+				pstmt.setString(4, member.getMemberphoto());
+			}
+			
 			resultCnt = pstmt.executeUpdate();
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
 		}
 
 		return resultCnt;
@@ -69,6 +78,7 @@ public class MemberDao {
 						rs.getString(2), 
 						rs.getString(3), 
 						rs.getString(4),
+						rs.getString(5),
 						rs.getTimestamp(6)));
 			}
 
@@ -83,14 +93,15 @@ public class MemberDao {
 		return list;
 
 	}
-
+	
+	
 	public Member selectByIdPw(Connection conn, String id, String pw) {
-
+		
 		Member member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from project.member where memberid = ? and password = ? ";
+		String sql = "select * from member where memberid=? and password=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -102,19 +113,39 @@ public class MemberDao {
 				member = new Member();
 				member.setIdx(rs.getInt("idx"));
 				member.setMemberid(rs.getString("memberid"));
-				member.setMemberid(rs.getString("password"));
+				member.setPassword(rs.getString("password"));
 				member.setMembername(rs.getString("membername"));
 				member.setRegdate(rs.getTimestamp("regdate"));
 			}
 			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
 		
+		
+		
+		
 		return member;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

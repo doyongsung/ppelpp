@@ -1,50 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>FIrst-Web</display-name>
+  <display-name>Member-manager</display-name>
+  
+  <!-- /contextPath/ -> 요청일때 찾을 자원의 파일이름 -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-  	<servlet-name>Loader</servlet-name>
-  	<servlet-class>jdbc.util.Loader</servlet-class>
+  <!-- 드라이버 로드 서블릿 등록/설정 -->
+<!--   <servlet>
+  	<servlet-name>DriverLoader</servlet-name>
+  	<servlet-class>jdbc.DriverLoader</servlet-class>
+  	<init-param>
+  		<param-name>driver</param-name>
+  		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+  	</init-param>
   	<load-on-startup>1</load-on-startup>
-  </servlet>
+  </servlet> -->
   
-  <!-- 에러페이지 등록 -->
-  <!-- http 상태 코드로 등록 -->
-  <!-- <error-page>
-  	<error-code>404</error-code>
-  	<location>/error/error404.jsp</location>
-  </error-page>
+  <!-- filter 설정 -->
+  <filter>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<filter-class>filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
   
-  <error-page>
-  	<error-code>500</error-code>
-  	<location>/error/error500.jsp</location>
-  </error-page> -->
+  <!-- filter Mapping 설정 -->
+  <filter-mapping>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
-  <!-- 에러 타입으로 등록 -->
-  <!-- <error-page>
-  	<exception-type>java.lang.NullPointerException</exception-type>
-  	<location>/error/errorTypeNull.jsp</location>
-  </error-page>
-   -->
-  
-  <!-- filter 등록 -->
   <filter>
   	<filter-name>LoginCheckFilter</filter-name>
   	<filter-class>filter.LoginCheckFilter</filter-class>
+  	<init-param>
+  		<param-name>loginFormUri</param-name>
+  		<param-value>/loginForm</param-value>
+  	</init-param>
   </filter>
   
   <filter-mapping>
   	<filter-name>LoginCheckFilter</filter-name>
-  	<url-pattern>/jdbc/*</url-pattern>
+  	<url-pattern>/mypage/*</url-pattern>
   </filter-mapping>
+  
+  <context-param>
+  	<param-name>jdbcdriver</param-name>
+  	<param-value>com.mysql.cj.jdbc.Driver</param-value>
+  </context-param>
+	
+  
+  <!-- Listner 등록 -->
+  <listener>
+  	<listener-class>jdbc.JdbcListener</listener-class>
+  </listener>
+  
+  
+  
+  
   
   
   
