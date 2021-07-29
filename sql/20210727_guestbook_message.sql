@@ -6,7 +6,8 @@ create table project.guestbook_message (
     regdate timestamp default current_timestamp
 );
 
--- select 
+-- select \
+select * from project.guestbook_message;
 select * from project.guestbook_message order by regdate desc;  
 -- limit index, count : 페이징 처리
 select * from project.guestbook_message order by regdate desc limit 3, 3;  
