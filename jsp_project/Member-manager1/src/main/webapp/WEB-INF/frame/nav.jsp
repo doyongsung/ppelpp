@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-    <%
-      Object loginObj = session.getAttribute("member");
     
+    <%
+      Object loginObj = session.getAttribute("loginInfo");
+      
     %>
-    <nav>
-    	<ul>
-    	<li><a href="regForm.jsp">회원가입</a></li>
-    	<li><a href="loginForm.jsp">로그인</a></li>
-    	<li><a href="logout.jsp">로그아웃</a></li>
-    	<li><a href="list_view.jsp">회원리스트</a></li>
-    	</ul>
-    </nav>
+	<nav>
+		<ul>
+			<% if(loginObj == null){  %>
+			<li><a href="<%= request.getContextPath() %>/regForm.jsp">회원가입</a></li>
+			<li><a href="<%= request.getContextPath() %>/loginForm.jsp">로그인</a></li>
+			<%} else {%>
+			<li><a href="<%= request.getContextPath() %>/logout.jsp">로그아웃</a></li>
+			<li><a href="<%= request.getContextPath() %>/member_list.jsp">회원리스트</a></li>
+			<%} %>
+			<li><a href="<%= request.getContextPath() %>/mypage/mypage.jsp">MyPage</a></li>
+		</ul>
+	</nav>

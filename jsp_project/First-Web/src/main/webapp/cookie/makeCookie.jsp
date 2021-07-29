@@ -10,7 +10,7 @@
 	//response.addCookie(cookie);  
 	response.addCookie(CookieBox.makeCookie("name", "손흥민", "/", 5));
 	//response.addCookie(new Cookie("number", "7"));
-	response.addCookie(CookieBox.makeCookie("number1", "7"));
+	response.addCookie(CookieBox.makeCookie("number", "7"));
 %>
 <!DOCTYPE html>
 <html>

@@ -1,29 +1,26 @@
 package util;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.jasper.tagplugins.jstl.core.Catch;
+public class JdbcUtil {
 
-public class jdbcUtil {
-
-	
 	// Connection
 	public static void close(Connection conn) {
-		
-		if(conn != null) {
+
+		if (conn != null) {
 			try {
 				conn.close();
-			} catch( SQLException e) {
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 	// Statement, PreparedStatement
 	public static void close(Statement stmt) {
 		if(stmt != null) {
@@ -34,13 +31,13 @@ public class jdbcUtil {
 				e.printStackTrace();
 			}
 		}
-		
 	}
 	
-	public static void close(PreparedStatement pstmt) {
-		if(pstmt != null) {
+	// ResultSet
+	public static void close(ResultSet rs) {
+		if(rs!=null) {
 			try {
-				pstmt.close();
+				rs.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -48,15 +45,5 @@ public class jdbcUtil {
 		}
 	}
 	
-	// ResultSet
-	public static void close(ResultSet rs) {
-		if(rs != null) {
-			try {
-				rs.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} 
-	}
+
 }

@@ -7,7 +7,6 @@
 	pageEncoding="UTF-8"%>
 <%
 	// dept_list.jsp -> 요청을 받고 처리 -> 결과 데이터를 객체속성에 저장 -> view 지정
-
 	// 1. 드라이버 로드
 	
 	// 2. DB 연결
@@ -32,11 +31,6 @@
 %>
 <jsp:forward page="list_view.jsp" />
 <!--  list_view.js : view 의 역할만!!!! -->
-
-
-
-
-
 
 
 

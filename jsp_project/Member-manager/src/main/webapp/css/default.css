@@ -20,7 +20,7 @@ nav>ul {
 	border-bottom: 2px solid #AAA;
 }
 
-nav>ul>li>a {
+nav>ul>li {
 	float: left;
 	padding : 5px 10px;
 }
@@ -40,4 +40,3 @@ hr {
 	border-top : 1px solid #AAA;
 	margin : 10px 0;
 }
-

@@ -1,4 +1,3 @@
-  
 create table project.guestbook_message (
 	messageid int not null auto_increment primary key,
     guestname varchar(20) not null,
@@ -15,6 +14,7 @@ select * from project.guestbook_message order by regdate desc limit 3, 3;
 select count(*) from project.guestbook_message;
 -- messageid로 게시물 검색
 select * from project.guestbook_message where messageid=2;
+
 
 
 
