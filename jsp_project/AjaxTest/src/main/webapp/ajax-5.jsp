@@ -13,9 +13,10 @@
 		//alert("ready");
 		
 		$.getJSON('data.json', function(data){
+			console.log(data)
 			$.each(data, function(index, value){
 				var html = '<h3>이름: '+value.name+', 가격 : '+value.price+'</h3>';
-				$('body').append();
+				$('body').append(html);
 			});
 		});
 		
@@ -26,6 +27,6 @@
 </head>
 <body>
 
-
+123
 </body>
 </html>

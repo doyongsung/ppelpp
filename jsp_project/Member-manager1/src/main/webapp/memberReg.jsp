@@ -10,3 +10,7 @@
 	//request.setAttribute("result", result);
 %>
 <jsp:forward page="reg_view.jsp"/>
+
+
+
+

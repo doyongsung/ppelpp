@@ -48,7 +48,8 @@ public class MemberDao {
 			
 			resultCnt = pstmt.executeUpdate();
 
-		} finally {
+		}
+		finally {
 			JdbcUtil.close(pstmt);
 		}
 

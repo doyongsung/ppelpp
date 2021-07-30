@@ -13,7 +13,7 @@ public class ConnectionProvider {
 		String pw = "1234";
 
 		try {
-	        Class.forName("com.mysql.jdbc.Driver");
+	        Class.forName("com.mysql.cj.jdbc.Driver");
 	 
 	} catch (ClassNotFoundException e) {
 	}
