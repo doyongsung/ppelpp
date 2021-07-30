@@ -2,7 +2,7 @@ package service;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class MyPageCommandImpl implements Command {
+public class ListViewCommandImpl implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request) {

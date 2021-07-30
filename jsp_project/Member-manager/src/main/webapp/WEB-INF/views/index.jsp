@@ -20,7 +20,7 @@
 
 	<div class="contents">
 	
-		<h1>Index</h1>
+    <a href = "*.do?command=member_list">리스트 보기</a>
 	
 	
 	</div>

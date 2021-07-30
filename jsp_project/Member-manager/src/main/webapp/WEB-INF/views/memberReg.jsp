@@ -8,7 +8,7 @@
 <%
 	int result = MemberRegService.getInstance().regMember(request);
 	//request.setAttribute("result", result);
-%>
+%>	
 <jsp:forward page="reg_view.jsp"/>
 
 

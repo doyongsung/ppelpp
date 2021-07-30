@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import oracle.net.aso.l;
 import service.Command;
 import service.IndexCommandImpl;
+import service.MemberListCommandImpl;
 
 public class FrontController extends HttpServlet {
 
@@ -85,7 +86,7 @@ public class FrontController extends HttpServlet {
 			commandUri = commandUri.substring(request.getContextPath().length());
 		}
 		
-		String viewPage ="member_list.jsp";
+		String viewPage ="index.jsp";
 		Command command = null;
 		
 		command = commands.get(commandUri);

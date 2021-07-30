@@ -1,5 +1,5 @@
 ## 메인페이지
-/=service.GreetingCommandImpl
-/greeting.do=service.GreetingCommandImpl
-/date.do=service.DateCommandImpl
+/=service.MemberListCommanImpl
+/member_list.do=service.MemberListCommanImpl
+/memberReg.do=service.MemberRegCommandImpl
 /login.do=service.LoginCommandImpl
