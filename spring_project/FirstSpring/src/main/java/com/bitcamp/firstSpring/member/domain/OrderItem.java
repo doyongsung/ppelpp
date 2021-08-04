@@ -1,4 +1,4 @@
-package com.bitcamp.firstSpring.domain;
+package com.bitcamp.firstSpring.member.domain;
 
 public class OrderItem {
 	

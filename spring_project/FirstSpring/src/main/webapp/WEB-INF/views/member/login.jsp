@@ -23,11 +23,11 @@
 	<table>
 		<tr>
 			<td>아이디</td>
-			<td> </td>
+			<td>${id} , ${uid} , ${loginReq.id}  </td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td> </td>
+			<td>${pw} , ${upw} , ${loginReq.pw} </td>
 		</tr>
 
 	</table>
