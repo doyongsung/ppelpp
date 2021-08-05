@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,38 +8,80 @@
 </head>
 <body>
 
-<%-- ${orderCommand} --%>
 	<h1>주문</h1>
 	<hr>
+	<form method="post">
 		<table border="1">
-		<c:forEach items ="${orderCommand.orderItems}" var="item" varStatus="stat">
 			<tr>
-				<td rowspan="3">상품-${stat.count}</td>
+				<td rowspan="3">상품-1</td>
 				<td>ID</td>
-				<td>${item.itemid}</td>
+				<td> <input type="text" name="orderItems[0].itemId"> </td>
 			</tr>
 			<tr>
 				<td>수량</td>
-				<td>${item.number}</td>
+				<td> <input type="number" name="orderItems[0].number"> </td>
 			</tr>
 			<tr> 
 				<td>주의</td>
-				<td>${item.remark}</td>
+				<td> <input type="text" name="orderItems[0].remark"> </td>
 			</tr>
+			
+			<tr>
+				<td rowspan="3">상품-2</td>
+				<td>ID</td>
+				<td> <input type="text" name="orderItems[1].itemId"> </td>
+			</tr>
+			<tr>
+				<td>수량</td>
+				<td> <input type="number" name="orderItems[1].number"> </td>
+			</tr>
+			<tr> 
+				<td>주의</td>
+				<td> <input type="text" name="orderItems[1].remark"> </td>
+			</tr>
+			
+			<tr>
+				<td rowspan="3">상품-3</td>
+				<td>ID</td>
+				<td> <input type="text" name="orderItems[2].itemId"> </td>
+			</tr>
+			<tr>
+				<td>수량</td>
+				<td> <input type="number" name="orderItems[2].number"> </td>
+			</tr>
+			<tr> 
+				<td>주의</td>
+				<td> <input type="text" name="orderItems[2].remark"> </td>
+			</tr>
+			
+			<tr>
+				<td rowspan="3">상품-4</td>
+				<td>ID</td>
+				<td> <input type="text" name="orderItems[3].itemId"> </td>
+			</tr>
+			<tr>
+				<td>수량</td>
+				<td> <input type="number" name="orderItems[3].number"> </td>
+			</tr>
+			<tr> 
+				<td>주의</td>
+				<td> <input type="text" name="orderItems[3].remark"> </td>
+			</tr>
+			
 			<tr>
 				<td rowspan="3">주소</td>
 				<td>우편번호</td>
-				<td>${orderCommand.address.zipcode}</td>
+				<td> <input type="text" name="address.zipcode"> </td>
 			</tr> 			
 			<tr>
 				<td>주소1</td>
-				<td>${orderCommand.address.address1}</td>
+				<td> <input type="text" name="address.address1"> </td>
 			</tr>			
 			<tr>
 				<td>주소2</td>
-				<td>${orderCommand.address.address2}</td>
+				<td> <input type="text" name="address.address2"> </td>
 			</tr>
-			</c:forEach>
+			
 			<tr>
 				<td></td>
 				<td> <input type="submit">   </td>
@@ -48,7 +89,8 @@
 			</tr>
 			
 		</table>
-
+	
+	</form>
 
 
 </body>
