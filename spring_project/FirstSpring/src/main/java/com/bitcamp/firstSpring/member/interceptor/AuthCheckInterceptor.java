@@ -1,4 +1,4 @@
-package com.bitcamp.firstSpring.member.intercepter;
+package com.bitcamp.firstSpring.member.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +24,7 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 		// 로그인 상태 확인
 		HttpSession session = request.getSession(false);
 		
-		if(session != null && session.getAttribute("loginInfo") != null) {
+		if(session != null && session.getAttribute("loginInfor") != null) {
 			return true;
 		}
 		

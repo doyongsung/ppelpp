@@ -17,7 +17,7 @@ public class CookieController {
 		Cookie c = new Cookie("username", "KING");
 		response.addCookie(c);
 		
-		// Service.process(response) 
+		// Service.process(response) 2d1
 		
 		
 		return "cookie/make";

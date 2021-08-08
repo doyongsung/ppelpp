@@ -1,4 +1,3 @@
-  
 package com.bitcamp.firstSpring.member.contoller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,17 +63,17 @@ public class LoginController {
 		model.addAttribute("uid", uid);
 		model.addAttribute("upw", upw);
 		
-		
 		System.out.println(loginRequest);
 		
 		
-		// 세션의 속성에 loginInfo 등록
-		request.getSession(false).setAttribute("loginInfo", new LoginInfor());
+		// 세션의 속성에 loginInfor 등록
+		request.getSession(false).setAttribute("loginInfor", new LoginInfor());
 		
 		return "member/login"; // /WEB-INF/views/member/login.jsp
 	}
 
 }
+
 
 
 

@@ -39,7 +39,7 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/member/mypage/**"/>
-			<beans:bean class="com.bitcamp.firstSpring.member.intercepter.AuthCheckInterceptor"/>
+			<beans:bean class="com.bitcamp.firstSpring.member.interceptor.AuthCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
 	
