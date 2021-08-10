@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,11 @@
 <%@ include file="/WEB-INF/views/frame/metaheader.jsp" %>
 
 
+<c:if test="${param.result == 1}">
+	<script>
+		alert('회원가입을 축하합니다.');
+	</script>
+</c:if>
 
 </head>
 <body>
@@ -19,7 +25,7 @@
 	
 
 	
-	<div id="content" >
+	<div id="content">
 		<h1>Content : Index</h1>
 	</div>
 	
