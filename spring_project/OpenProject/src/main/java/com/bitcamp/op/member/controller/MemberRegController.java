@@ -1,5 +1,4 @@
 package com.bitcamp.op.member.controller;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,35 +11,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.bitcamp.op.domain.MemberRegRequest;
 import com.bitcamp.op.member.service.MemberRegService;
 
-
 @Controller
 @RequestMapping("/member/memberReg")
-public class memberRegController {
+public class MemberRegController {
 	
 	@Autowired
-	private MemberRegService regservice;
-	
+	private MemberRegService regService;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String regForm() {
-		return "member/memberRegForm";
+		return "member/regForm";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String reg(
-		@ModelAttribute("regRequest")MemberRegRequest memberRegRequest,
+			@ModelAttribute("regRequest") MemberRegRequest regRequest,
 			HttpServletRequest request,
 			Model model
 			) {
-		int result = regservice.reg(memberRegRequest, request);
+		//System.out.println(regRequest);
+		
+		int result = regService.memberReg(regRequest, request);
+		
 		model.addAttribute("result", result);
 		
-		String view = "member/memberReg";
-		if(result ==1) {
-			// 인덱스 페이지로 리다이렉트
+		String view = "member/reg" ;
+		if(result == 1) {
+			// 인텍스 페이지로 리다이렉트
 			view = "redirect:/index";
 		}
-		
 		return view;
 	}
 	
 }
+
+
+

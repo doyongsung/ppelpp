@@ -2,6 +2,7 @@
   font-family: abster;
   src: url(../project_1/font/abster-webfont.woff) format("woff");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -13,9 +14,13 @@
   /*width 100% 로하면 100%로 받지못함*/
   height: 100vh;
   position: fixed;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(../project_1/images/room2.jpg) no-repeat center;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../project_1/images/메인2.jpg) no-repeat center; */
+  background-image: url(../project_1/images/메인2.jpg);
+
+
 }
+
 
 .container .header {
   padding: 50px;
@@ -29,7 +34,7 @@
   justify-content: space-between;
   /*중앙 정렬*/
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: white;
 }
 
 .container .header h1 a {
@@ -43,13 +48,15 @@
   /*가로로 정렬*/
   display: inline-block;
   margin: 0 10px;
-  font-size: 14px;
-  padding: 5px;
+  font-size: 18px;
+  padding-right: 20px;
 }
+
 .container .nav ul li a {
   text-decoration: none;
   color: #959595;
 }
+
 .container .nav ul li a:hover {
   color: #1fdfd1;
 }
@@ -90,9 +97,11 @@
   /*입체적으로 보이기위해*/
   transition: all 0.4s;
 }
+
 .container .hero button:hover {
   background-color: darkslategray;
 }
+
 #dynamic {
   position: relative;
 
@@ -119,3 +128,9 @@
 #dynamic.active::after {
   display: none;
 }
+
+.img {
+  display: flex;
+}
+
+.img-font {}
