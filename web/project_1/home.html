@@ -14,8 +14,8 @@
 
 <body>
     <div class="container">
-      <!-- <div class="header">
-          <h1><a href="#">오를래</a></h1>
+      <div class="header">
+          <h1 class="header-left"><a href="#">오를래</a></h1>
           <div class="nav">
               <ul>
                   <li><a href="#">산</a></li>
@@ -23,13 +23,13 @@
                   <li><a href="#">피드</a></li>
                   <li><a href="#"><i class="fas fa-search"></i></a></li>
                   <li><a href="#"><i class="far fa-user"></i></a></li>
-                </ul> -->
+                </ul>
             </div>
         </div>
         <div class="hero">
             <h2 id="dynamic"></h2>
-            <!-- <p></p>
-            <button>more</button> -->
+            <p></p>
+            <button>more</button>
         </div>
         <div>
         </div>
@@ -82,7 +82,7 @@ function dynamic(randomArr){
             dynamic(randomArr);
         }, 80);
     }else{
-        setTimeout(resetTyping,3000);
+        setTimeout(resetTyping,30000);
         
     }
 }
