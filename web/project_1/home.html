@@ -9,27 +9,28 @@
     <script src="home.js"></script>
     <title>Document</title>
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
 </head>
 
 <body>
     <div class="container">
-      <div class="header">
-          <h1 class="header-left"><a href="#">오를래</a></h1>
-          <div class="nav">
-              <ul>
-                  <li><a href="#">산</a></li>
-                  <li><a href="#">크루</a></li>
-                  <li><a href="#">피드</a></li>
-                  <li><a href="#"><i class="fas fa-search"></i></a></li>
-                  <li><a href="#"><i class="far fa-user"></i></a></li>
+        <div class="header">
+            <h1 class="header-left"><a href="#">오를래</a></h1>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">MAIN</a></li>
+                    <li><a href="#">HIKING</a></li>
+                    <li><a href="#">CREW</a></li>
+                    <li><a href="#">COMMUNITY</a></li>
+                    <li><a href="#"><i class="far fa-user"></i></a></li>
                 </ul>
             </div>
         </div>
         <div class="hero">
-            <h2 id="dynamic"></h2>
+            <p id="dynamic"></p>
             <p></p>
-            <button>more</button>
+            <!-- <button>more</button> -->
         </div>
         <div>
         </div>
@@ -49,55 +50,67 @@
             <em class ="img-font">위대한 여정이 이제 막 시작<br>되었습니다 !  함께 올라요</em>
         </div>
         <div> -->
-            
-        </div>
-        
-        <div>
-        </div>
+
+    </div>
+    <div class="section">
+        <h2>HOW TO ENJOY<br>YOUR HIKING TRIP?</h2>
+        <P>HOW TO ENJOY YOUR HIKING TRIP?</P>
+        <button>GO</button>
+    </div>
+    <div section_img>
+        <img align="right" src="../project_1/images/메인3_1.jpg">
+    </div>
+    <div class="article">
+
+    </div>
+
+    <div class="footer">
+
+    </div>
     </div>
 </body>
 
 <script>
     let target = document.querySelector("#dynamic");
-    let stringArr = ["My First Hiking",
-                     "My First Crew",
-                     "My First Room"];
- 
-// 소수점없에고 랜덤숫자뽑기
-let selectString = stringArr[Math.floor(Math.random() * stringArr.length)];
-//단어 하나하나쪼개져서 배열로 변경
-let selectStringArr = selectString.split("");
+    let stringArr = ["LET'S CLIMB TOGETHER"]
+        ;
 
-//타이핑 리셋
-function resetTyping(){
-    target.textContent="";
-}
+    // 소수점없에고 랜덤숫자뽑기
+    let selectString = stringArr[Math.floor(Math.random() * stringArr.length)];
+    //단어 하나하나쪼개져서 배열로 변경
+    let selectStringArr = selectString.split("");
 
-//한글자씩 텍스트 출력 함수
-function dynamic(randomArr){
-
-    if(randomArr.length > 0){
-        target.textContent += randomArr.shift();
-        setTimeout(function(){
-            dynamic(randomArr);
-        }, 80);
-    }else{
-        setTimeout(resetTyping,30000);
-        
+    //타이핑 리셋
+    function resetTyping() {
+        target.textContent = "";
     }
-}
 
-dynamic(selectStringArr);
+    //한글자씩 텍스트 출력 함수
+    function dynamic(randomArr) {
 
-console.log(selectStringArr)
+        if (randomArr.length > 0) {
+            target.textContent += randomArr.shift();
+            setTimeout(function () {
+                dynamic(randomArr);
+            }, 80);
+        } else {
+            setTimeout(resetTyping, 30000);
+
+        }
+    }
+
+    dynamic(selectStringArr);
+
+    console.log(selectStringArr)
 
 
 
-// 커서 깜빡임 효과
-function blink(){
-    target.classList.toggle("active");
-    setInterval(blink, 500);
-}
+    // 커서 깜빡임 효과
+    function blink() {
+        target.classList.toggle("active");
+        setInterval(blink, 500);
+    }
 
 </script>
+
 </html>

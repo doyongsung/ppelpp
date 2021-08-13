@@ -117,12 +117,8 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- 
-						1. 파일 업로드
-						2. 데이터베이스 ( 드라이버 )
-		
-		 -->
+
+		<!-- 1. 파일 업로드 2. 데이터베이스 ( 드라이버 ) -->
 		<!-- commons-fileupload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -141,51 +137,47 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.26</version>
+			<version>8.0.22</version>
 		</dependency>
-		
-		
-			<!-- HikariCP -->
+
+		<!-- HikariCP -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 			<version>3.4.5</version>
+		</dependency>
+
+		<!-- spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.6</version>
 		</dependency> 
 		
-	<!-- spring-jdbc -->
-<dependency>
-<groupId>org.springframework</groupId>
-<artifactId>spring-jdbc</artifactId>
-<version>${org.springframework-version}</version>
-</dependency>
-<!-- spring-tx -->
-<dependency>
-<groupId>org.springframework</groupId>
-<artifactId>spring-tx</artifactId>
-<version>${org.springframework-version}</version>
-</dependency>
-<!-- mybatis -->
-<dependency>
-<groupId>org.mybatis</groupId>
-<artifactId>mybatis</artifactId>
-<version>3.5.6</version>
-</dependency>
-<!-- mybatis-spring -->
-<dependency>
-<groupId>org.mybatis</groupId>
-<artifactId>mybatis-spring</artifactId>
-<version>2.0.6</version>
-</dependency>
-		      <!-- 한글 파싱 -->      
-      <dependency>
-          <groupId>xerces</groupId>
-          <artifactId>xercesImpl</artifactId>
-          <version>2.9.1</version>
-      </dependency> 
+		<!-- mybatis-spring -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.6</version>
+		</dependency>
 
-		
-		
-		
+
+
+
+
+
+
+
+
+
+
 	</dependencies>
 	<build>
 		<plugins>
