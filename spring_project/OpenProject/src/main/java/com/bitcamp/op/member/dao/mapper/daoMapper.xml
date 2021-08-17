@@ -35,6 +35,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from member where memberid=#{mid}
 	</select>
 	
+	<select id="selectByIdx"
+					resultType="com.bitcamp.op.member.domain.Member"
+	>
+		select * from member where idx=#{idx}
+	</select>
+	
+	
+	
+	
+	
+	
 	<insert id="insertMember"
 					parameterType="com.bitcamp.op.member.domain.Member"
 					useGeneratedKeys="true"

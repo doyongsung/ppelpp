@@ -44,7 +44,7 @@ public class MemberRegRequest {
 	@Override
 	public String toString() {
 		return "MemberRegRequest [memberid=" + memberid + ", password=" + password + ", membername=" + membername
-				+ ", photo=" + photo.getOriginalFilename() + "]";
+				+ ", photo=" + photo + "]";
 	}
 	
 	// MemberRegRequest -> Member

@@ -66,7 +66,7 @@ public class MemberRegService {
 				// 파일 저장시에 파일 이름이 같으면 덮어쓴다 -> 회원별 고유한 파일 이름을 만들자!!, 새로운 파일이름에 확장자 추가
 				String newFileName = regRequest.getMemberid() 
 						+ System.currentTimeMillis()
-						+ chkFileType(regRequest.getPhoto());
+						+ "."+chkFileType(regRequest.getPhoto());
 				// cool123128936798123987
 
 				// 새로운 File 객체
