@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
     padding: 0;
-    margin: 0
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -8,12 +16,20 @@
 .header-left {
     float: left;
     width: 275px;
+    padding-left: 10%;
 }
 
 .nav {
     float: right;
     text-align: center;
-    padding-right: 60px;
+    padding-right: 10%;
+}
+
+.header2 p {
+    position: absolute;
+    top: 19%;
+    font-size: 40px;
+    padding-left: 10%;
 }
 
 .container .header {
@@ -22,9 +38,9 @@
     top: 0;
     left: 0;
     z-index: 100;
-    padding-top: 70px;
+    padding-top: 40px;
     transition: all 0.5s ease;
-    padding-bottom: 100px;
+    padding-bottom: 135px;
     padding-right: 20px;
     font-family: 'STIX Two Text', serif;
     font-weight: bold;
@@ -59,18 +75,45 @@
 
 }
 
-.container .section {
-    /*무조건 정중앙에 위치하게*/
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -50%);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.section .gallery {
+    background-color: #eee;
+
 }
+
+.section .article {
+    padding-bottom: 60px;
+}
+
+.section .article .card {
+    text-align: center;
+}
+
+.section .gallery .card,
+.section .article .card {
+    float: left;
+    padding: 10px;
+}
+
+.container .section {
+    padding: 10% 15% 5% 15%;
+}
+
+div::after {
+    display: block;
+    content: '';
+    clear: both;
+
+}
+
 
 .section .article img {
     border-radius: 70%;
     overflow: hidden;
+}
+
+.section .article span,
+.section .popular_crew span {
+    font-size: 40px;
 }
 
 .section .popular_crew img {
@@ -78,6 +121,59 @@
 }
 
 
-.container .footer {
-    background-color: #aaa;
+.footer2 {
+    padding-right: 20px;
+    font-size: 4em;
+    text-align: right;
+    color: yellow;
+
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    padding: 70px 0;
+    background-color: #eee;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    width: 30%;
+    padding: 0 15px;
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 10px;
 }
