@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+
+
+.header-left {
+    float: left;
+    width: 275px;
+}
+
+.nav {
+    float: right;
+    text-align: center;
+    padding-right: 60px;
+}
+
+.container .header {
+    width: 100%;
+    min-width: 1280px;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding-top: 70px;
+    transition: all 0.5s ease;
+    padding-bottom: 100px;
+    padding-right: 20px;
+    font-family: 'STIX Two Text', serif;
+    font-weight: bold;
+    background-color: #F3E2A9;
+}
+
+
+.container .header h1 a {
+    text-decoration: none;
+    color: black;
+    font-size: 27px;
+    font-family: 'STIX Two Text', serif;
+
+}
+
+.container .nav ul li {
+    /*가로로 정렬*/
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 18px;
+    padding-right: 20px;
+    padding: 0 5px;
+}
+
+.container .nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.container .nav ul .category>li:hover {
+    display: block;
+
+}
+
+.container .section {
+    /*무조건 정중앙에 위치하게*/
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.section .article img {
+    border-radius: 70%;
+    overflow: hidden;
+}
+
+.section .popular_crew img {
+    padding: 10px
+}
+
+
+.container .footer {
+    background-color: #aaa;
+}

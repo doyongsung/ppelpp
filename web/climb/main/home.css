@@ -9,9 +9,10 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #fff136;
 }
+
 div {
   display: block;
 }
@@ -22,14 +23,14 @@ div {
   text-align: center;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../project_1/images/메인1.jpg);
-  
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../climb/images/메인1.jpg);
+
 }
 
 
 .header-left {
   float: left;
-  width: 275px;
+  width: 205px;
 }
 
 .nav {
@@ -62,7 +63,7 @@ div {
   color: black;
   font-size: 27px;
   font-family: 'STIX Two Text', serif;
-  
+
 }
 
 .container .nav ul li {
@@ -80,7 +81,7 @@ div {
 }
 
 .container .nav ul .category>li:hover {
-    display: block;
+  display: block;
 
 }
 
@@ -94,10 +95,11 @@ div {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.section{
+
+.section {
   position: absolute;
-  left:15%;
-  top:130%
+  left: 15%;
+  top: 130%
 }
 
 
