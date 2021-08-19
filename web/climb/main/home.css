@@ -1,6 +1,6 @@
 @font-face {
   font-family: abster;
-  src: url(../project_1/font/abster-webfont.woff) format("woff");
+  src: url(..//font/abster-webfont.woff) format("woff");
 }
 
 * {
@@ -9,8 +9,9 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #fff136;
+.img{
+  background-color: yellow;
+  float: right;
 }
 
 div {
@@ -23,7 +24,7 @@ div {
   text-align: center;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../climb/images/메인1.jpg);
+  /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/메인1.jpg); */
 
 }
 
@@ -102,31 +103,11 @@ div {
   top: 130%
 }
 
-
 .container .hero p {
   font-size: 70px;
   margin-bottom: 20px;
   width: 50%;
 }
-
-
-.section button {
-  /*배경 날리기*/
-  background: none;
-  border: 1px solid black;
-  color: black;
-  padding: 7px 35px;
-  border-radius: 20px;
-  margin-top: 30px;
-
-  /*클릭했을때 잔상없에기*/
-  outline: none;
-  cursor: pointer;
-
-  /*입체적으로 보이기위해*/
-  transition: all 0.4s;
-}
-
 
 #dynamic {
   position: relative;
@@ -154,8 +135,69 @@ div {
   display: none;
 }
 
-.img {
-  display: flex;
+.main_2{
+  background-color: #FDEFA7;
+
+}
+.main_3{
+  padding: 30px;
+
+}
+.card2 img{
+  padding-top: 90px;
+  margin-left: 100px;
+}
+.card3{
+  float: left;
 }
 
-.img-font {}
+
+.footer {
+  padding: 70px 0;
+  background-color: #aaa;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  width: 30%;
+  padding: 0 15px;
+  
+}
+
+.footer-col h3 {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  
+}
+
+.footer-col h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+  
+}
+.footer-col ul li{
+  display: block;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 10px;
+}
