@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,62 +27,47 @@ import com.bitcamp.op.member.service.MemberRestService;
 //@Controller
 @RestController
 public class MemberRestController {
-	
+
 	@Autowired
 	private MemberRestService restService;
-	
+
 	@Autowired
 	private MemberRegService regService;
-	
-	
-	
-	
-	
-	
-	
+
 	@RequestMapping("/members/{id}")
-	public Member getMember(
-			@PathVariable("id") int idx
-			) {
+	@CrossOrigin
+	public Member getMember(@PathVariable("id") int idx) {
 		Member member = restService.getMember(idx);
 		System.out.println(member);
 		return member;
 	}
+
 	@GetMapping("/members")
-	public List<Member> getMembers(){
+	@CrossOrigin
+	public List<Member> getMembers() {
 		return restService.getMembers();
 	}
-	
+
 	@GetMapping("/members1")
-	public Map<Integer, Member> getMembers1(){
-		
+	public Map<Integer, Member> getMembers1() {
+
 		return restService.getMembers1();
 	}
-	
+
 	@PostMapping("/members/reg1")
-	public String regMember1(
-			MemberRegRequest regRequest,
-			HttpServletRequest request
-			) {
+	@CrossOrigin
+	public String regMember1(MemberRegRequest regRequest, HttpServletRequest request) {
 		System.out.println(regRequest);
 		return Integer.toString(regService.memberReg(regRequest, request));
 	}
-	
-	
+
 	@PostMapping("/members/reg2")
-	public String regMember2(
-			@RequestBody MemberRegRequest regRequest,
-			HttpServletRequest request
-			) {
+	@CrossOrigin
+	public String regMember2(@RequestBody MemberRegRequest regRequest, HttpServletRequest request) {
 		System.out.println(regRequest);
 		return Integer.toString(regService.memberReg(regRequest, request));
 	}
-	
+
 }
-
-
-
-
-
 
 

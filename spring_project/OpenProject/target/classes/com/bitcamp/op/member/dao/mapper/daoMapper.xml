@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					keyProperty="idx"
 	>
 		
-		insert into Member (memberid, password, membername, memberphoto)
+		insert into member (memberid, password, membername, memberphoto)
 		values (#{memberid}, #{password}, #{membername}, #{memberphoto})
 	
 	</insert>
@@ -144,5 +144,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
+
 
 </mapper>
