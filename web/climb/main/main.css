@@ -7,6 +7,7 @@
 
 p {
     padding-bottom: 30px;
+    margin-left: -5%;
 }
 
 a {
@@ -22,6 +23,10 @@ h2 {
     font-family: 'Philosopher', sans-serif;
 }
 
+h1 {
+    font-size: 2.5rem;
+}
+
 
 #home {
     background-image: url(../images/메인1.jpg);
@@ -29,16 +34,31 @@ h2 {
 }
 
 #home .header h1 {
-    padding: 50px;
-    margin-left: -20%;
+    padding: 30px;
+    font-size: 1.5rem;
+    margin-right: 80%;
 
 }
 
 #home_2 {
-    min-height: 92vh;
-    padding-top: 80px;
+    min-height: 76vh;
+    padding-top: 13%;
+    background: url(../images/2.png);
+}
 
-    background: url(../images/메인2_1.png);
+#home_2 .card img {
+    width: 50%;
+}
+
+#home_2 .text_bt {
+    font-size: 20px;
+    padding-top: 9%;
+    margin-left: 10%;
+}
+
+#home_2 .text_bt a h3 {
+    font-size: 15px;
+    margin-left: -8%;
 }
 
 #home_3 .card {
@@ -48,50 +68,67 @@ h2 {
 #home_3 .card>img {
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
 .home_2_text {
-    padding-top: 300px;
+    padding-top: 200px;
 }
 
 .home_3_text {
-    padding-top: 360px;
-    margin-left: 20%;
+    padding-top: 23%;
+    padding-left: 62%;
+    position: absolute;
+}
+
+.text {
+    margin-top: 43%;
+    margin-left: 40%;
+    position: absolute;
+    color: white;
+}
+
+.text p {
+    padding: 5px;
+    padding-left: 80px;
 }
 
 .home_4_text {
     position: absolute;
     margin-top: -7%;
-    margin-left: 48%;
+    margin-left: 44%;
     color: white;
+}
+
+.home_4_text p,
+.home_3_text p {
+    margin-left: -25%;
 }
 
 .button1 {
     width: 100px;
     height: 30px;
-    border: 1px solid back;
+    border: 1px solid black;
     background-color: transparent;
     border-radius: 10px;
-    margin-right: 170px;
+    margin-right: 280px;
 }
 
 .button2 {
     width: 100px;
     height: 30px;
-    border: 1px solid back;
+    border: none;
     border-radius: 10px;
-    margin-right: 170px;
+    margin-right: 280px;
+    background-color: yellow;
 }
 
 #home_3 {
     min-height: 100vh;
     display: flex;
+    background: url(../images/1.png);
 }
 
-#home_4 {
-    background-image: url(../images/메인1.jpg);
-
-}
 
 .home_4_mini {
     padding: 225px;
@@ -118,11 +155,6 @@ ul {
     background-repeat: no-repeat;
 }
 
-.wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 4%;
-}
 
 .home-content {
     text-align: center;
@@ -139,27 +171,58 @@ ul {
     font-size: 5rem;
     text-transform: uppercase;
     font-weight: normal;
+    font-weight: bold;
 }
-
-
 
 .button:hover {
     background: #0090aa;
 }
 
 .header {
-    display: flex;
+    width: 100%;
+    min-width: 1280px;
+    top: 0;
+    left: 0;
+    padding-bottom: 40px;
+    line-height: 60px;
+}
 
-    justify-content: space-between;
+.header a {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.header a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: black;
+    transition: all .5s ease-out;
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+.header:hover {
+    backdrop-filter: bulr(10px);
+    background-color: rgba(255, 255, 255, 0.25);
+    transition: all 0.5s ease;
+    z-index: 100;
 }
 
 .nav ul {
     display: flex;
     font-size: 1.25rem;
     text-transform: uppercase;
-    margin-top: 54px;
+    padding-left: 70%;
+    margin-top: -90px;
     list-style: none;
-    margin-right: -250px;
+    font-family: 'Philosopher', sans-serif;
 }
 
 .nav ul li {
@@ -185,7 +248,7 @@ ul {
 .footer-col h3 {
     font-size: 18px;
     text-transform: capitalize;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     font-weight: 500;
     position: relative;
     color: white;
@@ -199,12 +262,14 @@ ul {
 .footer-col h3::before {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -10px;
+    left: 10;
     height: 2px;
+    bottom: -10px;
     box-sizing: border-box;
-    width: 50px;
+    background-color: white;
+    width: 120px;
 }
+
 
 .footer-col ul li a {
     font-size: 16px;
@@ -212,10 +277,10 @@ ul {
     text-decoration: none;
     color: white;
     display: block;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .footer-col ul li a:hover {
     color: #ffffff;
-    padding-left: 10px;
+    padding-left: 20px;
 }

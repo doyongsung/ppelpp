@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    padding-bottom: 30px;
+    margin-left: -5%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    font-family: 'Philosopher', sans-serif;
+    color: yellow;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+
+#home {
+    min-height: 100vh;
+}
+
+#home .home_video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+#home .header h1 {
+    padding: 30px;
+    font-size: 1.5rem;
+    margin-right: 60%;
+
+}
+
+#home_2 {
+    min-height: 76vh;
+    padding-top: 13%;
+    background: url(../images/2.png);
+}
+
+#home_2 .card img {
+    width: 50%;
+}
+
+#home_2 .text_bt {
+    font-size: 20px;
+    padding-top: 9%;
+    margin-left: 10%;
+}
+
+#home_2 .text_bt a h3 {
+    font-size: 15px;
+    margin-left: -8%;
+}
+
+#home_3 .card {
+    width: 50%;
+}
+
+#home_3 .card>img {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.home_2_text {
+    padding-top: 200px;
+}
+
+.home_3_text {
+    padding-top: 23%;
+    padding-left: 62%;
+    position: absolute;
+}
+
+.text {
+    margin-top: 43%;
+    margin-left: 40%;
+    position: absolute;
+    color: white;
+}
+
+.text p {
+    padding: 5px;
+    padding-left: 80px;
+}
+
+.home_4_text {
+    position: absolute;
+    margin-top: -7%;
+    margin-left: 44%;
+    color: white;
+}
+
+.home_4_text p,
+.home_3_text p {
+    margin-left: -25%;
+}
+
+.button1 {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 10px;
+    margin-right: 280px;
+}
+
+.button2 {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 280px;
+    background-color: yellow;
+}
+
+#home_3 {
+    min-height: 100vh;
+    display: flex;
+    background: url(../images/1.png);
+}
+
+.home_4_mini {
+    padding: 225px;
+    background: url(../images/메인4.png);
+}
+
+.home_4_mini img {
+
+    position: relative;
+}
+
+
+div {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+
+.home-content {
+    text-align: left;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    padding-top: 15%;
+    position: absolute;
+    right: 55%;
+    max-width: 750px;
+    justify-content: space-between;
+}
+
+.home-content a {
+    display: inline-block;
+    font-size: 1em;
+    background: #fff;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #111;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.home-content a:hover {
+    letter-spacing: 6px;
+}
+
+.home-content p {
+    font-size: 1.125rem;
+    margin: 10px 0 42px;
+}
+
+.page-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-weight: bold;
+    position: relative;
+    z-index: 10;
+}
+
+.button:hover {
+    background: #0090aa;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header a {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.header a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: black;
+    transition: all .5s ease-out;
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+.header:hover {
+    backdrop-filter: bulr(10px);
+    background-color: rgba(255, 255, 255, 0.25);
+    transition: all 0.5s ease;
+    z-index: 100;
+}
+
+.nav ul {
+    display: flex;
+    font-size: 1.25rem;
+    list-style: none;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.nav ul li {
+    margin-left: 36px;
+}
+
+.nav ul li a {
+    columns: #432;
+}
+
+.footer {
+    padding: 70px 0;
+    background-color: #cac0ae;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    width: 30%;
+    padding: 0 15px;
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    font-weight: 500;
+    position: relative;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-col li {
+    padding: 5px;
+}
+
+.footer-col h3::before {
+    content: '';
+    position: absolute;
+    left: 10;
+    height: 2px;
+    bottom: -10px;
+    box-sizing: border-box;
+    background-color: white;
+    width: 120px;
+}
+
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 20px;
+}
