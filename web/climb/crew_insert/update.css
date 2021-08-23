@@ -15,6 +15,7 @@ a {
     padding: 20px 0;
 }
 
+
 .footer div {
     text-align: center;
 
@@ -26,13 +27,18 @@ a {
 
 }
 
+.crew-info,
+.crew-hash,
 .crew-name {
-
     border-bottom: 1px solid #aaa;
 }
 
+.crew-name div {
+    margin-bottom: -20px;
+
+}
+
 .crew-name input {
-    border: 1px solid white;
     padding: 5px;
     width: 40%;
 }
@@ -47,19 +53,12 @@ a {
     text-align: center;
 }
 
-.crew-info {
-
-    border-bottom: 1px solid #aaa;
-}
-
-.crew-hash {
-    border-bottom: 1px solid #aaa;
-}
 
 .submit input {
-    padding: 10px;
+    padding: 5px;
     width: 10%;
     float: right;
+
 }
 
 #home .header h1 {
@@ -76,6 +75,8 @@ a {
     left: 0;
     line-height: 60px;
     padding-bottom: 30px;
+    z-index: 999;
+    position: fixed;
 }
 
 .header a {
@@ -102,7 +103,7 @@ a {
 .header:hover {
     backdrop-filter: bulr(10px);
     background-color: rgba(207, 201, 201, 0.25);
-    transition: all 0.5s ease;
+    transition: all 0.9s ease;
     z-index: 100;
 }
 

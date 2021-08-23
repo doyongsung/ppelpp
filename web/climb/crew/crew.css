@@ -48,6 +48,8 @@ a {
     left: 0;
     line-height: 60px;
     padding-bottom: 20px;
+    position: fixed;
+    z-index: 999;
 }
 
 .header a {

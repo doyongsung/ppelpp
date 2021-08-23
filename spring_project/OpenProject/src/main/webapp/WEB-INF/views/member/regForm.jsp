@@ -26,6 +26,66 @@
 	height: 20px;
 }
 </style>
+
+</head>
+<body>
+
+	<%--@ include file="/WEB-INF/views/frame/header.jsp"--%>
+	<%--@ include file="/WEB-INF/views/frame/nav.jsp"--%>
+<%@ include file="/WEB-INF/views/frame/bootstrap_header.jsp"%>
+
+
+	<main role="main" class="container">
+		
+		<div class="my-3 p-3 bg-white rounded shadow-sm">
+			<h2>회원가입</h2>
+		<hr>
+		<form method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="memberid" id="memberid" class="form-control m-2">
+						<span id="msg" class="display_none"></span> <img id="loadingimg"
+						class="display_none" alt="loading"
+						src="<c:url value="/images/loading.gif"/>"></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="password" id="password" class="form-control m-2"></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="membername" id="membername" class="form-control m-2"></td>
+				</tr>
+				<tr>
+					<td>사진</td>
+					<td><input type="file" name="photo" id="photo" class=" m-2"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit"  class="form-control m-2 btn btn-primary"> <input type="reset" class="form-control m-2 btn btn-info">
+					</td>
+				</tr>
+			</table>
+		</form>
+
+			<div>
+			ajax로 회원 가입 <input type="button" value="회원가입" id="btnReg1" class=" m-2 btn btn-primary">
+			</div>
+			<div>
+			ajax로 Json 전송 회원 가입 <input type="button" value="회원가입" id="btnReg2" class=" m-2 btn btn-primary">
+			</div>
+		</div>
+
+	</main>
+
+
+
+<%@ include file="/WEB-INF/views/frame/footer.jsp" %> 
+
+
+
 <script>
 	$(document).ready(function() {
 
@@ -76,60 +136,8 @@
 
 	});
 </script>
-</head>
-<body>
-
-	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
-
-	<%@ include file="/WEB-INF/views/frame/nav.jsp"%>
 
 
-
-	<div id="content">
-		<h2>회원가입</h2>
-		<hr>
-
-		<form method="post" enctype="multipart/form-data">
-
-			<table>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="memberid" id="memberid">
-						<span id="msg" class="display_none"></span> <img id="loadingimg"
-						class="display_none" alt="loading"
-						src="<c:url value="/images/loading.gif"/>"></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="password" id="password"></td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td><input type="text" name="membername" id="membername"></td>
-				</tr>
-				<tr>
-					<td>사진</td>
-					<td><input type="file" name="photo" id="photo"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit"> <input type="reset">
-					</td>
-				</tr>
-			</table>
-
-		</form>
-
-			<div>
-			ajax로 회원 가입 <input type="button" value="회원가입" id="btnReg1">
-			</div>
-			<div>
-			ajax로 Json 전송 회원 가입 <input type="button" value="회원가입" id="btnReg2">
-			</div>
-
-
-
-	</div>
 
 
 	<script>

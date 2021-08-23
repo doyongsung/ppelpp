@@ -10,6 +10,10 @@ public class IndexController {
 	public void index() {
 	}
 	
+	@RequestMapping("/index2")
+	public void index2() {
+	}
+	
 	@RequestMapping("/")
 	public String index1() {
 		System.out.println("/ 진입");
