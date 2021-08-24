@@ -125,12 +125,6 @@ h1 {
 
 }
 
-#home_4 {
-    width: 100%;
-    height: 100vh;
-    background-image: url(../images/메인4_adobespark.png);
-}
-
 
 .home_4_mini {
     padding: 225px;
@@ -140,6 +134,8 @@ h1 {
 .home_4_mini img {
 
     position: relative;
+    width: 68%;
+    padding-top: 20px;
 }
 
 
@@ -162,7 +158,6 @@ ul {
 
 .home-content p {
     font-size: 1.125rem;
-    margin: 10px 0 42px;
 }
 
 .page-title {
@@ -174,6 +169,10 @@ ul {
 
 .button:hover {
     background: #0090aa;
+}
+
+.logo {
+    min-width: 300px;
 }
 
 .action .icon {
@@ -205,16 +204,16 @@ ul {
 }
 
 #home .header h1 {
-    padding: 30px 30px 0 130px;
+    padding: 10px 30px 0 130px;
     font-size: 1.5rem;
-    margin-right: 80%;
-
+    display: inline;
 }
 
 .action .menu.active {
-    top: 80px;
+    top: 70px;
     visibility: visible;
     opacity: 1;
+    margin-right: -20px;
 }
 
 .action .menu::before {
@@ -251,10 +250,12 @@ ul {
 .header {
     width: 100%;
     min-width: 1280px;
-    top: 0;
+    padding-top: 20px;
     left: 0;
     padding-bottom: 40px;
     line-height: 60px;
+    display: flex;
+
 }
 
 .header a {
@@ -263,16 +264,23 @@ ul {
     color: black;
 }
 
-.header a::after {
+.header .menu a::after,
+.header .nav a::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 4px;
     background: black;
     transition: all .5s ease-out;
+}
+
+.header .menu a::after {
+
+    bottom: 2px;
+
 }
 
 .header a:hover::after {
@@ -286,10 +294,8 @@ ul {
     z-index: 100;
 }
 
-.nav {
-    float: right;
-    margin-top: -60px;
-    padding-right: 100px;
+.header .nav {
+    padding-left: 45%;
 }
 
 .nav ul {
@@ -311,13 +317,15 @@ ul {
 .footer {
     padding: 70px 0;
     background-color: #cac0ae;
-    display: flex;
     flex-wrap: wrap;
+    display: flex;
 }
 
 .footer-col {
     width: 30%;
-    padding: 0 15px;
+    text-align: center;
+    padding-left: 50px;
+
 }
 
 .footer-col h3 {
@@ -331,6 +339,7 @@ ul {
 }
 
 .footer-col li {
+    list-style: none;
     padding: 5px;
 }
 
@@ -349,10 +358,10 @@ ul {
 .footer-col ul li a {
     font-size: 16px;
     text-transform: capitalize;
-    text-decoration: none;
     color: white;
     display: block;
     transition: all 0.5s ease;
+    text-decoration: none;
 }
 
 .footer-col ul li a:hover {

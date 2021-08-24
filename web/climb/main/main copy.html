@@ -20,32 +20,45 @@
 
 <body>
     <main id="fullpage">
-        <section class="section">
-            
-            <div id="home" class="big-bg">
-                <div class="header wrapper">
-                    <h1><a href="#">오를래</a></h1>
-                    <div class="nav">
-                        <ul>
-                            <li><a href="#">MAIN</a></li>
-                            <li><a href="#">HIKING</a></li>
-                            <li><a href="#">CREW</a></li>
-                            <li><a href="#">COMMUNITY</a></li>
-                            <li><a href="#"><i class="far fa-user"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+            <section class="section">
+                <div class="action">
+                    <div id="home" class="big-bg">
+                        <div class="header wrapper">
+                            <div class="logo">
+                                <h1><a href="#">오를래</a></h1>
+                            </div>
+                            <div class="nav">
+                                <ul>
+                                    <li><a href="#">MAIN</a></li>
+                                    <li><a href="#">HIKING</a></li>
+                                    <li><a href="#">CREW</a></li>
+                                    <li><a href="#">COMMUNITY</a></li>
+                                    <div class="icon" onclick="menuToggle();">
+                                        <a href="#"><i class="far fa-user"></i></a>
+                                    </div>
+                            </div>
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#">로그인</a></li>
+                                    <li><a href="#">회원가입</a></li>
+                                    <li><a href="#">내 크루</a></li>
+                                    <li><a href="#">내 피드</a></li>
+                                    <li><a href="#">마이페이지</a></li>
+                                    <li><a href="#">로그아웃</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     <div class="home_video">
                         <video src="../images/Hiking+.mp4" autoplay="true" loop="true"></video>
-                    </div>
-                    <div class="home-content wrapper">
-                        <h2 class="page-title">
-                            LET'S CLIMB TOGETHER
-                        </h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus provident perferendis dolorum corporis, aspernatur doloremque quo quam ipsam commodi ad ratione amet soluta nam molestias sed. Aliquid sapiente quos quam?</p>
+                </div>
+                <div class="home-content wrapper">
+                    <h2 class="page-title">
+                        LET'S CLIMB TOGETHER
+                    </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus provident perferendis dolorum corporis, aspernatur doloremque quo quam ipsam commodi ad ratione amet soluta nam molestias sed. Aliquid sapiente quos quam?</p>
                     <a href="#">HIKING</a>
-                    </div>
-
+                </div>
+                </div>
             </div>
         </section>
         <section class="section">
@@ -140,6 +153,13 @@
         </div>
     </section>
 </main>
+
+<script>
+    function menuToggle(){
+        const toggleMenu = document.querySelector('.menu');
+        toggleMenu.classList.toggle('active')
+    }
+</script>    
 </body>
 
 </html>

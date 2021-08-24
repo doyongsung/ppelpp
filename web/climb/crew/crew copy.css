@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 * {
     padding: 0;
@@ -6,24 +7,66 @@
     box-sizing: border-box;
 }
 
-.container .header h1 {
-    font-size: 1.5rem;
+.article h1,
+.container h1 {
+    font-size: 3.5rem;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-h1 {
-    font-size: 2.5rem;
-    padding-left: 12px;
+.inner {
+    overflow: hidden;
+}
+
+.inner div {
+    width: 100%;
+    height: 100%;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inner img {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-crew div:hover,
+.inner div:hover {
+    opacity: 0.8;
+    transition: all ease-in-out 100ms;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.card-body a {
+    background: rgb(253, 239, 123);
+    border: none;
+    color: black;
+}
+
+.col-md-4 {
+    padding-bottom: 50px;
 }
 
 .section {
-    padding-top: 200px;
+    padding: 200px 0;
 }
 
-button {
-    padding: 5px;
-    width: 20%;
-    background: rgb(253, 239, 123);
-    border: 1px solid #aaa;
+.container .row {
+    --bs-gutter-x: 2.5rem;
+    margin-right: calc(var(--bs-gutter-x) * -2.7);
+    margin-left: calc(var(--bs-gutter-x) * -0.6);
+}
+
+.btn {
+    padding: 10px;
+    width: 30%;
     cursor: pointer;
     border-radius: 7px;
 
@@ -99,6 +142,144 @@ div p {
     padding-right: 50%;
 }
 
+.action .icon {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 35px;
+}
+
+.action .menu {
+    position: absolute;
+    top: 80px;
+    right: 90px;
+    padding: 20px;
+    backdrop-filter: bulr(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#home .header h1 {
+    padding: 10px 30px 0 130px;
+    font-size: 1.5rem;
+    display: inline;
+
+}
+
+.action .menu.active {
+    top: 70px;
+    visibility: visible;
+    opacity: 1;
+    margin-right: -20px;
+}
+
+.action .menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+}
+
+.action .menu ul li {
+    list-style: none;
+    margin: -10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    direction: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action .menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+    color: #ff5d94;
+}
+
+.header {
+    width: 100%;
+    min-width: 1280px;
+    padding-top: 20px;
+    left: 0;
+    padding-bottom: 40px;
+    line-height: 60px;
+    display: flex;
+}
+
+.header a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.header .menu a::after,
+.header .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: black;
+    transition: all .5s ease-out;
+}
+
+.header .menu a::after {
+
+    bottom: 2px;
+
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+.header:hover {
+    backdrop-filter: bulr(10px);
+    background-color: rgba(255, 255, 255, 0.25);
+    transition: all 0.5s ease;
+    z-index: 100;
+}
+
+.header .nav {
+    padding-left: 55%;
+}
+
+.nav ul {
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    list-style: none;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.nav ul li {
+    margin-left: 36px;
+}
+
+.nav ul li a {
+    columns: #432;
+}
 
 .action .icon {
     position: relative;
@@ -129,14 +310,14 @@ div p {
 }
 
 #home .header h1 {
-    padding: 30px 30px 0 130px;
+    padding: 10px 30px 0 130px;
     font-size: 1.5rem;
-    margin-right: 80%;
+    display: inline;
 
 }
 
 .action .menu.active {
-    top: 80px;
+    top: 70px;
     visibility: visible;
     opacity: 1;
 }
@@ -168,6 +349,10 @@ div p {
     transition: 0.5s;
 }
 
+.action .menu ul li:hover a {
+    color: #ff5d94;
+}
+
 .header {
     width: 100%;
     min-width: 1280px;
@@ -175,6 +360,8 @@ div p {
     left: 0;
     padding-bottom: 40px;
     line-height: 60px;
+    display: flex;
+    justify-content: space-between;
     position: fixed;
 }
 
@@ -209,37 +396,34 @@ div p {
 
 .header:hover {
     backdrop-filter: bulr(10px);
-    background-color: rgba(224, 220, 220, 0.25);
+    background-color: rgba(255, 255, 255, 0.25);
     transition: all 0.5s ease;
     z-index: 100;
 }
 
 .nav {
-    float: right;
-    margin-top: -60px;
-    padding-right: 100px;
+
+    padding: 0 5%;
 }
 
 .nav ul {
     display: flex;
     font-size: 1.25rem;
     text-transform: uppercase;
-    list-style: none;
     font-family: 'Philosopher', sans-serif;
 }
 
 .nav ul li {
     margin-left: 36px;
+    list-style: none;
 }
 
 .nav ul li a {
     columns: #432;
 }
 
-.big-bg {
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+.page {
+    padding-left: 45%;
 }
 
 .footer {
@@ -247,12 +431,13 @@ div p {
     background-color: #cac0ae;
     flex-wrap: wrap;
     display: flex;
-    padding-left: 13%;
 }
 
 .footer-col {
     width: 30%;
-    padding: 0 15px;
+    text-align: center;
+    padding-left: 50px;
+
 }
 
 .footer-col h3 {
@@ -266,6 +451,7 @@ div p {
 }
 
 .footer-col li {
+    list-style: none;
     padding: 5px;
 }
 
@@ -287,73 +473,13 @@ div p {
     color: white;
     display: block;
     transition: all 0.5s ease;
+    text-decoration: none;
 }
 
 .footer-col ul li a:hover {
     color: #ffffff;
     padding-left: 20px;
 }
-
-.gallery {
-    max-width: 1300px;
-    width: 100%;
-    margin: 0 auto;
-    padding-bottom: 150px;
-}
-
-.gallery ul {
-    font-size: 0;
-}
-
-.gallery ul>li {
-    display: inline-block;
-    vertical-align: top;
-    width: 33.3%;
-}
-
-.gallery ul>li>a {
-    display: block;
-    width: auto;
-    text-decoration: none;
-    margin: 5px;
-}
-
-.gallery .card {
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-.gallery ul>li>a .card .top {
-    position: absolute;
-    bottom: 150%;
-    left: 30px;
-    z-index: 2;
-    color: #fff;
-    font-size: 26px;
-    font-weight: 900;
-    transition: all .35s;
-}
-
-.gallery ul>li>a:hover .card .top {
-    bottom: 52%;
-}
-
-.gallery ul>li>a .card .bottom {
-    position: absolute;
-    top: 150%;
-    left: 30px;
-    z-index: 2;
-    color: #fff;
-    font-size: 12px;
-    transition: all .35s;
-}
-
-.gallery ul>li>a:hover .card .bottom {
-    top: 52%;
-}
-
 
 ul>li>a .card::after {
     content: '';
@@ -373,17 +499,6 @@ ul>li>a:hover .card::after {
     opacity: 1;
 }
 
-.section .gallery .card-text {
-    font-size: 16px;
-    text-align: left;
-    padding: 20px;
-    color: #666;
-    border: 1px solid #fff;
-}
-
-.section .gallery .card img {
-    width: 100%;
-}
 
 .section .article {
     border-bottom: 1px solid #aaa;
@@ -392,18 +507,16 @@ ul>li>a:hover .card::after {
     margin: 0 auto;
 }
 
-.section .article .card {
-    text-align: center;
-    margin: 0 -30px;
+.article div {
+    padding-bottom: 13px;
 }
 
-
-.section .gallery .card,
-.section .article .card {
+.section .article .article-crew {
+    text-align: center;
+    margin: 0 -30px;
     float: left;
     padding: 10px;
 }
-
 
 div::after {
     display: block;

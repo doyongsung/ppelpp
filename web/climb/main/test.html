@@ -16,37 +16,29 @@
 </head>
 
 <body>
-    <div class="action">
-        <div id="home" class="big-bg">
-            <div class="header wrapper">
-                <h1><a href="#">오를래</a></h1>
-                <div class="nav">
-                    <ul>
-                        <li><a href="#">MAIN</a></li>
-                        <li><a href="#">HIKING</a></li>
-                        <li><a href="#">CREW</a></li>
-                        <li><a href="#">COMMUNITY</a></li>
-        <div class="icon" onclick="menuToggle();">
-            <a href="#"><i class="far fa-user"></i></a>
-        </div>
-    </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">내 크루</a></li>
-                        <li><a href="#">내 피드</a></li>
-                        <li><a href="#">마이페이지</a></li>
-                    </ul>
-                </div>
-        </div>
-        </div>
-<script>
-    function menuToggle(){
-        const toggleMenu = document.querySelector('.menu');
-        toggleMenu.classList.toggle('active')
-    }
-</script>        
+    <body>
+        <h1>네비게이션 바</h1>
+    
+        <ul class="navi">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">웹개발</a>
+                <ul>
+                    <li><a href="#">웹디자인</a></li>
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">JQuery</a></li>
+                    <li><a href="#">웹+ 모바일</a></li>
+                </ul>
+            </li>
+            <li><a href="#">게시판</a>
+                <ul>
+                    <li><a href="#">Q & A</a></li>
+                    <li><a href="#">방명록</a></li>
+                </ul>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </body>
+    </html>
 </body>
 
 </html>

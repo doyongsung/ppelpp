@@ -9,36 +9,51 @@
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="crew.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container">
-        <div class="header wrapper">
-            <h1><a href="#">오를래</a></h1>
-            <div class="nav">
-                <ul>
-                    <li><a href="#">MAIN</a></li>
-                    <li><a href="#">HIKING</a></li>
-                    <li><a href="#">CREW</a></li>
-                    <li><a href="#">COMMUNITY</a></li>
-                    <li><a href="#"><i class="far fa-user"></i></a></li>
-                </ul>
-            </div>
+    <div class="action">
+        <div id="home" class="big-bg">
+            <div class="header wrapper">
+                <div class="nav">
+                <h1><a href="#">오를래</a></h1>
+                    <ul>
+                        <li><a href="#">MAIN</a></li>
+                        <li><a href="#">HIKING</a></li>
+                        <li><a href="#">CREW</a></li>
+                        <li><a href="#">COMMUNITY</a></li>
+        <div class="icon" onclick="menuToggle();">
+            <a href="#"><i class="far fa-user"></i></a>
+        </div>
+    </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">내 크루</a></li>
+                        <li><a href="#">내 피드</a></li>
+                        <li><a href="#">마이페이지</a></li>
+                    </ul>
+                </div>
+</div>
+        </div>
+
         </div>
         <div class="section">
             <div class="article">
                 <h1>MY CREW</h1>
                 <div class="card">
-                    <div><a href="#"><img src="../images/메인.jpg" width="150px" height="150px"></a></div>
-                    <p>crew1</p>
+                    <div><a href="#"><img src="../images/메인.jpg"></a></div>
+                    <p>내 크루</p>
                 </div>
                 <div class="card">
-                    <div><a href="#"><img src="../images/메인.jpg" width="150px" height="150px"></a></div>
-                    <p>crew2</p>
+                    <div><a href="#"><img src="../images/메인.jpg"></a></div>
+                    <p>내 크루</p>
                 </div>
                 <div class="card">
-                    <div><a href="#"><img src="../images/메인.jpg" width="150px" height="150px"></a></div>
-                    <p>crew3</p>
+                    <div><a href="#"><img src="../images/메인.jpg" ></a></div>
+                    <p>내 크루</p>
                 </div>
                 
                 
@@ -47,7 +62,7 @@
                 <div class="search-box">
                     <h1>POPULAR CREW</h1>
                     <input class="search-txt" type="text" name="" placeholder="Type to search"> 
-                    <a class="search-btn" href="#">
+                    <a class="search-btn" onclick="menuToggle();" href="#">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -59,13 +74,14 @@
                                 <div class="bottom"></div>
                                 <img src="../images/메인.jpg">
                             </div>
-                                <div class="card-text">
-                                    <h4>크루이름 : 내가 제일 잘올라가</h4>
-                                    <p> 크루장 닉네임 : CL</p>
-                                    <p>크루소개 : 안녕하세요</p>
-                                    <button>GO</button>
-                                </div>
-                            </a>
+                        </a>
+                        <div class="card-text border1" >
+                            <h4>크루이름 : 비트캠프</h4>
+                            <p> 크루장 닉네임 : ppelpp</p>
+                            <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <button>GO</button>
+                        </div>
                         </li>
                         
                         <li>
@@ -75,13 +91,14 @@
                                     <div class="bottom">신기해</div>
                                     <img src="../images/메인.jpg">
                                 </div>
-                                    <div class="card-text">
-                                        <h4>크루이름 : gfgfgdfgdgd</h4>
-                                        <p> 크루장 닉네임 : ffgfdgfgdgdfg</p>
-                                        <p>크루소개 : gdfgfgfgfdggggfdgdfgfdfgfdfg</p>
-                                        <button>GO</button>
-                                    </div>
-                                </a>
+                            </a>
+                            <div class="card-text">
+                                <h4>크루이름 : 비트캠프</h4>
+                                <p> 크루장 닉네임 : ppelpp</p>
+                                <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                    앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                                <button>GO</button>
+                            </div>
                             </li>
                             <li>
                                 <a href="">
@@ -90,13 +107,14 @@
                                         <div class="bottom">신기해</div>
                                         <img src="../images/메인.jpg">
                                     </div>
-                                        <div class="card-text">
-                                            <h4>크루이름 : gfgfgdfgdgd</h4>
-                                            <p> 크루장 닉네임 : ffgfdgfgdgdfg</p>
-                                            <p>크루소개 : gdfgfgfgfdggggfdgdfgfdfgfdfg</p>
-                                            <button>GO</button>
-                                        </div>
-                                    </a>
+                                </a>
+                                <div class="card-text">
+                                    <h4>크루이름 : 비트캠프</h4>
+                                    <p> 크루장 닉네임 : ppelpp</p>
+                                    <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                        앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                                    <button>GO</button>
+                                </div>
                                 </li>
                                 <li>
                                     <a href="">
@@ -105,13 +123,14 @@
                                             <div class="bottom">신기해</div>
                                             <img src="../images/메인.jpg">
                                         </div>
-                                            <div class="card-text">
-                                                <h4>크루이름 : gfgfgdfgdgd</h4>
-                                                <p> 크루장 닉네임 : ffgfdgfgdgdfg</p>
-                                                <p>크루소개 : gdfgfgfgfdggggfdgdfgfdfgfdfg</p>
-                                                <button>GO</button>
-                                            </div>
-                                        </a>
+                                    </a>
+                                    <div class="card-text">
+                                        <h4>크루이름 : 비트캠프</h4>
+                                        <p> 크루장 닉네임 : ppelpp</p>
+                                        <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                            앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                                        <button>GO</button>
+                                    </div>
                                     </li>
                                     <li>
                                         <a href="">
@@ -120,13 +139,14 @@
                                                 <div class="bottom">신기해</div>
                                                 <img src="../images/메인.jpg">
                                             </div>
-                                                <div class="card-text">
-                                                    <h4>크루이름 : gfgfgdfgdgd</h4>
-                                                    <p> 크루장 닉네임 : ffgfdgfgdgdfg</p>
-                                                    <p>크루소개 : gdfgfgfgfdggggfdgdfgfdfgfdfg</p>
-                                                    <button>GO</button>
-                                                </div>
-                                            </a>
+                                        </a>
+                                        <div class="card-text">
+                                            <h4>크루이름 : 비트캠프</h4>
+                                            <p> 크루장 닉네임 : ppelpp</p>
+                                            <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                                            <button>GO</button>
+                                        </div>
                                         </li>
                                         <li>
                                             <a href="">
@@ -135,13 +155,14 @@
                                                     <div class="bottom">신기해</div>
                                                     <img src="../images/메인.jpg">
                                                 </div>
-                                                    <div class="card-text">
-                                                        <h4>크루이름 : gfgfgdfgdgd</h4>
-                                                        <p> 크루장 닉네임 : ffgfdgfgdgdfg</p>
-                                                        <p>크루소개 : gdfgfgfgfdggggfdgdfgfdfgfdfg</p>
-                                                        <button>GO</button>
-                                                    </div>
-                                                </a>
+                                            </a>
+                                            <div class="card-text">
+                                                <h4>크루이름 : 비트캠프</h4>
+                                                <p> 크루장 닉네임 : ppelpp</p>
+                                                <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                                    앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                                                <button>GO</button>
+                                            </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -188,7 +209,12 @@
             </ul>
         </div>     
     </div>
-
+    <script>
+        function menuToggle(){
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active')
+        }
+    </script>    
 </body>
 
 </html>
