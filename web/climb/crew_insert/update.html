@@ -11,6 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../crew_insert/update.css">
+        <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    
     <style>
         * {
             margin: 0;
@@ -19,35 +24,8 @@
             text-decoration: none;
             box-sizing: border-box;
         }
-
-        .header {
-            border-bottom: 1px solid rgb(220, 220, 220);
-        }
-
-        header {
-            display: inline-block;
-            padding-top: 50px;
-        }
-
-        .nav {
-            display: inline;
-            font-size: 15x;
-            padding-left: 10px;
-        }
-
-        h1 {
-            position: absolute;
-            top: 12px;
-            left: 27px;
-            font-size: 20px;
-            padding-left: 10px;
-        }
-
-        nav {
-            display: inline-block;
-            position: absolute;
-            top: 12px;
-            right: 27px;
+        td{
+            padding-bottom: 20px;
         }
 
         #profile {
@@ -56,15 +34,15 @@
             overflow: hidden;
         }
 
-
-
-
-
+     
+        #crewphoto{
+            padding-right: 200px;
+        }
         .section {
             padding: 5% 0 5% 0;
-            background-color: rgb(240, 240, 240);
             display: flex;
             justify-content: center;
+            
         }
 
         .box {
@@ -84,15 +62,6 @@
             border-radius: 8px 0 0 8px;
         }
 
-        .nav2 ul,
-        .nav2 ol {
-            padding-left: 0;
-        }
-
-        .nav2 ol {
-            padding-top: 15px;
-        }
-
         .text_bold {
             font-weight: bold;
         }
@@ -110,70 +79,89 @@
         }
 
         #hiking {
-            height: 200px;
+            height: 250px;
+            width: 250px;
             overflow: hidden;
         }
 
+        .edit_section{
+            box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+        }
         .edit_section label {
             font-weight: bold;
             min-width: 130px;
-            font-size: 15px;
+            font-size: 17px;
         }
 
         .edit_section input {
-            margin-bottom: 15px;
-            font-size: 11px;
-            height: 35px;
+            padding: 8px;
+            line-height: 40px;
+            font-size: 15px;
+            height: 55px;
         }
 
         .edit_section input[type="submit"] {
             margin-top: 30px;
             background-color: rgb(70, 70, 70);
-            max-width: 200px;
+            max-width: 120px;
             height: 40px;
+            line-height: 20px;
             font-size: 15px;
+            float: right;
         }
 
         .edit_section input[type=file] {
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         #crewintro {
-            min-height: 150px;
+            min-height: 180px;
         }
-
+        .form-control-lg {
+            padding: 1.0rem 1.0rem;
+        }
 
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <header>
-            <span id="logo">
-                <h1>오를래</h1>
-            </span>
-        </header>
-        <nav>
-            <span class="nav">MAIN</span>
-            <span class="nav">HIKING</span>
-            <span class="nav">CREW</span>
-            <span class="nav">FEED</span>
-            <span class="nav"><img id="profile" src="default.jpg"></span>
-        </nav>
+    <div class="action">
+        <div id="home" class="big-bg">
+            <div class="header wrapper">
+                <div class="logo">
+                    <h1><a href="#">오를래</a></h1>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#">MAIN</a></li>
+                        <li><a href="#">HIKING</a></li>
+                        <li><a href="#">CREW</a></li>
+                        <li><a href="#">COMMUNITY</a></li>
+                        <div class="icon" onclick="menuToggle();">
+                            <a href="#"><i class="far fa-user"></i></a>
+                        </div>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">내 크루</a></li>
+                        <li><a href="#">내 피드</a></li>
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">로그아웃</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="section">
         <div class="box">
-            <div class="nav2">
-                <ul>
-                    <ol class="text_bold">
-                        크루 생성
-                    </ol>
-                </ul>
-            </div>
+            
             <div class="edit_section">
                 <form>
                     <table>
                         <tr>
+                            <div class="create"><h1>생성하기</h1></div>
                             <td>
                                 <label for="crewname">크루명</label>
                             </td>
@@ -187,15 +175,10 @@
                                 <label for="crewname">크루 사진</label>
                             </td>
                             <td>
-                                <img id="hiking" src="../images/다운로드 (14)_adobespark.jpeg">
+                                <img id="hiking" src="../images/다운로드 (10)_adobespark.jpeg">
                                 <input type="file" id="crewphoto" name="crewphoto" class="form-control form-control-lg">
                             </td>
                         </tr>
-                        <tr>
-                        </tr>
-                            <td>
-                                <br>
-                            </td>
                         <tr>
                             <td>
                                 <label for="crewintro">크루 소개글</label>
@@ -210,12 +193,24 @@
                                 <label for="crewhash">크루 해시태그</label>
                             </td>
                             <td>
-                                <input type="text" id="crewhash" name="crewhash" class="form-control">
+                                <div class="tr_hashTag_area">
+                                           <div class="form-group">
+                                                <input type="hidden" value="" name="tag" id="rdTag" />
+                                            </div>
+                                        
+                                            <a href="#">
+                                                <ul id="tag-list"></ul>
+                                            </a>
+                                                        
+                                            <div class="form-group">
+                                                <input type="text" id="tag" size="7" placeholder="엔터로 해시태그를 등록해주세요." style="width: 300px;"/>
+                                           </div>
+                                </div>
                             </td>
                         </tr>
                             <td></td>
                             <td>
-                                <input type="submit" value="생성" class="form-control btn-secondary">
+                                <input type="submit" value="수정" class="form-control btn-secondary">
                             </td>
                         </tr>
                     </table>
@@ -223,6 +218,113 @@
             </div>
         </div>
     </div>
+    <div class="footer">
+        <div class="footer-col">
+            <ul>
+                <h3>MY ACCOUNT</h3>
+                <li><a href="#">footer</a></li>
+                <li><a href="#">footer</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul>
+                <h3>MY ACCOUNT</h3>
+                <li><a href="#">footer</a></li>
+                <li><a href="#">footer</a></li>                           
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul>
+                <h3>MY ACCOUNT</h3>
+                <li><a href="#">MY PAGE</a></li>
+                <li><a href="#">MY ORDER</a></li>
+                <li><a href="#">MEMBERSHIP</a></li>
+                <li><a href="#">LOGIN</a></li>
+                <li><a href="#">JOIN US</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul>
+                <h3>MY ACCOUNT</h3>
+                <li><a href="#">footer</a></li>
+            <li><a href="#">footer</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <ul>
+            <h3>MY ACCOUNT</h3>
+            <li><a href="#">footer</a></li>
+            <li><a href="#">footer</a></li>  
+        </ul>
+    </div>     
+</div>
+    <script>
+        function menuToggle(){
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active')
+        }
+        $(document).ready(function () {
+        var tag = {};
+        var counter = 0;
+
+        // 입력한 값을 태그로 생성한다.
+        function addTag (value) {
+            tag[counter] = value;
+            counter++; // del-btn 의 고유 id 가 된다.
+        }
+
+        // tag 안에 있는 값을 array type 으로 만들어서 넘긴다.
+        function marginTag () {
+            return Object.values(tag).filter(function (word) {
+                return word !== "";
+            });
+        }
+    
+        // 서버에 제공
+        $("#tag-form").on("submit", function (e) {
+            var value = marginTag(); // return array
+            $("#rdTag").val(value); 
+            $(this).submit();
+        });
+
+        $("#tag").on("keypress", function (e) {
+            var self = $(this);
+
+            //엔터나 스페이스바 눌렀을때 실행
+            if (e.key === "Enter" || e.keyCode == 32) {
+
+                var tagValue = self.val(); // 값 가져오기
+
+                // 해시태그 값 없으면 실행X
+                if (tagValue !== "") {
+
+                    // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
+                    var result = Object.values(tag).filter(function (word) {
+                        return word === tagValue;
+                    })
+                
+                    // 해시태그가 중복되었는지 확인
+                    if (result.length == 0) { 
+                        $("#tag-list").append("<li class='tag-item'>"+tagValue+"<span class='del-btn' idx='"+counter+"'>x</span></li>");
+                        addTag(tagValue);
+                        self.val("");
+                    } else {
+                        alert("태그값이 중복됩니다.");
+                    }
+                }
+                e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
+            }
+        });
+
+        // 삭제 버튼 
+        // 인덱스 검사 후 삭제
+        $(document).on("click", ".del-btn", function (e) {
+            var index = $(this).attr("idx");
+            tag[index] = "";
+            $(this).parent().remove();
+        });
+})
+    </script>    
 </body>
 
 </html>

@@ -60,8 +60,8 @@ h5 {
 
 .container .row {
     --bs-gutter-x: 2.5rem;
-    margin-right: calc(var(--bs-gutter-x) * -2.7);
-    margin-left: calc(var(--bs-gutter-x) * -0.6);
+    margin-right: calc(var(--bs-gutter-x) * -1.2);
+    margin-left: calc(var(--bs-gutter-x) * -0.7);
 }
 
 .btn {
@@ -118,7 +118,7 @@ div p {
     color: black;
     float: right;
     border-radius: 50%;
-    display: flex;
+    padding-top: 25px;
     justify-content: center;
     align-items: center;
     transition: 0.4s;
@@ -182,16 +182,6 @@ div p {
     visibility: visible;
     opacity: 1;
     margin-right: -20px;
-}
-
-.action .menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background: #fff;
 }
 
 .action .menu ul li {
@@ -275,147 +265,6 @@ div p {
 
 .nav ul li {
     margin-left: 36px;
-}
-
-.nav ul li a {
-    columns: #432;
-}
-
-.action .icon {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    padding-left: 35px;
-}
-
-.action .menu {
-    position: absolute;
-    top: 80px;
-    right: 90px;
-    padding: 20px;
-    backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    border-radius: 15px;
-    transition: 0.5s;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.big-bg {
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-}
-
-#home .header h1 {
-    padding: 10px 30px 0 130px;
-    font-size: 1.5rem;
-    display: inline;
-
-}
-
-.action .menu.active {
-    top: 70px;
-    visibility: visible;
-    opacity: 1;
-}
-
-.action .menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-}
-
-.action .menu ul li {
-    list-style: none;
-    margin: -10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    direction: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.action .menu ul li a {
-    display: inline-block;
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: 0.5s;
-}
-
-.action .menu ul li:hover a {
-    color: #ff5d94;
-}
-
-.header {
-    width: 100%;
-    min-width: 1280px;
-    top: 0;
-    left: 0;
-    padding-bottom: 40px;
-    line-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-}
-
-.header a {
-    position: relative;
-    text-decoration: none;
-    color: black;
-}
-
-.header .menu a::after,
-.header .nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 4px;
-    background: black;
-    transition: all .5s ease-out;
-}
-
-.header .menu a::after {
-
-    bottom: 2px;
-
-}
-
-.header a:hover::after {
-    width: 100%;
-}
-
-.header:hover {
-    backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.25);
-    transition: all 0.5s ease;
-    z-index: 100;
-}
-
-.nav {
-
-    padding: 0 5%;
-}
-
-.nav ul {
-    display: flex;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    font-family: 'Philosopher', sans-serif;
-}
-
-.nav ul li {
-    margin-left: 36px;
-    list-style: none;
 }
 
 .nav ul li a {
