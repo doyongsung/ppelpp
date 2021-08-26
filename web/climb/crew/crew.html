@@ -5,28 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>크루 상세페이지</title>
+
+
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="crew.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="action">
         <div id="home" class="big-bg">
             <div class="header wrapper">
+                <div class="logo">
+                    <h1><a href="#">오를래</a></h1>
+                </div>
                 <div class="nav">
-                <h1><a href="#">오를래</a></h1>
                     <ul>
                         <li><a href="#">MAIN</a></li>
                         <li><a href="#">HIKING</a></li>
                         <li><a href="#">CREW</a></li>
                         <li><a href="#">COMMUNITY</a></li>
-        <div class="icon" onclick="menuToggle();">
-            <a href="#"><i class="far fa-user"></i></a>
-        </div>
-    </div>
+                        <div class="icon" onclick="menuToggle();">
+                            <a href="#"><i class="far fa-user"></i></a>
+                        </div>
+                </div>
                 <div class="menu">
                     <ul>
                         <li><a href="#">로그인</a></li>
@@ -34,187 +39,199 @@
                         <li><a href="#">내 크루</a></li>
                         <li><a href="#">내 피드</a></li>
                         <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">로그아웃</a></li>
                     </ul>
                 </div>
-</div>
+            </div>
         </div>
+    </div>
+    <div class="section">
+        <div class="article">
+            <h1>MY CREW</h1>
+            <div class="article-crew">
+                <div><a href="#"><img src="../images/메인.jpg"></a></div>
+                <p>내 크루</p>
+            </div>
+            <div class="article-crew">
+                <div><a href="#"><img src="../images/메인.jpg"></a></div>
+                <p>내 크루</p>
+            </div>
+            <div class="article-crew">
+                <div><a href="#"><img src="../images/메인.jpg"></a></div>
+                <p>내 크루</p>
+            </div>
+
 
         </div>
-        <div class="section">
-            <div class="article">
-                <h1>MY CREW</h1>
-                <div class="card">
-                    <div><a href="#"><img src="../images/메인.jpg"></a></div>
-                    <p>내 크루</p>
-                </div>
-                <div class="card">
-                    <div><a href="#"><img src="../images/메인.jpg"></a></div>
-                    <p>내 크루</p>
-                </div>
-                <div class="card">
-                    <div><a href="#"><img src="../images/메인.jpg" ></a></div>
-                    <p>내 크루</p>
-                </div>
-                
-                
+        <div class="container">
+            <div class="search-box">
+                <h1>POPULAR CREW</h1>
+                <input class="search-txt" type="text" name="" placeholder="Type to search">
+                <a class="search-btn" onclick="menuToggle();" href="#">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
             </div>
-            <div class="gallery">
-                <div class="search-box">
-                    <h1>POPULAR CREW</h1>
-                    <input class="search-txt" type="text" name="" placeholder="Type to search"> 
-                    <a class="search-btn" onclick="menuToggle();" href="#">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <div class="card">
-                                <div class="top"></div>
-                                <div class="bottom"></div>
-                                <img src="../images/메인.jpg">
-                            </div>
-                        </a>
-                        <div class="card-text border1" >
-                            <h4>크루이름 : 비트캠프</h4>
-                            <p> 크루장 닉네임 : ppelpp</p>
-                            <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                            <button>GO</button>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card shadow" style="width: 25rem; height: 35rem;">
+                        <div class="inner">
+                            <div><img src="../images/다운로드 (9)_adobespark.jpeg" class="card-img-top"
+                                    alt="card image cap"></div>
                         </div>
-                        </li>
-                        
-                        <li>
-                            <a href="">
-                                <div class="card">
-                                    <div class="top">신기한 hover효과</div>
-                                    <div class="bottom">신기해</div>
-                                    <img src="../images/메인.jpg">
-                                </div>
-                            </a>
-                            <div class="card-text">
-                                <h4>크루이름 : 비트캠프</h4>
-                                <p> 크루장 닉네임 : ppelpp</p>
-                                <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                    앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                                <button>GO</button>
-                            </div>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="card">
-                                        <div class="top">신기한 hover효과</div>
-                                        <div class="bottom">신기해</div>
-                                        <img src="../images/메인.jpg">
-                                    </div>
-                                </a>
-                                <div class="card-text">
-                                    <h4>크루이름 : 비트캠프</h4>
-                                    <p> 크루장 닉네임 : ppelpp</p>
-                                    <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                        앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                                    <button>GO</button>
-                                </div>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div class="card">
-                                            <div class="top">신기한 hover효과</div>
-                                            <div class="bottom">신기해</div>
-                                            <img src="../images/메인.jpg">
-                                        </div>
-                                    </a>
-                                    <div class="card-text">
-                                        <h4>크루이름 : 비트캠프</h4>
-                                        <p> 크루장 닉네임 : ppelpp</p>
-                                        <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                            앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                                        <button>GO</button>
-                                    </div>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <div class="card">
-                                                <div class="top">신기한 hover효과</div>
-                                                <div class="bottom">신기해</div>
-                                                <img src="../images/메인.jpg">
-                                            </div>
-                                        </a>
-                                        <div class="card-text">
-                                            <h4>크루이름 : 비트캠프</h4>
-                                            <p> 크루장 닉네임 : ppelpp</p>
-                                            <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                                            <button>GO</button>
-                                        </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <div class="card">
-                                                    <div class="top">신기한 hover효과</div>
-                                                    <div class="bottom">신기해</div>
-                                                    <img src="../images/메인.jpg">
-                                                </div>
-                                            </a>
-                                            <div class="card-text">
-                                                <h4>크루이름 : 비트캠프</h4>
-                                                <p> 크루장 닉네임 : ppelpp</p>
-                                                <p>크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                                    앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                                                <button>GO</button>
-                                            </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                                </div>
-                                <div class="footer">
-                                    <div class="footer-col">
-                                        <ul>
-                                            <h3>MY ACCOUNT</h3>
-                                            <li><a href="#">footer</a></li>
-                                            <li><a href="#">footer</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer-col">
-                                        <ul>
-                                            <h3>MY ACCOUNT</h3>
-                                            <li><a href="#">footer</a></li>
-                                            <li><a href="#">footer</a></li>                           
-                                        </ul>
-                                    </div>
+                        <div class="card-body text-left">
+                            <h4 class="card-title">크루 이름: 비트캠프</h4>
+                            <p class="card-text">크루장: ppelpp</p>
+                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <a href="#" class="btn btn-success">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow" style="width: 25rem; height: 35rem;">
+                        <div class="inner">
+                            <div><img src="../images//메인2_1.png" class="card-img-top" alt="card image cap"></div>
+                        </div>
+                        <div class="card-body text-left">
+                            <h4 class="card-title">크루 이름: 비트캠프</h4>
+                            <p class="card-text">크루장: ppelpp</p>
+                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <a href="#" class="btn btn-success">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow" style="width: 25rem; height: 35rem;">
+                        <div class="inner">
+                            <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
+                                    alt="card image cap"></div>
+                        </div>
+                        <div class="card-body text-left">
+                            <h4 class="card-title">크루 이름: 비트캠프</h4>
+                            <p class="card-text">크루장: ppelpp</p>
+                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <a href="#" class="btn btn-success">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="inner">
+                            <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
+                                    alt="card image cap"></div>
+                        </div>
+                        <div class="card-body text-left">
+                            <h4 class="card-title">크루 이름: 비트캠프</h4>
+                            <p class="card-text">크루장: ppelpp</p>
+                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <a href="#" class="btn btn-success">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="inner">
+                            <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
+                                    alt="card image cap"></div>
+                        </div>
+                        <div class="card-body text-left">
+                            <h4 class="card-title">크루 이름: 비트캠프</h4>
+                            <p class="card-text">크루장: ppelpp</p>
+                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <a href="#" class="btn btn-success">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="inner">
+                            <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
+                                    alt="card image cap"></div>
+                        </div>
+                        <div class="card-body text-left">
+                            <h4 class="card-title">크루 이름: 비트캠프</h4>
+                            <p class="card-text">크루장: ppelpp</p>
+                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
+                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <a href="#" class="btn btn-success">GO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="footer">
         <div class="footer-col">
-            <ul>
-                <h3>MY ACCOUNT</h3>
-                <li><a href="#">MY PAGE</a></li>
-                <li><a href="#">MY ORDER</a></li>
-                <li><a href="#">MEMBERSHIP</a></li>
-                <li><a href="#">LOGIN</a></li>
-                <li><a href="#">JOIN US</a></li>
+            <ul class="footer-1">
+                <h3 class="footer-01">PROJECT-OLLULAY</h3>
+                <li><a href="#">BITCAMP -205</a></li>
+                <li><a href="#">final project</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <ul>
-                <h3>MY ACCOUNT</h3>
-                <li><a href="#">footer</a></li>
-                <li><a href="#">footer</a></li>
+            <ul class="footer-2">
+                <h3 class="footer-02">CATAGORY</h3>
+                <li><a href="#">Mountain</a></li>
+                <li><a href="#">Crew</a></li>
+                <li><a href="#">Feed</a></li>
+                <li><a href="#">Mypage</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <ul>
-                <h3>MY ACCOUNT</h3>
-                <li><a href="#">footer</a></li>
-                <li><a href="#">footer</a></li>  
+            <ul class="footer-3">
+                <h3 class="footer-03">GIT HUB</h3>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
             </ul>
-        </div>     
+        </div>
+        <div class="footer-col">
+            <ul class="footer-4">
+                <h3 class="footer-04">구현기술</h3>
+                <li><a href="#">JAVA</a></li>
+                <li><a href="#">WEB STANDARD</a></li>
+                <li><a href="#">MYSQL</a></li>
+                <li><a href="#">SPRING</a></li>
+                <li><a href="#">MYBATIS</a></li>
+                <li><a href="#">AWS</a></li>
+            </ul>
+        </div>
     </div>
     <script>
-        function menuToggle(){
+        function menuToggle() {
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
-    </script>    
+    </script>
 </body>
 
 </html>

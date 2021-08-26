@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크루 수정</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../crew_update/update.css">
+    <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="../crew_update/update.js"></script>
+</head>
+
+<body>
+    <div class="action">
+        <div id="home" class="big-bg">
+            <div class="header wrapper">
+                <div class="logo">
+                    <h1><a href="#">오를래</a></h1>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#">MAIN</a></li>
+                        <li><a href="#">HIKING</a></li>
+                        <li><a href="#">CREW</a></li>
+                        <li><a href="#">COMMUNITY</a></li>
+                        <div class="icon" onclick="menuToggle();">
+                            <a href="#"><i class="far fa-user"></i></a>
+                        </div>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">내 크루</a></li>
+                        <li><a href="#">내 피드</a></li>
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">로그아웃</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="box">
+
+            <div class="edit_section">
+                <form>
+                    <table>
+                        <tr>
+                            <div class="create">
+                                <h1>생성하기</h1>
+                            </div>
+                            <td>
+                                <label for="crewname">크루명</label>
+                            </td>
+                            <td>
+                                <input type="text" id="crewname" name="crewname" class="form-control"
+                                    placeholder="원래 크루명이 자동으로 뜨도록 처리">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="crewname">크루 사진</label>
+                            </td>
+                            <td>
+                                <img id="hiking" src="../images/다운로드 (10)_adobespark.jpeg">
+                                <input type="file" id="crewphoto" name="crewphoto" class="form-control form-control-lg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="crewintro">크루 소개글</label>
+                            </td>
+                            <td>
+                                <input type="text" id="crewintro" name="crewintro" class="form-control"
+                                    placeholder="새로운 크루 소개글을 입력해주세요!">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tr_hashTag_area">
+                                    <p><strong>해시태그</strong></p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="hidden" value="" name="tag" id="rdTag" />
+                                </div>
+
+                                <ul id="tag-list"></ul>
+
+                                <div class="form-group">
+                                    <input type="text" id="tag" size="7" placeholder="#" style="width: 300px;" />
+                                </div>
+                            </td>
+                        </tr>
+            </div>
+            </td>
+            </tr>
+            <td>
+                <input type="submit" value="수정" class="form-control btn-secondary">
+            </td>
+            </tr>
+            </table>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="footer-col">
+            <ul class="footer-1">
+                <h3 class="footer-01">PROJECT-OLLULAY</h3>
+                <li><a href="#">BITCAMP -205</a></li>
+                <li><a href="#">final project</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul class="footer-2">
+                <h3 class="footer-02">CATAGORY</h3>
+                <li><a href="#">Mountain</a></li>
+                <li><a href="#">Crew</a></li>
+                <li><a href="#">Feed</a></li>
+                <li><a href="#">Mypage</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul class="footer-3">
+                <h3 class="footer-03">GIT HUB</h3>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+                <li><a href="#">Soyeon Jung</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul class="footer-4">
+                <h3 class="footer-04">구현기술</h3>
+                <li><a href="#">JAVA</a></li>
+                <li><a href="#">WEB STANDARD</a></li>
+                <li><a href="#">MYSQL</a></li>
+                <li><a href="#">SPRING</a></li>
+                <li><a href="#">MYBATIS</a></li>
+                <li><a href="#">AWS</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function menuToggle() {
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active')
+        }
+    </script>
+</body>
+
+</html>

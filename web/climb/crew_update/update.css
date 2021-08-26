@@ -1,152 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+body {
+    background-color: rgb(240, 240, 240);
 }
 
-.article h1,
-.container h1 {
-    font-size: 3.5rem;
-    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    position: relative;
+.form-group input {
+    border: none;
+}
+td {
+    padding-bottom: 20px;
 }
 
-.inner {
+#profile {
+    height: 25px;
+    border-radius: 50%;
     overflow: hidden;
 }
 
-.inner div {
-    width: 100%;
-    height: 100%;
-}
 
-p {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.inner img {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.article-crew div:hover,
-.inner div:hover {
-    opacity: 0.8;
-    transition: all ease-in-out 100ms;
-}
-
-h5 {
-    font-weight: bold;
-}
-
-.card-body a {
-    background: rgb(253, 239, 123);
-    border: none;
-    color: black;
-}
-
-.col-md-4 {
-    padding-bottom: 50px;
+#crewphoto {
+    padding-right: 200px;
 }
 
 .section {
-    padding: 200px 0;
-}
-
-.container .row {
-    --bs-gutter-x: 2.5rem;
-    margin-right: calc(var(--bs-gutter-x) * -1.2);
-    margin-left: calc(var(--bs-gutter-x) * -0.7);
-}
-
-.btn {
-    padding: 10px;
-    width: 30%;
-    cursor: pointer;
-    border-radius: 7px;
+    padding: 5% 0 5% 0;
+    display: flex;
+    justify-content: center;
 
 }
 
-p {
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 800px;
+    padding-top: 100px;
+}
+
+.nav2 {
+    text-align: left;
+    width: 20%;
+    min-width: 150px;
+    background-color: white;
+    padding: 10px 0 0 30px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 8px 0 0 8px;
+}
+
+.text_bold {
+    font-weight: bold;
+}
+
+.edit_section {
+    min-width: 600px;
+    background-color: white;
+    padding: 35px 20px 35px 50px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#hiking {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+}
+
+.edit_section {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.edit_section label {
+    font-weight: bold;
+    min-width: 130px;
+    font-size: 17px;
+}
+
+.edit_section input {
+    padding: 8px;
+    line-height: 40px;
+    font-size: 15px;
+    height: 55px;
+}
+
+.edit_section input[type="submit"] {
+    margin-top: 30px;
+    background-color: rgb(70, 70, 70);
+    max-width: 120px;
+    height: 40px;
+    line-height: 20px;
+    font-size: 15px;
+    float: right;
+}
+
+.edit_section input[type=file] {
+    margin-top: 20px;
+}
+
+#crewintro {
+    min-height: 180px;
+}
+
+.form-control-lg {
+    padding: 1.0rem 1.0rem;
+}
+a {
+    text-decoration: none;
+}
+
+.create {
     padding-bottom: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+#tag-list {
+    border: none
+}
+
+.tag-item{
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
     -webkit-line-clamp: 2; /* 라인수 */
     -webkit-box-orient: vertical;
     word-wrap:break-word; 
-  
 }
 
-
-a {
-    text-decoration: none;
-    cursor: pointer;
+.tr_hashTag_area p {
+    margin-top: 70px;
+}
+.edit_section ul {
+    padding: 16px 0;
 }
 
-li {
-    list-style: none;
-}
-
-div p {
+.edit_section ul li {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 14px;
+    letter-spacing: -.5px;
     overflow: hidden;
-    width: 100%;
-    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.search-box {
-    padding-top: 25px;
-    padding-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
+form {
+    padding-top: 16px;
+}
+.edit_section ul li.tag-item{
+    background-color: rgb(253, 239, 123);
+    color:#000;
+    border-radius: 10px;
+    display:inline-block;
+    padding: 4px 7px;
+}
+.del-btn {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
 }
 
-.search-box:hover>.search-txt {
-    width: 160px;
-    padding: 0 6px;
-}
-
-.search-box:hover>.search-btn {
-    background: white;
-}
-
-.search-box input {
-    padding: 5px;
-}
-
-.search-btn {
-    color: black;
-    float: right;
-    border-radius: 50%;
-    padding-top: 25px;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-}
-
-
-.search-txt {
-    border: white;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: black;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
-}
-
-.search-box h1 {
-    padding-right: 50%;
-}
+/*header*/
 .logo {
     display: flex;
     align-content: center;
@@ -165,10 +186,10 @@ div p {
   .action .menu {
     position: absolute;
     top: 110px;
-    right: 90px;
+    right: 40px;
     padding-right: 30px;
     backdrop-filter: bulr(10px);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
     box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
     z-index: 100;
     border-radius: 0 0 15px 15px;
@@ -310,9 +331,6 @@ div p {
   .nav ul li a {
     columns: #432;
   }
-.page {
-    padding-left: 45%;
-}
 
 /*footer*/
 .footer {
@@ -382,69 +400,4 @@ div p {
 .footer-col ul li a:hover {
 	color: #ffffff;
 	padding-left: 20px;
-}
-ul>li>a .card::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    opacity: 0;
-    transition: all .45s;
-}
-
-ul>li>a:hover .card::after {
-    opacity: 1;
-}
-
-
-.section .article {
-    border-bottom: 1px solid #aaa;
-    max-width: 1300px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.article div {
-    padding-bottom: 13px;
-}
-
-.section .article .article-crew {
-    text-align: center;
-    margin: 0 -30px;
-    float: left;
-    padding: 10px;
-}
-
-div::after {
-    display: block;
-    content: '';
-    clear: both;
-
-}
-
-.card {
-    width: 25rem;
-    height: 35rem;
-}
-.card img{
-    width: 100%;
-    height: 350px;
-}
-
-
-.section .article img {
-    border-radius: 70%;
-    overflow: hidden;
-    width: 70%;
-    height: 150px;
-}
-
-.section .article span,
-.section .popular_crew span {
-    font-size: 40px;
 }
