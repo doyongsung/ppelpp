@@ -24,6 +24,25 @@
     height: 100%;
 }
 
+.dropdown{
+    position: initial;
+}
+.select{
+    display: flex;
+    float: right;
+}
+.select a{
+    padding: 2px;
+    text-decoration: none;
+    color: #aaa;
+}
+.select a:hover{
+    color: black;
+}
+.section ul li{
+    padding: 5px;
+    margin-left: 5px;
+}
 p {
     font-family: Arial, Helvetica, sans-serif;
 }
