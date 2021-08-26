@@ -190,23 +190,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <label for="crewhash">크루 해시태그</label>
+                                <mini-editor placeholder="내용을 입력하세요 (#해시태그 @멘션)"  ></mini-editor>
+                                
                             </td>
-                            <td>
-                                <div class="tr_hashTag_area">
-                                           <div class="form-group">
-                                                <input type="hidden" value="" name="tag" id="rdTag" />
-                                            </div>
-                                        
-                                            <a href="#">
-                                                <ul id="tag-list"></ul>
-                                            </a>
-                                                        
-                                            <div class="form-group">
-                                                <input type="text" id="tag" size="7" placeholder="엔터로 해시태그를 등록해주세요." style="width: 300px;"/>
-                                           </div>
-                                </div>
-                            </td>
+                            
                         </tr>
                             <td></td>
                             <td>
@@ -263,67 +250,190 @@
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
-        $(document).ready(function () {
-        var tag = {};
-        var counter = 0;
+        class MiniEditor extends HTMLElement {
+  constructor(){
+    super();
+    this._value = '';
+  }
 
-        // 입력한 값을 태그로 생성한다.
-        function addTag (value) {
-            tag[counter] = value;
-            counter++; // del-btn 의 고유 id 가 된다.
+  connectedCallback(){
+    var shadow = this.attachShadow({ mode:'open'});
+    var wrapper = document.createElement('div');
+    var placeholder = document.createElement('div');
+    var outp = document.createElement('div');
+    var inp = document.createElement('div');
+
+    wrapper.setAttribute('class', 'editor-body');
+
+    var style = document.createElement('style');
+    style.textContent = `
+    div.editor-body {
+      width:100%;
+      height:100%;
+      overflow-y:auto;
+      overflow-x:none;
+      min-height:7em;
+      border-top:solid 1px #eee;
+      border-bottom:solid 1px #eee;
+      position:relative;
+      box-sizing:border-box;
+    }
+
+    div.editor-body>div {
+      box-sizing:border-box;
+      padding:1rem;
+    }
+
+    div.outp, div.placeholder{
+      pointer-events:none;
+    }
+
+    div.outp>span.hashtag{
+        background:#69c;
+      color:white;
+      border-radius:.5em;
+      padding:0 .2em;
+      margin:0 -.2em;
+    }
+    div.outp>span.mention{
+      color:bule;
+    }
+
+    div.placeholder {
+      color:#999;
+    }
+
+    .inp {
+      z-index:1;
+    }
+    div.outp {
+      z-index:2;
+    }
+
+    div.outp, .inp, div.placeholder {
+      text-align:left;
+      width:100%;
+      height:auto;
+      min-height:100%;
+      position:absolute;
+      top:0;
+      left:0;
+      overflow-y:visible;
+    }
+    div.outp:focus, .inp:focus, div.placeholder:focus {
+      outline:none;
+    }
+    `;
+
+    placeholder.setAttribute('class', 'placeholder');
+    if( this.hasAttribute('placeholder') ){
+      placeholder.innerHTML = this.getAttribute('placeholder');
+    }else{
+      console.log(this.hasAttribute('placeholder'));
+      placeholder.innerHTML = '';
+    }
+
+
+
+    outp.setAttribute('class', 'outp');
+    inp.setAttribute('class', 'inp');
+    inp.setAttribute('contenteditable', true);
+
+    inp.addEventListener('input', this.update.bind(this), false);
+    inp.addEventListener('keydown', this.keydown.bind(this), false);
+    inp.addEventListener('paste', this.paste.bind(this), false);
+   
+
+    shadow.appendChild(wrapper);
+    shadow.appendChild(style);
+
+    wrapper.appendChild(placeholder);
+    wrapper.appendChild(inp);
+    wrapper.appendChild(outp);
+
+    this._children = {
+      placeholder, inp, outp
+    };
+    if(this.hasAttribute('value')){
+      this._value = this.getAttribute('value');
+      this.checkvalue();
+    }
+    this.shadow = shadow;
+  }
+
+  checkvalue(){
+    if( this._value.length > 0 ){
+      this._children.placeholder.style.display = 'none';
+    }else{
+      this._children.placeholder.style.display = 'block';
+    } 
+    this._children.outp.innerHTML = this._value;
+  }
+
+  set value(v){
+    this._value = v;
+    this.checkvalue();
+  }
+
+  get value(){
+    return this._value;
+  }
+
+  update(e){
+    var str = e.target.innerText;
+    str = str
+      .replace(/[<>\&]/gim, (i)=>'&#' + i.charCodeAt(0) + ';')
+      .replace(/\n/g, "&nbsp;\n<br />")
+      .replace(/^(#\S+)/g, "<span class='hashtag'>$1</span>")
+      .replace(/([^\&])(#\S+)/g, "$1<span class='hashtag'>$2</span>")
+      .replace(/^(@\S+)/g, "<span class='mention'>$1</span>")
+      .replace(/([^\&])(@\S+)/g, "$1<span class='mention'>$2</span>");
+    this.value = str;
+  }
+
+  putAtCaret(content){
+    let sel, range;
+    if( this.shadow.getSelection ){
+      sel = this.shadow.getSelection();
+      if( sel.getRangeAt && sel.rangeCount ){
+        range = sel.getRangeAt(0);
+        range.deleteContents();
+        var el = document.createElement('div');
+        el.innerHTML = content;
+        var frag = document.createDocumentFragment(), node, lastNode;
+        while( (node=el.firstChild) ){
+          lastNode = frag.appendChild(node);
         }
-
-        // tag 안에 있는 값을 array type 으로 만들어서 넘긴다.
-        function marginTag () {
-            return Object.values(tag).filter(function (word) {
-                return word !== "";
-            });
+        range.insertNode(frag);
+        if( lastNode ){
+          range = range.cloneRange();
+          range.setStartAfter(lastNode);
+          range.setEndAfter(lastNode);
+          range.collapse(true);
+          sel.removeAllRanges();
+          sel.addRange(range);
         }
-    
-        // 서버에 제공
-        $("#tag-form").on("submit", function (e) {
-            var value = marginTag(); // return array
-            $("#rdTag").val(value); 
-            $(this).submit();
-        });
+      }
+      this.update({ target:this._children.inp});
+    }
+  }
 
-        $("#tag").on("keypress", function (e) {
-            var self = $(this);
+  keydown(e){
+      if( e.keyCode == 13 ){
+        e.preventDefault();
+        this.putAtCaret(' \n<br>\u200B');
+        return false;
+      }
+  }
+  
+  paste(e){
+    e.preventDefault();
+    var data = (e.clipboardData || window.clipboardData).getData('Text').replace(/\r/g, '').replace(/\n/g, '\n<br />');
+    document.execCommand('insertHTML', false, data);
+  }
+}
 
-            //엔터나 스페이스바 눌렀을때 실행
-            if (e.key === "Enter" || e.keyCode == 32) {
-
-                var tagValue = self.val(); // 값 가져오기
-
-                // 해시태그 값 없으면 실행X
-                if (tagValue !== "") {
-
-                    // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
-                    var result = Object.values(tag).filter(function (word) {
-                        return word === tagValue;
-                    })
-                
-                    // 해시태그가 중복되었는지 확인
-                    if (result.length == 0) { 
-                        $("#tag-list").append("<li class='tag-item'>"+tagValue+"<span class='del-btn' idx='"+counter+"'>x</span></li>");
-                        addTag(tagValue);
-                        self.val("");
-                    } else {
-                        alert("태그값이 중복됩니다.");
-                    }
-                }
-                e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
-            }
-        });
-
-        // 삭제 버튼 
-        // 인덱스 검사 후 삭제
-        $(document).on("click", ".del-btn", function (e) {
-            var index = $(this).attr("idx");
-            tag[index] = "";
-            $(this).parent().remove();
-        });
-})
+customElements.define('mini-editor', MiniEditor);
     </script>    
 </body>
 

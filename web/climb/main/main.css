@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Vast+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee+Shade&family=Vast+Shadow&display=swap');
 
 * {
     margin: 0;
@@ -6,8 +9,10 @@
 }
 
 p {
-    padding-bottom: 30px;
-    margin-left: -5%;
+    text-align: left;
+    padding: 10px 195px 20px;
+    font-size: 18px;
+
 }
 
 a {
@@ -21,17 +26,24 @@ img {
 }
 
 h2 {
+
+    font-family: 'Vast Shadow', cursive;
+    font-family: 'Bungee Shade', cursive;
     font-family: 'Philosopher', sans-serif;
+    font-family: 'Alfa Slab One', cursive;
 }
 
 h1 {
     font-size: 2.5rem;
+    text-align: left;
+    padding-left: 10%;
 }
 
 
 #home {
     background-image: url(../images/메인1.jpg);
     min-height: 100vh;
+
 }
 
 
@@ -71,8 +83,8 @@ h1 {
 }
 
 .home_3_text {
-    padding-top: 23%;
-    padding-left: 62%;
+    padding-top: 22%;
+    padding-left: 58%;
     position: absolute;
 }
 
@@ -90,39 +102,43 @@ h1 {
 
 .home_4_text {
     position: absolute;
-    margin-top: -7%;
-    margin-left: 44%;
+    margin-top: -8%;
+    margin-left: 34%;
     color: white;
 }
 
-.home_4_text p,
-.home_3_text p {
-    margin-left: -25%;
+
+
+.home_4_text p {
+    margin-left: -18%;
+}
+
+button {
+    width: 120px;
+    height: 45px;
 }
 
 .button1 {
-    width: 100px;
-    height: 30px;
-    border: 1px solid black;
+    border: 1px solid #aaa;
     background-color: transparent;
     border-radius: 10px;
-    margin-right: 280px;
+    margin-right: 24%;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .button2 {
-    width: 100px;
-    height: 30px;
     border: none;
     border-radius: 10px;
-    margin-right: 280px;
-    background-color: yellow;
+    margin-right: 365px;
+    background-color: rgb(253, 239, 139);
 }
+
 
 #home_3 {
     min-height: 100vh;
     display: flex;
     background: url(../images/1.png);
-
 }
 
 
@@ -132,7 +148,6 @@ h1 {
 }
 
 .home_4_mini img {
-
     position: relative;
     width: 68%;
     padding-top: 20px;
@@ -161,11 +176,9 @@ ul {
 }
 
 .page-title {
-    font-size: 5rem;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-weight: bold;
+    margin-top: -80px;
 }
+
 
 .button:hover {
     background: #0090aa;
@@ -217,12 +230,12 @@ ul {
     top: 70px;
     visibility: visible;
     opacity: 1;
-    margin-right: -30px;
-
+    margin-right: -20px;
 }
 
 .action .menu ul li {
     list-style: none;
+    margin: -10px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     direction: flex;
     align-items: center;
@@ -237,6 +250,10 @@ ul {
     transition: 0.5s;
 }
 
+.action .menu ul li:hover a {
+    color: #ff5d94;
+}
+
 .header {
     width: 100%;
     padding-top: 20px;
@@ -245,6 +262,8 @@ ul {
     line-height: 60px;
     display: flex;
     justify-content: space-between;
+    z-index: 9999;
+
 }
 
 .header a {
@@ -276,7 +295,6 @@ ul {
 
 .header .menu a::after {
     bottom: 2px;
-
 }
 
 .header a:hover::after {
@@ -285,8 +303,7 @@ ul {
 
 .header:hover {
     backdrop-filter: bulr(10px);
-
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.25);
     transition: all 0.5s ease;
     z-index: 100;
 }
@@ -320,9 +337,9 @@ ul {
 }
 
 .footer-col {
-    width: 30%;
+    width: 20%;
     text-align: center;
-    padding-left: 50px;
+    padding-left: 80px;
 
 }
 
@@ -338,18 +355,29 @@ ul {
 
 .footer-col li {
     list-style: none;
-    padding: 5px;
+    padding: 5px 130px;
+    text-align: left;
 }
 
 .footer-col h3::before {
     content: '';
     position: absolute;
-    left: 10;
+    left: 9;
     height: 2px;
-    bottom: -10px;
+    bottom: -7px;
     box-sizing: border-box;
     background-color: white;
-    width: 120px;
+    width: 80px;
+}
+
+.footer-col .footer-01::before {
+    width: 160px;
+
+}
+
+.footer-col .footer-02::before {
+    width: 100px;
+
 }
 
 
@@ -365,4 +393,24 @@ ul {
 .footer-col ul li a:hover {
     color: #ffffff;
     padding-left: 20px;
+}
+
+.footer-1 li {
+    margin-left: -20px;
+}
+
+.footer-02,
+.footer-03,
+.footer-04 {
+    padding-right: 30px;
+}
+
+.footer-03,
+.footer-04 {
+    padding-right: 50px;
+}
+
+
+.footer-04 {
+    padding-right: 60px;
 }

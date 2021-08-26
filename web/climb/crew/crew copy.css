@@ -142,6 +142,7 @@ div p {
     padding-right: 50%;
 }
 
+
 .action .icon {
     position: relative;
     overflow: hidden;
@@ -151,11 +152,10 @@ div p {
 
 .action .menu {
     position: absolute;
-    top: 80px;
-    right: 90px;
-    padding: 20px;
+    top: 90px;
+    right: 70px;
     backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
     box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
     z-index: 100;
     border-radius: 15px;
@@ -171,48 +171,50 @@ div p {
 }
 
 #home .header h1 {
-    padding: 10px 30px 0 130px;
     font-size: 1.5rem;
     display: inline;
-
 }
 
 .action .menu.active {
-    top: 70px;
     visibility: visible;
     opacity: 1;
-    margin-right: -20px;
 }
 
 .action .menu ul li {
     list-style: none;
-    margin: -10px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     direction: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 5px;
+}
+
+.action .menu ul {
+    padding-left: 15px;
 }
 
 .action .menu ul li a {
     display: inline-block;
     text-decoration: none;
-    color: #555;
+    color: #fff;
     font-weight: 500;
     transition: 0.5s;
 }
 
-.action .menu ul li:hover a {
-    color: #ff5d94;
-}
-
 .header {
     width: 100%;
-    min-width: 1280px;
     padding-top: 20px;
     left: 0;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
     line-height: 60px;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+mini-editor {
+    height: 5em;
+    font-family: sans-serif;
 }
 
 .header a {
@@ -235,7 +237,6 @@ div p {
 }
 
 .header .menu a::after {
-
     bottom: 2px;
 
 }
@@ -246,13 +247,10 @@ div p {
 
 .header:hover {
     backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.25);
+
+    background-color: rgba(0, 0, 0, 0.4);
     transition: all 0.5s ease;
     z-index: 100;
-}
-
-.header .nav {
-    padding-left: 55%;
 }
 
 .nav ul {
@@ -261,6 +259,10 @@ div p {
     text-transform: uppercase;
     list-style: none;
     font-family: 'Philosopher', sans-serif;
+    margin-bottom: 0;
+    align-items: center;
+    padding-left: 110%;
+
 }
 
 .nav ul li {

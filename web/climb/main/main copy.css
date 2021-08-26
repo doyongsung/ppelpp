@@ -151,6 +151,7 @@ h1 {
     padding-left: 80px;
 }
 
+
 .home_4_text {
     position: absolute;
     margin-top: -7%;
@@ -307,6 +308,8 @@ ul {
     padding-bottom: 40px;
     line-height: 60px;
     display: flex;
+    position: absolute;
+    z-index: 9999;
 
 }
 
