@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+
+.article h1,
+.container h1 {
+    font-size: 3.5rem;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+}
+
+.nav{
+	margin-left:50%;
+}
+.inner {
+    overflow: hidden;
+}
+
+.inner div {
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown {
+    position: initial;
+}
+
+.select {
+    display: flex;
+    float: right;
+}
+
+.select a {
+    padding: 2px;
+    text-decoration: none;
+    color: #aaa;
+}
+
+.select a:hover {
+    color: black;
+}
+
+.section ul li {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.inner img {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-crew div:hover,
+.inner div:hover {
+    opacity: 0.8;
+    transition: all ease-in-out 100ms;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.card-body a {
+    background: rgb(253, 239, 123);
+    border: none;
+    color: black;
+}
+
+.col-md-4 {
+    padding-bottom: 50px;
+}
+
+.section {
+    padding: 200px 0;
+}
+
+.container .row {
+    --bs-gutter-x: 2.5rem;
+    margin-right: calc(var(--bs-gutter-x) * -1.2);
+    margin-left: calc(var(--bs-gutter-x) * -0.7);
+}
+
+.btn {
+    padding: 10px;
+    width: 30%;
+    cursor: pointer;
+    border-radius: 7px;
+
+}
+
+p {
+    padding-bottom: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+
+}
+
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+div p {
+    overflow: hidden;
+    width: 100%;
+    height: 20px;
+}
+
+.search-box {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-box:hover>.search-txt {
+    width: 160px;
+    padding: 0 6px;
+}
+
+.search-box:hover>.search-btn {
+    background: white;
+}
+
+.search-box input {
+    padding: 5px;
+}
+
+.search-btn {
+    color: black;
+    float: right;
+    border-radius: 50%;
+    padding-top: 25px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+
+.search-txt {
+    border: white;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+.search-box h1 {
+    padding-right: 50%;
+}
+
+.crew-insert {
+    padding-left: 64%;
+}
+
+.crew-insert a {
+    text-decoration: none;
+    color: black;
+}
+
+.crew-insert a:hover {
+    color: cornflowerblue;
+}
+
+
+.page {
+    padding-left: 42%;
+}
+
+.pagination {
+    position: absolute;
+}
+
+
+ul>li>a .card::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    opacity: 0;
+    transition: all .45s;
+}
+
+ul>li>a:hover .card::after {
+    opacity: 1;
+}
+
+
+.section .article {
+    border-bottom: 1px solid #aaa;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.article div {
+    padding-bottom: 13px;
+}
+
+.section .article .article-crew {
+    text-align: center;
+    float: left;
+    padding: 10px;
+}
+
+div::after {
+    display: block;
+    content: '';
+    clear: both;
+
+}
+
+.card {
+    width: 25rem;
+    height: 35rem;
+}
+
+.card img {
+    width: 100%;
+    height: 350px;
+}
+
+
+.section .article img {
+    border-radius: 70%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+}
+
+.section .article span,
+.section .popular_crew span {
+    font-size: 40px;
+}

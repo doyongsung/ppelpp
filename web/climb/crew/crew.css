@@ -1,11 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
+/*구글 아이콘 넣기*/
+@font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local("Material Icons"), local("MaterialIcons-Regular"),
+        url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),
+        url(https://example.com/MaterialIcons-Regular.woff) format("woff"),
+        url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: "liga";
+}
+
+/*폰트 스타일넣기*/
+/*로고폰트*/
+@font-face {
+    font-family: "Cafe24SsurroundAir";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*본문 폰트*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
+
+:root {
+    --background-color: #f8f8f8;
+    --yello-color: #fdef7b;
+    --footer-color: #cac0ae;
+    --point-color: #785024;
+    --text-sans: "Noto Sans KR ", sans-serif;
+    --text-logo: "Cafe24SsurroundAir";
+}
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 
 .article h1,
 .container h1 {
@@ -24,25 +83,30 @@
     height: 100%;
 }
 
-.dropdown{
+.dropdown {
     position: initial;
 }
-.select{
+
+.select {
     display: flex;
     float: right;
 }
-.select a{
+
+.select a {
     padding: 2px;
     text-decoration: none;
     color: #aaa;
 }
-.select a:hover{
+
+.select a:hover {
     color: black;
 }
-.section ul li{
+
+.section ul li {
     padding: 5px;
     margin-left: 5px;
 }
+
 p {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -97,10 +161,11 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-line-clamp: 2;
+    /* 라인수 */
     -webkit-box-orient: vertical;
-    word-wrap:break-word; 
-  
+    word-wrap: break-word;
+
 }
 
 
@@ -166,242 +231,30 @@ div p {
 .search-box h1 {
     padding-right: 50%;
 }
-.logo {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    min-width: 20%;
-  }
-  
-  .action .icon {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    padding-left: 35px;
-  }
-  
-  .action .menu {
-    position: absolute;
-    top: 110px;
-    right: 90px;
-    padding-right: 30px;
-    backdrop-filter: bulr(10px);
-    background-color: #fff;
-    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    border-radius: 0 0 15px 15px;
-    transition: 0.5s;
-    visibility: hidden;
-    opacity: 0;
-    font-size: 13px;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
-    border-top: none;
-  }
-  
-  .big-bg {
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
-  
-  #home .header h1 {
-    font-size: 1.5rem;
-    display: inline;
-    font-family: "Cafe24SsurroundAir";
-  }
-  
-  .action .menu.active {
-    top: 100px;
-    visibility: visible;
-    opacity: 1;
-    margin-right: -20px;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
-  }
-  
-  .action .menu ul li {
-    list-style: none;
-    margin:-10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    direction: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-  }
-  
-  .action .menu ul li a {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.5s;
-  }
-  
-  .action .menu ul li:hover a {
-    color: #ff5d94;
-    color: #785024;
-  }
-  
-  .header {
-    width: 100%;
-    padding-top: 20px;
-    left: 0;
-    padding-bottom: 20px;
-    line-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    z-index: 33;
-    background-color: #fff;
-    opacity: 0.8;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
-  }
-  
-  .header a {
-    position: relative;
+
+.crew-insert {
+    padding-left: 64%;
+}
+
+.crew-insert a {
     text-decoration: none;
     color: black;
-  }
-  
-  .nav {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding-right: 70px;
-  }
-  
-  .header .menu a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: black;
-    transition: all 0.5s ease-out;
-  }
-  .header .nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 4px;
-    background: black;
-    transition: all 0.5s ease-out;
-  }
-  
-  .header .menu a::after {
-    bottom: 15px;
-  }
-  
-  .header a:hover::after {
-    width: 100%;
-  }
-  
-  .header:hover {
-    backdrop-filter: bulr(10px);
-    background-color: #fdef7b;
-    transition: all 0.5s ease;
-    z-index: 100;
-  }
-  
-  .nav ul {
-    display: flex;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    list-style: none;
-    font-family: "Philosopher", sans-serif;
-    margin-bottom: 0;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .nav ul li {
-    margin-left: 36px;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 17px;
-  }
-  
-  .nav ul li a {
-    columns: #432;
-  }
+}
+
+.crew-insert a:hover {
+    color: cornflowerblue;
+}
+
+
 .page {
-    padding-left: 45%;
+    padding-left: 42%;
 }
 
-/*footer*/
-.footer {
-	padding: 70px 0;
-	background-color: #cac0ae;
-	flex-wrap: wrap;
-	display: flex;
+.pagination {
+    position: absolute;
 }
 
-.footer-col {
-	width: 24%;
-	text-align: center;
 
-}
-
-.footer-col h3 {
-	font-size: 18px;
-	text-transform: capitalize;
-	margin-bottom: 25px;
-	font-weight: 500;
-	position: relative;
-	color: white;
-	font-weight: bold;
-}
-
-.footer-col li {
-	list-style: none;
-	padding: 5px 0;
-    text-align: left;
-    padding-left: 175px;
-}
-.footer-1 li{
-    padding-left: 130px;
-
-}
-
-.footer-2 li{
-    padding-left: 165px;
-}
-
-.footer-col h3::before {
-	content: '';
-	position: absolute;
-	left: 10;
-	height: 2px;
-	bottom: -10px;
-	box-sizing: border-box;
-	background-color: white;
-	width: 75px;
-}
-.footer-1 h3::before{
-    width: 160px;
-}
-.footer-2 h3::before{
-    width: 95px;
-}
-
-.footer-col ul li a {
-	font-size: 16px;
-	text-transform: capitalize;
-	color: white;
-	display: block;
-	transition: all 0.5s ease;
-	text-decoration: none;
-}
-
-.footer-col ul li a:hover {
-	color: #ffffff;
-	padding-left: 20px;
-}
 ul>li>a .card::after {
     content: '';
     display: block;
@@ -450,7 +303,8 @@ div::after {
     width: 25rem;
     height: 35rem;
 }
-.card img{
+
+.card img {
     width: 100%;
     height: 350px;
 }
@@ -466,4 +320,240 @@ div::after {
 .section .article span,
 .section .popular_crew span {
     font-size: 40px;
+}
+
+/*헤더*/
+/*header*/
+.oly i {
+    font-size: 25px;
+}
+
+.logo {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    min-width: 20%;
+}
+
+.action .icon {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 35px;
+}
+
+.action .menu {
+    position: absolute;
+    top: 110px;
+    right: 40px;
+    padding-right: 30px;
+    backdrop-filter: bulr(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 0 0 15px 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    font-size: 13px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+    border-top: none;
+    opacity: 1;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#home .header h1 {
+    font-size: 1.5rem;
+    display: inline;
+    font-family: var(--text-logo);
+}
+
+.action .menu.active {
+    top: 100px;
+    visibility: visible;
+    opacity: 1;
+    margin-right: -20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.action .menu ul li {
+    list-style: none;
+    margin: 0px;
+    padding-left: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    direction: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-family: var(--text-logo);
+}
+
+.action .menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.action .menu ul li:hover a {
+    color: var(--point-color);
+}
+
+.header {
+    width: 100%;
+    padding-top: 20px;
+    left: 0;
+    padding-bottom: 20px;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 33;
+    background-color: #fff;
+    opacity: 0.8;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.header a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding-right: 70px;
+}
+
+.header .menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: all 0.3s ease-out;
+}
+
+.header .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: all 0.5s ease-out;
+}
+
+.header .menu a::after {
+    bottom: 15px;
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+.header:hover {
+    backdrop-filter: bulr(10px);
+    background-color: var(--yello-color);
+    transition: all 0.5s ease;
+    z-index: 100;
+}
+
+.nav ul {
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    list-style: none;
+    margin-bottom: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav ul li {
+    margin-left: 36px;
+    font-family: var(--text-logo);
+    font-size: 17px;
+}
+
+/*footer*/
+.footer {
+    padding: 70px 0;
+    background-color: #cac0ae;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer ol,
+.footer ul {
+    padding-left: 0;
+}
+
+.footer-col {
+    width: 20%;
+    text-align: center;
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    font-weight: 500;
+    position: relative;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-col li {
+    list-style: none;
+    padding: 5px;
+}
+
+.footer-col h3::before {
+    content: '';
+    position: absolute;
+    left: 9;
+    height: 2px;
+    bottom: -7px;
+    box-sizing: border-box;
+    background-color: white;
+    width: 80px;
+}
+
+.footer-col .footer-01::before {
+    width: 160px;
+}
+
+.footer-col .footer-02::before {
+    width: 100px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: white;
+    display: block;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 20px;
 }

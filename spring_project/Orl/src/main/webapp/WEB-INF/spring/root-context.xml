@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+		
+		   <!-- HikariCP: DataSource 설정 -->
+   <bean 
+   id="dataSource" 
+   class="com.zaxxer.hikari.HikariDataSource"
+   p:driverClassName="com.mysql.cj.jdbc.Driver"
+   p:jdbcUrl="jdbc:mysql://mysql2051.cjjtoy9ijxxj.ap-northeast-2.rds.amazonaws.com:3306/final?serverTimezone=UTC"
+   p:username="bit" 
+   p:password="1234" 
+   />
+   
+   <!-- MyBatis -->
+   <!-- SqlSessionFactoryBean 등록 -->
+   <bean
+   id="sqlSessionFactoryBean"
+   class="org.mybatis.spring.SqlSessionFactoryBean"
+   p:dataSource-ref="dataSource"
+   p:mapperLocations="classpath:com/bitcamp/orl/*/dao/mapper/*.xml"
+   />
+
+   <!-- mapperlocations에 객체 경로 넣고, 애너테이션으로 @Resource 써줘야함 -->
+   <!-- SqlSessionTemplate 등록 : jdbc template처럼 try/catch 등의 처리를 안하게 method 제공 -->
+   <bean
+   id="sqlSessionTemplate"
+   class="org.mybatis.spring.SqlSessionTemplate">
+   <constructor-arg ref="sqlSessionFactoryBean"/>
+   </bean>
+</beans>

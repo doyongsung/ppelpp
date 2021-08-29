@@ -3,6 +3,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Vast+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee+Shade&family=Vast+Shadow&display=swap');
 
+/*구글 아이콘 넣기*/
+@font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local("Material Icons"), local("MaterialIcons-Regular"),
+        url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),
+        url(https://example.com/MaterialIcons-Regular.woff) format("woff"),
+        url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: "liga";
+}
+
+/*폰트 스타일넣기*/
+/*로고폰트*/
+@font-face {
+    font-family: "Cafe24SsurroundAir";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*본문 폰트*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
+
+:root {
+    --background-color: #f8f8f8;
+    --yello-color: #fdef7b;
+    --footer-color: #cac0ae;
+    --point-color: #785024;
+    --text-sans: "Noto Sans KR ", sans-serif;
+    --text-logo: "Cafe24SsurroundAir";
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -79,7 +136,8 @@ h1 {
 .home_2_text {
     padding-top: 200px;
 }
-.home_2_text h1{
+
+.home_2_text h1 {
     padding-left: 10%;
 }
 
@@ -101,7 +159,7 @@ h1 {
     padding-left: 80px;
 }
 
-.home_4_text{
+.home_4_text {
     position: absolute;
     margin-top: -8%;
     margin-left: 37.5%;
@@ -130,7 +188,7 @@ button {
 .button2 {
     border: none;
     border-radius: 10px;
-    margin-right:500px;
+    margin-right: 500px;
     background-color: rgb(253, 239, 139);
 }
 
@@ -163,11 +221,15 @@ ul {
     list-style: none;
 }
 
+#home .header h1 {
+    font-size: 1.5rem;
+    display: inline;
+    font-family: var(--text-logo);
+}
 
 
 .home-content {
     text-align: center;
-    margin-top: 15%;
     color: yellow;
 }
 
@@ -176,7 +238,7 @@ ul {
 }
 
 .page-title {
-    margin-top: -80px;
+    padding-top: 15%;
 }
 
 
@@ -184,7 +246,14 @@ ul {
     background: #0090aa;
 }
 
+/*헤더*/
+/*구글 아이콘 넣기*/
+
 /*header*/
+.oly i {
+    font-size: 25px;
+}
+
 .logo {
     display: flex;
     align-content: center;
@@ -202,17 +271,20 @@ ul {
 
 .action .menu {
     position: absolute;
-    top: 80px;
-    right: 90px;
-    padding: 20px;
-    backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.2);
+    top: 110px;
+    right: 40px;
+    padding-right: 30px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
     box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
     z-index: 100;
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
+    font-size: 13px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+    border-top: none;
 }
 
 .big-bg {
@@ -224,45 +296,53 @@ ul {
 #home .header h1 {
     font-size: 1.5rem;
     display: inline;
+    font-family: var(--text-logo);
 }
 
 .action .menu.active {
-    top: 70px;
+    top: 100px;
     visibility: visible;
     opacity: 1;
     margin-right: -20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
 }
 
 .action .menu ul li {
     list-style: none;
-    margin: -10px;
+    margin: 0px;
+    padding-left: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    direction: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    height: 50px;
+    font-family: var(--text-logo);
 }
 
 .action .menu ul li a {
     display: inline-block;
     text-decoration: none;
     font-weight: 500;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .action .menu ul li:hover a {
-    color: #ff5d94;
+    color: var(--point-color);
 }
 
 .header {
     width: 100%;
     padding-top: 20px;
     left: 0;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     line-height: 60px;
     display: flex;
     justify-content: space-between;
-    z-index: 9999;
-
+    position: fixed;
+    z-index: 33;
+    background-color: #fff;
+    opacity: 0.8;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
 }
 
 .header a {
@@ -279,7 +359,18 @@ ul {
     padding-right: 70px;
 }
 
-.header .menu a::after,
+.header .menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: all 0.3s ease-out;
+}
+
 .header .nav a::after {
     content: "";
     position: absolute;
@@ -287,13 +378,13 @@ ul {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 4px;
+    height: 2px;
     background: black;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 .header .menu a::after {
-    bottom: 2px;
+    bottom: 15px;
 }
 
 .header a:hover::after {
@@ -302,7 +393,7 @@ ul {
 
 .header:hover {
     backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--yello-color);
     transition: all 0.5s ease;
     z-index: 100;
 }
@@ -312,7 +403,6 @@ ul {
     font-size: 1.25rem;
     text-transform: uppercase;
     list-style: none;
-    font-family: 'Philosopher', sans-serif;
     margin-bottom: 0;
     align-content: center;
     justify-content: center;
@@ -321,12 +411,9 @@ ul {
 
 .nav ul li {
     margin-left: 36px;
+    font-family: var(--text-logo);
+    font-size: 17px;
 }
-
-.nav ul li a {
-    columns: #432;
-}
-
 
 .footer {
     padding: 70px 0;

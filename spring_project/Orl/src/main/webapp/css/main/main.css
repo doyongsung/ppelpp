@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+/*구글 아이콘 넣기*/
+@font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local("Material Icons"), local("MaterialIcons-Regular"),
+        url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),
+        url(https://example.com/MaterialIcons-Regular.woff) format("woff"),
+        url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: "liga";
+}
+
+/*폰트 스타일넣기*/
+/*로고폰트*/
+@font-face {
+    font-family: "Cafe24SsurroundAir";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*본문 폰트*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
+
+:root {
+    --background-color: #f8f8f8;
+    --yello-color: #fdef7b;
+    --footer-color: #cac0ae;
+    --point-color: #785024;
+    --text-sans: "Noto Sans KR ", sans-serif;
+    --text-logo: "Cafe24SsurroundAir";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.oly i {
+    font-size: 25px;
+}
+
+
+.home-content {
+    text-align: left;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    padding-top: 15%;
+    position: absolute;
+    right: 55%;
+    max-width: 750px;
+    justify-content: space-between;
+}
+
+.home-content a {
+    display: inline-block;
+    font-size: 1em;
+    background: #fff;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #111;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.home-content a:hover {
+    letter-spacing: 6px;
+}
+
+.home-content p {
+    font-size: 1.125rem;
+    margin: 10px 0 42px;
+}
+
+.page-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    position: relative;
+    z-index: 10;
+}
+
+
+#home .home_video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.button:hover {
+    background: #0090aa;
+}
+
+p {
+    padding-bottom: 30px;
+    margin-left: -5%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--text-logo);
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    color: yellow;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: left;
+}
+
+#home {
+    min-height: 100vh;
+}
+
+#home .header h1 {
+    font-size: 1.5rem;
+    font-family: var(--text-logo);
+
+}
+
+#home_2 {
+    min-height: 76vh;
+    padding-top: 13%;
+    background-color: rgb(253, 239, 139);
+}
+
+#home_2 .card img {
+    width: 50%;
+
+}
+
+.home_2_text h1 {
+    padding-left: 10%;
+}
+
+#home_2 .text_bt {
+    font-size: 20px;
+    padding-top: 9%;
+    margin-left: 10%;
+}
+
+#home_2 .text_bt a h3 {
+    font-size: 15px;
+    margin-left: -8%;
+}
+
+#home_3 .card {
+    width: 50%;
+}
+
+#home_3 .card>img {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.home_2_text {
+    padding-top: 200px;
+}
+
+.home_2_text,
+.home_3_text {
+    font-size: 18px;
+}
+
+.home_3_text {
+    padding-top: 23%;
+    padding-left: 62%;
+    position: absolute;
+}
+
+.text {
+    margin-top: 43%;
+    margin-left: 40%;
+    position: absolute;
+    color: white;
+}
+
+.text p {
+    padding: 5px;
+    padding-left: 80px;
+}
+
+
+.home_4_text {
+    position: absolute;
+    margin-top: -7%;
+    margin-left: 38%;
+    color: white;
+}
+
+.home_4_text p,
+.home_3_text p {
+    margin-left: -25%;
+}
+
+button {
+    width: 120px;
+    height: 45px;
+}
+
+.button1 {
+    border: 1px solid #aaa;
+    background-color: transparent;
+    border-radius: 10px;
+    margin-right: 24%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.button2 {
+    border: none;
+    border-radius: 10px;
+    margin-right: 500px;
+    background-color: rgb(253, 239, 139);
+}
+
+#home_3 {
+    min-height: 100vh;
+    display: flex;
+    background: url(../images/1.png);
+
+}
+
+#home_4 {
+    width: 100%;
+    background-image: url(../images/메인4_adobespark.png);
+}
+
+
+.home_4_mini {
+    padding: 225px;
+    background: url(../images/메인4.png);
+}
+
+.home_4_mini img {
+    position: relative;
+    width: 68%;
+    padding-top: 20px;
+}
+
+
+div {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.button:hover {
+    background: #0090aa;
+}
+
+/*헤더*/
+/*구글 아이콘 넣기*/
+
+/*header*/
+.oly i {
+    font-size: 25px;
+}
+
+.logo {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    min-width: 20%;
+}
+
+.action .icon {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 35px;
+}
+
+.action .menu {
+    position: absolute;
+    top: 110px;
+    right: 40px;
+    padding-right: 30px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 0 0 15px 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 13px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+    border-top: none;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#home .header h1 {
+    font-size: 1.5rem;
+    display: inline;
+    font-family: var(--text-logo);
+}
+
+.action .menu.active {
+    top: 100px;
+    visibility: visible;
+    opacity: 1;
+    margin-right: -20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.action .menu ul li {
+    list-style: none;
+    margin: 0px;
+    padding-left: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-family: var(--text-logo);
+}
+
+.action .menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.action .menu ul li:hover a {
+    color: var(--point-color);
+}
+
+.header {
+    width: 100%;
+    padding-top: 20px;
+    left: 0;
+    padding-bottom: 20px;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 33;
+    opacity: 0.8;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.header a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding-right: 70px;
+}
+
+.header .menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: all 0.3s ease-out;
+}
+
+.header .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: all 0.5s ease-out;
+}
+
+.header .menu a::after {
+    bottom: 15px;
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+.header:hover {
+    backdrop-filter: bulr(10px);
+    background-color: var(--yello-color);
+    transition: all 0.5s ease;
+    z-index: 100;
+}
+
+.nav ul {
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    list-style: none;
+    margin-bottom: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav ul li {
+    margin-left: 36px;
+    font-family: var(--text-logo);
+    font-size: 17px;
+}

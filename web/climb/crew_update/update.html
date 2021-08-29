@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>크루 수정</title>
+    <title>크루 생성</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
+   
     <link rel="stylesheet" href="../crew_update/update.css">
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
@@ -19,35 +17,38 @@
 </head>
 
 <body>
-    <div class="action">
-        <div id="home" class="big-bg">
-            <div class="header wrapper">
-                <div class="logo">
-                    <h1><a href="#">오를래</a></h1>
-                </div>
-                <div class="nav">
-                    <ul>
-                        <li><a href="#">MAIN</a></li>
-                        <li><a href="#">HIKING</a></li>
-                        <li><a href="#">CREW</a></li>
-                        <li><a href="#">COMMUNITY</a></li>
-                        <div class="icon" onclick="menuToggle();">
-                            <a href="#"><i class="far fa-user"></i></a>
-                        </div>
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">내 크루</a></li>
-                        <li><a href="#">내 피드</a></li>
-                        <li><a href="#">마이페이지</a></li>
-                        <li><a href="#">로그아웃</a></li>
-                    </ul>
-                </div>
+  <!--헤더 네비-->
+  <div class="action">
+    <div id="home" class="big-bg">
+        <div class="header wrapper">
+            <div class="logo">
+                <span class="oly"><i class="fas fa-seedling"></i></span>
+                <h1><a href="#">오를래</a></h1>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">MAIN</a></li>
+                    <li><a href="#">HIKING</a></li>
+                    <li><a href="#">CREW</a></li>
+                    <li><a href="#">COMMUNITY</a></li>
+                    <div class="icon" onclick="menuToggle();">
+                        <a href="#"><i class="far fa-user"></i></a>
+                    </div>
+                </ul>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">내 크루</a></li>
+                    <li><a href="#">내 피드</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
     <div class="section">
         <div class="box">
 
@@ -102,17 +103,14 @@
                                 </div>
                             </td>
                         </tr>
-            </div>
-            </td>
-            </tr>
-            <td>
-                <input type="submit" value="수정" class="form-control btn-secondary">
+                    </div>
+            <td >
+                <input type="submit" value="생성" class="form-control btn-secondary">
             </td>
             </tr>
             </table>
             </form>
         </div>
-    </div>
     </div>
     <div class="footer">
         <div class="footer-col">

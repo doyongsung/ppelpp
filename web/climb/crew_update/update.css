@@ -1,403 +1,471 @@
+/*구글 아이콘 넣기*/
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),
+    url(https://example.com/MaterialIcons-Regular.woff) format("woff"),
+    url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+/*폰트 스타일넣기*/
+/*로고폰트*/
+@font-face {
+  font-family: "Cafe24SsurroundAir";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*본문 폰트*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
+
+:root {
+  --background-color: #f8f8f8;
+  --yello-color: #fdef7b;
+  --footer-color: #cac0ae;
+  --point-color: #785024;
+  --text-sans: "Noto Sans KR ", sans-serif;
+  --text-logo: "Cafe24SsurroundAir";
+}
+
 body {
-    background-color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
 }
 
 .form-group input {
-    border: none;
+  border: none;
 }
+
 td {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #profile {
-    height: 25px;
-    border-radius: 50%;
-    overflow: hidden;
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 
 #crewphoto {
-    padding-right: 200px;
+  padding-right: 200px;
 }
 
 .section {
-    padding: 5% 0 5% 0;
-    display: flex;
-    justify-content: center;
+  padding: 5% 0 5% 0;
+  display: flex;
+  justify-content: center;
 
 }
 
 .box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 800px;
-    padding-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 800px;
+  padding-top: 100px;
 }
 
 .nav2 {
-    text-align: left;
-    width: 20%;
-    min-width: 150px;
-    background-color: white;
-    padding: 10px 0 0 30px;
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 8px 0 0 8px;
+  text-align: left;
+  width: 20%;
+  min-width: 150px;
+  background-color: white;
+  padding: 10px 0 0 30px;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 8px 0 0 8px;
 }
 
 .text_bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .edit_section {
-    min-width: 600px;
-    background-color: white;
-    padding: 35px 20px 35px 50px;
-    border-top: 1px solid rgb(220, 220, 220);
-    border-bottom: 1px solid rgb(220, 220, 220);
-    border-right: 1px solid rgb(220, 220, 220);
-    border-radius: 0 8px 8px 0;
-    display: flex;
-    justify-content: flex-start;
+  min-width: 600px;
+  background-color: white;
+  padding: 35px 20px 35px 50px;
+  border-top: 1px solid rgb(220, 220, 220);
+  border-bottom: 1px solid rgb(220, 220, 220);
+  border-right: 1px solid rgb(220, 220, 220);
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #hiking {
-    height: 250px;
-    width: 250px;
-    overflow: hidden;
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
 }
 
 .edit_section {
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
 }
 
 .edit_section label {
-    font-weight: bold;
-    min-width: 130px;
-    font-size: 17px;
+  font-weight: bold;
+  min-width: 130px;
+  font-size: 17px;
 }
 
 .edit_section input {
-    padding: 8px;
-    line-height: 40px;
-    font-size: 15px;
-    height: 55px;
+  padding: 8px;
+  line-height: 40px;
+  font-size: 15px;
+  height: 55px;
 }
 
 .edit_section input[type="submit"] {
-    margin-top: 30px;
-    background-color: rgb(70, 70, 70);
-    max-width: 120px;
-    height: 40px;
-    line-height: 20px;
-    font-size: 15px;
-    float: right;
+  margin-top: 30px;
+  background-color: rgb(70, 70, 70);
+  max-width: 120px;
+  height: 40px;
+  line-height: 20px;
+  font-size: 15px;
+  float: right;
 }
 
 .edit_section input[type=file] {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #crewintro {
-    min-height: 180px;
+  min-height: 180px;
 }
 
 .form-control-lg {
-    padding: 1.0rem 1.0rem;
+  padding: 1.0rem 1.0rem;
 }
+
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .create {
-    padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 #tag-list {
-    border: none
+  border: none
 }
 
-.tag-item{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2; /* 라인수 */
-    -webkit-box-orient: vertical;
-    word-wrap:break-word; 
+.tag-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 
 .tr_hashTag_area p {
-    margin-top: 70px;
+  margin-top: 70px;
 }
+
 .edit_section ul {
-    padding: 16px 0;
+  padding: 16px 0;
 }
 
 .edit_section ul li {
-    display: inline-block;
-    margin: 0 5px;
-    font-size: 14px;
-    letter-spacing: -.5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 14px;
+  letter-spacing: -.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 form {
-    padding-top: 16px;
-}
-.edit_section ul li.tag-item{
-    background-color: rgb(253, 239, 123);
-    color:#000;
-    border-radius: 10px;
-    display:inline-block;
-    padding: 4px 7px;
-}
-.del-btn {
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 8px;
+  padding-top: 16px;
 }
 
+.edit_section ul li.tag-item {
+  background-color: rgb(253, 239, 123);
+  color: #000;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 4px 7px;
+}
+
+.del-btn {
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+/*헤더*/
 /*header*/
+.oly i {
+  font-size: 25px;
+}
+
 .logo {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    min-width: 20%;
-  }
-  
-  .action .icon {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    padding-left: 35px;
-  }
-  
-  .action .menu {
-    position: absolute;
-    top: 110px;
-    right: 40px;
-    padding-right: 30px;
-    backdrop-filter: bulr(10px);
-    background-color: rgba(255, 255, 255, 0.7);
-    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    border-radius: 0 0 15px 15px;
-    transition: 0.5s;
-    visibility: hidden;
-    opacity: 0;
-    font-size: 13px;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
-    border-top: none;
-  }
-  
-  .big-bg {
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
-  
-  #home .header h1 {
-    font-size: 1.5rem;
-    display: inline;
-    font-family: "Cafe24SsurroundAir";
-  }
-  
-  .action .menu.active {
-    top: 100px;
-    visibility: visible;
-    opacity: 1;
-    margin-right: -20px;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
-  }
-  
-  .action .menu ul li {
-    list-style: none;
-    margin:-10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    direction: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-  }
-  
-  .action .menu ul li a {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.5s;
-  }
-  
-  .action .menu ul li:hover a {
-    color: #ff5d94;
-    color: #785024;
-  }
-  
-  .header {
-    width: 100%;
-    padding-top: 20px;
-    left: 0;
-    padding-bottom: 20px;
-    line-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    z-index: 33;
-    background-color: #fff;
-    opacity: 0.8;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
-  }
-  
-  .header a {
-    position: relative;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .nav {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding-right: 70px;
-  }
-  
-  .header .menu a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: black;
-    transition: all 0.5s ease-out;
-  }
-  .header .nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 4px;
-    background: black;
-    transition: all 0.5s ease-out;
-  }
-  
-  .header .menu a::after {
-    bottom: 15px;
-  }
-  
-  .header a:hover::after {
-    width: 100%;
-  }
-  
-  .header:hover {
-    backdrop-filter: bulr(10px);
-    background-color: #fdef7b;
-    transition: all 0.5s ease;
-    z-index: 100;
-  }
-  
-  .nav ul {
-    display: flex;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    list-style: none;
-    font-family: "Philosopher", sans-serif;
-    margin-bottom: 0;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .nav ul li {
-    margin-left: 36px;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 17px;
-  }
-  
-  .nav ul li a {
-    columns: #432;
-  }
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  min-width: 20%;
+}
+
+.action .icon {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding-left: 35px;
+}
+
+.action .menu {
+  position: absolute;
+  top: 110px;
+  right: 40px;
+  padding-right: 30px;
+  backdrop-filter: bulr(10px);
+  background-color: rgba(255, 255, 255, 0.7);
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  border-radius: 0 0 15px 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  font-size: 13px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+  border-top: none;
+  opacity: 0;
+}
+
+.big-bg {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#home .header h1 {
+  font-size: 1.5rem;
+  display: inline;
+  font-family: var(--text-logo);
+}
+
+.action .menu.active {
+  top: 100px;
+  visibility: visible;
+  opacity: 1;
+  margin-right: -20px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.action .menu ul li {
+  list-style: none;
+  margin: 0px;
+  padding-left: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  direction: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  font-family: var(--text-logo);
+}
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.action .menu ul li:hover a {
+  color: var(--point-color);
+}
+
+.header {
+  width: 100%;
+  padding-top: 20px;
+  left: 0;
+  padding-bottom: 20px;
+  line-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 33;
+  background-color: #fff;
+  opacity: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.header a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-right: 70px;
+}
+
+.header .menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: all 0.3s ease-out;
+}
+
+.header .nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: all 0.5s ease-out;
+}
+
+.header .menu a::after {
+  bottom: 15px;
+}
+
+.header a:hover::after {
+  width: 100%;
+}
+
+.header:hover {
+  backdrop-filter: bulr(10px);
+  background-color: var(--yello-color);
+  transition: all 0.5s ease;
+  z-index: 100;
+}
+
+.nav ul {
+  display: flex;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  list-style: none;
+  margin-bottom: 0;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav ul li {
+  margin-left: 36px;
+  font-family: var(--text-logo);
+  font-size: 17px;
+}
 
 /*footer*/
 .footer {
-	padding: 70px 0;
-	background-color: #cac0ae;
-	flex-wrap: wrap;
-	display: flex;
+  padding: 70px 0;
+  background-color: #cac0ae;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .footer-col {
-	width: 24%;
-	text-align: center;
+  width: 24%;
+  text-align: center;
 
 }
 
 .footer-col h3 {
-	font-size: 18px;
-	text-transform: capitalize;
-	margin-bottom: 25px;
-	font-weight: 500;
-	position: relative;
-	color: white;
-	font-weight: bold;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  font-weight: 500;
+  position: relative;
+  color: white;
+  font-weight: bold;
 }
 
 .footer-col li {
-	list-style: none;
-	padding: 5px 0;
-    text-align: left;
-    padding-left: 175px;
+  list-style: none;
+  padding: 5px 0;
+  text-align: left;
+  padding-left: 175px;
 }
-.footer-1 li{
-    padding-left: 130px;
+
+.footer-1 li {
+  padding-left: 130px;
 
 }
 
-.footer-2 li{
-    padding-left: 165px;
+.footer-2 li {
+  padding-left: 165px;
 }
 
 .footer-col h3::before {
-	content: '';
-	position: absolute;
-	left: 10;
-	height: 2px;
-	bottom: -10px;
-	box-sizing: border-box;
-	background-color: white;
-	width: 75px;
+  content: '';
+  position: absolute;
+  left: 10;
+  height: 2px;
+  bottom: -10px;
+  box-sizing: border-box;
+  background-color: white;
+  width: 75px;
 }
-.footer-1 h3::before{
-    width: 160px;
+
+.footer-1 h3::before {
+  width: 160px;
 }
-.footer-2 h3::before{
-    width: 95px;
+
+.footer-2 h3::before {
+  width: 95px;
 }
 
 .footer-col ul li a {
-	font-size: 16px;
-	text-transform: capitalize;
-	color: white;
-	display: block;
-	transition: all 0.5s ease;
-	text-decoration: none;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: white;
+  display: block;
+  transition: all 0.5s ease;
+  text-decoration: none;
 }
 
 .footer-col ul li a:hover {
-	color: #ffffff;
-	padding-left: 20px;
+  color: #ffffff;
+  padding-left: 20px;
 }
