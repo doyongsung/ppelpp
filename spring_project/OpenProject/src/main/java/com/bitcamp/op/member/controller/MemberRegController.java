@@ -36,7 +36,7 @@ public class MemberRegController {
 		
 		model.addAttribute("result", result);
 		
-		String view = "member/reg" ;
+		String view = "member/reg";
 		if(result == 1) {
 			// 인텍스 페이지로 리다이렉트
 			view = "redirect:/index";
