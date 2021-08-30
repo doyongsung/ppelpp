@@ -54,9 +54,10 @@ td {
 }
 
 .edit_section {
-  min-width: 600px;
+	
+  min-width: 800px;
   background-color: white;
-  padding: 35px 20px 35px 50px;
+  padding: 35px 50px 35px 50px;
   border-top: 1px solid rgb(220, 220, 220);
   border-bottom: 1px solid rgb(220, 220, 220);
   border-right: 1px solid rgb(220, 220, 220);
@@ -65,7 +66,7 @@ td {
   justify-content: flex-start;
 }
 
-#hiking {
+.hiking {
   height: 250px;
   width: 250px;
   overflow: hidden;
@@ -159,6 +160,7 @@ a {
 
 form {
   padding-top: 16px;
+  padding-left: 80px;
 }
 
 .edit_section ul li.tag-item {

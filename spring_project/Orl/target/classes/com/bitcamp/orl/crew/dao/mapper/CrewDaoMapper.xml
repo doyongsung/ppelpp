@@ -18,5 +18,84 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values (#{crewName}, #{crewPhoto}, #{crewDiscription}, #{crewTag}, #{memberIdx}, #{memberNickName})
 	</insert>
 
-
+	<!-- Select 의 결과를 매핑하는 설정 -->
+	<resultMap id="crewListResult"
+		type="com.orl.crew.domain.Crew">
+		<id column="crewIdx" property="crewIdx" />
+		<result column="crewName" property="crewName" />
+		<result column="crewPhoto" property="crewPhoto" />
+		<result column="crewDiscription" property="crewDiscription" />
+		<result column="crewCreatedate" property="crewCreatedate" />
+		<result column="crewTag" property="crewTag" />
+		<result column="memberIdx" property="memberIdx" />
+	</resultMap>
+	
+	<!-- 전체 크루 리스트 -->
+	<select
+		id="selectAll"
+		resultMap="crewListResult">
+			select * from crew order by crewIdx
+	</select>
+	
+	<!-- 내가 가입한 크루 리스트 -->
+	<select
+	id="selectMyCrewList"
+	resultMap="crewListResult">
+		select * from crew where crewIdx = (select crewIdx from crewreg where memberIdx= #{memberIdx});
+	</select>
+	
+	<!-- 해당 크루 하나 선택 -->
+	<select
+	id="selectCrew"
+	resultType="com.orl.crew.domain.Crew">
+		select * from crew where crewIdx = #{crewIdx}
+	</select>
+	
+	<!-- 해당 크루의 크루원 수 -->
+	<select
+	id = "selectCrewMemberNum"
+	resultType="int">
+		select count(*) from crewreg where crewIdx = #{crewIdx}
+	</select>
+	
+	<!-- 해당 크루의 댓글 수 -->
+	<select
+	id= "selectCrewCommentNum"
+	resultType="int">
+		select count(*) from crewComment where crewIdx = #{crewIdx}
+	</select>
+	
+	<!-- 해당 크루에 내가 가입되어있는 지 여부 확인 -->
+	<select
+	id = "selectCountMemberToRegCrew"
+	resultType="int">
+		select count(*) from crewreg where memberIdx = #{memberIdx} and crewIdx = #{crewIdx};
+	</select>
+	
+	
+	<!-- Select 의 결과를 매핑하는 설정 -->
+	<resultMap id="crewCommentListResult"
+		type="com.orl.crew.domain.CrewComment">
+		<id column="crewCommnetIdx" property="crewCommnetIdx" />
+		<result column="crewComment" property="crewComment" />
+		<result column="crewCommentDate" property="crewCommentDate" />
+		<result column="memberIdx" property="memberIdx" />
+		<result column="crewIdx" property="crewIdx" />
+	</resultMap>
+	
+	<!-- 크루 댓글 가져오기 -->
+	<select
+	id = "selectCrewComment"
+	resultMap="crewCommentListResult">
+		select * from crewComment where crewIdx = #{crewIdx}
+	</select>
+	
+	<!-- 크루 댓글 작성자 정보 가져오기 -->
+	<select
+	id="selectByMemberIdx"
+	resultType="com.orl.member.domain.Member">
+		select * from member
+		where memberIdx = #{memberIdx}
+	</select>
+	
 </mapper>

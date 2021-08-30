@@ -9,6 +9,8 @@ import com.bitcamp.orl.member.domain.Member;
 
 public interface Dao {
 	
+	
+	
 	List<Member> selectAll();
 	
 	int insertMember(Member member);

@@ -1,9 +1,8 @@
 package com.bitcamp.orl.crew.domain;
 
-
 import java.sql.Timestamp;
 
-public class Crew {
+public class CrewInfo {
 	private int crewIdx;
 	private String crewName;
 	private String crewPhoto;
@@ -12,17 +11,26 @@ public class Crew {
 	private String crewTag;
 	private int memberIdx;
 	private String memberNickName;
+	private int crewMemberNum;
+	private int crewCommentNum;
+	private boolean isReg;
 	
-	public Crew() {}
+	public CrewInfo() {}
 	
-	public Crew(int crewIdx, 
+	public CrewInfo(int crewIdx, 
 			String crewName, 
 			String crewPhoto, 
 			String crewDiscription, 
 			Timestamp crewCreatedate,
 			String crewTag, 
-			int memberIdx,
-			String memberNickName) {
+			int memberIdx, 
+			String memberNickName, 
+			int crewMemberNum, 
+			int crewCommentNum,
+			boolean isReg) {
+		
+		
+		
 		this.crewIdx = crewIdx;
 		this.crewName = crewName;
 		this.crewPhoto = crewPhoto;
@@ -31,6 +39,9 @@ public class Crew {
 		this.crewTag = crewTag;
 		this.memberIdx = memberIdx;
 		this.memberNickName = memberNickName;
+		this.crewMemberNum = crewMemberNum;
+		this.crewCommentNum = crewCommentNum;
+		this.isReg = isReg;
 	}
 	
 	public int getCrewIdx() {
@@ -96,12 +107,29 @@ public class Crew {
 	public void setMemberNickName(String memberNickName) {
 		this.memberNickName = memberNickName;
 	}
-
-	public CrewInfo crewToCrewInfo() {
-		CrewInfo crewinfo = new CrewInfo(crewIdx, crewName, 
-				crewPhoto, crewDiscription, crewCreatedate, 
-				crewTag, memberIdx, memberNickName, 
-				0, 0, false);
-		return crewinfo;
+	
+	public int getCrewMemberNum() {
+		return crewMemberNum;
 	}
+	
+	public void setCrewMemberNum(int crewMemberNum) {
+		this.crewMemberNum = crewMemberNum;
+	}
+	
+	public int getCrewCommentNum() {
+		return crewCommentNum;
+	}
+	
+	public void setCrewCommentNum(int crewCommentNum) {
+		this.crewCommentNum = crewCommentNum;
+	}
+
+	public boolean isReg() {
+		return isReg;
+	}
+
+	public void setReg(boolean isReg) {
+		this.isReg = isReg;
+	}
+	
 }

@@ -12,8 +12,42 @@
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+       
+       <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+       <script type="text/javascript">
+       
+       var sel_file;
+       
+       $(document).ready(function(){
+    	   $("#crewPhoto").on("change",handleImgFileSelect);
+       });
+       
+       function handleImgFileSelect(e){
+    	   var files = e.target.files;
+    	   var filesArr = Array.prototype.slice.call(files);
+    	   
+    	   filesArr.forEach(function(f){
+    		   if(!f.type.match("image.*")){
+    			   alert("확장자는 이미지 확장자만 가능합니다.");
+    			   return;
+    		   }
+    		   
+    		   sel_file = f;
+    		   
+    		   var reader = new FileReader();
+    		   reader.onload = function(e){
+    			   $("#img").attr("src",e.target.result);
+    		   }
+    		   reader.readAsDataURL(f);
+    	   });
+       }
+       
+       
+       
+       </script>
         
 </head>
+
 <body>
 <%@ include file="/WEB-INF/frame/default/header.jsp" %>
     <div class="section">
@@ -21,12 +55,10 @@
             <div class="edit_section">
                 <form method="post" enctype="multipart/form-data">
                     <table>
+                    <div class="create">
+                    <h1>생성하기</h1>
+                    </div>
                         <tr>
-                        <td>
-                            <div class="create">
-                                <h1>생성하기</h1>
-                            </div>
-                            </td>
                             <td>
                                 <label for="crewname">크루명</label>
                             </td>
@@ -40,8 +72,8 @@
                                 <label for="crewname">크루 사진</label>
                             </td>
                             <td>
-                                <img id="hiking" src="<c:url value='/images/crew/메인.jpg'/>">
-                                <input type="file" id="crewphoto" name="crewPhoto" class="form-control form-control-lg">
+                                <img id="img" class="hiking" />
+                                <input type="file" id="crewPhoto" name="crewPhoto" class="form-control form-control-lg">
                             </td>
                         </tr>
                         <tr>
@@ -61,13 +93,13 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="hidden" value="" name="=crewTag" id="rdTag" />
+                                    <input type="hidden" value=""  id="rdTag" />
                                 </div>
 
                                 <ul id="tag-list"></ul>
 
                                 <div class="form-group">
-                                    <input type="text" id="tag" size="7" placeholder="#" style="width: 300px;" />
+                                    <input type="text" id="tag" size="7" placeholder="#" name="=crewTag" style="width: 300px;" />
                                 </div>
                             </td>
                         </tr>
