@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- Select 의 결과를 매핑하는 설정 -->
 	<resultMap id="crewListResult"
-		type="com.orl.crew.domain.Crew">
+		type="com.bitcamp.orl.crew.domain.Crew">
 		<id column="crewIdx" property="crewIdx" />
 		<result column="crewName" property="crewName" />
 		<result column="crewPhoto" property="crewPhoto" />
@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 해당 크루 하나 선택 -->
 	<select
 	id="selectCrew"
-	resultType="com.orl.crew.domain.Crew">
+	resultType="com.bitcamp.orl.crew.domain.Crew">
 		select * from crew where crewIdx = #{crewIdx}
 	</select>
 	
@@ -75,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- Select 의 결과를 매핑하는 설정 -->
 	<resultMap id="crewCommentListResult"
-		type="com.orl.crew.domain.CrewComment">
+		type="com.bitcamp.orl.crew.domain.CrewComment">
 		<id column="crewCommnetIdx" property="crewCommnetIdx" />
 		<result column="crewComment" property="crewComment" />
 		<result column="crewCommentDate" property="crewCommentDate" />
@@ -93,7 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 크루 댓글 작성자 정보 가져오기 -->
 	<select
 	id="selectByMemberIdx"
-	resultType="com.orl.member.domain.Member">
+	resultType="com.bitcamp.orl.member.domain.Member">
 		select * from member
 		where memberIdx = #{memberIdx}
 	</select>

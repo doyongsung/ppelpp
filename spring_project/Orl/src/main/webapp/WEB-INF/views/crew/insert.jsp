@@ -41,6 +41,34 @@
     		   reader.readAsDataURL(f);
     	   });
        }
+
+       // 이미지 클릭시 원본 크기로 팝업 보기
+       function doImgPop(img){
+        img1= new Image();
+        img1.src=(img);
+        imgControll(img);
+       }
+        
+       function imgControll(img){
+        if((img1.width!=0)&&(img1.height!=0)){
+           viewImage(img);
+         }
+         else{
+            controller="imgControll('"+img+"')";
+            intervalID=setTimeout(controller,20);
+         }
+       }
+       
+       function viewImage(img){
+        W=img1.width;
+        H=img1.height;
+        O="width="+W+",height="+H+",scrollbars=yes";
+        imgWin=window.open("","",O);
+        imgWin.document.write("<html><head><title>:*:*:*: 이미지상세보기 :*:*:*:*:*:*:</title></head>");
+        imgWin.document.write("<body topmargin=0 leftmargin=0>");
+        imgWin.document.write("<img src="+img+" onclick='self.close()' style='cursor:pointer;' title ='클릭하시면 창이 닫힙니다.'>");
+        imgWin.document.close();
+       }
        
        
        
@@ -71,8 +99,9 @@
                             <td>
                                 <label for="crewname">크루 사진</label>
                             </td>
-                            <td>
-                                <img id="img" class="hiking" />
+                            <td>   
+                            <img id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다."
+         													style="cursor: pointer;" onclick="doImgPop(this.src)"/>
                                 <input type="file" id="crewPhoto" name="crewPhoto" class="form-control form-control-lg">
                             </td>
                         </tr>
@@ -93,10 +122,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="hidden" value=""  id="rdTag" />
+                                    <input type="hidden" value="" name="=crewTag" id="rdTag" />
                                 </div>
 
-                                <ul id="tag-list"></ul>
+                                <ul id="tag-list" name="=crewTag"></ul>
 
                                 <div class="form-group">
                                     <input type="text" id="tag" size="7" placeholder="#" name="=crewTag" style="width: 300px;" />

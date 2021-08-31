@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Document</title>
+</head>
+<script language="javascript" type="text/javascript">
+    
+
+    // 이미지 클릭시 원본 크기로 팝업 보기
+    function doImgPop(img){
+     img1= new Image();
+     img1.src=(img);
+     imgControll(img);
+    }
+     
+    function imgControll(img){
+     if((img1.width!=0)&&(img1.height!=0)){
+        viewImage(img);
+      }
+      else{
+         controller="imgControll('"+img+"')";
+         intervalID=setTimeout(controller,20);
+      }
+    }
+    
+    function viewImage(img){
+     W=img1.width;
+     H=img1.height;
+     O="width="+W+",height="+H+",scrollbars=yes";
+     imgWin=window.open("","",O);
+     imgWin.document.write("<html><head><title>:*:*:*: 이미지상세보기 :*:*:*:*:*:*:</title></head>");
+     imgWin.document.write("<body topmargin=0 leftmargin=0>");
+     imgWin.document.write("<img src="+img+" onclick='self.close()' style='cursor:pointer;' title ='클릭하시면 창이 닫힙니다.'>");
+     imgWin.document.close();
+    }
+    
+</script>
+<body>
+
+     
+    
+    <!-- 사용시 -->
+    
+    <img src="../images/메인.jpg" width="295px" height="295px" title="클릭하시면 원본크기로 보실 수 있습니다."
+         style="cursor: pointer;" onclick="doImgPop('../images/메인.jpg')"/>
+    
+     
+</body>
+</html>
