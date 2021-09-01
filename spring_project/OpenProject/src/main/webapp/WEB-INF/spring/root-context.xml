@@ -12,7 +12,7 @@
 				p:driverClassName="com.mysql.cj.jdbc.Driver"
 				p:jdbcUrl="jdbc:mysql://mysql205.cjctzbdszd1g.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
 				p:username="bit"
-				p:password="bit"
+				p:password="1234"
 	>
 	</bean>
 	

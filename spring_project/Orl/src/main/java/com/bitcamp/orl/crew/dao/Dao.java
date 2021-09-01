@@ -6,14 +6,17 @@ import org.apache.ibatis.annotations.Param;
 
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewComment;
+import com.bitcamp.orl.crew.domain.Paging;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.member.domain.Member;
 
 public interface Dao {
 	
 	int insertCrew(Crew crew);
+	
+	int getCrewListCnt();
 
-List<Crew> selectAll();
+	List<Crew> selectAll();
 	
 	List<Crew> selectAll(SearchType searchType);
 	
@@ -32,4 +35,6 @@ List<Crew> selectAll();
 	List<CrewComment> selectCrewComment(@Param("crewIdx")int crewIdx);
 	
 	Member selectCommentMember(@Param("memberIdx")int memberIdx);
+
+	int getCrewListCnt(Paging paging);
 }

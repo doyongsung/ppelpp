@@ -10,30 +10,33 @@
     <link rel="stylesheet" href="<c:url value='/css/crew/list.css'/>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <title>Insert title here</title>
 </head>
 <style>
-
+.justify-content-center {
+    justify-content: flex-start;
+}
 </style>
 <body>
 
 <%@ include file="/WEB-INF/frame/default/header.jsp" %>
     <div class="section">
         <div class="article">
-            <h1>MY CREW</h1>
-            <div class="article-crew">
-                <div><a href="#"><img src="<c:url value='/images/crew/메인.jpg'/>"></a></div>
-                <p>내 크루</p>
-            </div>
-            <div class="article-crew">
-                <div><a href="#"><img src="<c:url value='/images/crew/메인1.jpg'/>"></a></div>
-              
-                <p>내 크루</p>
-            </div>
-            <div class="article-crew">
-                <div><a href="#"><img src="<c:url value='/images/crew/메인3.jpg'/>"></a></div>
-                <p>내 크루</p>
-            </div>
+         	<h1>MY CREW</h1>
+
+		 	<c:if test="${myCrewList ne null and not empty myCrewList}">
+		  	<c:forEach items="${myCrewList}" var="crew">
+						<div class="article-crew">
+				  	<div>
+							<a href='<c:url value="/crew/detail/${crew.crewIdx}"/>'>
+							<img src="<c:url value="/images/hiking2"/>"></a>
+						</div>
+						<p>${crew.crewName}</p>
+					</div>
+					
+				</c:forEach>
+			</c:if>
         </div>
         <div class="container">
             <div class="search-box">
@@ -51,102 +54,28 @@
                 </ul>
             </div>
             
-            <div class="row justify-content-center">
+            <div class="row">
+            <c:if test="${crewListAll ne null and not empty crewListAll}">
+            <c:forEach items="${crewListAll}" var="crew">
                 <div class="col-md-4">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
-                            <div><img src="<c:url value='/images/crew/메인1.jpg'/>" class="card-img-top"
-                                    alt="card image cap"></div>
+                            <div>
+                            <a href="<c:url value='/crew/detail/${crew.crewIdx}'/>">
+                            <img src="<c:url value='/images/crew/${crew.crewPhoto}'/>" 
+                            class="card-img-top" alt="card image cap"></a>
+                           </div>
                         </div>
                         <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: 비트캠프</h4>
-                            <p class="card-text">크루장: ppelpp</p>
-                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
+                            <h4 class="card-title">크루 이름: ${crew.crewName}</h4>
+                            <p class="card-text">크루장: ${crew.memberNickName}</p>
+                            <p class="card-text">크루소개 : ${crew.crewDiscription}</p>
                             <a href="#" class="btn btn-success">GO</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card shadow" style="width: 25rem; height: 35rem;">
-                        <div class="inner">
-                              <div><img src="<c:url value='/images/crew/메인.jpg'/>" class="card-img-top"
-                                    alt="card image cap"></div>
-                        </div>
-                        <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: 비트캠프</h4>
-                            <p class="card-text">크루장: ppelpp</p>
-                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                            <a href="#" class="btn btn-success">GO</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card shadow" style="width: 25rem; height: 35rem;">
-                        <div class="inner">
-                          <div><img src="<c:url value='/images/crew/메인3.jpg'/>" class="card-img-top"
-                                    alt="card image cap"></div>
-                        </div>
-                        <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: 비트캠프</h4>
-                            <p class="card-text">크루장: ppelpp</p>
-                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                            <a href="#" class="btn btn-success">GO</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card shadow" style="width: 25rem; height: 35rem;">
-                        <div class="inner">
-                            <div><img src="<c:url value='/images/crew/메인1.jpg'/>" class="card-img-top"
-                                    alt="card image cap"></div>
-                        </div>
-                        <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: 비트캠프</h4>
-                            <p class="card-text">크루장: ppelpp</p>
-                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                            <a href="#" class="btn btn-success">GO</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card shadow" style="width: 25rem; height: 35rem;">
-                        <div class="inner">
-                             <div><img src="<c:url value='/images/crew/메인1.jpg'/>" class="card-img-top"
-                                    alt="card image cap"></div>
-                        </div>
-                        <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: 비트캠프</h4>
-                            <p class="card-text">크루장: ppelpp</p>
-                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                            <a href="#" class="btn btn-success">GO</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card shadow" style="width: 25rem; height: 35rem;">
-                        <div class="inner">
-                             <div><img src="<c:url value='/images/crew/메인1.jpg'/>" class="card-img-top"
-                                    alt="card image cap"></div>
-                        </div>
-                        <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: 비트캠프</h4>
-                            <p class="card-text">크루장: ppelpp</p>
-                            <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
-                                앞으로도 포스코는 ‘더불어 함께 발전하는 기업시민’ 이라는 경영이념을 바탕으로 신뢰와 존경 받는 영속기업으로 발전해 나갈 것입니다.</p>
-                            <a href="#" class="btn btn-success">GO</a>
-                        </div>
-                    </div>
-                </div>
+            </c:forEach>
+            </c:if>
             </div>
         </div>
         <div class="page">

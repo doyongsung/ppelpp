@@ -17,8 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into crew (crewName,crewPhoto,crewDiscription,crewTag,memberIdx,memberNickName)
 		values (#{crewName}, #{crewPhoto}, #{crewDiscription}, #{crewTag}, #{memberIdx}, #{memberNickName})
 	</insert>
-
-	<!-- Select 의 결과를 매핑하는 설정 -->
+	
+	
+<!-- Select 의 결과를 매핑하는 설정 -->
 	<resultMap id="crewListResult"
 		type="com.bitcamp.orl.crew.domain.Crew">
 		<id column="crewIdx" property="crewIdx" />
@@ -37,6 +38,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select * from crew order by crewIdx
 	</select>
 	
+		<!-- 페이징 처리 -->
+	<select 
+	id="selectCrewPaging"
+	resultType="com.bitcamp.orl.crew.domain.Paging">
+	SELECT * FROM final.crew ORDER BY crewIdx DESC LIMIT #{startPage},#{endPage};
+	
+	</select>
+	
+	<select id="getCrewListCnt" resultType="int">
+		SELECT count(*) as crewIdx FROM crew;
+	</select>
+
 	<!-- 내가 가입한 크루 리스트 -->
 	<select
 	id="selectMyCrewList"
@@ -97,5 +110,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member
 		where memberIdx = #{memberIdx}
 	</select>
+	
+
 	
 </mapper>

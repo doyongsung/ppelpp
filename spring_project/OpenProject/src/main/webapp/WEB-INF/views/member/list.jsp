@@ -71,13 +71,6 @@
 	</main>
 
 
-
-
-
-
-
-
-
 	<%@ include file="/WEB-INF/views/frame/footer.jsp" %> 
 
 

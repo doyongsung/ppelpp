@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
+import com.bitcamp.orl.crew.domain.Paging;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.member.domain.Member;
 
 
 @Service
 public class CrewListViewService {
+	
 	
 	private Dao dao;
 	
@@ -35,6 +37,8 @@ public class CrewListViewService {
 		}
 		return myCrewList;
 	};
+
+	
 	
 	public List<Crew> getMyCrewList(
 			HttpServletRequest request, 
@@ -61,5 +65,6 @@ public class CrewListViewService {
 		dao = template.getMapper(Dao.class);
 		return dao.selectAll(searchType);
 	}
+	
 	
 }

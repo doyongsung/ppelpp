@@ -16,6 +16,7 @@ import com.bitcamp.orl.crew.domain.CrewInfo;
 import com.bitcamp.orl.crew.service.CrewDetailService;
 import com.bitcamp.orl.member.domain.Member;
 
+@RequestMapping("/crew/detail")
 public class CrewDetailController {
 	
 	@Autowired
