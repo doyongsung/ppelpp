@@ -22,6 +22,14 @@ public class CrewListViewService {
 	@Autowired
 	private SqlSessionTemplate template;
 
+	
+	//크루 리스트 (이름순)
+	public List<Crew> getCrewNameInfo(String crewName){
+		List<Crew> crewList = null;
+	    dao = template.getMapper(Dao.class);
+		return crewList;
+	}
+	
 	public List<Crew> getMyCrewList(
 			HttpServletRequest request
 			){
@@ -60,11 +68,6 @@ public class CrewListViewService {
 	
 	public List<Crew> getCrewListAll(SearchType searchType){
 		return template.getMapper(Dao.class).selectCrewAll(searchType);
-	}
-	
-	public int selectCount(){
-		dao = template.getMapper(Dao.class);
-		return dao.selectTotalCount();
 	}
 	
 	

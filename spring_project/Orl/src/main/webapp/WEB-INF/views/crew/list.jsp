@@ -19,54 +19,63 @@
 }
 </style>
 <script>
-$(document).ready(function() {
+$(document).ready(function(){
+	
+	var cList=[];
+	
+	$.ajax({
+		url:'<c:url value="/crew/crewName"/>',
+		type:'GET',
+		data:{crewName:'${crewName}'},
+		dataType : 'json',
+		success:function(data){
+			cList = data;
+			crewList(cList);
+		}
+	})
+	
+	$('#nameList').click(function(){
+		console.log("이름순으로 정렬");
+	  console.log(cList);
+	  cList.sort(function(a,b){
+		return a.crewName<b.crewName?-1:a.crewName>b.crewName?1:0;
+	})
+	crewList(cList);
+	})
+})	
 
-	$('#memberid').focusin(function() {
-		$('#msg').addClass('display_none');
-		$('#msg').removeClass('color_blue');
-		$('#msg').removeClass('color_red');
 
-		$(this).val('');
-	});
+function crewList(cList){
+		var ccList=[];
+		ccList=cList;
+		console.log("리스트 함수 호출");
+		console.log(ccList);
+	
+				var html='<div id="row" class="row">';
+				
+				$.each(ccList,function(index,item){
+					html+='<div class="col-md-4">';
+					html+='<div class="card shadow">';
+					html+='<div class="inner">';
+					html+='<div>';
+					html+='<a href="<c:url value="/crew/detail/'+item.crewIdx+'"/>">';
+					html+='<img src="<c:url value="/images/crew/'+item.crewPhoto+'"/>"  class="card-img-top" alt="card image cap">';
+          html+='<div class="card-body text-left">';
+          html+='<h4 class="card-title">크루 이름: '+item.crewName+' </h4>';
+          html+='<p class="card-text">크루장: '+item.memberNickName+'</p>';
+          html+='<p class="card-text">크루소개 : '+item.crewDiscription+'</p>';
+          html+='<a href="#" class="btn btn-success">GO</a>';
+          html+='</div>';
+          html+='</a>';
+					html+='</div>';
+					html+='</div>';
+					html+='</div>';
+					html+='</div>';
+					
+					$('#cList').html(html);
+				})
+	}
 
-	$('#memberid').focusout(function() {
-		// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
-
-		$.ajax({
-			url : '<c:url value="/member/idCheck"/>',
-			type : 'post',
-			data : {
-				mid : $(this).val()
-			},
-			beforeSend : function() {
-				$('#loadingimg').removeClass('display_none');
-			},
-			success : function(data) {
-				// data : Y / N
-				if (data == 'Y') {
-					$('#msg').html('사용가능');
-					$('#msg').addClass('color_blue');
-					$('#msg').removeClass('display_none');
-				} else {
-					$('#msg').html('사용 불가능');
-					$('#msg').addClass('color_red');
-					$('#msg').removeClass('display_none');
-				}
-			},
-			error : function(request, status, error) {
-				alert('서버 통신에 문제가 발생했습니다. 다시 실행해주세요.');
-				console.log(request);
-				console.log(status);
-				console.log(error);
-			},
-			complete : function() {
-				$('#loadingimg').addClass('display_none');
-			}
-		});
-
-	});
-
-});
 </script>
 <body>
 
@@ -104,35 +113,14 @@ $(document).ready(function() {
             </form>
             </div>
             <div class="dropdown">
-                <ul class="select">
-                    <li><a href="#">최신 순</a></li>
-                    <li><a href="#">이름 순</a></li>
-                    <li><a href="#">오래된 순</a></li>
-                </ul>
+           <button class="curved" id="nameList">이름순으로 보기</button>
             </div>
-            
+
+						<div id="cList">
             <div class="row">
-            <c:forEach items="${crewList}" var="crew">
-                <div class="col-md-4">
-                    <div class="card shadow" style="width: 25rem; height: 35rem;">
-                        <div class="inner">
-                            <div>
-                            <a href="<c:url value='/crew/detail/${crew.crewIdx}'/>">
-                            <img src="<c:url value='/images/crew/${crew.crewPhoto}'/>" 
-                            class="card-img-top" alt="card image cap"></a>
-                           </div>
-                        </div>
-                        <div class="card-body text-left">
-                            <h4 class="card-title">크루 이름: ${crew.crewName}</h4>
-                            <p class="card-text">크루장: ${crew.memberNickName}</p>
-                            <p class="card-text">크루소개 : ${crew.crewDiscription}</p>
-                            <a href="#" class="btn btn-success">GO</a>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
-            </div>
-        </div>
+        
+						</div>            
+       		  </div>
         <div class="page">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">

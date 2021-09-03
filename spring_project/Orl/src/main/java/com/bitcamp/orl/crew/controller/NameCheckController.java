@@ -15,13 +15,13 @@ public class NameCheckController {
 	@Autowired
 	private NameCheckService checkService;
 
-	@RequestMapping(value="crew/nameCheck", method =  RequestMethod.POST)
+	@RequestMapping(value="/crew/nameCheck", method =  RequestMethod.POST)
 	public String idCheck(
-			@RequestParam("crewName") String crewName,
+			@RequestParam("cid") String id,
 			Model model
 			) {
 		
-		model.addAttribute("result",checkService.nameCheck(crewName));
+		model.addAttribute("result",checkService.nameCheck(id));
 		
 		return "crew/nameCheck";
 	}

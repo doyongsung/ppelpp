@@ -1,28 +1,27 @@
 package com.bitcamp.orl.crew.service;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.dao.Dao;
+import com.bitcamp.orl.crew.domain.Crew;
 
 @Service
-public class NameCheckService {
-
+public class CrewRestService {
+	
 	private Dao dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	public String nameCheck(String id) {
-		
-		String result = "Y";
-		dao = template.getMapper(Dao.class);
-		
-		if(dao.selectByName(id)>0) {
-			result="N";
-		}
-		return result;
+	public List<Crew> getSortingName(String crewName){
+		List<Crew> crewList = null;
+		dao=template.getMapper(Dao.class);
+		crewList = dao.selectAll(crewName);
+		return crewList;
 	}
 
 }

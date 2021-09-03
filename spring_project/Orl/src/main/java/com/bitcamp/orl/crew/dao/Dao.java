@@ -17,14 +17,15 @@ public interface Dao {
 	
 	int getCrewListCnt();
 	
-	int selectByName(String crewName);
+	int selectByName(String id);
 	
-	List<Crew> selectAll();
-	
+	//전체 크루 수
+	List<Crew> selectAll();	
 	//검색을 통한 crew 리스트 
 	List<Crew> selectCrewAll(SearchType searchType);
-	//전체 크루 수
-	int selectTotalCount();
+	//크루 이름순
+	List<Crew> selectAll(String crewName);
+	
 	
 	List<Crew> selectMyCrewList(@Param("memberIdx")int memberIdx);
 
@@ -41,6 +42,10 @@ public interface Dao {
 	List<CrewComment> selectCrewComment(@Param("crewIdx")int crewIdx);
 	
 	Member selectCommentMember(@Param("memberIdx")int memberIdx);
+	
+	int insertCrewReg(@Param("memberIdx")int memberIdx, @Param("crewIdx")int crewIdx);
+	
+	int insertCrewComment(@Param("crewComment")String crewComment, @Param("memberIdx")int memberIdx, @Param("crewIdx")int crewIdx);
 
 
 	

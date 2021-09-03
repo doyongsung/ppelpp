@@ -38,9 +38,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select * from crew order by crewIdx
 	</select>
 	
-	<select id="selectByName" resultType="int">
-		select count(*) from crew where crewName=#{crewName}
-	</select>
 	
 <!-- 검색을 통한 크루 리스트 -->
   <select 
@@ -102,6 +99,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from crew where crewIdx = #{crewIdx}
 	</select>
 	
+	<select id="selectByName" resultType="int">
+		select count(*) from crew where crewName=#{crewName}
+	</select>
 	<!-- 해당 크루의 크루원 수 -->
 	<select
 	id = "selectCrewMemberNum"
