@@ -10,7 +10,7 @@ public class ConnectionProvider {
 
 		String jdbcUrl = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
 		String user = "bit";
-		String pw = "1234";
+		String pw = "bit";
 
 		return DriverManager.getConnection(jdbcUrl, user, pw);
 	}

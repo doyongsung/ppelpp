@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bitcamp.orl.crew.domain.CrewRequest;
-import com.bitcamp.orl.crew.service.CrewRegService;
+import com.bitcamp.orl.crew.service.CrewInsertService;
 
 @Controller
 @RequestMapping("/crew/insert")
 public class CrewInsertController {
 	
 	@Autowired
-	private CrewRegService regService;
+	private CrewInsertService regService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String insert() {

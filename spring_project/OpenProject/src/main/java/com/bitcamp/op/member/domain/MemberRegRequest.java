@@ -9,6 +9,16 @@ public class MemberRegRequest {
 	private String membername;
 	private MultipartFile photo;
 
+	public MemberRegRequest() {
+	}
+
+	public MemberRegRequest(String memberid, String password, String membername, MultipartFile photo) {
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = membername;
+		this.photo = photo;
+	}
+
 	public String getMemberid() {
 		return memberid;
 	}
@@ -46,24 +56,10 @@ public class MemberRegRequest {
 		return "MemberRegRequest [memberid=" + memberid + ", password=" + password + ", membername=" + membername
 				+ ", photo=" + photo + "]";
 	}
-	
+
 	// MemberRegRequest -> Member
 	public Member toMember() {
-		return new Member(
-				0, 
-				memberid, 
-				password, 
-				membername, 
-				null, 
-				null);
+		return new Member(0, memberid, password, membername, null, null);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

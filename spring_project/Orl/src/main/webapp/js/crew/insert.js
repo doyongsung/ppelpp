@@ -76,8 +76,7 @@
 
             // 서버에 제공
             $("#tag-form").on("submit", function (e) {
-                var value = marginTag(); // return array
-                $("#rdTag").val(value);
+                var value = marginTag(); 
 
                 $(this).submit();
             });

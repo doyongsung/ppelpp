@@ -3,7 +3,7 @@
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg_red">
 		<!-- LOGO -->
-		<a class="navbar-brand mr-auto mr-lg-0" href="#">Offcanvas navbar</a>
+		<a class="navbar-brand mr-auto mr-lg-0 " href="#">BIT MANAGER</a>
 		
 		<!-- 햄버거 토글 버튼 : offcanvas -->
 		<button class="navbar-toggler p-0 border-0" type="button"

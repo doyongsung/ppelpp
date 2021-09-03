@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
-import com.bitcamp.orl.crew.domain.Paging;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.member.domain.Member;
 
@@ -18,15 +17,15 @@ import com.bitcamp.orl.member.domain.Member;
 @Service
 public class CrewListViewService {
 	
-	
 	private Dao dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
-	
+
 	public List<Crew> getMyCrewList(
 			HttpServletRequest request
 			){
+		
 		
 		List<Crew> myCrewList = null;
 		Member member = (Member) request.getSession().getAttribute("member");
@@ -39,14 +38,12 @@ public class CrewListViewService {
 	};
 
 	
-	
 	public List<Crew> getMyCrewList(
 			HttpServletRequest request, 
 			SearchType searchType
 			){
 		
 		List<Crew> myCrewList = null;
-		
 		Member member = (Member) request.getSession().getAttribute("member");
 		if (member != null) {
 			int memberIdx = member.getMemberIdx();
@@ -62,9 +59,14 @@ public class CrewListViewService {
 	}
 	
 	public List<Crew> getCrewListAll(SearchType searchType){
+		return template.getMapper(Dao.class).selectCrewAll(searchType);
+	}
+	
+	public int selectCount(){
 		dao = template.getMapper(Dao.class);
-		return dao.selectAll(searchType);
+		return dao.selectTotalCount();
 	}
 	
 	
-}
+	}
+	

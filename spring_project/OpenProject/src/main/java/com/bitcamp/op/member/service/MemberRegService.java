@@ -10,11 +10,14 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bitcamp.op.member.dao.Dao;
 import com.bitcamp.op.member.domain.Member;
-import com.bitcamp.op.member.domain.MemberRegRequest;
+import com.bitcamp.op.member.domain.MemberAddress;
+import com.bitcamp.op.member.domain.MemberRequestAddress;
+import com.bitcamp.op.member.domain.RegRequest;
 import com.bitcamp.op.util.AES256Util;
 import com.bitcamp.op.util.Sha256;
 
@@ -62,8 +65,8 @@ public class MemberRegService {
 	
 	
 	
-
-	public int memberReg(MemberRegRequest regRequest, HttpServletRequest request) {
+	@Transactional
+	public int memberReg(RegRequest regRequest, HttpServletRequest request) {
 
 		int resultCnt = 0;
 		// Connection conn = null;
@@ -73,10 +76,10 @@ public class MemberRegService {
 			// 1. 파일 저장
 
 			// Member 객체 생성 -> 저장된 파일의 이름을 set
-			Member member = regRequest.toMember();
+			Member member = regRequest.getMemberRegRequest().toMember();
 
 			// 파일 저장
-			if (regRequest.getPhoto() != null && !regRequest.getPhoto().isEmpty()) {
+			if (regRequest.getMemberRegRequest().getPhoto() != null && !regRequest.getMemberRegRequest().getPhoto().isEmpty()) {
 
 				// 새로운 저장 폴더 : File
 				File newDir = new File(request.getSession().getServletContext().getRealPath(UPLOAD_URI));
@@ -87,15 +90,15 @@ public class MemberRegService {
 					System.out.println("저장 폴더를 생성했습니다.");
 				}
 				// 파일 저장시에 파일 이름이 같으면 덮어쓴다 -> 회원별 고유한 파일 이름을 만들자!!, 새로운 파일이름에 확장자 추가
-				String newFileName = regRequest.getMemberid() 
+				String newFileName = regRequest.getMemberRegRequest().getMemberid() 
 						+ System.currentTimeMillis()
-						+ "."+chkFileType(regRequest.getPhoto());
+						+ "."+chkFileType(regRequest.getMemberRegRequest().getPhoto());
 				// cool123128936798123987
 
 				// 새로운 File 객체
 				newFile = new File(newDir, newFileName);
 
-				regRequest.getPhoto().transferTo(newFile);
+				regRequest.getMemberRegRequest().getPhoto().transferTo(newFile);
 				member.setMemberphoto(newFileName);
 			} else {
 				member.setMemberphoto("photo.png");
@@ -152,6 +155,23 @@ public class MemberRegService {
 			// 자식테이블 insert 구문....
 			
 			
+			MemberAddress memberAddress = regRequest.getMemberRequestAddress().toMemberAddress();
+			
+			
+			if(memberAddress.formValidate()) {
+				// member.getIdx() : 새롭게 등록된 idx
+				
+				memberAddress.setMemberidx(member.getIdx());
+				memberAddress.setMemberidx(100);
+				
+				resultCnt *= dao.insertAddress(memberAddress);
+				
+				System.out.println(resultCnt);
+			}
+			
+			
+			
+			
 			int mailsendCnt = mailSenderService.send(member);
 			System.out.println("메일 발송 처리 횟수 : " + mailsendCnt);
 			
@@ -164,9 +184,11 @@ public class MemberRegService {
 				newFile.delete();
 			}
 			e.printStackTrace();
+			resultCnt = 0;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
+			resultCnt = 0;
 		}
 		return resultCnt;
 	}

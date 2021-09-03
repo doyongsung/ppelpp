@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="crew.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -69,7 +71,7 @@
         <div class="container">
             <div class="search-box">
                 <h1>POPULAR CREW</h1>
-                <input class="search-txt" type="text" name="" placeholder="Type to search">
+                <input  class="search-txt" type="text" id="key_search" name="key_search" placeholder="Type to search"/>
                 <a class="search-btn" onclick="menuToggle();" href="#">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
@@ -81,14 +83,14 @@
                     <li><a href="#">오래된 순</a></li>
                 </ul>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
+            <div class="row justify-content-center" id="card_table">
+                <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
                             <div><img src="../images/다운로드 (9)_adobespark.jpeg" class="card-img-top"
                                     alt="card image cap"></div>
                         </div>
-                        <div class="card-body text-left">
+                        <div class="card-body text-left" >
                             <h4 class="card-title">크루 이름: 비트캠프</h4>
                             <p class="card-text">크루장: ppelpp</p>
                             <p class="card-text">크루소개 : 포스코는 1968년 4월1일 산업화라는 국가적 사명을 안고 출범했습니다.
@@ -97,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
                             <div><img src="../images//메인2_1.png" class="card-img-top" alt="card image cap"></div>
@@ -111,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
                             <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
@@ -126,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
                             <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
@@ -141,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
                             <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
@@ -156,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
                             <div><img src="../images/다운로드 (14)_adobespark.jpeg" class="card-img-top"
@@ -244,6 +246,24 @@
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
+
+        $(document).ready(function(){
+            //키보드 키 눌렀을때 이벤트 발생
+            $("#key_search").keyup(function(){
+                //keyup이 되었을때 텍스트 필드에 입력한 문자열값을 읽어내 변수 k에 저장
+                var k = $(this).val();
+
+                $("#card_table > #card_main").hide();
+
+                var title=$("#card_table > #card_main > .card > div > h4:nth-child(7n+3):contains('"+k+"')");
+                var writer=$("#card_table > #card_main > .card > div > h4:nth-child(7n+5):contains('"+k+"')");
+
+                $(title).parent().show();
+                $(writer).parent().show();
+            })
+
+        });
+        
     </script>
 </body>
 

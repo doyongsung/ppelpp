@@ -38,18 +38,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select * from crew order by crewIdx
 	</select>
 	
-		<!-- 페이징 처리 -->
-	<select 
-	id="selectCrewPaging"
-	resultType="com.bitcamp.orl.crew.domain.Paging">
-	SELECT * FROM final.crew ORDER BY crewIdx DESC LIMIT #{startPage},#{endPage};
-	
+	<select id="selectByName" resultType="int">
+		select count(*) from crew where crewName=#{crewName}
 	</select>
 	
-	<select id="getCrewListCnt" resultType="int">
-		SELECT count(*) as crewIdx FROM crew;
-	</select>
-
+<!-- 검색을 통한 크루 리스트 -->
+  <select 
+    id="selectCrewAll"
+    parameterType="com.bitcamp.orl.crew.domain.SearchType"
+    resultType="com.bitcamp.orl.crew.domain.Crew">
+    
+    select * from crew
+    <where>
+    
+    <if test="searchType == 'name'">
+     <!-- crewName like concat('%',#{keyword},'%') -->
+     <include refid="searchName"/>
+    </if>
+    <if test="searchType == 'nickName'">
+     <include refid="searchNickName"/>
+    </if>
+    <if test="searchType == 'tag'">
+     <include refid="searchTag"/>
+    </if>
+    </where>
+  
+  </select>
+    <sql id="searchName">
+    or crewName like concat('%', #{keyword} ,'%')
+    </sql>
+    <sql id="searchNickName">
+    or memberNickName like concat('%', #{keyword} ,'%')
+    </sql>
+    <sql id="searchTag">
+    or crewTag like concat('%', #{keyword} ,'%')
+    </sql>
+    
+    <!-- 페이징 처리가 가능한 회원 리스트 -->
+    <select 
+    id="selectCrewList"
+    resultType="com.bitcamp.orl.crew.domain.Crew">
+    select * from crew
+    
+    order by CrewIdx limit #{param1}, #{param2}
+    
+    </select>
+    <select 
+    id="selectTotalCount"
+    resultType="int">
+    select count(*) from crew
+    </select>
 	<!-- 내가 가입한 크루 리스트 -->
 	<select
 	id="selectMyCrewList"

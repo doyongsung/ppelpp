@@ -18,6 +18,56 @@
     justify-content: flex-start;
 }
 </style>
+<script>
+$(document).ready(function() {
+
+	$('#memberid').focusin(function() {
+		$('#msg').addClass('display_none');
+		$('#msg').removeClass('color_blue');
+		$('#msg').removeClass('color_red');
+
+		$(this).val('');
+	});
+
+	$('#memberid').focusout(function() {
+		// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
+
+		$.ajax({
+			url : '<c:url value="/member/idCheck"/>',
+			type : 'post',
+			data : {
+				mid : $(this).val()
+			},
+			beforeSend : function() {
+				$('#loadingimg').removeClass('display_none');
+			},
+			success : function(data) {
+				// data : Y / N
+				if (data == 'Y') {
+					$('#msg').html('사용가능');
+					$('#msg').addClass('color_blue');
+					$('#msg').removeClass('display_none');
+				} else {
+					$('#msg').html('사용 불가능');
+					$('#msg').addClass('color_red');
+					$('#msg').removeClass('display_none');
+				}
+			},
+			error : function(request, status, error) {
+				alert('서버 통신에 문제가 발생했습니다. 다시 실행해주세요.');
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			},
+			complete : function() {
+				$('#loadingimg').addClass('display_none');
+			}
+		});
+
+	});
+
+});
+</script>
 <body>
 
 <%@ include file="/WEB-INF/frame/default/header.jsp" %>
@@ -34,17 +84,24 @@
 						</div>
 						<p>${crew.crewName}</p>
 					</div>
-					
 				</c:forEach>
 			</c:if>
         </div>
         <div class="container">
             <div class="search-box">
+            <form>
                 <h1>POPULAR CREW</h1>
-                <input class="search-txt" type="text" name="" placeholder="Type to search">
-                <a class="search-btn" onclick="menuToggle();" href="#">
+                <select name="searchType">
+                <option value="name">크루 이름</option>
+                <option value="nickName">닉네임</option>
+                <option value="tag">해시태그</option>
+                </select>
+                <input class="search" type="text" name="keyword" placeholder="Type to search">
+                <input type="submit" value="검색">
+                <a class="search-btn" onclick="menuToggle();" href="#">	
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
+            </form>
             </div>
             <div class="dropdown">
                 <ul class="select">
@@ -55,8 +112,7 @@
             </div>
             
             <div class="row">
-            <c:if test="${crewListAll ne null and not empty crewListAll}">
-            <c:forEach items="${crewListAll}" var="crew">
+            <c:forEach items="${crewList}" var="crew">
                 <div class="col-md-4">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
@@ -75,13 +131,12 @@
                     </div>
                 </div>
             </c:forEach>
-            </c:if>
             </div>
         </div>
         <div class="page">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item">
+                 <!--    <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Previous</span>
@@ -96,7 +151,19 @@
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>
-                    </li>
+                    </li> -->
+                    
+                      <c:if test="${pageMaker.prev}">
+		      <li class="page-item" id="page"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
+		    </c:if> 
+		
+		    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+		      <li class="page-item" id="page"><a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+		    </c:forEach>
+		
+		    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+		      <li class="page-item" id="page"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
+		    </c:if> 
                 </ul>
             </nav>
             <div class="crew-insert">

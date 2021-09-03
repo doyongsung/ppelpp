@@ -6,19 +6,25 @@ import org.apache.ibatis.annotations.Param;
 
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewComment;
-import com.bitcamp.orl.crew.domain.Paging;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.member.domain.Member;
 
 public interface Dao {
 	
+	
+
 	int insertCrew(Crew crew);
 	
 	int getCrewListCnt();
-
+	
+	int selectByName(String crewName);
+	
 	List<Crew> selectAll();
 	
-	List<Crew> selectAll(SearchType searchType);
+	//검색을 통한 crew 리스트 
+	List<Crew> selectCrewAll(SearchType searchType);
+	//전체 크루 수
+	int selectTotalCount();
 	
 	List<Crew> selectMyCrewList(@Param("memberIdx")int memberIdx);
 
@@ -36,5 +42,6 @@ public interface Dao {
 	
 	Member selectCommentMember(@Param("memberIdx")int memberIdx);
 
-	int getCrewListCnt(Paging paging);
+
+	
 }

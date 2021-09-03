@@ -53,7 +53,7 @@
             </div>
         </div>
                     <div class="home_video">
-                        <video loop autoplay="autoplay" muted="muted"src="../video/Hiking+.mp4"></video>
+                        <video loop autoplay="autoplay" muted="muted"src="../video/Hiking.mp4"></video>
                     </div>
                     <div class="home-content wrapper">
                         <h2 class="page-title">

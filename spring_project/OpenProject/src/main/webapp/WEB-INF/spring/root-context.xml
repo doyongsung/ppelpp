@@ -10,11 +10,13 @@
 	<bean id="datasource"
 				class="com.zaxxer.hikari.HikariDataSource"
 				p:driverClassName="com.mysql.cj.jdbc.Driver"
-				p:jdbcUrl="jdbc:mysql://mysql205.cjctzbdszd1g.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
+				p:jdbcUrl="jdbc:mysql://localhost:3306/project?serverTimezone=UTC"
 				p:username="bit"
 				p:password="1234"
 	>
 	</bean>
+	<!-- p:jdbcUrl="jdbc:mysql://mysql205.cjctzbdszd1g.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC" -->
+	
 	
 	<!-- JdbcTemplate 클래스 등록 -->
 	<bean id="jdbcTemplate"
@@ -40,8 +42,11 @@
 	</bean>
 	
 	
-	
-	
+	<!-- Transaction 처리 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
 	
 	
 	

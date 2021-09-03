@@ -15,19 +15,6 @@
 
 <%@ include file="/WEB-INF/views/frame/metaheader.jsp"%>
 
-<style>
-	.bg_ornage{
-		background-color: orange;
-	}
-	
-	.bg_red{
-		background-color: red;
-	}
-	
-	.nav-link{
-		color: white!important;
-	}
-</style>
 
 </head>
 <body class="bg-light">
