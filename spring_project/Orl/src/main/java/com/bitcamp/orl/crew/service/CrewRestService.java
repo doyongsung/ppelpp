@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
+import com.bitcamp.orl.crew.domain.SearchType;
 
 @Service
 public class CrewRestService {
@@ -17,10 +18,10 @@ public class CrewRestService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	public List<Crew> getSortingName(String crewName){
+	public List<Crew> getSortingName(SearchType searchType){
 		List<Crew> crewList = null;
 		dao=template.getMapper(Dao.class);
-		crewList = dao.selectAll(crewName);
+		crewList = dao.selectCrewAll(searchType);
 		return crewList;
 	}
 

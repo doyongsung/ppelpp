@@ -12,9 +12,9 @@
    id="dataSource" 
    class="com.zaxxer.hikari.HikariDataSource"
    p:driverClassName="com.mysql.cj.jdbc.Driver"
-   p:jdbcUrl="jdbc:mysql://mysql2051.cjjtoy9ijxxj.ap-northeast-2.rds.amazonaws.com:3306/final?serverTimezone=UTC"
-   p:username="bit" 
-   p:password="1234" 
+   p:jdbcUrl="jdbc:mysql://mysql205.clcgupreyqqq.ap-northeast-2.rds.amazonaws.com:3306/final?serverTimezone=UTC"
+   p:username="bit"
+   p:password="bit"
    />
    
    <!-- MyBatis -->

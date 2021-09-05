@@ -1,6 +1,6 @@
 package com.bitcamp.orl.crew.domain;
 
-public class SearchType extends Criteria {
+public class SearchType {
 
 	private int p; // 페이징처리시 페이지 번호
 	private String searchType;

@@ -1,6 +1,65 @@
 @charset "UTF-8";
 
 
+.searchType {
+    display: flex;
+    padding-top: 80px;
+
+}
+
+
+.dropdown {
+    padding-top: 20px;
+    margin-bottom: -25px;
+    padding-left: 65px;
+
+}
+
+
+.boxSearch input#search:hover,
+.container-1 input#search:focus,
+.container-1 input#search:active {
+    outline: none;
+    background: #ffffff;
+}
+
+.boxSearch {
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+
+.boxSearch input#search {
+    width: 300px;
+    height: 50px;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.boxSearch .icon {
+    position: absolute;
+    margin-left: 270px;
+    margin-top: 15px;
+    z-index: 1;
+    color: #4f5b66;
+}
+select {
+    border: none;
+}
+
+.curved {
+    padding: 5px;
+    font-size: 12px;
+    border: none;
+    color: #aaa;
+}
+
 .article h1,
 .container h1 {
     font-size: 3.5rem;
@@ -9,9 +68,6 @@
     position: relative;
 }
 
-.nav{
-	margin-left:50%;
-}
 .inner {
     overflow: hidden;
 }
@@ -22,7 +78,8 @@
 }
 
 .dropdown {
-    position: initial;
+    margin-left: -70px;
+    padding-right: 44%;
 }
 
 .select {
@@ -43,6 +100,10 @@
 .section ul li {
     padding: 5px;
     margin-left: 5px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .inner img {
@@ -120,7 +181,7 @@ div p {
 
 .search-box {
     padding-top: 25px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -162,12 +223,10 @@ div p {
     width: 0px;
 }
 
-.search-box h1 {
-    padding-right: 50%;
-}
+.search-box {}
 
 .crew-insert {
-    padding-left: 64%;
+	float:right;
 }
 
 .crew-insert a {
@@ -221,6 +280,7 @@ ul>li>a:hover .card::after {
 
 .section .article .article-crew {
     text-align: center;
+    margin: 0 -30px;
     float: left;
     padding: 10px;
 }
@@ -237,7 +297,6 @@ div::after {
     height: 35rem;
 }
 
-
 .card img {
     width: 100%;
     height: 350px;
@@ -247,7 +306,7 @@ div::after {
 .section .article img {
     border-radius: 70%;
     overflow: hidden;
-    width: 150px;
+    width: 70%;
     height: 150px;
 }
 

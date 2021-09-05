@@ -7,22 +7,21 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.orl.crew.dao.Dao;
 
 @Service
-public class NameCheckService {
-
+public class CrewNameCheckService {
+	
 	private Dao dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	public String nameCheck(String id) {
+	public String crewNameCheck(String crewName) {
 		
 		String result = "Y";
 		dao = template.getMapper(Dao.class);
 		
-		if(dao.selectByName(id)>0) {
+		if(dao.selectByCrewName(crewName)>0) {
 			result="N";
 		}
 		return result;
 	}
-
 }

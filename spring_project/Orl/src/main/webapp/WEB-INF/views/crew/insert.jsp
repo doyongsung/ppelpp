@@ -48,7 +48,7 @@
                     
                             </td>
                             <td>
-                                <input type="text" id="crewname" name="crewname" class="form-control"
+                                <input type="text" id="crewName" name="crewName" class="form-control"
                                     placeholder="원래 크루명이 자동으로 뜨도록 처리">
                                     	<span id="msg" class="display_none"></span> <img id="loadingimg"
 															class="display_none" alt="loading"
@@ -60,8 +60,7 @@
                                 <label for="crewname">크루 사진</label>
                             </td>
                             <td>   
-                            <img id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다."
-         													style="cursor: pointer;" onclick="doImgPop(this.src)"/>
+                            <img src="<c:url value="/images/crew/default.jpg"/>" id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다." style="cursor: pointer;" onclick="doImgPop(this.src)"/>
                                 <input type="file" id="crewPhoto" name="crewPhoto" class="form-control form-control-lg">
                             </td>
                         </tr>
@@ -104,7 +103,7 @@
 <script>
 $(document).ready(function() {
 
-	$('#crewname').focusin(function() {
+	$('#crewName').focusin(function() {
 		$('#msg').addClass('display_none');
 		$('#msg').removeClass('color_blue');
 		$('#msg').removeClass('color_red');
@@ -112,7 +111,7 @@ $(document).ready(function() {
 		$(this).val('');
 	});
 
-	$('#crewname').focusout(function() {
+	$('#crewName').focusout(function() {
 		// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
 
 		$.ajax({

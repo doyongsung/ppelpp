@@ -1,53 +1,100 @@
 package com.bitcamp.orl.crew.domain;
 
+import java.util.Arrays;
+
 public class Criteria {
+
+	/* 현재 페이지 */
+	private int pageNum;
 	
-	private int page; // 현재 페이지번호
-	private int perPageNum; //페이지당 보여줄 게시글의 개수
-	private int rowStart;
-	private int rowEnd;
+	/* 한 페이지 당 보여질 게시물 갯수 */
+	private int amount;
 	
+	/* 스킵 할 게시물 수( (pageNum-1) * amount ) */
+	private int skip;
 	
-	// sql 문에서 pageStart에 들어갈 값.
-	// 게시글 몇번째 부터 시작할 지 결정
-	public int getPageStart() {
-		return (this.page-1) * perPageNum;
-	}
+	/* 검색어 키워드 */
+	private String keyword;
 	
-	public Criteria() { //초기값 세팅
-		this.page = 1;
-		this.perPageNum = 6;
-	}
+	/* 검색 타입 */
+	private String type;
 	
-	public int getPage() {
-		return page;
-	}
-	public void setPage(int page) {
-		if(page <= 0) {
-			this.page = 1;
-		}else {
-			this.page = page;
-		}
-	}
-	public int getPerPageNum() {
-		return perPageNum;
-	}
-	public void setPerPageNum(int perPageNum) {
-		if (perPageNum <= 0 || perPageNum > 100) {
-			this.perPageNum =6;
-			return;
-		}
-		this.perPageNum = perPageNum;
-	}
-	public int getRowStart() {
-		rowStart = ((page - 1) * perPageNum) + 1;
-		return rowStart;
+	/* 검색 타입 배열 */
+	private String[] typeArr;
+	
+	/* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
+	public Criteria() {
+		this(1,10);
+		this.skip = 0;
 	}
 	
-	public int getRowEnd() {
-		rowEnd = rowStart + perPageNum - 1;
-		return rowEnd;
+	/* 생성자 => 원하는 pageNum, 원하는 amount */
+	public Criteria(int pageNum, int amount) {
+		this.pageNum = pageNum;
+		this.amount = amount;
+		this.skip = (pageNum-1)*amount;
+	}
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		
+		this.skip= (pageNum-1)*this.amount;
+		
+		this.pageNum = pageNum;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		
+		this.skip= (this.pageNum-1)*amount;
+		
+		this.amount = amount;
 	}
 
 
+	public int getSkip() {
+		return skip;
+	}
+
+	public void setSkip(int skip) {
+		this.skip = skip;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		this.typeArr = type.split("");
+	}
+
+	public String[] getTypeArr() {
+		return typeArr;
+	}
+
+	public void setTypeArr(String[] typeArr) {
+		this.typeArr = typeArr;
+	}
+
+	@Override
+	public String toString() {
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword
+				+ ", type=" + type + ", typeArr=" + Arrays.toString(typeArr) + "]";
+	}
 }
+

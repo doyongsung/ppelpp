@@ -17,6 +17,13 @@
 .justify-content-center {
     justify-content: flex-start;
 }
+.nav{
+padding-left: 50%;
+}
+.logo{
+padding-top: 10px;
+}
+
 </style>
 <script>
 $(document).ready(function(){
@@ -38,10 +45,36 @@ $(document).ready(function(){
 		console.log("이름순으로 정렬");
 	  console.log(cList);
 	  cList.sort(function(a,b){
-		return a.crewName<b.crewName?-1:a.crewName>b.crewName?1:0;
+		  a = a.crewName;
+			b = b.crewName;
+		return a < b ? - 1 : a > b ? 1 : 0;
+	})
+	
+	crewList(cList);
+	})
+	
+		$('#newestList').click(function(){
+		console.log("최신순으로 정렬");
+	  console.log(cList);
+	  cList.sort(function(a,b){
+		a = a.crewCreatedate;
+		b = b.crewCreatedate;
+		return a > b ? -1 : a < b ? 1 : 0;
 	})
 	crewList(cList);
 	})
+	
+		$('#oldList').click(function(){
+		console.log("오래된순으로 정렬");
+	  console.log(cList);
+	  cList.sort(function(a,b){
+			a = a.crewCreatedate;
+			b = b.crewCreatedate;
+		  return a < b ? -1 : a > b ? 1 : 0;
+	})
+	crewList(cList);
+	})
+	
 })	
 
 
@@ -53,7 +86,7 @@ function crewList(cList){
 	
 				var html='<div id="row" class="row">';
 				
-				$.each(ccList,function(index,item){
+	/* 		 	$.each(ccList,function(index,item){
 					html+='<div class="col-md-4">';
 					html+='<div class="card shadow">';
 					html+='<div class="inner">';
@@ -73,7 +106,7 @@ function crewList(cList){
 					html+='</div>';
 					
 					$('#cList').html(html);
-				})
+				})  */
 	}
 
 </script>
@@ -89,7 +122,7 @@ function crewList(cList){
 						<div class="article-crew">
 				  	<div>
 							<a href='<c:url value="/crew/detail/${crew.crewIdx}"/>'>
-							<img src="<c:url value="/images/hiking2"/>"></a>
+							<img src="<c:url value="/images/crew/1.png"/>"></a>
 						</div>
 						<p>${crew.crewName}</p>
 					</div>
@@ -98,63 +131,59 @@ function crewList(cList){
         </div>
         <div class="container">
             <div class="search-box">
-            <form>
-                <h1>POPULAR CREW</h1>
-                <select name="searchType">
-                <option value="name">크루 이름</option>
-                <option value="nickName">닉네임</option>
-                <option value="tag">해시태그</option>
-                </select>
-                <input class="search" type="text" name="keyword" placeholder="Type to search">
-                <input type="submit" value="검색">
-                <a class="search-btn" onclick="menuToggle();" href="#">	
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </a>
-            </form>
-            </div>
-            <div class="dropdown">
-           <button class="curved" id="nameList">이름순으로 보기</button>
-            </div>
-
+                    <div class="dropdown">
+                        <h1>POPULAR CREW</h1>
+                        <button class="curved" id="nameList">이름순으로 보기</button>
+                        <button class="curved" id="newestList">최신순으로 보기</button>
+                        <button class="curved" id="oldList">오랜된 순으로 보기</button>
+                    </div>
+                    <form name="listForm">
+                      <div class="search-drop">
+                          <div class="searchType">
+                              <select name="searchType">
+                                  <option value="name">크루 이름</option>
+                                  <option value="nickName">닉네임</option>
+                                  <option value="tag">해시태그</option>
+                                </select>
+                                <div class="boxSearch">
+                                    <span class="icon"><i class="fa fa-search" aria-hidden="true" onclick="search_onclick_submit"></i></span>
+                                    <input id="search"class="search" onkeypress="if( event.keyCode == 13 ){search_onclick_submit;}" type="text" name="keyword" placeholder="Type to search">	
+                                </div>
+                            </div>
+                        </form>
+                       
+                    </div>
+</div>
 						<div id="cList">
-            <div class="row">
-        
-						</div>            
-       		  </div>
-        <div class="page">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                 <!--    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li> -->
-                    
-                      <c:if test="${pageMaker.prev}">
-		      <li class="page-item" id="page"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
-		    </c:if> 
+   	<div class="row">
+			
+				<c:if test="${crewList ne null and not empty crewList}">
+					<c:forEach items="${crewList}" var="crew">
+					
+						<div class="col-md-4">
+							<div class="card shadow" style="width: 25rem; height: 35rem;">
+								<div class="inner">
+									<div>
+										<a href="<c:url value='/crew/detail/${crew.crewIdx}&1'/>"> 
+										<img src="<c:url value='/images/crew/${crew.crewPhoto}'/>" class="card-img-top" alt="card image cap"></a>
+									</div>
+								</div>
+								<div class="card-body text-left">
+									<h4 class="card-title">크루 이름: ${crew.crewName}</h4>
+									<p class="card-text">크루장: ${crew.memberNickName}</p>
+									<p class="card-text">크루소개 : ${crew.crewDiscription}</p>
+									<a href="<c:url value='/crew/detail/${crew.crewIdx}&1'/>" class="btn btn-success">GO</a>
+								</div>
+							</div>
+						</div>
+					
+					</c:forEach>
+				</c:if>
+				
+			</div>
+		</div>     
 		
-		    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-		      <li class="page-item" id="page"><a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
-		    </c:forEach>
-		
-		    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		      <li class="page-item" id="page"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
-		    </c:if> 
-                </ul>
-            </nav>
-            <div class="crew-insert">
+		       <div class="crew-insert">
                 <a href="<c:url value='/crew/insert'/>">크루 생성하기</a>
             </div>
         </div>
@@ -166,6 +195,9 @@ function crewList(cList){
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
-    </script>
+    </script>       
+       		  
+      
+
 </body>
 </html>

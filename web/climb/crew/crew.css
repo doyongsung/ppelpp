@@ -58,6 +58,67 @@
     --text-logo: "Cafe24SsurroundAir";
 }
 
+select {
+    border: none;
+}
+
+
+
+.searchType {
+    display: flex;
+    padding-top: 80px;
+
+}
+
+
+.dropdown {
+    padding-top: 20px;
+    margin-bottom: -25px;
+    padding-left: 65px;
+
+}
+
+
+.boxSearch input#search:hover,
+.container-1 input#search:focus,
+.container-1 input#search:active {
+    outline: none;
+    background: #ffffff;
+}
+
+.boxSearch {
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+
+.boxSearch input#search {
+    width: 300px;
+    height: 50px;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.boxSearch .icon {
+    position: absolute;
+    margin-left: 250px;
+    margin-top: 15px;
+    z-index: 1;
+    color: #4f5b66;
+}
+
+.curved {
+    padding: 5px;
+    font-size: 12px;
+    border: none;
+    color: #aaa;
+}
 
 * {
     padding: 0;
@@ -84,7 +145,8 @@
 }
 
 .dropdown {
-    position: initial;
+    margin-left: -70px;
+    padding-right: 44%;
 }
 
 .select {
@@ -186,7 +248,7 @@ div p {
 
 .search-box {
     padding-top: 25px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -228,9 +290,7 @@ div p {
     width: 0px;
 }
 
-.search-box h1 {
-    padding-right: 50%;
-}
+.search-box {}
 
 .crew-insert {
     padding-left: 64%;

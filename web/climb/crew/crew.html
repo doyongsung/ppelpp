@@ -68,22 +68,32 @@
 
 
         </div>
-        <div class="container">
-            <div class="search-box">
-                <h1>POPULAR CREW</h1>
-                <input  class="search-txt" type="text" id="key_search" name="key_search" placeholder="Type to search"/>
-                <a class="search-btn" onclick="menuToggle();" href="#">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="dropdown">
-                <ul class="select">
-                    <li><a href="#">최신 순</a></li>
-                    <li><a href="#">이름 순</a></li>
-                    <li><a href="#">오래된 순</a></li>
-                </ul>
-            </div>
-            <div class="row justify-content-center" id="card_table">
+        <div class="container">           
+                <div class="search-box">
+                    <div class="dropdown">
+                        <h1>POPULAR CREW</h1>
+                        <button class="curved" id="nameList">이름순으로 보기</button>
+                        <button class="curved" id="newestList">최신순으로 보기</button>
+                        <button class="curved" id="oldList">오랜된 순으로 보기</button>
+                    </div>
+                    <form name="listForm">
+                      <div class="search-drop">
+                          <div class="searchType">
+                              <select name="searchType">
+                                  <option value="name">크루 이름</option>
+                                  <option value="nickName">닉네임</option>
+                                  <option value="tag">해시태그</option>
+                                </select>
+                                <div class="boxSearch">
+                                    <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    <input id="search"class="search" type="text" name="keyword" placeholder="Type to search">	
+                                </div>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+                    <div class="row justify-content-center" id="card_table">
                 <div class="col-md-4" id="card_main">
                     <div class="card shadow" style="width: 25rem; height: 35rem;">
                         <div class="inner">
@@ -263,8 +273,10 @@
             })
 
         });
-        
+    
     </script>
+
+    
 </body>
 
 </html>

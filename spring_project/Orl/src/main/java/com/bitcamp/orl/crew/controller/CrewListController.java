@@ -2,7 +2,6 @@ package com.bitcamp.orl.crew.controller;
 
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bitcamp.orl.crew.domain.Crew;
-import com.bitcamp.orl.crew.domain.PageMaker;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.crew.service.CrewListViewService;
 
@@ -45,11 +43,11 @@ public class CrewListController{
 		}
 		model.addAttribute("crewList",list);
 	
-//		//내 크루 리스트 처리//
-//		List<Crew> myCrewList = null;
-//		myCrewList = service.getMyCrewList(request);
-//		model.addAttribute("myCrewList", myCrewList);
-//		
+		//내 크루 리스트 처리//
+		List<Crew> myCrewList = null;
+		myCrewList = service.getMyCrewList(request);
+		model.addAttribute("myCrewList", myCrewList);
+		
 		//전체 크루 리스트 처리//
 		List<Crew> crewListAll = null;
 		crewListAll = service.getCrewListAll();
