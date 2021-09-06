@@ -5,8 +5,8 @@ CREATE TABLE final.member (
    `memberPw` VARCHAR(50) NOT NULL ,
    `memberName` VARCHAR(50) NOT NULL ,
    `memberEmail` VARCHAR(40) NOT NULL,
-   `memberProfile` VARCHAR(100) NULL default 'default.jpg',
-   `memberNickname` VARCHAR(50) NOT NULL ,
+   `memberProfile` VARCHAR(100) NULL,
+   `memberNickname` VARCHAR(50) NOT NULL,
    `memberRegdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
    `memberBirth` TIMESTAMP NULL,
     constraint pk_memberIdx PRIMARY KEY (memberIdx),
@@ -14,6 +14,29 @@ CREATE TABLE final.member (
 	constraint member_memberNickname_uq UNIQUE KEY (memberNickname)
 );
 
+-- 사진게시판
+CREATE TABLE final.photoBoard (
+   `boardIdx` INTEGER NOT NULL AUTO_INCREMENT,
+   `boardPhoto` VARCHAR(100) NOT NULL,
+   `boardDiscription` text NULL,
+   `boardDate` TIMESTAMP  NULL DEFAULT CURRENT_TIMESTAMP,
+   `hashtag` varchar(200) NULL,
+   `memberIdx` INTEGER NOT NULL,
+    PRIMARY KEY (`boardIdx`),
+    CONSTRAINT `FK_memberIdx_to_board` FOREIGN KEY (`memberIdx`) REFERENCES final.member(`memberIdx`)
+);
+
+-- 사진게시판-댓글
+CREATE TABLE final.photoBoardComment (
+   boardCommnetIdx INTEGER NOT NULL AUTO_INCREMENT ,
+   comment text NOT NULL,
+   commentDate TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+   boardIdx INTEGER NOT NULL,
+   memberIdx INTEGER NOT NULL,
+   PRIMARY KEY (`boardCommnetIdx`),
+   CONSTRAINT `FK_boardIdx_to_boardComment` FOREIGN KEY (`boardIdx`) REFERENCES final.photoBoard(`boardIdx`),
+   CONSTRAINT `FK_memberIdx_to_boardComment` FOREIGN KEY (`memberIdx`) REFERENCES final.member(`memberIdx`)
+);
 
 -- 크루
 CREATE TABLE final.crew (
@@ -41,32 +64,6 @@ CREATE TABLE final.crewreg (
 	constraint fk_memberIdx_to_crewReg foreign key (memberIdx) references final.member(memberIdx),
     constraint fk_crewIdx_to_crewReg foreign key (crewIdx) references final.crew(crewIdx)
 );
-
-
--- 사진게시판
-CREATE TABLE final.PhotoBoard (
-   `boardIdx` INTEGER NOT NULL AUTO_INCREMENT,
-   `boardPhoto` VARCHAR(100) NOT NULL,
-   `boardDiscription` text NULL,
-   `boardDate` TIMESTAMP  NULL DEFAULT CURRENT_TIMESTAMP,
-   `hashtag` varchar(200) NULL,
-   `memberIdx` INTEGER NOT NULL,
-    PRIMARY KEY (`boardIdx`),
-    CONSTRAINT `FK_memberIdx_to_board` FOREIGN KEY (`memberIdx`) REFERENCES final.member(`memberIdx`)
-);
-
--- 사진게시판-댓글
-CREATE TABLE final.PhotoBoardComment (
-   boardCommnetIdx INTEGER NOT NULL AUTO_INCREMENT ,
-   comment text NOT NULL,
-   commentDate TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-   boardIdx INTEGER NOT NULL,
-   memberIdx INTEGER NOT NULL,
-   PRIMARY KEY (`boardCommnetIdx`),
-   CONSTRAINT `FK_boardIdx_to_boardComment` FOREIGN KEY (`boardIdx`) REFERENCES final.PhotoBoard(`boardIdx`),
-   CONSTRAINT `FK_memberIdx_to_boardComment` FOREIGN KEY (`memberIdx`) REFERENCES final.member(`memberIdx`)
-);
-
 
 -- 크루댓글
 CREATE TABLE final.crewComment (
@@ -114,10 +111,3 @@ DROP TABLE IF EXISTS final.PhotoBoardComment;
 
 DROP TABLE IF EXISTS final.follow;
 DROP TABLE IF EXISTS final.like;
-insert into final.member (memberId,memberPw,memberName,memberEmail,memberNickname) values ('zxc','1223','fdsf','ppelpp@naver.com','fsdf');
-
-drop table final.crew;
-
-drop table final.crewreg;
-
-

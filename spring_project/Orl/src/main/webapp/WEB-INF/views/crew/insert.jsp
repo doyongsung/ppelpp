@@ -37,7 +37,7 @@
     <div class="section">
         <div class="box">
             <div class="edit_section">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="tag-form">
                     <table>
                     <div class="create">
                     <h1>생성하기</h1>
@@ -81,10 +81,8 @@
 		          </td>
 		        	<td>
 			        	<ul id="tag-list"></ul>
-			        	
 			          <div class="form-group">
 			          	<input type="text" id="tag" size="7" placeholder="#" style="width: 300px;" />
-			          	
 			          </div>
 		          </td>
                         </tr>

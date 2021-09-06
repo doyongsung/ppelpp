@@ -54,6 +54,7 @@ public class CrewInsertService {
 	    }
 		dao = template.getMapper(Dao.class);
 		resultCnt = dao.insertCrew(crew);
+		dao.insertCrewReg(member.getMemberIdx(), crew.getCrewIdx());
 		}catch(Exception e) {
 			e.printStackTrace();
 			if(newFile != null & newFile.exists()) {

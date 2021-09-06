@@ -7,42 +7,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 인터페이스의 full name을 namespace로 설정해야한다!!! -->
 <mapper namespace="com.bitcamp.orl.crew.dao.Dao">
 
-
-<!-- 검색 조건문 -->
-	<sql id="criteria">
-		<trim prefix="where (" suffix=")" prefixOverrides="OR">
-			<foreach collection="typeArr" item="type">
-				<trim prefix="OR">
-					<choose>
-						<when test="type == 'name'.toString()">
-							title like concat('%',#{keyword},'%') 
-						</when>
-						<when test="type == 'nickName'.toString()">
-							content like concat('%',#{keyword},'%') 
-						</when>
-						<when test="type == 'tag'.toString()">
-							writer like concat('%',#{keyword},'%' )
-						</when>
-					</choose>
-				</trim>
-			</foreach>
-		</trim>
-	</sql>
-	
-	    
-	
-	
-	<!-- 크루 목록 -->
-	<select id="getList" resultType="com.bitcamp.orl.crew.domain.Crew">
-	
-		select * from crew
-	
-	</select>
-
-
-
-
-
 <!-- insert -->
 	<insert 
 	id="insertCrew"
@@ -124,25 +88,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     select count(*) from crew
     </select>
 
-	<!-- Select 의 결과를 매핑하는 설정 -->
-	<resultMap id="crewListResult"
-		type="com.orl.crew.domain.Crew">
-		<id column="crewIdx" property="crewIdx" />
-		<result column="crewName" property="crewName" />
-		<result column="crewPhoto" property="crewPhoto" />
-		<result column="crewDiscription" property="crewDiscription" />
-		<result column="crewCreatedate" property="crewCreatedate" />
-		<result column="crewTag" property="crewTag" />
-		<result column="memberIdx" property="memberIdx" />
-	</resultMap>
-	
-	<!-- 전체 크루 리스트 -->
-	<select
-		id="selectAll"
-		resultMap="crewListResult">
-			select * from crew order by crewIdx desc
-	</select>
-	
 	<!-- 내가 가입한 크루 리스트 -->
 	<select
 	id="selectMyCrewList"
@@ -180,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 크루 댓글 작성자 찾기 -->
 	<select 
-	id = "selectCrewCommentMember"
+	id = "selectMemberByMemberIdx"
 	resultType="com.bitcamp.orl.member.domain.Member">
 		select * from member where memberIdx = #{memberIdx}
 	</select>
@@ -203,14 +148,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from crewComment where crewIdx = #{crewIdx}
 	</select>
 	
-	<!-- 크루 댓글 작성자 정보 가져오기 -->
-	<select
-	id="selectCommentMember"
-	resultType="com.bitcamp.orl.member.domain.Member">
-		select * from member
-		where memberIdx = #{memberIdx}
-	</select>
-	
 	<!-- insert -->
 	<insert 
 	id="insertCrewReg"
@@ -218,7 +155,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into crewreg (memberIdx, crewIdx)
 		values (#{memberIdx}, #{crewIdx})
 	</insert>
-		
+	
 	<insert 
 	id="insertCrewComment"
 	parameterType="com.bitcamp.orl.crew.domain.CrewComment">
@@ -233,5 +170,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from crewComment where crewIdx=#{crewIdx} 
 		order by crewCommentDate desc limit #{firstRow}, #{amountPerPage}
 	</select>
-	
+		<!-- insert -->
+
 </mapper>

@@ -17,7 +17,7 @@ public interface Dao {
 	
 	int getCrewListCnt();
 	
-	int selectByCrewName(String id);
+	int selectByCrewName(String crewName);
 	
 	//전체 크루 수
 	List<Crew> selectAll();	
@@ -39,7 +39,7 @@ public interface Dao {
 	
 	int selectCountMemberToRegCrew(@Param("memberIdx")int memberIdx, @Param("crewIdx")int crewIdx);
 	
-	Member selectCrewCommentMember(@Param("memberIdx")int memberIdx);
+	Member selectMemberByMemberIdx(@Param("memberIdx")int memberIdx);
 	
 	List<CrewComment> selectCrewComment(@Param("crewIdx")int crewIdx);
 	
@@ -49,6 +49,7 @@ public interface Dao {
 	
 	List <CrewComment> selectCrewCommentPaging(@Param("crewIdx")int crewIdx, @Param("firstRow")int firstRow, @Param("amountPerPage")int amountPerPage);
 
-	
+
+
 	
 }

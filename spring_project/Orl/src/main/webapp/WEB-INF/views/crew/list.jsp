@@ -102,7 +102,7 @@ function crewList(cList){
 					html+='<div class="card shadow">';
 					html+='<div class="inner">';
 					html+='<div>';
-					html+='<a href="<c:url value="/crew/detail/'+item.crewIdx+'"/>">';
+					html+='<a href="<c:url value="/crew/detail/'+item.crewIdx+'&1"/>">';
 					html+='<img src="<c:url value="/images/crew/'+item.crewPhoto+'"/>"  class="card-img-top" alt="card image cap">';
           html+='<div class="card-body text-left">';
           html+='<h4 class="card-title">크루 이름: '+item.crewName+' </h4>';
@@ -132,7 +132,7 @@ function crewList(cList){
 		  	<c:forEach items="${myCrewList}" var="crew">
 						<div class="article-crew">
 				  	<div>
-							<a href='<c:url value="/crew/detail/${crew.crewIdx}"/>'>
+							<a href='<c:url value="/crew/detail/${crew.crewIdx}&1"/>'>
 							<img src="<c:url value="/images/crew/1.png"/>"></a>
 						</div>
 						<p>${crew.crewName}</p>
@@ -172,27 +172,7 @@ function crewList(cList){
 				
 			</div>
 		</div>
-		<div class="page">
-			<nav aria-label="Page navigation example">
-			
-				<c:if test="${listView.totalPageNum>0}">
-					<ul class="pagination">
-					
-						<c:forEach begin="1" end="${listView.totalPageNum}" var="num">
-							<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span>
-							<span class="sr-only">Previous</span>
-							</a></li>
-							<li class="page-item"><a class="page-link" href="<c:url value=''/>">1</a></li>
-							<li class="page-item"><a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">Next</span>
-							</a></li>
-						</c:forEach>
-						
-					</ul>
-				</c:if>
-				
-			</nav>
-			</div>     
+		
 		
 		       <div class="crew-insert">
                 <a href="<c:url value='/crew/insert'/>">크루 생성하기</a>
