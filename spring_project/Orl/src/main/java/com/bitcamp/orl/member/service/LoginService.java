@@ -32,6 +32,8 @@ public class LoginService {
 			) {
 		
 		cookieChk(response, reid, memberId);
+		
+		
 		dao = template.getMapper(Dao.class);
 		
 		if (memberId != null && memberPw != null && memberId.trim().length() > 2 && memberPw.trim().length() > 2) {
@@ -43,7 +45,8 @@ public class LoginService {
 		}
 		return loginChk;
 	}
-
+	
+	
 	public void cookieChk(HttpServletResponse response, String reid, String id) {
 
 		if (reid != null && reid.equals("on")) {
@@ -66,7 +69,7 @@ public class LoginService {
 	public boolean chkURI(String uri) {
 		boolean chk = true;
 
-		if (!uri.startsWith("/Orl")) {
+		if (!uri.startsWith("/orl/member/login")) {
 			chk = false;
 		}
 		return chk;

@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.CrewComment;
+import com.bitcamp.orl.crew.domain.CrewCommentCriteria;
 import com.bitcamp.orl.crew.domain.CrewCommentInfo;
+import com.bitcamp.orl.crew.domain.CrewCommentPagingDTO;
 import com.bitcamp.orl.member.domain.Member;
 
 @Service
@@ -22,27 +24,20 @@ public class CrewCommentService {
 	@Autowired
 	SqlSessionTemplate template;
 	
-	public int insertCrewComment(
-			String crewComment,
-			HttpSession session,
-			int crewIdx
-			) {
-		int resultCnt = 0;
+	public CrewCommentPagingDTO getCrewComment(CrewCommentCriteria cri) {
 		
 		dao = template.getMapper(Dao.class);
 		
-		Member member = (Member)session.getAttribute("member");
-		resultCnt = dao.insertCrewComment(crewComment, member.getMemberIdx(), crewIdx);
+		if(cri.getCurrentPageNum() == 0) {
+			cri.setCurrentPageNum(1);
+		}
 		
-		return resultCnt;
-	}
-	
-	public List<CrewCommentInfo> getCrewComment(int crewIdx) {
-		dao = template.getMapper(Dao.class);
+		int startRow = (cri.getCurrentPageNum()-1) * (cri.getAmountPerPage());
+		int endRow = startRow + cri.getAmountPerPage();
+		int totalCommentNum = dao.selectCrewCommentNum(cri.getCrewIdx());
 		
-		List<CrewComment> list = dao.selectCrewComment(crewIdx);
+		List<CrewComment> list = dao.selectCrewCommentPaging(cri.getCrewIdx(), startRow, cri.getAmountPerPage());
 		List<CrewCommentInfo> infoList = new ArrayList<CrewCommentInfo>();
-		
 		if(list != null) {
 			for(int i = 0 ; i < list.size() ; i++) {
 				CrewCommentInfo info = list.get(i).CommentToInfo();
@@ -53,11 +48,27 @@ public class CrewCommentService {
 			}
 		}
 		
-		return infoList;
+		CrewCommentPagingDTO dto = new CrewCommentPagingDTO(
+				infoList, totalCommentNum, cri, startRow, endRow);
+		
+		
+		return dto;
 	}
 	
 	public Member getCommentMember(int memberIdx) {
 		dao = template.getMapper(Dao.class);
-		return dao.selectCommentMember(memberIdx);
+		return dao.selectCrewCommentMember(memberIdx);
+	}
+	
+	public int insertCrewComment(
+			String crewComment,
+			HttpSession session,
+			int crewIdx
+			) {
+		int resultCnt = 0;
+		dao = template.getMapper(Dao.class);
+		Member member = (Member)session.getAttribute("member");
+		resultCnt = dao.insertCrewComment(crewComment, member.getMemberIdx(), crewIdx);
+		return resultCnt;
 	}
 }

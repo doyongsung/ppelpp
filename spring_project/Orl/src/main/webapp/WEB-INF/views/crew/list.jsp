@@ -27,13 +27,24 @@ padding-top: 10px;
 </style>
 <script>
 $(document).ready(function(){
-	
 	var cList=[];
+	cList=null;
 	
 	$.ajax({
+		url:'<c:url value="/crew/searchTypeRest"/>',
+		type:'GET',
+		data:{searchType:'${searchType}'},
+		dataType : 'json',
+		success:function(data){
+			cList = data;
+			crewList(cList);
+		}
+	})
+	
+		$.ajax({
 		url:'<c:url value="/crew/crewName"/>',
 		type:'GET',
-		data:{crewName:'${crewName}'},
+		data:{searchType:'${searchType}'},
 		dataType : 'json',
 		success:function(data){
 			cList = data;
@@ -86,7 +97,7 @@ function crewList(cList){
 	
 				var html='<div id="row" class="row">';
 				
-	/* 		 	$.each(ccList,function(index,item){
+	  		$.each(ccList,function(index,item){
 					html+='<div class="col-md-4">';
 					html+='<div class="card shadow">';
 					html+='<div class="inner">';
@@ -106,7 +117,7 @@ function crewList(cList){
 					html+='</div>';
 					
 					$('#cList').html(html);
-				})  */
+				})   
 	}
 
 </script>
@@ -137,7 +148,7 @@ function crewList(cList){
                         <button class="curved" id="newestList">최신순으로 보기</button>
                         <button class="curved" id="oldList">오랜된 순으로 보기</button>
                     </div>
-                    <form name="listForm">
+                    <form action="" name="frm">
                       <div class="search-drop">
                           <div class="searchType">
                               <select name="searchType">
@@ -157,31 +168,31 @@ function crewList(cList){
 						<div id="cList">
    	<div class="row">
 			
-				<c:if test="${crewList ne null and not empty crewList}">
-					<c:forEach items="${crewList}" var="crew">
-					
-						<div class="col-md-4">
-							<div class="card shadow" style="width: 25rem; height: 35rem;">
-								<div class="inner">
-									<div>
-										<a href="<c:url value='/crew/detail/${crew.crewIdx}&1'/>"> 
-										<img src="<c:url value='/images/crew/${crew.crewPhoto}'/>" class="card-img-top" alt="card image cap"></a>
-									</div>
-								</div>
-								<div class="card-body text-left">
-									<h4 class="card-title">크루 이름: ${crew.crewName}</h4>
-									<p class="card-text">크루장: ${crew.memberNickName}</p>
-									<p class="card-text">크루소개 : ${crew.crewDiscription}</p>
-									<a href="<c:url value='/crew/detail/${crew.crewIdx}&1'/>" class="btn btn-success">GO</a>
-								</div>
-							</div>
-						</div>
-					
-					</c:forEach>
-				</c:if>
+
 				
 			</div>
-		</div>     
+		</div>
+		<div class="page">
+			<nav aria-label="Page navigation example">
+			
+				<c:if test="${listView.totalPageNum>0}">
+					<ul class="pagination">
+					
+						<c:forEach begin="1" end="${listView.totalPageNum}" var="num">
+							<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span>
+							<span class="sr-only">Previous</span>
+							</a></li>
+							<li class="page-item"><a class="page-link" href="<c:url value=''/>">1</a></li>
+							<li class="page-item"><a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							<span class="sr-only">Next</span>
+							</a></li>
+						</c:forEach>
+						
+					</ul>
+				</c:if>
+				
+			</nav>
+			</div>     
 		
 		       <div class="crew-insert">
                 <a href="<c:url value='/crew/insert'/>">크루 생성하기</a>
@@ -195,6 +206,7 @@ function crewList(cList){
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
+
     </script>       
        		  
       

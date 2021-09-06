@@ -74,47 +74,92 @@
                 });
             }
 
-            // 서버에 제공
-            $("#tag-form").on("submit", function (e) {
-                var value = marginTag(); 
+           // 서버에 제공
+    $("#tag-form").on("submit", function (e) {
+        $(this).submit();
+    });
 
-                $(this).submit();
-            });
+    $("#tag").on("keypress", function (e) {
+        var self = $(this);
 
-            $("#tag").on("keypress", function (e) {
-                var self = $(this);
+        //엔터나 스페이스바 눌렀을때 실행
+        if (e.key === "Enter" || e.keyCode == 32) {
 
-                //엔터나 스페이스바 눌렀을때 실행
-                if (e.key === "Enter" || e.keyCode == 32) {
+            var tagValue = self.val(); // 값 가져오기
 
-                    var tagValue = self.val(); // 값 가져오기
+            // 해시태그 값 없으면 실행X
+            if (tagValue !== "") {
 
-                    // 해시태그 값 없으면 실행X
-                    if (tagValue !== "") {
+                // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
+                var result = Object.values(tag).filter(function (word) {
+                    return word === tagValue;
+                })
 
-                        // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
-                        var result = Object.values(tag).filter(function (word) {
-                            return word === tagValue;
-                        })
-
-                        // 해시태그가 중복되었는지 확인
-                        if (result.length == 0) {
-                            $("#tag-list").append("<li class='tag-item'>" + tagValue + "<span class='del-btn' idx='" + counter + "'>x</span></li>");
-                            addTag(tagValue);
-                            self.val("");
-                        } else {
-                            alert("태그값이 중복됩니다.");
-                        }
-                    }
-                    e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
+                // 해시태그가 중복되었는지 확인
+                if (result.length == 0) {
+                    $("#tag-list").append("<li class='tag-item'>" + tagValue + "<span class='del-btn' idx='" + counter + "'>x"+
+                    "</span><input type='hidden' name='crewTag' id='rdTag' value=#"+tagValue+"></li>");
+                    addTag(tagValue);
+                    self.val("");
+                } else {
+                    alert("태그값이 중복됩니다.");
                 }
-            });
+            }
+            e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
+        }
+    });
 
-            // 삭제 버튼 
-            // 인덱스 검사 후 삭제
-            $(document).on("click", ".del-btn", function (e) {
-                var index = $(this).attr("idx");
-                tag[index] = "";
-                $(this).parent().remove();
-            });
-        })
+    // 삭제 버튼 
+    // 인덱스 검사 후 삭제
+    $(document).on("click", ".del-btn", function (e) {
+        var index = $(this).attr("idx");
+        tag[index] = "";
+        $(this).parent().remove();
+    });
+
+
+    
+    //이름 중복 검사
+    $('#crewname').focusin(function() {
+		$('#msg').addClass('display_none');
+		$('#msg').removeClass('color_blue');
+		$('#msg').removeClass('color_red');
+		$(this).val('');
+	});
+	$('#crewname').focusout(function() {
+		// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
+		$.ajax({
+            url: 'http://localhost:8080/orl/crew/nameCheck',
+			type : 'get',
+			data : {
+				crewName : $(this).val()
+			},
+			beforeSend : function() {
+				$('#loadingimg').removeClass('display_none');
+			},
+			success : function(data) {
+				// data : Y / N
+				if (data == 'Y') {
+					$('#msg').html('사용가능');
+					$('#msg').addClass('color_blue');
+					$('#msg').removeClass('display_none');
+				} else {
+					$('#msg').html('사용 불가능');
+					$('#msg').addClass('color_red');
+					$('#msg').removeClass('display_none');
+				}
+			console.log("처리 성공시 변경되는 내용")
+			},
+			error : function(request, status, error) {
+				alert('서버 통신에 문제가 발생했습니다. 다시 실행해주세요.');
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			},
+			complete : function() {
+				$('#loadingimg').addClass('display_none');
+			}
+		});
+	});
+
+})

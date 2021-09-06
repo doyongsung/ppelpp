@@ -1,8 +1,6 @@
 package com.bitcamp.orl.crew.controller;
 
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bitcamp.orl.crew.domain.CrewCommentInfo;
+import com.bitcamp.orl.crew.domain.CrewCommentCriteria;
+import com.bitcamp.orl.crew.domain.CrewCommentPagingDTO;
 import com.bitcamp.orl.crew.domain.CrewCommentRequest;
 import com.bitcamp.orl.crew.service.CrewCommentService;
+
 @RestController
 public class CrewCommentRestController {
 	
@@ -23,13 +23,20 @@ public class CrewCommentRestController {
 	
 	@RequestMapping("/crew/getCommentInfo")
 	@CrossOrigin
-	public List<CrewCommentInfo> getCommentList(
+	public CrewCommentPagingDTO getCommentList(
 			HttpServletRequest request,
-			@RequestParam("crewIdx")int crewIdx
+			@RequestParam("crewIdx")int crewIdx,
+			@RequestParam(value="currentPageNum", defaultValue = "0")int currentPageNum
 			){
-		List<CrewCommentInfo> list = commentService.getCrewComment(crewIdx);
 		
-		return list;
+		if(currentPageNum == 0) {
+			currentPageNum = 1;
+		}
+		
+		CrewCommentCriteria cir = new CrewCommentCriteria(crewIdx, currentPageNum);
+		CrewCommentPagingDTO dto = commentService.getCrewComment(cir);
+		
+		return dto;
 	}
 	
 	@RequestMapping("/crew/commentInsert")

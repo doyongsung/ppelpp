@@ -24,5 +24,12 @@ public class CrewRestService {
 		crewList = dao.selectCrewAll(searchType);
 		return crewList;
 	}
+	
+	public List<Crew> getSortingName(){
+		List<Crew> crewList = null;
+		dao=template.getMapper(Dao.class);
+		crewList = dao.selectAll();
+		return crewList;
+	}
 
 }

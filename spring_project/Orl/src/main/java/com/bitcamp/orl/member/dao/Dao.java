@@ -11,7 +11,7 @@ public interface Dao {
 	
 	
 	
-	List<Member> selectAll();
+List<Member> selectAll();
 	
 	int insertMember(Member member);
 	
