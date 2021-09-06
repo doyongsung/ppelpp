@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+.body_wrap{
+    background-color: var(--background-color);
+}
+.main_wrap_con, .main_wrap_item_1_top_con, .mountain_info_con, .feed_picture_con{
+    display: flex;
+}
+
+.main_wrap_item_1{
+    margin-top: 50px;
+}
+
+.feed_picture_con{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main_wrap_item{
+    margin-bottom: 130px;
+}
+
+.main_wrap_item_1{
+    margin-top: 300px;
+}
+
+.main_wrap_con{
+    width: 1300px;
+    margin: 0 auto;
+    flex-direction: column;
+
+}
+.main_wrap_item_1_top_con{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mountain_info_con{
+    flex-direction: column;
+}
+
+.mountain_info_item_detail{
+    width: 600px;
+    height: 100%;
+    overflow: auto;
+}
+
+.main_wrap_item_1_top_item{
+    width: 600px;
+    height: 500px;
+}
+
+.mountain_info_item_detail::-webkit-scrollbar {
+    display: none;
+}
+
+.mountain_info_item{
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.mountain_info_item_2{
+    line-height: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.mountain_info_item_3{
+    font-size: 18px;
+}
+
+.mountain_info_item_4{
+    font-size: 18px;
+}
+
+.mountain_info_item_5{
+    font-size: 18px;
+}
+.mountain_info_item_6{
+    font-size: 18px;
+}
+.mountain_info_item_7{
+    font-size: 18px;
+}
+
+.main_wrap_item_1_bottom_item_1{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.feed_picture_item{
+    width: 140px;
+    height: 140px;
+}
+
+.main_wrap_item_1_bottom_con{
+    margin-left: 30px;
+}
+
+.feed_picture_item8{
+    text-align: center;
+    width: 150px;
+    margin-right: 75px;
+    margin-top: 40px;
+}
+
+.main_wrap_item_1_bottom_item_1{
+    margin-bottom: 15px;
+}
+
+
+.img{
+    border-radius: 20px;
+}

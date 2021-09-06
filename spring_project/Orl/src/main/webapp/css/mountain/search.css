@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/*본문시작*/
+body {
+    background-color: var(--background-color);
+    font-family: var(--text-sans);
+}
+/*내용물 전체*/
+#container {
+    background-color: var(--background-color);
+    position: relative;
+    padding-top: 150px;
+    width: auto;
+    height: auto;
+    z-index: 1;
+}
+/*중간 검색창 부분*/
+#contents {
+    width: 1000px;
+    height: auto;
+    margin: 30px auto;
+}
+#contents h2 {
+    font-size: 40px;
+    color: #424242;
+}
+
+.boxContainer {
+    margin: 5% auto;
+    position: relative;
+    width: 100%;
+    height: 42px;
+    border-bottom: 3px solid #222;
+}
+.elementsContainer {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+.elementsContainer input {
+    font-family: var(--text-sans);
+}
+.search {
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 0 5px;
+    background: transparent;
+    font-size: 20px;
+    color: #424242;
+    font-weight: 500;
+}
+.search:focus {
+    outline: none;
+}
+.elementsContainer i {
+    float: right;
+    padding-right: 15px;
+    font-size: 30px;
+    color: #424242;
+    cursor:pointer;
+}
+
+/*검색 결과 리스트*/
+.selectArea{
+    margin:10px;
+}
+h3{
+    font-size:30px;
+    margin:10px;
+}
+#selectList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+.img {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.img:hover {
+    opacity: 0.7;
+}
+#selectList span {
+    padding-top: 10px;
+    padding-left: 15px;
+}
