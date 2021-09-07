@@ -38,9 +38,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 		
-	<select id="selectByCrewName" resultType="int">
-		select count(*) from crew where crewName=#{crewName}
-	</select>
+<select
+	id="selectByCrewName"
+	resultType="int">
+		select count(*) from final.crew where crewName = #{crewName}
+</select>
+
 <!-- 검색을 통한 크루 리스트 -->
   <select 
     id="selectCrewAll"

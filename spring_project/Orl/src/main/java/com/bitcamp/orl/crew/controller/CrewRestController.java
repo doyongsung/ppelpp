@@ -11,7 +11,6 @@ import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.crew.service.CrewRestService;
 
-@Controller
 @RestController
 public class CrewRestController {
 

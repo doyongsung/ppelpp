@@ -33,6 +33,15 @@
 							p:maxUploadSize="10000000"
 							>
 	</beans:bean>
+	<!-- 로그인 체크 인터셉터 등록-->
+	<interceptors>
+		<interceptor>
+			<mapping path="/crew/insert/**" />
+			<mapping path="/crew/memberReg/**" />
+			<beans:bean
+				class="com.bitcamp.orl.interceptor.LoginCheckInterceptor" />
+		</interceptor>
+	</interceptors>
 	<context:component-scan base-package="com.bitcamp.orl" />
 
 	

@@ -23,14 +23,13 @@ padding-left: 50%;
 .logo{
 padding-top: 10px;
 }
-
 </style>
 <script>
 $(document).ready(function(){
 	var cList=[];
 	cList=null;
 	
-	$.ajax({
+	/* $.ajax({
 		url:'<c:url value="/crew/searchTypeRest"/>',
 		type:'GET',
 		data:{searchType:'${searchType}'},
@@ -39,12 +38,12 @@ $(document).ready(function(){
 			cList = data;
 			crewList(cList);
 		}
-	})
+	}) */
 	
 		$.ajax({
 		url:'<c:url value="/crew/crewName"/>',
 		type:'GET',
-		data:{searchType:'${searchType}'},
+		data:{crewName:'${crewName}'},
 		dataType : 'json',
 		success:function(data){
 			cList = data;
@@ -87,8 +86,6 @@ $(document).ready(function(){
 	})
 	
 })	
-
-
 function crewList(cList){
 		var ccList=[];
 		ccList=cList;
@@ -119,7 +116,6 @@ function crewList(cList){
 					$('#cList').html(html);
 				})   
 	}
-
 </script>
 <body>
 
@@ -129,14 +125,16 @@ function crewList(cList){
          	<h1>MY CREW</h1>
 
 		 	<c:if test="${myCrewList ne null and not empty myCrewList}">
-		  	<c:forEach items="${myCrewList}" var="crew">
-						<div class="article-crew">
-				  	<div>
+				<c:forEach items="${myCrewList}" var="crew">
+				
+					<div class="article-crew">
+						<div>
 							<a href='<c:url value="/crew/detail/${crew.crewIdx}&1"/>'>
-							<img src="<c:url value="/images/crew/1.png"/>"></a>
+							<img src="<c:url value='/images/crew/${crew.crewPhoto}'/>"></a>
 						</div>
 						<p>${crew.crewName}</p>
 					</div>
+					
 				</c:forEach>
 			</c:if>
         </div>
@@ -186,7 +184,6 @@ function crewList(cList){
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
-
     </script>       
        		  
       

@@ -17,7 +17,7 @@ public interface Dao {
 	
 	int getCrewListCnt();
 	
-	int selectByCrewName(String crewName);
+	int selectByCrewName(@Param("crewName")String crewName);
 	
 	//전체 크루 수
 	List<Crew> selectAll();	
