@@ -2,26 +2,39 @@ package com.bitcamp.orl.crew.domain;
 
 public class SearchType {
 
-	private int p; // 페이징처리시 페이지 번호
+	private int page; // 페이징처리시 페이지 번호
+	private int perPageNum;
 	private String searchType;
 	private String keyword;
 
-	public SearchType(int p, String searchType, String keyword) {
-		this.p = p;
-		this.searchType = searchType;
-		this.keyword = keyword;
-	}
-
 	public SearchType() {
-		this.p = 1;
+		this(1,10);
+	}
+	
+
+	public SearchType(int page, int perPageNum) {
+		this.page = page;
+		this.perPageNum = perPageNum;
 	}
 
-	public int getP() {
-		return p;
+
+	public int getPageStart() {
+		return(this.page - 1) * perPageNum;
+	}
+	public int getPage() {
+		return page;
 	}
 
-	public void setP(int p) {
-		this.p = p;
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getPerPageNum() {
+		return perPageNum;
+	}
+
+	public void setPerPageNum(int perPageNum) {
+		this.perPageNum = perPageNum;
 	}
 
 	public String getSearchType() {
@@ -42,7 +55,9 @@ public class SearchType {
 
 	@Override
 	public String toString() {
-		return "SearchType [p=" + p + ", searchType=" + searchType + ", keyword=" + keyword + "]";
+		return "SearchType [page=" + page + ", perPageNum=" + perPageNum + ", searchType=" + searchType + ", keyword="
+				+ keyword + "]";
 	}
-
+	
+	
 }

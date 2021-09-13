@@ -1,6 +1,5 @@
 package com.bitcamp.orl.crew.domain;
 
-
 import java.util.List;
 
 public class CrewCommentPagingDTO {

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitcamp.orl.member.service.LoginService;
 
-
 @Controller
 @RequestMapping("/member/login")
 public class LoginController {

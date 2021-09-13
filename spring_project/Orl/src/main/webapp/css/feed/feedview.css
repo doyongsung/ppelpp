@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+* {
+	padding: 0%;
+	margin: 0%;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+button, input {
+	border: 0;
+	background-color: #00ff0000;
+}
+
+button:hover, input:hover, a:hover {
+	cursor: pointer;
+}
+
+/* 전체 영역 */
+.container {
+	display: flex;
+	position: relative;
+	width: 1000px;
+	height: 650px;
+}
+
+/* close button */
+.container>button {
+    position: absolute;
+    top: 7px;
+    right: 0;
+    z-index: 1;
+}
+.container>button>img {
+    width: 20px;
+}
+
+/* 닉네임 */
+.v_nicknam {
+	font-weight: bold;
+}
+
+/* 전체 > 사진영역 */
+.v_leftbox {
+	width: 55%;
+	position: relative;
+}
+
+/* 피드 이미지 */
+.v_leftbox>img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* 태그 아이콘 */
+.v_leftbox>button>img {
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+	width: 30px;
+}
+
+/* 전체 > 컨텐츠 영역 */
+.v_rightbox {
+	padding-left: 7px;
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 프로필 div */
+.v_profile {
+	position: relative;
+	height: auto;
+}
+
+/* 프로필 사진 동그랗게 */
+.v_photo { /* 위치 조정 필요 */
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+/* 프로필 이미지 */
+.v_profile img {
+	margin: 30%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	padding: 3px;
+	border: 1px solid #C9C0AE;
+}
+
+/* 프로필 닉네임 */
+.v_profile>a {
+	position: absolute;
+	left: 110px;
+	top: 40px;
+}
+/* 팔로우 버튼 */
+.v_profile>button {
+	position: absolute;
+	left: 210px;
+	top: 39px;
+	color: #00acee;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+/* 컨텐츠 div */
+.contents {
+	padding-top: 8px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	overflow: hidden;
+	height: auto;
+	padding-bottom: 20px;
+}
+/* 게시글 */
+.contents>p {
+	padding-left: 25%;
+	line-height: 1.5;
+	font-size: 15px;
+}
+/* 게시글 > 해시태그 영역 */
+.contents>div {
+	padding-top: 5px;
+	padding-left: 25%;
+}
+/* 해시태그 */
+.contents a {
+	color: grey;
+	font-size: 15px;
+}
+
+/* 댓글 div */
+.commentbox {
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	border-top: 1px solid #C9C0AE;
+}
+/* 댓글 한 문단 */
+.comments {
+	position: relative;
+	overflow: auto;
+	display: flex;
+}
+
+.cmt-profile {
+	/* 위치 조정 */
+}
+
+/* 댓글 프로필 동그랗게 */
+.cmt-profile>button {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+/* 댓글 프로필 이미지 */
+.cmt-profile img {
+	margin: 40%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	padding: 3px;
+	border: 1px solid #C9C0AE;
+}
+/* 댓글 내용 */
+.comment {
+	padding-left: 50px;
+	padding-top: 33px;
+	padding-right: 20px;
+	line-height: 1.4;
+	font-size: 15px;
+	overflow: hidden;
+	height: auto;
+}
+/* 댓글 닉네임 */
+.nickname {
+	padding-right: 10px;
+}
+
+/* 댓글게시 div */
+.commentingbox {
+	display: flex;
+	flex-direction: column;
+	bottom: 0;
+	height: 180px;
+	border-top: 1px solid #C9C0AE;
+}
+/* 댓글 nav */
+.buttonline {
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	border-bottom: 1px solid #C9C0AE;
+	padding-bottom: 5px;
+}
+/* nav 버튼 영역 */
+.buttonline button {
+	position: absolute;
+	top: 10px;
+}
+.buttonline img {
+	position: absolute;
+	width: 25px;
+}
+.like {
+	left: 20px;
+}
+.write {
+	left: 65px;
+}
+.share {
+	left: 110px;
+}
+
+/* 좋아요 표시 영역 */
+.likeline {
+	padding-top: 16px;
+	padding-right: 20px;
+}
+.likeline>p {
+	padding-bottom: 5px;
+}
+
+/* 코멘팅 영역 */
+.commentingline {
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+}
+.textbox {
+	width: 85%;
+}
+.textbox>input {
+	margin-left: 5%;
+	outline: none;
+	width: 95%;
+	height: 100%;
+	font-size: 17px;
+}
+/* 게시 버튼 */
+.submitbox {
+	width: 15%;
+}
+.submitbox>input {
+	color: #00acee;
+	font-weight: bold;
+	font-size: 15px;
+	width: 100%;
+	height: 90%;
+	padding-top: 10px;
+}

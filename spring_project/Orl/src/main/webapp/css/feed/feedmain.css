@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+button {
+    border: 0;
+    background-color: #00ff0000;
+}
+
+
+
+/* body not scroll */
+.not_scroll{
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%
+}
+.not_scroll .cont {
+    position: relative;
+    top: 0;
+}
+
+
+
+/* modal */
+.modalbox {
+	position: absolute;
+	top: 345px;
+	left: 575px;
+	width: 1000px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+/* modal_create feed */
+.div_createfeed {
+    height: 40px;
+}
+.div_createfeed>div {
+	position: absolute;
+    right: 545px;
+    width: 40px;
+    height: 40px;
+    padding-bottom: 5px;
+}
+.modalbtn_createfeed {
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+}
+.div_createfeed img {
+    width: 30px;
+}
+
+/* 여백 */
+.space {
+	background-color: antiquewhite;
+	width: 100%;
+	height: 50px;
+}
+
+.div_feedview {
+	display: flex;
+	justify-content: space-between;
+	width: 1000px;
+	height: 320px;
+}
+
+.div_feedview>div {
+	width: 320px;
+	height: 320px;
+}
+.feedview_space {
+    height: 72px;
+}
+
+.modalbtn_feedview { /* 모달버튼 */
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+}
+
+.modal_feedview, .modal_createfeed { /* 모달-백그라운드 */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 10;
+}
+
+.modal_content { /* 모달-내용 */
+	width: 1010px;
+	height: 650px;
+	background: #fff;
+	position: relative;
+	top: 300px;
+	left: 590px; /* 모달창 위치 */
+	margin-top: -100px;
+	margin-left: -200px;
+	z-index: 1;
+}
+
+.feedmain {
+	display: flex;
+	flex-direction: column;
+}
+
+.top { /* 상단 여백 */
+	height: 300px;
+}
+
+.main {
+	height: 1650px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.mainbox {
+	display: flex;
+	flex-direction: column;
+}
+
+.mountain {
+	width: 1000px;
+}
+
+.mountain>img {
+	width: 100px;
+	padding-left: 950px;
+}
+
+.feednav {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #C9C0AE;
+}
+
+.keyword>a { /* 최신순/인기순 */
+	color: gray;
+	padding-left: 10px;
+}
+
+.keyword>a:hover {
+	/* 박스처리 */
+	
+}
+
+.search {
+	position: relative;
+	padding-bottom: 5px;
+	z-index: 1;
+}
+
+.search>input { /* 검색창 */
+	width: 140px;
+	height: 30px;
+	outline: none;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding-left: 10px;
+	font-size: 12px;
+}
+
+.search>button {
+	position: absolute;
+	left: 110px;
+	border: 0;
+	background-color: #00ff0000;
+}
+
+.search img { /* 검색 아이콘 */
+	width: 25px;
+	padding-top: 3px;
+}
+
+/* 전체 피드 영역 */
+.feedbox {
+	width: 1000px;
+	padding-top: 30px;
+	display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.feed {
+	width: 340px;
+	height: 390px;
+}
+
+.feedsize {
+	width: 320px;
+	height: 320px;
+	overflow: hidden;
+}
+/* .feedsize>a:hover img { */
+.feedsize>button:hover img {
+	filter: brightness(35%);
+}
+
+.feedimg { /* 사진 */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.feedinfo {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 10px;
+	width: 320px;
+}
+
+.nickname>a {
+	font-size: 20px;
+	padding-bottom: 5px;
+}
+
+.likediv {
+
+}
+
+.nolikeimg {
+	width: 23px;
+}
+
+.bottm { /* 하단 여백 */
+	height: 250px;
+}

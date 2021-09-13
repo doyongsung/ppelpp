@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    margin:0;
+    padding:0;
+    position: relative;
+  /*   background-color:rgba(0, 0,0, 0.7); */
+
+}   
+a{
+    text-decoration: none;
+    color: #545454;
+}
+
+a:visited{
+    color: #545454;
+}
+
+.container-follow{
+     /* 창 위치: 화면 중간에 오도록 */
+     position: absolute;
+     top:150px;
+     left:37%;
+
+     /* 창의 크기 */
+     width:400px;
+     height:400px;
+
+     background-color:white;
+
+     /* 테두리 둥글게 */
+     border-radius: 10px;
+     z-index:100;
+	
+	 box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.3);
+	
+	
+}
+
+/* 팔로워와 닫기창 영역 */
+.title{
+    width:400px;
+    height:43px;
+    line-height:43px;
+
+    font-size:14px;
+
+    border-bottom: 0.1px solid #DBDBDB;
+
+    display:flex;
+    justify-content: center;
+
+}
+
+/* 팔로워 글자 */
+.title div{
+    /* 중간에 위치하도록 조정 */
+    width:345px;
+    text-align:center;
+    margin-left:10px;
+
+    font-weight: bold;
+}
+
+/* 닫기 버튼 */
+.title button{
+    /* 크기에 딱맞게 */
+    width:24px;
+    height:24px;
+
+    /* 보더랑 배경색 없애기 */
+    border:none;
+    background-color: white;
+
+    cursor: pointer;
+}
+
+/* 버튼안에 이미지 */
+.title button>img{
+    width: 24px;
+    height:24px;
+}
+
+
+/* 아래 회원들 리스트
+--세로 정렬: display-column */
+.follower-members{
+    display:flex;
+    flex-direction:column;
+
+    /* 스크롤 생기게 */
+    overflow:auto;
+
+    /* 팔로우 멤버 영역 크기 설정 */
+    width:398px;
+    height:350px;
+    
+}
+
+
+/* 회원 정보들 :사진, 아이디, 버튼 --가로 정렬*/
+.member{
+    height:50px;
+    padding: 10px 16px;
+    
+    /* 각member들 오른쪽 정렬 */
+    display:flex;
+    flex-direction:row;
+
+}
+
+.member img{
+    /* 프로필 사진 동그랗게 */
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+
+.member a{
+    width:200px;
+    height:30px;
+    line-height: 30px;
+
+    font-size:14px;
+
+    /* 아이디 너무 길면 잘린다 */
+    overflow:hidden;
+
+    /* 양옆으로 간격 */
+    padding-left:8px;
+    padding-right:8px;
+
+    cursor:pointer;
+}
+
+.member input{
+    width:110px;
+    height:30px;
+
+    font-size: 12px;
+    cursor:pointer;
+
+    background-color: #FDEF7B;
+    border-radius: 10px;
+    border:0.1px solid #DBDBDB;
+}

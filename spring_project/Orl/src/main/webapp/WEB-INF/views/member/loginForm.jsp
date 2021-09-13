@@ -21,7 +21,9 @@
 		<h1>
 			<a href="<c:url value='/'/>">오를래</a>
 		</h1>
+		
 		<form action="<c:url value='/member/login'/>" method="post">
+		
 			<div class="int-area">
 				<input type="text" name="memberId" id="id" value="${cookie.reid.value}" autocomplete="off" required>
 				<label for="id">ID</label>

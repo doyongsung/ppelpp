@@ -8,5 +8,4 @@ public class MountainDetailInfo {
     public MountainDetailInfo(List<List<List<Double>>> paths) {
         this.paths = paths;
     }
-
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitcamp.orl.mountain.dao.Dao">
 
-    <!-- Select 의 결과를 매핑하는 설정 -->
-    <resultMap id="MountainListResult"
+	<!-- Select 의 결과를 매핑하는 설정 -->
+	 <resultMap id="MountainListResult"
                type="com.bitcamp.orl.mountain.domain.MountainLocInfo">
         <result column="mname" property="mountainName"/>
         <result column="mcode" property="mountainCode"/>
@@ -18,9 +18,9 @@
         <result column="transport" property="transport"/>
         <result column="img" property="img"/>
 
-    </resultMap>
-
-    <!-- 지역별 산 리스트(이름순) -->
+	</resultMap>
+	
+	<!-- 지역별 산 리스트-->
     <select
             id="selectByLocName"
             resultType="com.bitcamp.orl.mountain.domain.MountainLocInfo">
@@ -28,8 +28,8 @@
         FROM mountain
         where address regexp #{locName};
     </select>
-
-    <!-- 지역별 산 리스트 -->
+    
+	 <!-- 지역별 산 리스트(서울경기) -->
     <select
             id="selectByLocNameSeoul"
             resultType="com.bitcamp.orl.mountain.domain.MountainLocInfo">
@@ -37,8 +37,15 @@
         FROM mountain
         where address regexp '서울|경기';
     </select>
-
-    <!-- 이름에 맞는 산 -->
+	
+	<!-- 전국 산 리스트 -->
+	<select id="selectAllMountain"
+			resultMap="MountainListResult">
+		SELECT mname, mcode, address, x, y, info,height, detail,transport, img
+        FROM mountain;
+	</select>
+	
+	  <!-- 이름에 맞는 산 -->
     <select
             id="selectByName"
             resultType="com.bitcamp.orl.mountain.domain.MountainLocInfo">
@@ -46,16 +53,16 @@
         FROM mountain
         where mname = #{mountainName};
     </select>
-    <!-- 이름들어가는 맞는 산 -->
-    <select
-            id="selectByName1"
+     <!-- 이름을 포함한 모든산(검색) -->
+     <select
+            id="selectBySearchName"
             resultType="com.bitcamp.orl.mountain.domain.MountainLocInfo">
         SELECT mname,  mcode, address, x, y,info, height, detail,transport,img
         FROM mountain
         where mname regexp #{mountainName};
     </select>
-
-
+    
+    
 
     <!-- 해당지역의 산 갯수 카운트 -->
     <select id="countByLocName"
@@ -65,14 +72,14 @@
         where address regexp #{locName};
     </select>
 
-    <!-- 해당지역의 산 갯수 카운트 -->
+    <!-- 해당지역의 산 갯수 카운트 (서울경기)-->
     <select id="countByLocNameSeoul"
             resultType="int">
         select count(*)
         from mountain
         where address regexp '서울|경기';
     </select>
-
+		
 
 
 </mapper>

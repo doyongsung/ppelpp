@@ -1,12 +1,10 @@
 package com.bitcamp.orl.crew.controller;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +15,8 @@ import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.crew.service.CrewRestService;
 
-
 @RestController
-public class CrewRestSearchTypeController{
+public class CrewRestSearchTypeController {
 	
 	@Autowired
 	CrewRestService restService;
@@ -33,8 +30,6 @@ public class CrewRestSearchTypeController{
 			SearchType searchType
 			) {
 		
-		System.out.println(searchType);
-		
 		//크루 검색		
 		List<Crew> list = null;
 		if(searchType.getKeyword() !=null && searchType.getKeyword().trim().length() > 0) {
@@ -42,7 +37,6 @@ public class CrewRestSearchTypeController{
 		} else {
 			list = restService.getSortingName();
 		}
-		System.out.println(list);
 		model.addAttribute("crewList",list);
 	
 		/*
@@ -58,5 +52,4 @@ public class CrewRestSearchTypeController{
 		
 		return list;
 	}
-	
 }

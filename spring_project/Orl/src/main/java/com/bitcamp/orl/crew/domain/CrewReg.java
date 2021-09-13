@@ -3,6 +3,7 @@ package com.bitcamp.orl.crew.domain;
 import java.sql.Timestamp;
 
 public class CrewReg {
+	
 	private int crewRegIdx;
 	private Timestamp crewRegdate;
 	private int memberIdx;

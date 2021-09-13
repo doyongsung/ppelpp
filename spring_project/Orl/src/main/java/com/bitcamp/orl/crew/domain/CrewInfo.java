@@ -9,7 +9,7 @@ public class CrewInfo {
 	private String crewDiscription;
 	private Timestamp crewCreatedate;
 	private String crewTag;
-	private int memberIdx;
+	private int memberIdx; //크루장 
 	private String memberNickName;
 	private int crewMemberNum;
 	private int crewCommentNum;

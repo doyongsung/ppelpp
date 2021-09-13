@@ -12,50 +12,46 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
-import com.bitcamp.orl.crew.domain.CrewRequest;
+import com.bitcamp.orl.crew.domain.CrewInsertRequest;
 import com.bitcamp.orl.member.domain.Member;
 
 @Service
 public class CrewInsertService {
 
 	final String UPLOAD_URI ="/images/crew";
-	private final String NAME_SPACE = "com.bitcamp.orl.crew.dao.CrewDaoMapper";
+	
 	private Dao dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	public int reg(
-			CrewRequest crewRequest,
+	public Crew insert(
+			CrewInsertRequest crewRequest,
 			HttpServletRequest request
 			
 			) {
-		int resultCnt = 0;
-		
 		File newFile = null;
+		Crew crew = crewRequest.toCrew();
 		
 		try {
-		Crew crew = new Crew();
-		crew.setCrewName(crewRequest.getCrewName());
+			
+			if (crewRequest.getCrewPhoto() != null && !crewRequest.getCrewPhoto().isEmpty()) {
+				newFile = saveFile(request,crewRequest.getCrewPhoto());
+				crew.setCrewPhoto(newFile.getName());
+			}
+			
+		    Member member = (Member)(request.getSession().getAttribute("member"));
+		    
+		    if (member != null) {			
+		    	crew.setMemberIdx(member.getMemberIdx());
+		    	crew.setMemberNickName(member.getMemberNickname());
+		    }
+		    
+			dao = template.getMapper(Dao.class);
+			dao.insertCrew(crew);
+			dao.insertCrewReg(member.getMemberIdx(), crew.getCrewIdx());
 		
-		if (crewRequest.getCrewPhoto() != null && !crewRequest.getCrewPhoto().isEmpty()) {
-			newFile = saveFile(request,crewRequest.getCrewPhoto());
-			crew.setCrewPhoto(newFile.getName());
-		}
-		
-	    crew.setCrewDiscription(crewRequest.getCrewDiscription());
-	    crew.setCrewTag(crewRequest.getCrewTag());
-	    
-	    Member member = (Member)(request.getSession().getAttribute("member"));
-	    
-	    if (member != null) {			
-	    	crew.setMemberIdx(member.getMemberIdx());
-	    	crew.setMemberNickName(member.getMemberNickname());
-	    }
-		dao = template.getMapper(Dao.class);
-		resultCnt = dao.insertCrew(crew);
-		dao.insertCrewReg(member.getMemberIdx(), crew.getCrewIdx());
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 			if(newFile != null & newFile.exists()) {
 				newFile.delete();
@@ -63,12 +59,13 @@ public class CrewInsertService {
 			}
 		}
 		
-		return resultCnt;
+		return crew;
 	}
 	
-	
-	
-	private File saveFile(HttpServletRequest request, MultipartFile file) {
+	public File saveFile(
+			HttpServletRequest request, 
+			MultipartFile file) {
+		
 		String path = request.getSession().getServletContext().getRealPath(UPLOAD_URI);
 		File newDir = new File(path);
 		
@@ -88,5 +85,10 @@ public class CrewInsertService {
 			e.printStackTrace();
 		}
 		return newFile;
+	}
+	
+	public Crew selectCrew(int crewIdx) {
+		dao = template.getMapper(Dao.class);
+		return dao.selectCrew(crewIdx);
 	}
 }

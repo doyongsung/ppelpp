@@ -1,268 +1,295 @@
 @charset "utf-8";
 
 body {
-    color: rgb(34, 34, 34);
-    font-size: 14px;
-    letter-spacing: normal;
-    line-height: 18px;
-    font-family: var(--text-sans);
-    background-color: var(--background-color);
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  letter-spacing: normal;
+  line-height: 18px;
+  font-family: var(--text-sans);
+  background-color: var(--background-color);
 }
 .main {
-    position: relative;
-    padding-top: 80px;
-    padding-bottom:20px;
+  position: relative;
+  padding-top: 80px;
+  padding-bottom:20px;
 }
 
 .main_content {
-    min-height: 100vh;
-    width: 830px;
-    padding: 60px 30px 0;
+  min-height: 100vh;
+  width: 830px;
+  padding: 60px 30px 0;
 }
 .main_content > span {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 .main_content h1 {
-    margin: 20px 0;
-    font-size: 38px;
+  margin: 20px 0;
+  font-size: 38px;
 }
 .main_filters {
-    padding-top: 15px;
-    display: flex;
+  padding-top: 15px;
+  display: flex;
 }
 .main_filters button {
-    margin-right: 6px;
+  margin-right: 6px;
 }
 
 /*검색창 만들기*/
 .search {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 60px;
-    transition: 0.5s;
-    box-shadow: 0 0 0 1px #ebebeb;
-    display: flex;
-    float: right;
-    margin-right: 30px;
-    background: #fff;
-    overflow: hidden;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 60px;
+  transition: 0.5s;
+  box-shadow: 0 0 0 1px #ebebeb;
+  display: flex;
+  float: right;
+  margin-right: 30px;
+  background: #fff;
+  overflow: hidden;
 }
 .search.active {
-    width: 300px;
+  width: 300px;
 }
 .search .iconsearch {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
 }
 .search .iconsearch::before {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 3px solid #222;
-    border-radius: 50%;
-    transform: translate(-4px, -4px) rotate(315deg);
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #222;
+  border-radius: 50%;
+  transform: translate(-4px, -4px) rotate(315deg);
 }
 .search .iconsearch::after {
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 12px;
-    background: #222;
-    transform: translate(6px, 6px) rotate(315deg);
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 12px;
+  background: #222;
+  transform: translate(6px, 6px) rotate(315deg);
 }
 .search .input {
-    position: relative;
-    width: 200px;
-    height: 50px;
-    left: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .search .input input {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 15px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
 }
 .clear {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    right: 12px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  right: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*검색창 안 엑스*/
 .clear::before {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: 12px;
-    background: #999;
-    transform: rotate(45deg);
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: #999;
+  transform: rotate(45deg);
 }
 .clear::after {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: 12px;
-    background: #999;
-    transform: rotate(315deg);
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: #999;
+  transform: rotate(315deg);
 }
 
 .main_scarcity {
-    display: flex;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .main_scarcity > span > span {
-    font-weight: bold;
+  font-weight: bold;
 }
 .main_scarcity > img {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 button {
-    padding: 8px 16px;
-    outline: none;
-    background: transparent;
-    margin: 0;
+  padding: 8px 16px;
+  outline: none;
+  background: transparent;
+  margin: 0;
 }
 .outlined {
-    border: 1px solid #b0b0b0;
-    border-radius: 30px;
+  border: 1px solid #b0b0b0;
+  border-radius: 30px;
 }
 .outlined:hover {
-    border-color: #222;
+  border-color: #222;
 }
 
 .listings_item {
-    border-top: 1px solid #ebebeb;
-    padding: 24px 0;
-    display: flex;
+  border-top: 1px solid #ebebeb;
+  padding: 24px 0;
+  display: flex;
 }
-.listings_item:hover .listings_image button {
-    opacity: 0.7;
+.listings_image:hover img{
+  opacity: 0.7;
 }
 .listings_image {
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 .listings_image img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-.listings_image button {
-    position: absolute;
-    top: 50%;
-    width: 32px;
-    height: 32px;
-    background: white;
-    border-radius: 50%;
-    overflow: hidden;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    opacity: 0;
-    transition: 0.1s ease-in;
-    cursor: pointer;
-}
-.listings_image button:hover {
-    opacity: 1 !important;
-}
-.listings_image button:first-of-type {
-    left: 10px;
-}
-.listings_image button:last-of-type {
-    right: 10px;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
+
 .listings_title {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .listings_content {
-    width: calc(100% - 300px);
-    padding-left: 15px;
-    display: flex;
-    flex-direction: column;
+  width: calc(100% - 300px);
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
 }
 .listings_title h2 {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .greyText {
-    font-size: 14px;
-    line-height: 18px;
-    color: #777;
+  font-size: 14px;
+  line-height: 18px;
+  color: #777;
 }
 
 h2 {
-    font-size: 24px;
-    color: #222;
-    margin: 5px 0 15px;
-    font-weight: 400;
+  font-size: 24px;
+  color: #222;
+  margin: 5px 0 15px;
+  font-weight: 400;
 }
 .separator {
-    width: 32px;
-    height: 1px;
-    background: grey;
+  width: 32px;
+  height: 1px;
+  background: grey;
 }
 .listings_description {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 .listings_description > span {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
+
 
 /*지도*/
 
 .main_map {
-    width: calc(100% - 840px);
-    position: absolute;
-    right: 0;
-    top: 100px;
-    bottom: 0;
+  width: calc(100% - 840px);
+  position: absolute;
+  right: 0;
+  top: 100px;
+  bottom: 0;
 }
 .main_kakaoMap {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
 }
 .map {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
+.mapbutton{
+	position:fixed;
+	right:100px;
+	bottom:30px;
+	z-index:1;
+	background-color:var(--yello-color);
+	border: 1px solid #b0b0b0;
+  	border-radius: 5px;
+  	height:45px;
+  	font-weight:bold;
+  	cursor:pointer;
+}
+
+.mapbutton1{
+	right:155px;
+}
+.mapbutton2{
+	right:20px;
+}
+.mapbutton:hover {
+  background-color:#fdec4d;
+  border-color: #785024;
+}
+/*맵 인포윈도우*/
+.infowindow{
+  width:370px;
+  height: 160px;
+  display: flex;
+  padding:10px;
+  }
+.mapimage img{
+     width:200px;
+     height: 130px;
+     margin-top: 4px;
+     margin-left:3px;
+     border-radius: 5px;
+ }
+ .mapimage{
+     display: inline-block;
+ }
+
+ .mapcontent{
+     margin-left: 10px;
+ }
+.mtitle{
+    font-size: 20px;
+     margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
 
 /*날씨*/
 .nameAndWeather, .weather{
@@ -298,3 +325,4 @@ h2 {
     font-size: 20px;
     margin-top: 10px;
 }
+

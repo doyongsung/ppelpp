@@ -8,16 +8,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bitcamp.orl.crew.domain.CrewRequest;
+import com.bitcamp.orl.crew.domain.Crew;
+import com.bitcamp.orl.crew.domain.CrewCommentCriteria;
+import com.bitcamp.orl.crew.domain.CrewInfo;
+import com.bitcamp.orl.crew.domain.CrewInsertRequest;
+import com.bitcamp.orl.crew.service.CrewDetailService;
 import com.bitcamp.orl.crew.service.CrewInsertService;
 
 @Controller
 @RequestMapping("/crew/insert")
 public class CrewInsertController {
+
+	@Autowired
+	private CrewInsertService insertService;
 	
 	@Autowired
-	private CrewInsertService regService;
-	
+	private CrewDetailService detailService;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String insert() {
 		return "crew/insert";
@@ -25,15 +32,17 @@ public class CrewInsertController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String reg(
-			CrewRequest crewRequest,
-			HttpServletRequest request,
+			CrewInsertRequest crewRequest, 
+			HttpServletRequest request, 
 			Model model
 			) {
+		Crew crew = insertService.insert(crewRequest, request);
+		CrewInfo crewinfo = detailService.getCrewInfo(request.getSession(), crew.getCrewIdx());
+		CrewCommentCriteria cri = new CrewCommentCriteria(crew.getCrewIdx(), 1);
 		
-		int result = regService.reg(crewRequest,request);
+		model.addAttribute("crew", crewinfo);
+		model.addAttribute("cri", cri);
 		
-		model.addAttribute("result", result);
-		
-		return "crew/insert";
+		return "crew/detail";
 	}
 }

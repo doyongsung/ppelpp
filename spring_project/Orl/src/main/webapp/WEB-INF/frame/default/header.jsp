@@ -30,7 +30,7 @@
 					<li><a href="<c:url value='/main/main'/>">MAIN</a></li>
 					<li><a href="<c:url value='/mountain/mountainAllInfo'/>">HIKING</a></li>
 					<li><a href="<c:url value='/crew/list'/>">CREW</a></li>
-					<li><a href="<c:url value='/'/>">COMMUNITY</a></li>
+					<li><a href="<c:url value='/feed/feedmain'/>">FEED</a></li>
 					<li><div class="icon" onclick="menuToggle();">
 							<a href="#"><i class="far fa-user"></i></a>
 						</div></li>

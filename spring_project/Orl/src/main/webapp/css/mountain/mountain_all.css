@@ -69,10 +69,10 @@
     outline: none;
 }
 
-i{
-    font-size: 30px;
-    color: #424242;
-    cursor:pointer;
+#submit{
+	font-size: 30px;
+  color: #424242;
+  cursor:pointer;
 }
 
 .main_item_2{

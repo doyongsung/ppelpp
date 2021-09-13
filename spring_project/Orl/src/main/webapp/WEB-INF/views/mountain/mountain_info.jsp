@@ -45,6 +45,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- 피드 사진 가져오기 -->
         <div class="main_wrap_item main_wrap_item_2 main_wrap_item_1_bottom_con">
             <div class="main_wrap_item_1_bottom_item main_wrap_item_1_bottom_item_1">
                 #${mountainLocInfo.mountainName}
@@ -78,6 +80,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- 지도  -->
     <div id="map" class="map" style="width: 85%; height: 800px; margin: 0px auto ;">
         <%
             MountainLocInfo mountainLocInfo = (MountainLocInfo) request.getAttribute("mountainLocInfo");

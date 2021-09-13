@@ -7,38 +7,55 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/WEB-INF/frame/default/header.jsp"%>
+<script defer type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+<script defer src="<c:url value='/js/crew/insert.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/css/crew/edit.css'/>">
 </head>
 <body>
+<c:if test="${chk eq false}">
+	<script>
+		alert('해당 페이지에 접근 할 권한이 없습니다.');
+		location.href="<c:url value='/'/>";
+	</script>
+</c:if>
 	<div class="section">
 		<div class="box">
 			<%@ include file="/WEB-INF/frame/crew/crew-manage-nav.jsp"%>
 			<div class="edit_section">
-				<form>
+				<form method="post" enctype="multipart/form-data" id="tag-form">
 					<table>
 						<tr>
-							<td><label for="crewname">크루명</label></td>
-							<td><input type="text" id="crewname" name="crewname"
-								class="form-control" placeholder="원래 크루명이 자동으로 뜨도록 처리">
+							<td><label for="crewName">크루명</label></td>
+							<td>
+							<input type="text" id="crewName" name="crewName" class="form-control" placeholder="기존 크루명:${crew.crewName}" required="required">
+							<span id="msg" class="display_none"></span>
 							</td>
 						</tr>
 						<tr>
-							<td><label for="crewname">크루 사진</label></td>
-							<td><img id="hiking" src="hiking.jpg"> <input
-								type="file" id="crewphoto" name="crewphoto"
-								class="form-control form-control-lg"></td>
+							<td><label for="crewPhoto">크루 사진</label></td>
+							<td><img src="<c:url value="/images/crew/${crew.crewPhoto}"/>" id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다." style="cursor: pointer;" onclick="doImgPop(this.src)"/>
+							<input type="file" id="crewPhoto" name="crewPhoto" class="form-control form-control-lg"></td>
 						</tr>
 						<tr>
 						</tr>
 						<tr>
 							<td><label for="crewintro">크루 소개글</label></td>
-							<td><input type="text" id="crewintro" name="crewintro"
+							<td><input type="text" id="crewintro" name="crewDiscription"
 								class="form-control" placeholder="새로운 크루 소개글을 입력해주세요!">
 							</td>
 						</tr>
 						<tr>
-							<td><label for="crewhash">크루 해시태그</label></td>
-							<td><input type="text" id="crewhash" name="crewhash"
-								class="form-control"></td>
+							<td>
+		          	<div class="tr_hashTag_area">
+		            	<p><strong>해시태그</strong></p>
+		            </div>
+		          </td>
+		        	<td>
+			        	<ul id="tag-list"></ul>
+			          <div class="form-group">
+			          	<input type="text" id="tag" size="7" placeholder="#" style="width: 300px;" />
+			          </div>
+		          </td>
 						</tr>
 						<tr>
 							<td></td>

@@ -49,6 +49,9 @@
 /*본문 폰트*/
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
 
+
+
+
 :root {
     --background-color: #f8f8f8;
     --yello-color: #fdef7b;
@@ -294,6 +297,17 @@ div p {
 
 .crew-insert {
     padding-left: 64%;
+}
+
+.crew-insert a {
+    border: 1px solid #aaa;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.crew-insert a:hover {
+    color: #fdef7b;
 }
 
 .crew-insert a {

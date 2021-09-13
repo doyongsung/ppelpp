@@ -12,22 +12,22 @@ import com.bitcamp.orl.member.service.RegService;
 @Controller
 @RequestMapping("/member/reg")
 public class RegController {
-	
+
 	@Autowired
-	private RegService RegService;
-	
+	private RegService regservice;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String regForm() {
 		return "member/regForm";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String reg(
-			MemberRequest memberRequest,
-			Model model
-			) {
-		int result = RegService.reg(memberRequest);
-		model.addAttribute("result",result);
+			MemberRequest memberRequest, 
+			Model model) {
+		int result = regservice.reg(memberRequest);
+		model.addAttribute("result", result);
 		return "member/reg";
 	}
+
 }

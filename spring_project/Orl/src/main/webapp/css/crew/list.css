@@ -134,7 +134,7 @@ h5 {
 }
 
 .section {
-    padding: 200px 0;
+    padding-top: 200px;
 }
 
 .container .row {
@@ -280,7 +280,6 @@ ul>li>a:hover .card::after {
 
 .section .article .article-crew {
     text-align: center;
-    margin: 0 -30px;
     float: left;
     padding: 10px;
 }
@@ -306,7 +305,7 @@ div::after {
 .section .article img {
     border-radius: 70%;
     overflow: hidden;
-    width: 70%;
+    width: 150px;
     height: 150px;
 }
 

@@ -1,0 +1,381 @@
+@charset "UTF-8";
+
+
+/* 내 feed css */
+body{
+    background-color:#f8f8f8;
+    margin:0;
+    /* 08.22 수정 */
+    padding:0;
+
+}
+
+a{
+    text-decoration: none;
+    color: #545454;
+}
+
+a:visited{
+    color: #545454;
+}
+
+/* 전체 container */
+
+.container1{
+     /* 08.22 수정 */
+    margin:0 auto;
+    width:1000px;
+    position:relative;
+    padding-top:100px;
+
+    /* 08.27 수정 */
+    /* margin-top:300px; */
+}
+
+.bio{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+
+    /* background-color: brown; */
+    /* height:13em; */
+
+    /* 08.27 높이 수정  */
+    height:240px;
+    padding:3em 0 0 5em;
+    /* border-bottom: 0.1px solid #DBDBDB;  */
+}
+
+/* 프로필 사진 */
+
+/* div를 원으로 틀을 만들어서 그안에 img를 꽉차게 들어가도록 하기! */
+.profile-photo{
+ background-color: black;
+ width:10em;
+ height:10em;
+ border-radius: 50%;
+}
+/* 위에 만든 거에 img 꽉들어맞게 */
+.profile-photo>img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+
+}
+/* profile-info 사진 옆 사용자 정보 영역 */
+/* profile-info 전체 */
+.profile-info{
+    
+    display:flex;
+    flex-direction: column;
+    /* 08.27 수정 */
+    padding-top:15px;
+}
+
+.username{
+    /* 08.30 수정 */
+    padding-top:10px;
+    padding-bottom: 5px;
+}
+
+/* 사용자 아이디영역 */
+.username>a{
+    /* 08.27 수정 폰트  */
+    font-family: var(--text-sans);
+    font-size:1.5em;
+    /* color: #545454; */
+}
+
+/* 게시물, 팔로우, 팔로워 */
+.follow-infos{
+
+    display:flex;
+    list-style:none;
+    margin : 0;
+    padding-left:0;
+
+    /* 08.27 수정 */
+    margin-bottom:30px;
+
+    /* 08.27 폰트 추가 */
+    font-family: var(--text-sans);
+    
+}
+
+.follow-infos li{
+    /* 위에 아이디랑 간격 */
+    margin-top:5px;
+
+    /* 글자 간 각격 */
+    padding-right: 15px;
+
+    /* 8.22 수정 100px->120px */
+    width: 120px;
+
+    color: #545454;
+    
+}
+
+
+/* 수정 08/27 커서 수정 ---게시물은 클릭안되고 팔로우 팔로잉만 클릭 하도록 바꿈*/
+.follows{
+    cursor:pointer;
+}
+
+/* 게시글 영역 */
+.user-post{
+    /* 글 길어지면 아래로 내려가지 않도록 */
+    overflow:hidden;
+}
+.user-post>p{
+   width:630px; 
+   height:80px;
+   color: #545454;
+
+    /* 08.27 폰트 추가 */
+    font-family: var(--text-sans);
+}
+
+
+/* 버튼 영역 : 내사진 수정, 사진 업로드 */
+.buttons{
+    display:flex;
+}
+
+.buttons div{
+ /*  background-color:#fdef7b; */
+  width:150px;
+  height:30px;
+
+/*   border: 0.1px solid #DBDBDB;
+  border-radius: 10px; */
+  /* 폰트 사이즈 색 수정(08.24) */
+/*   font-size:13px;
+  color: #545454; */
+
+  cursor:pointer;
+
+  margin-right: 30px;
+
+  /* 추가 08.24 */
+  /* box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1); */
+}
+/* 0901 수정 : 팔로우하기 버튼색 노랑색 */
+.buttons-area-yellow{
+  display:block;
+  width:150px;
+  line-height: 30px;
+  text-align: center;
+
+  font-size:13px;
+  color: #545454;
+  cursor:pointer;
+  
+  /* 0901수정 -> 기존에 div 영역에서 하던 설정을 여기에서 하는걸로! */
+  border: 0.1px solid #DBDBDB;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  
+  
+  /* 0901 버튼 색 테스트  회색*/
+  /* background-color:#f8f8f8; */
+  background-color:#fdef7b;
+}
+/* 0901 수정: 팔로우 끊기 버튼 색- 회색 */
+.buttons-area-gray{
+  display:block;
+  width:150px;
+  line-height: 30px;
+  text-align: center;
+
+  font-size:13px;
+  color: #545454;
+  cursor:pointer;
+  
+  /* 0901수정 -> 기존에 div 영역에서 하던 설정을 여기에서 하는걸로! */
+  border: 0.1px solid #DBDBDB;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  
+  
+  /* 0901 버튼 색 테스트  회색*/
+  /* background-color:#f8f8f8; */
+  background-color:#f8f8f8;
+}
+
+
+
+
+/* 추가->swiper 인기많은 크루 하이라이트 영역 */
+.swiper{
+    width: 1000px;
+    /* 08.24 수정- 높이 키웠음 */
+    height: 190px;
+
+  }
+
+  /* 크루사진+이름 전체 영역 */
+  .swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    /* 스와이퍼 버튼 색 */
+
+.swiper-button-next{
+    color:#fdef7b;
+}
+
+.swiper-button-prev{
+    color:#fdef7b;
+}
+
+
+.swiper-pagination > .swiper-pagination-bullet-active {
+    background-color: yellow;
+}
+
+.crew{
+    /* 이미지 80+30 =110 높이 */
+       /* 가로길이 수정 ->120으로*/
+    width:120px;
+    height:110px;
+    /* 중간으로 정렬 */
+    text-align: center;
+    line-height:center;
+
+    /* 인기크루끼리 간격 */
+    /* margin-right:15px; */
+
+}
+
+
+/* 크루 대표 이미지 */
+.crew img{
+    width: 80px;
+    height:80px;
+    /* 중간정렬 */
+    text-align: center;
+    line-height: 80px;
+
+    /* 동그라미로 */
+    border-radius: 50%;
+    
+    padding:0;
+
+
+}
+
+
+/* 크루명 */
+.crew div{
+    /* 너비값 수정 */
+    width:120px;
+    height:30px;
+
+    line-height: 30px;
+    text-align: center;
+
+    font-size:12px;
+
+    overflow:hidden;
+
+    /* 08.27 폰트 추가 */
+    font-family: var(--text-sans);
+
+}
+
+
+/* 갤러리 nav :피드랑 하트 */
+.gallery-nav{
+    /* 전체 중간 정렬 */
+
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    /* 높이 수정 (08.24) */
+    height: 70px;
+    line-height: 70px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+  
+    display:flex;
+
+    border-top: 0.1px solid #DBDBDB;
+    
+}
+
+
+.feed-icon{
+    /* 08.25 수정 아이콘 1/3 정도로 위치시키려고 마진 주기 */
+    margin-left: 140px;
+}
+
+.heart-icon{
+    /* 08.25 수정 아이콘 1/3 정도로 위치시키려고 마진 주기 */
+    margin-right:140px;
+}
+
+
+/* 사진  갤러리 영역 */
+.gallery{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   /* 액자식으로 여백주기 */
+   
+    /* 08.22 수정 */
+    column-gap: 10px;
+    row-gap:30px;
+
+    /* 위쪽 실선 */
+    margin-bottom:2em;
+
+
+    /* 08.22추가 */
+    padding-left:18px;
+}
+
+
+.item{
+    /* 08.22수정: 사이즈 수정 */
+    height: 300px;
+    width:300px;
+    background:#000;
+
+
+}
+
+.item img{
+    height:100%;
+    width:100%;
+}
+
+/* 커서 올리면 불투명 회색으로 바뀜 */
+.item>img:hover{
+    opacity:0.7;
+}
+
+
+/* 페이징 영역 */
+.pages{
+    /*div 항상 중간 정렬 */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    padding:10px 0;
+    
+}
+
+/* bootstrap button */
+
+.pagination{
+/*     
+    padding-left:410px;
+    margin-bottom: 30; */
+    /* margin:0 auto; */
+    padding-left:380px;
+}

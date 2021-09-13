@@ -17,7 +17,7 @@ import com.bitcamp.orl.crew.service.CrewDetailService;
 public class CrewDetailController {
 	
 	@Autowired
-	CrewDetailService service;
+	private CrewDetailService service;
 	
 	@RequestMapping("/{crewIdx}&{currentPageNum}")
 	public String getCrewDetail(
@@ -26,11 +26,12 @@ public class CrewDetailController {
 			HttpServletRequest request,
 			Model model
 			) {
-		
 		CrewInfo crewinfo = service.getCrewInfo(request.getSession(), crewIdx);
 		CrewCommentCriteria cri = new CrewCommentCriteria(crewIdx, currentPageNum);
+		
 		model.addAttribute("crew", crewinfo);
 		model.addAttribute("cri", cri);
+		
 		return "crew/detail";
 	}
 	

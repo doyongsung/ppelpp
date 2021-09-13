@@ -1,6 +1,5 @@
 package com.bitcamp.orl.crew.service;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,6 +10,7 @@ import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInfo;
 import com.bitcamp.orl.member.domain.Member;
+
 @Service
 public class CrewDetailService {
 	
