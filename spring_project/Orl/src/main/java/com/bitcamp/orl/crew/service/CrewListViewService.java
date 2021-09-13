@@ -77,17 +77,18 @@ public class CrewListViewService {
 		return dao.selectAll();
 	}
 
-	public List<Crew> getCrewListAll(SearchType searchType){
-		return template.getMapper(Dao.class).selectCrewAll(searchType);
-	}
 	
+	  public List<Crew> getCrewListAll(SearchType searchType){
+		  return template.getMapper(Dao.class).selectCrewAll(searchType);
+		  }
+	 
 	public int getCrewCount() {
 		return template.getMapper(Dao.class).CrewCount();
 		}
-	
 	public List<Crew> listCriteria(Criteria cri){
 		return template.getMapper(Dao.class).listCriteria(cri);
 	}
+	
 	
 
 

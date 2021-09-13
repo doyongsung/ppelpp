@@ -25,7 +25,8 @@ public interface Dao {
 	
 	//게시물 총 개수
 	int CrewCount();
-	//페이징
+	
+	//페이징 + 리스트
 	List<Crew> listCriteria(Criteria cri);
 	
 	

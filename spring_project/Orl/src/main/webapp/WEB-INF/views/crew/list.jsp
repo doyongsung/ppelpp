@@ -185,7 +185,7 @@ function crewList(cList){
                                 </select>
                                 <div class="boxSearch">
                                     <span class="icon"><i id="searchType"class="fa fa-search" aria-hidden="true"></i></span>
-                                    <input onclick="Ajax()" id="search"class="search"  type="text" name="keyword" placeholder="Type to search">
+                                    <input id="search"class="search"  type="text" name="keyword" placeholder="Type to search">
                                 </div>
                             </div>
                         </form>
@@ -195,14 +195,16 @@ function crewList(cList){
 
 
 						 <div id="cList"> 
+						 </div>
    	<div class="row">
 				  <c:forEach items="${list}" var="crew">
 				<div class="col-md-4">
 					<div class="card shadow">
 					<div class="inner">
 				  <div>
-					<a href="<c:url value="/crew/detail/${crew.crewIdx}&1"/>"></a>
+					<a href="<c:url value="/crew/detail/${crew.crewIdx}&1"/>">
 					<img src="<c:url value="/images/crew/${crew.crewPhoto}"/>"  class="card-img-top" alt="card image cap">
+					</a>
           <div class="card-body text-left">
           <h4 class="card-title">크루 이름: ${crew.crewName}</h4>
           <p class="card-text">크루장: ${member.memberNickname}</p>
@@ -214,7 +216,7 @@ function crewList(cList){
 					</div>
           </c:forEach>
 			</div>
-		 </div> 
+		  
 	
 
 	<ul class="pagination">
@@ -233,7 +235,7 @@ function crewList(cList){
     <c:if test="${pageMaker.next }">
   
         <li>
-            <a href="<c:url value="/crew/list/${pageMaker.makeQuery(pageMaker.endPage + 1)}"/>">[다음]</a>
+            <a href="<c:url value="/crew/detail/${pageMaker.makeQuery(pageMaker.endPage + 1)}"/>">[다음]</a>
         </li>
     </c:if>  
 </ul>
@@ -247,8 +249,6 @@ function crewList(cList){
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')
         }
-        
-        
     </script>       
 </body>
 </html>

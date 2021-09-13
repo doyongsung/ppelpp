@@ -30,14 +30,6 @@ public class CrewRestSearchTypeController {
 			SearchType searchType
 			) {
 		
-		//크루 검색		
-		List<Crew> list = null;
-		if(searchType.getKeyword() !=null && searchType.getKeyword().trim().length() > 0) {
-			list= restService.getSortingName(searchType);
-		} else {
-			list = restService.getSortingName();
-		}
-		model.addAttribute("crewList",list);
 	
 		/*
 		 * //내 크루 리스트 처리// List<Crew> myCrewList = null; myCrewList =
@@ -50,6 +42,6 @@ public class CrewRestSearchTypeController {
 		crewListAll = restService.getSortingName();
 		model.addAttribute("crewListAll", crewListAll);
 		
-		return list;
+		return crewListAll;
 	}
 }

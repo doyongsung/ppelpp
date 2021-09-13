@@ -3,14 +3,11 @@ package com.bitcamp.orl.crew.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitcamp.orl.crew.domain.Crew;
-import com.bitcamp.orl.crew.domain.SearchType;
 import com.bitcamp.orl.crew.service.CrewRestService;
 
 @RestController
@@ -21,8 +18,8 @@ public class CrewListRestController {
 	
 	@GetMapping("/crew/crewName")
 	@CrossOrigin
-	public List<Crew> getSortingName(SearchType searchType){
-		return restService.getSortingName(searchType);
+	public List<Crew> getSortingName(){
+		return restService.getSortingName();
 	}
 	/*
 	 * @GetMapping("/crew/searchList")
@@ -40,23 +37,5 @@ public class CrewListRestController {
 	 * 
 	 * }
 	 */
-	
-	@GetMapping("/crew/searchList")
-	@CrossOrigin
-	public List<Crew> getCrewSearchList(
-			@ModelAttribute("searchType")SearchType searchType,
-			Model model
-			){
-		//크루 검색기능 더해서 전체 크루 리스트 처리		
-		List<Crew> list = null;
-		if(searchType.getKeyword() !=null && searchType.getKeyword().trim().length() > 0) {
-			list= restService.getSearchList(searchType);
-		} else {
-			list = restService.getSortingName();
-		}
-		model.addAttribute("crewList", list);
-		
-		return list;
-	
-	}
+
 }
