@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+.paging-div { 
+	padding: 15px 320px 70px 10px;
+	 display: table; 
+	 margin-left: auto;
+	  margin-right: auto;
+	   text-align: center; 
+	   }
 
 .searchType {
     display: flex;
@@ -7,15 +14,20 @@
 
 }
 
-
 .dropdown {
     padding-top: 20px;
     margin-bottom: -25px;
     padding-left: 65px;
 
 }
+.row{
+	padding-top:30px;
+}
 
-
+.search-drop{
+	display:flex;
+	padding-top:80px;
+}
 .boxSearch input#search:hover,
 .container-1 input#search:focus,
 .container-1 input#search:active {
@@ -52,7 +64,9 @@
 select {
     border: none;
 }
-
+select:focus{
+	outline:none
+}
 .curved {
     padding: 5px;
     font-size: 12px;
@@ -194,6 +208,9 @@ div p {
 .search-box:hover>.search-btn {
     background: white;
 }
+.search-box input:focus{
+	outline:none
+}
 
 .search-box input {
     padding: 5px;
@@ -222,8 +239,6 @@ div p {
     line-height: 40px;
     width: 0px;
 }
-
-.search-box {}
 
 .crew-insert {
 	float:right;

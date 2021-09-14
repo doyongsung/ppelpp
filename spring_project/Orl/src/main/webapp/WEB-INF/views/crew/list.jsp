@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        
+        
+        
 <title>Insert title here</title>
 </head>
 <style>
@@ -41,8 +44,6 @@ $(document).ready(function(){
 		}
 	}) */ 
 
-
-	function Ajax(){
 		$.ajax({
 			url:'<c:url value="/crew/searchList"/>',
 			type:'GET',
@@ -55,10 +56,10 @@ $(document).ready(function(){
 			crewList(cList);
 		}
 		});
-		}
+	
 		
 	
-/*  		$.ajax({
+ 	/* 	$.ajax({
 		url:'<c:url value="/crew/crewName"/>',
 		type:'GET',
 		data:{crewName:'${crewName}'},
@@ -67,7 +68,7 @@ $(document).ready(function(){
 			cList = data;
 			crewList(cList);
 		}
-	})  */
+	})   */
 	
 	$('#nameList').click(function(){
 		console.log("이름순으로 정렬");
@@ -104,17 +105,6 @@ $(document).ready(function(){
 	})
 	
 });
-
-
-function check(){
-	if($("#selectSearch").val()==""){
-		alert("검색할 항목을 선택하세요");
-		return false;
-	}
-	return true;
-}
-
-
 
 function crewList(cList){
 		var ccList=[];
@@ -175,10 +165,11 @@ function crewList(cList){
                         <button class="curved" id="newestList">최신순으로 보기</button>
                         <button class="curved" id="oldList">오랜된 순으로 보기</button>
                     </div>
+                    <div class="select-option">
                     <form action="" name="frm" id="form">
                       <div class="search-drop">
-                          <div class="searchType">
-                              <select name="searchType" id="selectSearch">
+                              <select name="searchType" id="selectSearch" >
+                              	  <option selected disabled>검색</option>
                                   <option value="name">크루 이름</option>
                                   <option value="nickName">닉네임</option>
                                   <option value="tag">해시태그</option>
@@ -189,15 +180,15 @@ function crewList(cList){
                                 </div>
                             </div>
                         </form>
+                    </div>
                        
                     </div>
-</div>
 
 
-						 <div id="cList"> 
-						 </div>
-   	<div class="row">
-				  <c:forEach items="${list}" var="crew">
+
+    	<div class="row">
+						 <div id="cList"> </div>
+ 				 <%--  <c:forEach items="${list}" var="crew">
 				<div class="col-md-4">
 					<div class="card shadow">
 					<div class="inner">
@@ -214,34 +205,33 @@ function crewList(cList){
 					</div>
 					</div>
 					</div>
-          </c:forEach>
-			</div>
+          </c:forEach>  --%>
+			</div> 
 		  
-	
-
-	<ul class="pagination">
+	</div>
+ <div class="paging-div">
+	<nav aria-label="Page navigation example">
+	<ul class="pagination" id="pagination">
     <c:if test="${pageMaker.prev}">
-        <li>
-            <a href="<c:url value="/crew/list/${pageMaker.makeQuery(pageMaker.startPage - 1)}"/>">[이전]</a>
-        </li>
-         
+        <li class="page-item">
+            <a class="page-link" href="<c:url value="/crew/list/${pageMaker.makeQuery(pageMaker.startPage - 1)}"/>">prev</a>
+        </li>  
     </c:if>
- 
-   
     <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="index">
-        <a href="<c:url value="/crew/list/${pageMaker.makeQuery(index)}"/>">[${index }]</a>
+    <li class="page-item">
+        <a class="page-link" href="<c:url value="/crew/list/${pageMaker.makeQuery(index)}"/>">${index}</a>
+   </li>
     </c:forEach>
  
-    <c:if test="${pageMaker.next }">
+    <c:if test="${pageMaker.next}">
   
-        <li>
-            <a href="<c:url value="/crew/detail/${pageMaker.makeQuery(pageMaker.endPage + 1)}"/>">[다음]</a>
+        <li class="page-item">
+            <a class="page-link" href="<c:url value="/crew/list/${pageMaker.makeQuery(pageMaker.endPage + 1)}"/>">next</a>
         </li>
     </c:if>  
 </ul>
-    <div class="crew-insert">
-				<a href="<c:url value='/crew/insert'/>">크루 생성하기</a>
-			</div>
+</nav>
+</div> 
         </div>
    <%@ include file="/WEB-INF/frame/default/footer.jsp" %>
     <script>

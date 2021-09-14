@@ -37,6 +37,7 @@ public class CrewRestSearchTypeController {
 		 * myCrewList);
 		 */
 		
+		
 		//전체 크루 리스트 처리//
 		List<Crew> crewListAll = null;
 		crewListAll = restService.getSortingName();

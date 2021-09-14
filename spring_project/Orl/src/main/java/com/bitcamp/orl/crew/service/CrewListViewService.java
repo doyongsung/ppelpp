@@ -22,13 +22,6 @@ public class CrewListViewService {
 	@Autowired
 	private SqlSessionTemplate template;
 
-	// 크루 리스트 (이름순)
-	public List<Crew> getCrewNameInfo(String crewName) {
-		List<Crew> crewList = null;
-		dao = template.getMapper(Dao.class);
-		return crewList;
-	}
-	
 	//오버로딩  09.06 세라
 		public List<Crew> getMyCrewList(
 				int memberIdx
@@ -80,11 +73,11 @@ public class CrewListViewService {
 	
 	  public List<Crew> getCrewListAll(SearchType searchType){
 		  return template.getMapper(Dao.class).selectCrewAll(searchType);
-		  }
+    }
 	 
 	public int getCrewCount() {
 		return template.getMapper(Dao.class).CrewCount();
-		}
+	}
 	public List<Crew> listCriteria(Criteria cri){
 		return template.getMapper(Dao.class).listCriteria(cri);
 	}

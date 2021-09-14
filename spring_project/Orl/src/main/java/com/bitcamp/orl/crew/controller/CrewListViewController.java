@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,9 +27,10 @@ public class CrewListViewController {
 	
 	  @RequestMapping(method = RequestMethod.GET) 
 	  public String getCrewList(
-	  HttpServletRequest request, Model model,
+	  HttpServletRequest request, 
+	  Model model,
 	  Criteria cri,
-	  @ModelAttribute("searchType")SearchType searchType
+	  SearchType searchType
 	  
 	 ) {
 	  
@@ -55,7 +55,7 @@ public class CrewListViewController {
 		            // 화면에 게시글을 뿌려주기 위해서 꺼내온 dto도 저장(model 객체에)
 		    model.addAttribute("pageMaker", pageMaker);
 		    model.addAttribute("list", list);
-		
+		    
 		
 		  //크루 검색기능 더해서 전체 크루 리스트 처리 
 			
