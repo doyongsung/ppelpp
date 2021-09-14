@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.dao.Dao;
-import com.bitcamp.orl.member.domain.Member;
+import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
 public class CrewMemberRegService {
@@ -24,8 +24,8 @@ public class CrewMemberRegService {
 		dao = template.getMapper(Dao.class);
 		
 		try {
-		Member member = (Member)request.getSession().getAttribute("member");
-		int memberIdx = member.getMemberIdx();
+		MemberDto memberDto = (MemberDto)request.getSession().getAttribute("memberDto");
+		int memberIdx = memberDto.getMemberIdx();
 		resultCnt = dao.insertCrewReg(memberIdx, crewIdx);
 		} catch(NullPointerException e) {
 			e.printStackTrace();

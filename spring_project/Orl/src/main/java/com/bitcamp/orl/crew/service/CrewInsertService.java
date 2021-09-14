@@ -14,6 +14,7 @@ import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInsertRequest;
 import com.bitcamp.orl.member.domain.Member;
+import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
 public class CrewInsertService {
@@ -40,16 +41,16 @@ public class CrewInsertService {
 				crew.setCrewPhoto(newFile.getName());
 			}
 			
-		    Member member = (Member)(request.getSession().getAttribute("member"));
+		    MemberDto memberDto = (MemberDto)(request.getSession().getAttribute("memberDto"));
 		    
-		    if (member != null) {			
-		    	crew.setMemberIdx(member.getMemberIdx());
-		    	crew.setMemberNickName(member.getMemberNickname());
+		    if (memberDto != null) {			
+		    	crew.setMemberIdx(memberDto.getMemberIdx());
+		    	crew.setMemberNickName(memberDto.getMemberNickname());
 		    }
 		    
 			dao = template.getMapper(Dao.class);
 			dao.insertCrew(crew);
-			dao.insertCrewReg(member.getMemberIdx(), crew.getCrewIdx());
+			dao.insertCrewReg(memberDto.getMemberIdx(), crew.getCrewIdx());
 		
 		} catch(Exception e) {
 			e.printStackTrace();

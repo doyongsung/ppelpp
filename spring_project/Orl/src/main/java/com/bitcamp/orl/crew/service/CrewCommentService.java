@@ -15,6 +15,7 @@ import com.bitcamp.orl.crew.domain.CrewCommentCriteria;
 import com.bitcamp.orl.crew.domain.CrewCommentInfo;
 import com.bitcamp.orl.crew.domain.CrewCommentPagingDTO;
 import com.bitcamp.orl.member.domain.Member;
+import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
 public class CrewCommentService {
@@ -67,8 +68,8 @@ public class CrewCommentService {
 			) {
 		int resultCnt = 0;
 		dao = template.getMapper(Dao.class);
-		Member member = (Member)session.getAttribute("member");
-		resultCnt = dao.insertCrewComment(crewComment, member.getMemberIdx(), crewIdx);
+		MemberDto memberDto = (MemberDto)session.getAttribute("memberDto");
+		resultCnt = dao.insertCrewComment(crewComment, memberDto.getMemberIdx(), crewIdx);
 		return resultCnt;
 	}
 }

@@ -12,6 +12,7 @@ import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInsertRequest;
 import com.bitcamp.orl.member.domain.Member;
+import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
 public class CrewManageService {
@@ -26,10 +27,10 @@ public class CrewManageService {
 			HttpServletRequest request
 			) {
 		boolean chk = false;
-		Member member = (Member)request.getSession().getAttribute("member");
+		MemberDto memberDto = (MemberDto)request.getSession().getAttribute("memberDto");
 		
 		try {
-			int nowAuthIdx = member.getMemberIdx();
+			int nowAuthIdx = memberDto.getMemberIdx();
 			int crewAuthIdx = selectCrew(crewIdx).getMemberIdx();
 			if(nowAuthIdx == crewAuthIdx) {
 				chk = true;

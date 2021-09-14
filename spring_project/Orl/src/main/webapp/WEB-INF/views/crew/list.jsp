@@ -30,110 +30,94 @@ padding-top: 10px;
 <script>
 
 
-$(document).ready(function(){
-	var cList=[];
-/* 	
-	 $.ajax({
-		url:'<c:url value="/crew/."/>',
-		type:'GET',
-		data:{searchType:'${searchType}'},
-		dataType : 'json',
-		success:function(data){
-			cList = data;
-			crewList(cList);
-		}
-	}) */ 
-
-		$.ajax({
-			url:'<c:url value="/crew/searchList"/>',
-			type:'GET',
-			data:{"search":$("#search").val(),
-				"selectSearch":$("#selectSearch").val()},
-			dataType : 'json',
-		success:function(data){
-			console.log("실행되었습니다.	")
-			cList = data;
-			crewList(cList);
-		}
-		});
+let cList = [];
+$(document).ready(function() {
 	
-		
+	const searchType = '${searchType}';
+	const	keyword = '${keyword}';
 	
- 	/* 	$.ajax({
-		url:'<c:url value="/crew/crewName"/>',
-		type:'GET',
-		data:{crewName:'${crewName}'},
-		dataType : 'json',
-		success:function(data){
-			cList = data;
-			crewList(cList);
-		}
-	})   */
-	
-	$('#nameList').click(function(){
+	getList(searchType, keyword);
+	$('#nameList').click(function() {
 		console.log("이름순으로 정렬");
-	  console.log(cList);
-	  cList.sort(function(a,b){
-		  a = a.crewName;
+		cList.sort(function(a, b) {
+			a = a.crewName;
 			b = b.crewName;
-		return a < b ? - 1 : a > b ? 1 : 0;
-	})
-	
-	crewList(cList);
-	})
-
-		$('#newestList').click(function(){
+			return a < b ? -1 : a > b ? 1 : 0;
+		});
+		crewList(cList);
+	});
+	$('#newestList').click(function() {
 		console.log("최신순으로 정렬");
-	  console.log(cList);
-	  cList.sort(function(a,b){
-		a = a.crewCreatedate;
-		b = b.crewCreatedate;
-		return a > b ? -1 : a < b ? 1 : 0;
-	})
-	crewList(cList);
-	})
-	
-		$('#oldList').click(function(){
-		console.log("오래된순으로 정렬");
-	  console.log(cList);
-	  cList.sort(function(a,b){
+		cList.sort(function(a, b) {
 			a = a.crewCreatedate;
 			b = b.crewCreatedate;
-		  return a < b ? -1 : a > b ? 1 : 0;
-	})
-	crewList(cList);
-	})
+			return a > b ? -1 : a < b ? 1 : 0;
+		});
+		crewList(cList);
+	});
+	$('#oldList').click(function() {
+		console.log("오래된순으로 정렬");
+		cList.sort(function(a, b) {
+			a = a.crewCreatedate;
+			b = b.crewCreatedate;
+			return a < b ? -1 : a > b ? 1 : 0;
+		});
+		crewList(cList);
+	});
+		
+}); //document ready end.
 	
-});
-
-function crewList(cList){
-		var ccList=[];
-		ccList=cList;
-		console.log("리스트 함수 호출");
-		console.log(ccList);
+	//ajax restcontroller
+	function getList(parameter1, parameter2){
+		if(parameter2 == ''){
+			$.ajax({
+				url : '<c:url value="/crew/searchList"/>',
+				type : 'get',
+				success : function(data) {
+					cList = data;
+					crewList(data);
+				}
+			});
+		} else {
+			$.ajax({
+				url : '<c:url value="/crew/searchList"/>',
+				type : 'get',
+				data : {
+					searchType: parameter1,
+					keyword : parameter2
+				},
+				success : function(data) {
+					cList = data;
+					crewList(cList);
+				}
+			});
+		}
+	}
 	
-				var html='<div id="row" class="row">';
-				
-	  		$.each(ccList,function(index,item){
-					html+='<div class="col-md-4">';
-					html+='<div class="card shadow">';
-					html+='<div class="inner">';
-					html+='<div>';
-					html+='<a href="<c:url value="/crew/detail/'+item.crewIdx+'&1"/>">';
-					html+='<img src="<c:url value="/images/crew/'+item.crewPhoto+'"/>"  class="card-img-top" alt="card image cap">';
-          html+='<div class="card-body text-left">';
-          html+='<h4 class="card-title">크루 이름: '+item.crewName+' </h4>';
-          html+='<p class="card-text">크루장: '+item.memberNickName+'</p>';
-          html+='<p class="card-text">크루소개 : '+item.crewDiscription+'</p>';
-          html+='</div>';
-          html+='</a>';
-					html+='</div>';
-					html+='</div>';
-					html+='</div>';
-					html+='</div>';
-					
-					$('#cList').html(html);
-				})   
+	//출력함수
+	function crewList(cList) {
+		var ccList = [];
+		ccList = cList;
+		var html = '<div id="row" class="row">';
+		$.each(ccList, function(index, item) {
+				html += '<div class="col-md-4">';
+				html += '<div class="card shadow">';
+				html += '<div class="inner">';
+				html += '<div>';
+				html += '<a href="<c:url value="/crew/detail?crewIdx='+item.crewIdx+'"/>">';
+				html += '<img src="<c:url value="/images/crew/'+item.crewPhoto+'"/>" class="card-img-top" alt="card image cap">';
+				html += '<div class="card-body text-left">';
+				html += '<h4 class="card-title">크루 이름: '+item.crewName+'</h4>';
+				html += '<p class="card-text">크루장: '+item.memberNickName+'</p>';
+				html += '<p class="card-text">크루소개 : '+item.crewDiscription+'</p>';
+				html += '</div>';
+				html += '</a>';
+				html += '</div>';
+				html += '</div>';
+				html += '</div>';
+				html += '</div>';
+				$('#cList').html(html);
+		});
 	}
 </script>
 <body>

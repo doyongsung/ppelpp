@@ -107,5 +107,7 @@ public class Member {
 				+ memberName + ", memberEmail=" + memberEmail + ", memberProfile=" + memberProfile + ", memberNickname="
 				+ memberNickname + ", memberRegdate=" + memberRegdate + ", memberBirth=" + memberBirth + "]";
 	}
-	
+	   public MemberDto memberToMemberVo(){
+		      return new MemberDto(memberIdx, memberNickname);
+		   }
 }
