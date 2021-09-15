@@ -15,20 +15,11 @@
 
 	<!-- header -->
 	<%@ include file="/WEB-INF/frame/default/header.jsp"%>
-
-	<!-- modal_feedview -->
-	<div class="modal_feedview">
-		<div class="modal_content">
-			<section class="container">
-				<%@ include file="/WEB-INF/views/feed/feedview.jsp"%>
-			</section>
-		</div>
-	</div>
 	
 	<!-- modal_createfeed -->
 	<div class="modal_createfeed">
-		<div class="modal_content">
-			<section class="container">
+		<div class="modal_content_create">
+			<section class="container_create">
 				<%@ include file="/WEB-INF/views/feed/createfeed.jsp"%>
 			</section>
 		</div>
@@ -40,14 +31,8 @@
 
 	<!-- footer -->
 	<%@ include file="/WEB-INF/frame/default/footer.jsp"%>
-
-
-
-	<script>
 	
-		
-		
-	</script>
+	
 
 </body>
 </html>

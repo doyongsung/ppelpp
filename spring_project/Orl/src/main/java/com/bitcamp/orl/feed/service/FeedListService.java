@@ -11,8 +11,10 @@ import com.bitcamp.orl.feed.domain.*;
 
 @Service
 public class FeedListService {
-
-	FeedDao dao;
+	
+	// feedmain 에서 전체 피드랑 인기순 정렬 피드 보여주기
+	
+	private FeedDao dao;
 
 	@Autowired
 	private SqlSessionTemplate template;
@@ -29,5 +31,19 @@ public class FeedListService {
 		
 		return newFeedList;
 	}
+	
+	// 피드 리스트(인기순) 세라 추가
+	public List<NewFeedList> selectFeedOrderByLike() {
+		
+		List<NewFeedList> feedOrderByLike = null;
+		
+		dao= template.getMapper(FeedDao.class);
+		feedOrderByLike = dao.selectFeedOrderByLike();
+		
+		
+		
+		return feedOrderByLike;
+	}
+	
 	
 }

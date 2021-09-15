@@ -25,13 +25,13 @@ public class CrewDetailService {
 			) {
 		
 		CrewInfo crewinfo = getCrew(crewIdx).crewToCrewInfo();
-		MemberDto memberDto = (MemberDto)session.getAttribute("memberDto");
+		MemberDto memberVo = (MemberDto)session.getAttribute("memberVo");
 		
 		crewinfo.setCrewMemberNum(getCrewMemberNum(crewIdx));
 		crewinfo.setCrewCommentNum(getCrewCommentNum(crewIdx));
 		
-		if(memberDto != null) {
-			crewinfo.setIsReg(getIsCrewMember(memberDto.getMemberIdx(), crewIdx));
+		if(memberVo != null) {
+			crewinfo.setIsReg(getIsCrewMember(memberVo.getMemberIdx(), crewIdx));
 		} else {
 			crewinfo.setIsReg(false);
 		}

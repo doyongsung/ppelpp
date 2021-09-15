@@ -15,7 +15,7 @@ button, input {
 button:hover {
     cursor: pointer;
 }
-.container {
+.container_create {
     display: flex;
     width: 1000px;
     height: 650px;
@@ -24,8 +24,8 @@ button:hover {
 /* close button */
 .c_close {
     position: absolute;
-    top: 7px;
-    right: 0;
+    top: 5px;
+    right: 5px;
     z-index: 1;
 }
 .c_close>img {
@@ -35,9 +35,6 @@ button:hover {
 .c_name {
     font-weight: bold;
 }
-
-
-
 
 .c_leftbox { /* 사진 영역 */
     width: 55%;
@@ -135,15 +132,15 @@ button:hover {
 
 
 
-    .hashtabbox { /* 해시태그 영역 */
+    .hashtagbox { /* 해시태그 영역 */
         height: 50px;
         position: relative;
     }
-        .hashtabbox>p {
+        .hashtagbox>p {
             position: absolute;
             left: 18px;
         }
-        .hashtabbox>input { /* 입력 상자 */
+        .hashtagbox>input { /* 입력 상자 */
             position: absolute;
             left: 90px;
             bottom: 20px;

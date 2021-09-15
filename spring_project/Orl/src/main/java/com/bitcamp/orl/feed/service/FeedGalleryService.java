@@ -15,9 +15,8 @@ import com.bitcamp.orl.feed.domain.FeedLikeGallery;
 public class FeedGalleryService {
 	// 1) 피드에 처음 들어왔을 때 모든 사진 보여주기
 	// 2) 좋아요 정렬 사진 보여주기
-	// 2) 사진 올리기 했을 때 비동기 통신으로 위쪽에 추가되어지기 
 	
-	FeedDao dao;
+	private FeedDao dao;
 	
 	@Autowired
 	SqlSessionTemplate template;

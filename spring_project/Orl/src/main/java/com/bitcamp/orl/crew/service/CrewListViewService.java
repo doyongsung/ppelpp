@@ -27,15 +27,27 @@ public class CrewListViewService {
 			) {
 
 		List<Crew> myCrewList = null;
-		MemberDto memberdto = (MemberDto) request.getSession().getAttribute("memberdto");
-		if (memberdto != null) {
-			int memberIdx = memberdto.getMemberIdx();
+		MemberDto memberVo = (MemberDto) request.getSession().getAttribute("memberVo");
+		if (memberVo != null) {
+			int memberIdx = memberVo.getMemberIdx();
 			dao = template.getMapper(Dao.class);
 			myCrewList = dao.selectMyCrewList(memberIdx);
 		}
 		return myCrewList;
 	}
-
+	//오버로딩  09.06 세라
+			public List<Crew> getMyCrewList(
+					int memberIdx
+					){
+				
+				List<Crew> myCrewList = null;
+				dao = template.getMapper(Dao.class);
+				myCrewList = dao.selectMyCrewList(memberIdx);
+				
+				
+				return myCrewList;
+			};
+			
 	public List<Crew> getCrewListAll(int pageStart, int perPageNum) {
 		dao = template.getMapper(Dao.class);
 		return dao.selectAll(pageStart, perPageNum);
@@ -52,5 +64,10 @@ public class CrewListViewService {
 	
 	public int getCrewCountForSearching(SearchType searchType) {
 		return template.getMapper(Dao.class).CrewCountForSearching(searchType);
+	}
+	
+	public List<Crew> getCrewListAdmin(){
+		dao = template.getMapper(Dao.class);
+		return dao.selectCrewListByAdmin();
 	}
 }

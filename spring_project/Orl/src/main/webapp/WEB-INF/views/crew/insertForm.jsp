@@ -13,6 +13,7 @@
 <script defer src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 <script defer src="<c:url value='/js/crew/insert.js'/>"></script>
 </head>
 <body>

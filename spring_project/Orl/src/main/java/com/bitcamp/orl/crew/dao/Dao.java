@@ -19,6 +19,9 @@ public interface Dao {
 	//검색을 통한 crew 리스트 
 	List<Crew> selectCrewAll(SearchType searchType);
 	
+	//관리자 crew 전체 리스트
+	List<Crew> selectCrewListByAdmin();
+	
 	//크루 게시물 총 개수
 	int CrewCount();
 		

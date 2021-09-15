@@ -1,5 +1,7 @@
 package com.bitcamp.orl.member.service;
 
+import java.text.ParseException;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,37 +12,50 @@ import com.bitcamp.orl.member.domain.MemberRequest;
 
 @Service
 public class RegService {
-
+	
 	private Dao dao;
-
+	
 	@Autowired
 	private SqlSessionTemplate template;
-
-	public int reg(
-			MemberRequest memberRequest
-			) {
-
-		int resultCnt = 0;
+	
+	public int reg(MemberRequest memberRequest) {
+		
+		int resultCnt=0;
+		
+		Member member= new Member();
 		
 		try {
-			Member member = new Member();
-
 			member.setMemberId(memberRequest.getMemberId());
-			member.setMemberPw(memberRequest.getMemberPw());
-			member.setMemberName(memberRequest.getMemberName());
-			member.setMemberEmail(memberRequest.getMemberEmail());
-			member.setMemberNickname(memberRequest.getMemberNickname());
+	        member.setMemberPw(memberRequest.getMemberPw());
+	        member.setMemberName(memberRequest.getMemberName());
+	        member.setMemberEmail(memberRequest.getMemberEmail());
+	        member.setMemberNickname(memberRequest.getMemberNickname());
 			member.setMemberBirth(memberRequest.getMemberBirth());
 			
 			dao = template.getMapper(Dao.class);
-			resultCnt = dao.insertMember(member);
-
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
+			
+			resultCnt=dao.insertMember(member);
+			
+			
+		
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 		return resultCnt;
 	}
-
+	
+	public int regNaver(Member member) {
+		
+		int resultCnt=0;
+		
+		dao = template.getMapper(Dao.class);
+			
+		resultCnt=dao.insertMember(member);
+			
+		
+		return resultCnt;
+	}
 }

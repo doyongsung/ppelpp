@@ -1,24 +1,76 @@
 
 var sel_file;
+var nickJ = /^[가-힣A-Za-z0-9]{4,12}$/;
+var checkNick = true;
 
+function form_submit(form) {
+    if (checkNick){
+        form.submit();
+    }else{
+        return false;
+    }
+}
 $(document).ready(function () {
-
-        var ninkJ = /^[가-힣A-Za-z0-9]{4,12}$/;
-        
-         //닉네임 유효성 체크
-        $("#crewName").blur(function() {
-            if (ninkJ.test($(this).val())) {
-                    console.log(ninkJ.test($(this).val()));	
-                    $("#crewName_check").text('');
+    // 비동기통신 스타일 속성
+    $('#crewName').focusin(function () {
+        $('#msg').addClass('display_none');
+        $('#msg').removeClass('color_yellow');
+        $('#msg').removeClass('color_red');
+        $(this).val('');
+    });
+    //1. 아이디 유효성 체크
+    $("#crewName").blur(function () {
+        if (nickJ.test($(this).val())) {
+            console.log(nickJ.test($(this).val()));
+            $("#crewName_check").text('');
+            // 유효성 체크 되면 비동기통신으로  id 중복 체크
+            $.ajax({
+                url: 'http://localhost:8080/orl/crew/nameCheck',
+                type: 'get',
+                data: {
+                    crewName : $(this).val()
+                },
+                beforeSend: function () {
+                    $('#loadingimg').removeClass('display_none');
+                },
+                success: function (data) {
+                    // data : Y / N
+                    if (data == 'Y') {
+                        $('#msg').html('사용가능');
+                        $('#msg').addClass('color_yellow');
+                        $('#msg').removeClass('display_none');
+                        checkNick = true;
+                    } else {
+                        $('#msg').html('사용 불가능');
+                        $('#msg').addClass('color_red');
+                        $('#msg').removeClass('display_none');
+                        checkNick = false;
+                    }
+                },
+                error: function (request, status, error) {
+                    alert('서버 통신에 문제가 발생했습니다. 다시 실행해주세요.');
+                    console.log(request);
+                    console.log(status);
+                    console.log(error);
+                },
+                complete: function () {
+                    $('#loadingimg').addClass('display_none');
+                }   
+            });
             } else {
-            /* 	alert('이름은 4자 이상 12자 이하여야 하며, 한글/소문자/대문자만을 사용해야 합니다.'); */
-            $('#crewName_check').text('닉네임을 다시 입력해주세요');
-                $('#crewName_check').css('color', '#f82a2aa3'); 
+                /*    alert('아이디는 4자 이상 12자 이하여야하며 ,대문자/소문자/숫자만 사용할 수 있습니다.'); */
+                $('#crewName_check').removeClass('display_none');
+                $('#crewName_check').text('닉네임을 다시 입력해주세요.');
+                $('#crewName_check').css('color', '#f82a2aa3');
+                checkNick = false;
             }
-        
         });
+        
+
     
     $("#crewPhoto").on("change", handleImgFileSelect);
+
+ 
 });
 
 function handleImgFileSelect(e) {
@@ -124,49 +176,5 @@ $(document).ready(function () {
         $(this).parent().remove();
     });
 
-
-    ///////////////////////////////
-    //이름 중복 검사
-    $('#crewname').focusin(function() {
-		$('#msg').addClass('display_none');
-		$('#msg').removeClass('color_blue');
-		$('#msg').removeClass('color_red');
-		$(this).val('');
-	});
-	$('#crewname').focusout(function() {
-		// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
-		$.ajax({
-            url: 'http://localhost:8080/orl/crew/nameCheck',
-			type : 'get',
-			data : {
-				crewName : $(this).val()
-			},
-			beforeSend : function() {
-				$('#loadingimg').removeClass('display_none');
-			},
-			success : function(data) {
-				// data : Y / N
-				if (data == 'Y') {
-					$('#msg').html('사용가능');
-					$('#msg').addClass('color_blue');
-					$('#msg').removeClass('display_none');
-				} else {
-					$('#msg').html('사용 불가능');
-					$('#msg').addClass('color_red');
-					$('#msg').removeClass('display_none');
-				}
-			console.log("처리 성공시 변경되는 내용")
-			},
-			error : function(request, status, error) {
-				alert('서버 통신에 문제가 발생했습니다. 다시 실행해주세요.');
-				console.log(request);
-				console.log(status);
-				console.log(error);
-			},
-			complete : function() {
-				$('#loadingimg').addClass('display_none');
-			}
-		});
-	});
 
 })

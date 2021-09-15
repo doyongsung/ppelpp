@@ -2,6 +2,7 @@ package com.bitcamp.orl.feed.domain;
 
 public class FollowList {
 	//db에서 follow table 과 member table을 조인하여 가져올 때 사용
+	
 	 private int followIdx;
 	 private int memberIdx; //내 idx
 	 private int memberIdx2; // 남 idx

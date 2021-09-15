@@ -2,12 +2,10 @@ package com.bitcamp.orl.feed.domain;
 
 import java.sql.*;
 
-import org.springframework.web.multipart.*;
-
 import com.fasterxml.jackson.annotation.*;
 
 public class Feed {
-	
+
 	private int boardIdx;
 	private String boardPhoto;
 	private String boardDiscription;
@@ -16,10 +14,12 @@ public class Feed {
 	private String hashtag;
 	private String tag;
 	private int memberIdx;
-	
-	public Feed(){}
 
-	public Feed(int boardIdx, String boardPhoto, String boardDiscription, Timestamp boardDate, String hashtag, String tag, int memberIdx) {
+	public Feed() {
+	}
+	
+	public Feed(int boardIdx, String boardPhoto, String boardDiscription, Timestamp boardDate, String hashtag,
+			String tag, int memberIdx) {
 		this.boardIdx = boardIdx;
 		this.boardPhoto = boardPhoto;
 		this.boardDiscription = boardDiscription;
@@ -70,28 +70,30 @@ public class Feed {
 	public void setHashtag(String hashtag) {
 		this.hashtag = hashtag;
 	}
-	
+
 	public String getTag() {
 		return tag;
 	}
-	
+
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
-	
+
 	public int getMemberIdx() {
 		return memberIdx;
 	}
-	
+
 	public void setMemberIdx(int memberIdx) {
 		this.memberIdx = memberIdx;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Feed [boardIdx=" + boardIdx + ", boardPhoto=" + boardPhoto + ", boardDiscription=" + boardDiscription
-				+ ", boardDate=" + boardDate + ", hashtag=" + hashtag + ", tag=" + tag + ", memberIdx=" + memberIdx
-				+ "]";
+				+ ", boardDate=" + boardDate + ", hashtag=" + hashtag + ", tag=" + tag + ", memberIdx=" + memberIdx + "]";
 	}
 	
+	
+
+
 }

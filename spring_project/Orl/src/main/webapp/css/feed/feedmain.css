@@ -5,31 +5,48 @@
 	margin: 0;
 }
 
+body {
+	background-color: #f8f8f8;
+}
+
 a {
 	text-decoration: none;
 	color: #000;
 }
 
 button {
-    border: 0;
-    background-color: #00ff0000;
+	border: 0;
+	background-color: #00ff0000;
 }
 
+.top {
+	display: flex;
+	justify-content: space-between;
+}
 
+.h1box {
+	width: 1000px;
+	display:flex;
+}
+
+.h1box h1 {
+	font-size: 3.5rem;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	padding-top: 250px;
+}
 
 /* body not scroll */
-.not_scroll{
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%
+.not_scroll {
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+	height: 100%
 }
+
 .not_scroll .cont {
-    position: relative;
-    top: 0;
+	position: relative;
+	top: 0;
 }
-
-
 
 /* modal */
 .modalbox {
@@ -44,22 +61,33 @@ button {
 
 /* modal_create feed */
 .div_createfeed {
-    height: 40px;
+	height: 40px;
 }
+
 .div_createfeed>div {
-	position: absolute;
-    right: 545px;
-    width: 40px;
-    height: 40px;
-    padding-bottom: 5px;
+	padding-left: 600px;
 }
-.modalbtn_createfeed {
+.modalbtn_editfeed {
 	cursor: pointer;
 	width: 100%;
 	height: 100%;
 }
+/* 피드메인 - 피드 작성 버튼 */
+.modalbtn_createfeed {
+	display: block;
+	width: 140px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 13px;
+	color: #545454;
+	cursor: pointer;
+	border: 1px solid grey;
+	border-radius: 5px;
+	background-color: #fdef7b;
+}
+
 .div_createfeed img {
-    width: 30px;
+	width: 30px;
 }
 
 /* 여백 */
@@ -80,8 +108,9 @@ button {
 	width: 320px;
 	height: 320px;
 }
+
 .feedview_space {
-    height: 72px;
+	height: 72px;
 }
 
 .modalbtn_feedview { /* 모달버튼 */
@@ -90,8 +119,9 @@ button {
 	height: 100%;
 }
 
-.modal_feedview, .modal_createfeed { /* 모달-백그라운드 */
+.modal_feedEdit, .modal_createfeed { /* 모달-백그라운드 */
 	position: absolute;
+	display: flex;
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.8);
@@ -101,21 +131,32 @@ button {
 	z-index: 10;
 }
 
-.modal_content { /* 모달-내용 */
+.modal_content_view { /* 모달-내용 */
 	width: 1010px;
 	height: 650px;
 	background: #fff;
 	position: relative;
-	top: 300px;
-	left: 590px; /* 모달창 위치 */
-	margin-top: -100px;
-	margin-left: -200px;
+	top: 55%;
+	left: 50%; /* 모달창 위치 */
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.modal_content_create { /* 모달-내용 */
+	width: 1010px;
+	height: 650px;
+	background: #fff;
+	position: relative;
+	top: 55%;
+	left: 50%; /* 모달창 위치 */
+	transform: translate(-50%, -50%);
 	z-index: 1;
 }
 
 .feedmain {
 	display: flex;
 	flex-direction: column;
+	height: auto;
 }
 
 .top { /* 상단 여백 */
@@ -126,6 +167,8 @@ button {
 	height: 1650px;
 	display: flex;
 	justify-content: space-between;
+	height: auto;
+	overflow: hidden;
 }
 
 .mainbox {
@@ -192,8 +235,8 @@ button {
 .feedbox {
 	width: 1000px;
 	padding-top: 30px;
-	display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .feed {
@@ -230,13 +273,13 @@ button {
 }
 
 .likediv {
-
+	
 }
 
 .nolikeimg {
 	width: 23px;
 }
 
-.bottm { /* 하단 여백 */
-	height: 250px;
+.bottom { /* 하단 여백 */
+	height: 290px;
 }

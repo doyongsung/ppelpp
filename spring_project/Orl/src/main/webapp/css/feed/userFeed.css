@@ -163,8 +163,10 @@ a:visited{
 /* 0901 수정 : 팔로우하기 버튼색 노랑색 */
 .buttons-area-yellow{
   display:block;
-  width:150px;
-  line-height: 30px;
+  /* 크기 조정 0915 */
+  width:140px;
+  line-height: 28px;
+  
   text-align: center;
 
   font-size:13px;
@@ -172,20 +174,26 @@ a:visited{
   cursor:pointer;
   
   /* 0901수정 -> 기존에 div 영역에서 하던 설정을 여기에서 하는걸로! */
-  border: 0.1px solid #DBDBDB;
-  border-radius: 10px;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  /* border: 0.1px solid #DBDBDB; */
+  /* border-radius: 10px; */
+  /* box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1); */
+  
+  /* 버튼 테두리 조정 0915 */
+  border: 1px solid grey;
+  border-radius: 5px;
   
   
-  /* 0901 버튼 색 테스트  회색*/
+  /* 0901 버튼 색 테스트  노란색*/
   /* background-color:#f8f8f8; */
   background-color:#fdef7b;
 }
 /* 0901 수정: 팔로우 끊기 버튼 색- 회색 */
 .buttons-area-gray{
   display:block;
-  width:150px;
-  line-height: 30px;
+  /* 버튼 크기 수정 0915 */
+  width:140px;
+  line-height: 28px;
+  
   text-align: center;
 
   font-size:13px;
@@ -193,17 +201,18 @@ a:visited{
   cursor:pointer;
   
   /* 0901수정 -> 기존에 div 영역에서 하던 설정을 여기에서 하는걸로! */
-  border: 0.1px solid #DBDBDB;
+/*   border: 0.1px solid #DBDBDB;
   border-radius: 10px;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1); */
   
+  /*버튼 테두리 조정  */
+  border: 1px solid grey;
+  border-radius: 5px;
   
   /* 0901 버튼 색 테스트  회색*/
   /* background-color:#f8f8f8; */
   background-color:#f8f8f8;
 }
-
-
 
 
 /* 추가->swiper 인기많은 크루 하이라이트 영역 */
@@ -345,12 +354,13 @@ a:visited{
     width:300px;
     background:#000;
 
-
 }
 
 .item img{
     height:100%;
     width:100%;
+    
+    object-fit:cover;
 }
 
 /* 커서 올리면 불투명 회색으로 바뀜 */

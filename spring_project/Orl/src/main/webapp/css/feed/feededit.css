@@ -1,0 +1,230 @@
+@charset "UTF-8";
+
+* {
+	padding: 0%;
+	margin: 0%;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+button, input {
+	border: 0;
+	background-color: #00ff0000;
+}
+button:hover, input:hover, a:hover {
+	cursor: pointer;
+}
+.background {
+	height: 1100px;
+	background-color:#f8f8f8;
+}
+
+/* page back */
+.pageBack {
+	position: absolute;
+	top: 230px;
+	left: 350px;
+}
+.pageBack img {
+	width: 70px;
+}
+
+/* container */
+.container_edit {
+	background-color:white;
+	display: flex;
+	position: relative;
+	width: 1000px;
+	height: 650px;
+	top: 550px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+}
+
+/* creator nickname */
+.e_nicknam {
+	font-weight: bold;
+}
+
+/* feed photo */
+.e_leftbox {
+	width: 55%;
+	position: relative;
+}
+.e_leftbox>img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* tag icon */
+.e_leftbox>button>img {
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+	width: 30px;
+}
+
+/* feed contents */
+.e_rightbox {
+	padding-left: 7px;
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* profilephoto div */
+.e_profile {
+	position: relative;
+	height: auto;
+}
+.e_photo { /* 위치 조정 필요 */
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.e_profile img {
+	margin: 30%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	padding: 3px;
+	border: 1px solid #C9C0AE;
+}
+
+/* creator nickname */
+.e_profile>a {
+	position: absolute;
+	left: 105px;
+	top: 40px;
+}
+/* 팔로우 버튼 */
+/* .v_profile>button {
+	position: absolute;
+	left: 210px;
+	top: 39px;
+	color: #00acee;
+	font-weight: bold;
+	font-size: 15px;
+} */
+
+.feedview_btn {
+	display: block;
+	width: 60px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 13px;
+	color: #545454;
+	cursor: pointer;
+	/* 0901수정 -> 기존에 div 영역에서 하던 설정을 여기에서 하는걸로! */
+	border: 1px solid grey;
+	border-radius: 5px;
+/* 	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1); */
+	/* 0901 버튼 색 테스트  회색*/
+	/* background-color:#f8f8f8; */
+}
+
+.e_nickname {
+	padding-right: 10px;
+	font-weight: 600;
+}
+
+
+
+
+
+.contentsbox { /* 피드 내용 */
+        height: 300px;
+        position: relative;
+    }
+        .contentsbox>p {
+            position: absolute;
+            left: 27px;
+            top: 25px;
+        }
+        .contentsbox>input { /* 입력 상자 */
+            position: absolute;
+            left: 90px;
+            top: 25px;
+
+            border: 1px solid gray;
+            border-radius: 6px;
+            padding-left: 20px;
+            padding-top: 2px;
+            width: 320px;
+            height: 250px;
+
+            /* text-align: ; 상단 왼쪽 정렬 */
+        }
+
+
+
+    .hashtagbox { /* 해시태그 영역 */
+        height: 50px;
+        position: relative;
+    }
+        .hashtagbox>p {
+            position: absolute;
+            left: 18px;
+        }
+        .hashtagbox>input { /* 입력 상자 */
+            position: absolute;
+            left: 90px;
+            bottom: 20px;
+
+            border: 1px solid gray;
+            border-radius: 6px;
+            padding-left: 20px;
+            padding-top: 2px;
+            width: 320px;
+            height: 33px;
+
+        }
+
+    
+    
+        .tagbox { /* 태그 영역 */
+            height: 50px;
+            border-bottom: 1px solid gainsboro;
+            position: relative;
+        }
+            .tagbox>p {
+                position: absolute;
+                left: 32px;
+            }
+            .tagbox>input { /* 입력 상자 */
+                position: absolute;
+                left: 90px;
+                bottom: 23px;
+    
+                border: 1px solid gray;
+                border-radius: 6px;
+                padding-left: 20px;
+                padding-top: 2px;
+                width: 320px;
+                height: 33px;
+    
+            }
+
+
+
+    .submit { /* 피드 게시 */
+        height: 90px;
+        position: relative;
+    }
+        .submit>input { /* 게시버튼 */
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+
+            border: 1px solid gray;
+            border-radius: 6px;
+            padding: 8px 50px;
+            background-color: #FDEF7B;
+        }

@@ -7,7 +7,7 @@
 <title>로그인중</title>
 <c:if test="${loginChk}">
 <%	
-	response.sendRedirect("/orl/index");
+	response.sendRedirect("/orl/main/main");
 %>
 </c:if>
 <c:if test="${!loginChk}">

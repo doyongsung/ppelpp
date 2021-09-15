@@ -27,10 +27,10 @@ public class CrewManageService {
 			HttpServletRequest request
 			) {
 		boolean chk = false;
-		MemberDto memberDto = (MemberDto)request.getSession().getAttribute("memberDto");
+		MemberDto memberVo = (MemberDto)request.getSession().getAttribute("memberVo");
 		
 		try {
-			int nowAuthIdx = memberDto.getMemberIdx();
+			int nowAuthIdx = memberVo.getMemberIdx();
 			int crewAuthIdx = selectCrew(crewIdx).getMemberIdx();
 			if(nowAuthIdx == crewAuthIdx) {
 				chk = true;
