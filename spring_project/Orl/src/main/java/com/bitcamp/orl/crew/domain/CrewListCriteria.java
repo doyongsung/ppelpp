@@ -1,19 +1,20 @@
 package com.bitcamp.orl.crew.domain;
 
-public class Criteria {
-    private int page; // 보여줄 페이지
-    private int perPageNum; // 페이지당 보여줄 페이지수
+public class CrewListCriteria {
+	private int page; // 보여줄 페이지
+    private int perPageNum = 6; // 페이지당 보여줄 페이지수
  
-    // limit 구문에서 시작 부분에 필요한 값을 반환(mybatis에서 사용)
     public int getPageStart(){
         return (this.page -1) * this.perPageNum;
     }
-     
-    public Criteria() { // 최초 default 생성자로 기본 객체 생성시 초기값을 지정한다. (1페이지, 10개씩)
-        this.page = 1;  // 사용자가 세팅하지 않으면 기본 1
-        this.perPageNum = 3; // 페이지당 기본 10개씩 출력하도록 세팅
+    
+    public CrewListCriteria() {
+    	this.page = 1;
     }
-     
+    
+    public CrewListCriteria(int page){
+        this.page = page;
+    }
  
     // getter setter
     public int getPage() {

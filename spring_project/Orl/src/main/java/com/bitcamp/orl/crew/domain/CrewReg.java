@@ -2,9 +2,12 @@ package com.bitcamp.orl.crew.domain;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CrewReg {
 	
 	private int crewRegIdx;
+	@JsonFormat(pattern = "yyyy.MM.dd. HH:mm")
 	private Timestamp crewRegdate;
 	private int memberIdx;
 	private int crewIdx;

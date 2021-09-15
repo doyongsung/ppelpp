@@ -10,7 +10,7 @@ public class CrewCommentCriteria {
 	public CrewCommentCriteria(int crewIdx, int currentPageNum) {
 		this.crewIdx = crewIdx;
 		this.currentPageNum = currentPageNum;
-		this.amountPerPage = 10;
+		this.amountPerPage = 8;
 	}
 	
 	public int getCrewIdx() {

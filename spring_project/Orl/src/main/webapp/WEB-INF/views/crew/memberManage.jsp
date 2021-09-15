@@ -48,10 +48,10 @@
 					html += '<td id="nickname">'+item.memberNickName+'</td>';
 					html += '<td class="date">'+item.crewRegdate+'</td>';
 					if(item.memberIdx != '${sessionScope.member.memberIdx}'){
-						html += '<td><button class="btn" id="button">추방</button>';
+						html += '<td><button class="deleteBtn" id="button">추방</button>';
 						html += '<input type="hidden" id="memberIdx" value="'+item.memberIdx+'"></td>';
 					} else {
-						html += '<td><input type="button" class="btn" value="나"></td>'
+						html += '<td>크루장</td>'
 					}
 					html += '</tr>';
 				});

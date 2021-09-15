@@ -101,7 +101,7 @@ public class UserFeedController {
 		List<FeedLikeGallery> feedLikeGallery = galleryService.getFeedLikeGallery(memberIdx);
 
 		// 7) 내가 가입한 크루 보여주기
-		List<Crew> myCrewList = crewListService.getMyCrewList(memberIdx);
+		//List<Crew> myCrewList = crewListService.getMyCrewList(memberIdx);
 
 		// model에 객체 전달
 		model.addAttribute("member", member);
@@ -111,7 +111,7 @@ public class UserFeedController {
 		model.addAttribute("followRelation", followRelation);
 		model.addAttribute("feedGallery", feedGallery);
 		model.addAttribute("feedLikeGallery", feedLikeGallery);
-		model.addAttribute("myCrewList", myCrewList);
+		//model.addAttribute("myCrewList", myCrewList);
 
 		return "feed/userFeed";
 	}

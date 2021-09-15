@@ -6,6 +6,16 @@
 	overflow: hidden;
 }
 
+table {
+	width: 100%;
+}
+
+form {
+  padding-top: 16px;
+  padding-left: 20px;
+  padding-right: 50px;
+}
+
 .section {
 	padding-top: 100px;
 	background-color: rgb(240, 240, 240);
@@ -53,7 +63,7 @@
 .edit_section {
 	min-width: 600px;
 	background-color: white;
-	padding: 35px 20px 35px 50px;
+	padding: 35px 50px 35px 50px;
 	border-top: 1px solid rgb(220, 220, 220);
 	border-bottom: 1px solid rgb(220, 220, 220);
 	border-right: 1px solid rgb(220, 220, 220);
@@ -70,7 +80,7 @@
 
 .edit_section label {
 	font-weight: bold;
-	min-width: 130px;
+	min-width: 100px;
 	display: block;
 	font-size: 15px;
 }
@@ -89,10 +99,17 @@
 	color: white;
 }
 
-.remove_input {
+.nav2 .remove_input {
 	min-width: 250px;
 }
 
-td {
+.nav2 td {
 	line-height: 2.5rem;
+}
+
+.deleteBtn {
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    padding: 0 7px 0 7px;
+    background-color: rgb(253, 239, 123);
 }

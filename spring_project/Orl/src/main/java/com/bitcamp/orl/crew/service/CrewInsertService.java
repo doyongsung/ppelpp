@@ -41,16 +41,16 @@ public class CrewInsertService {
 				crew.setCrewPhoto(newFile.getName());
 			}
 			
-		    MemberDto memberDto = (MemberDto)(request.getSession().getAttribute("memberDto"));
+		    MemberDto memberdto = (MemberDto)(request.getSession().getAttribute("memberdto"));
 		    
-		    if (memberDto != null) {			
-		    	crew.setMemberIdx(memberDto.getMemberIdx());
-		    	crew.setMemberNickName(memberDto.getMemberNickname());
+		    if (memberdto != null) {			
+		    	crew.setMemberIdx(memberdto.getMemberIdx());
+		    	crew.setMemberNickName(memberdto.getMemberNickname());
 		    }
 		    
 			dao = template.getMapper(Dao.class);
 			dao.insertCrew(crew);
-			dao.insertCrewReg(memberDto.getMemberIdx(), crew.getCrewIdx());
+			dao.insertCrewReg(memberdto.getMemberIdx(), crew.getCrewIdx());
 		
 		} catch(Exception e) {
 			e.printStackTrace();

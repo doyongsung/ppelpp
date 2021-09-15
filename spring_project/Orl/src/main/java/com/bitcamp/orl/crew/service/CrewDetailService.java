@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInfo;
-import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service

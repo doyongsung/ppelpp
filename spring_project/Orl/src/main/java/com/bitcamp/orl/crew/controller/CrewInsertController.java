@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bitcamp.orl.crew.domain.Crew;
-import com.bitcamp.orl.crew.domain.CrewCommentCriteria;
 import com.bitcamp.orl.crew.domain.CrewInfo;
 import com.bitcamp.orl.crew.domain.CrewInsertRequest;
 import com.bitcamp.orl.crew.service.CrewDetailService;
@@ -27,7 +26,7 @@ public class CrewInsertController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String insert() {
-		return "crew/insert";
+		return "crew/insertForm";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -38,11 +37,8 @@ public class CrewInsertController {
 			) {
 		Crew crew = insertService.insert(crewRequest, request);
 		CrewInfo crewinfo = detailService.getCrewInfo(request.getSession(), crew.getCrewIdx());
-		CrewCommentCriteria cri = new CrewCommentCriteria(crew.getCrewIdx(), 1);
-		
 		model.addAttribute("crew", crewinfo);
-		model.addAttribute("cri", cri);
 		
-		return "crew/detail";
+		return "crew/insert";
 	}
 }

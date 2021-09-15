@@ -12,9 +12,6 @@ public class CrewCommentPagingDTO {
 	private int startRow; // 시작위치
 	private int endRow; // 끝위치
 	
-	private boolean prev; // 이전
-	private boolean next; // 다음
-	
 	public CrewCommentPagingDTO(
 			List<CrewCommentInfo> infoList,
 			int totalCommentNum,
@@ -68,12 +65,4 @@ public class CrewCommentPagingDTO {
 		return endRow;
 	}
 
-	public boolean isPrev() {
-		return prev;
-	}
-
-	public boolean isNext() {
-		return next;
-	}
-	
 }

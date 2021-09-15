@@ -1,15 +1,13 @@
 package com.bitcamp.orl.crew.domain;
 
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
-
 public class PageMaker {
-	 
-    private Criteria cri;// page, perPageNum 을 가지고 있음
- 
+	
+	private CrewListCriteria cri;// page, perPageNum 을 가지고 있음
     private int totalCount;// 전체 게시글 수
+    
     private int startPage;// 게시글 번호에 따른 (보여지는)페이지의 시작 번호
     private int endPage;// 게시글 번호에 따른 (보여지는)페이지의 마지막 번호
+    
     private boolean prev;// 이전 버튼을 누를 수 있는 경우/없는 경우 분류를 위함
     private boolean next;
  
@@ -18,14 +16,11 @@ public class PageMaker {
  
     public void setTotalCount(int totalCount) {
         this.totalCount = totalCount;
- 
         calcData();// 전체 필드 변수들 세팅 : 전체 게시글 수의 setter가 호출될 때 전체 세팅되도록 함
     }
  
     private void calcData() {// 전체 필드 변수 값들을 계산하는 메서드
- 
         endPage = (int) (Math.ceil(cri.getPage() / (double) displayPageNum) * displayPageNum);
- 
         startPage = (endPage - displayPageNum) +1;
  
         int tempEndPage = (int) (Math.ceil(totalCount / (double) cri.getPerPageNum()));
@@ -34,26 +29,21 @@ public class PageMaker {
         if (endPage > tempEndPage) {
             endPage = tempEndPage;
         }
- 
         prev = startPage ==1 ?false :true;// 1페이지면 이전 누를 수 없게 false
         next = endPage * cri.getPerPageNum() >= totalCount ?false :true;
- 
     }
+    
+    /* parameter로 안넘기고 비동기 통신으로 바꿔서 사용x
     public String makeQuery(int page) {
-    	 
         UriComponents uriComponents = 
         		UriComponentsBuilder.newInstance().queryParam("page", page)
                 .queryParam("perPageNum", cri.getPerPageNum()).build();
-                
- 
         return uriComponents.toUriString();
     }
-    
-    
+    */
 
     // getter setter
- 
-    public Criteria getCri() {
+    public CrewListCriteria getCri() {
         return cri;
     }
  
@@ -61,7 +51,7 @@ public class PageMaker {
         return tempEndPage;
     }
  
-    public void setCri(Criteria cri) {
+    public void setCri(CrewListCriteria cri) {
         this.cri = cri;
     }
  
@@ -108,5 +98,4 @@ public class PageMaker {
     public void setDisplayPageNum(int displayPageNum) {
         this.displayPageNum = displayPageNum;
     }
- 
 }

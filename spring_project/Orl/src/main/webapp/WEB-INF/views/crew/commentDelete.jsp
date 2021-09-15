@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>크루 생성중</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${crew.crewIdx ne null}">
+	<c:if test="${resultCnt eq 1}">
 		<script>
-			alert('크루 생성이 완료되었습니다.');
-			window.location.href="<c:url value='/crew/detail?crewIdx="+${crew.crewIdx}+"'/>"
+			alert('댓글을 삭제했습니다.');
+			window.location.href="<c:url value='/crew/detail/"+${crew.crewIdx}+"&1'/>"
 		</script>
 	</c:if>
 </body>

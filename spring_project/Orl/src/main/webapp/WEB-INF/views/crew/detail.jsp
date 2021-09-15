@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>크루 상세</title>
 <link rel="stylesheet" href="<c:url value='/css/crew/crew-detail.css'/>">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -20,74 +20,12 @@
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-	$(document).ready(function(){
-		
-		commentList();
-		
-		$('#submit').click(function(){
-			
-			var formData = new FormData();
-			formData.append("crewIdx", $('#crewIdx').val());
-			formData.append("crewComment", $('#crewComment').val());
-			
-			$.ajax({
-				url: 'http://localhost:8080/orl/crew/commentInsert',
-				type: 'post',
-				data: formData,
-				processData: false,
-				contentType: false,
-				cache: false,
-				success : function(data){
-					if(data==0){
-						alert('로그인 여부를 확인해주세요.');
-					}
-					commentList(0);
-				}
-			})
-		});
-	});
-	
-	function commentList(){
-		$.ajax({
-			url: 'http://localhost:8080/orl/crew/getCommentInfo',
-			type: 'GET',
-			data: {
-				crewIdx: '${crew.crewIdx}',
-				currentPageNum : '${cri.currentPageNum}'
-			},
-			contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
-			success: function(data){ // data가 json -> js객체로 변환해서 옴
-				var html = '';
-				var html2 = '';
-				$.each(data.infoList, function(index, item){
-					html += '<tr><td><img id="profile" src="<c:url value="/images/default.jpg"/>"></td>';
-					html +=	'<td><p id="nickname">'+item.memberNickName+'</p>';
-					html += '<p class="content">'+item.crewComment+'</p>';
-					html += '<p class="date">'+item.crewCommentDate+'</p>';
-					html += '</td></tr>';
-					$('#commentList').html(html);
-				});
-				
-				var currentPageNum = parseInt('${cri.currentPageNum}');
-				var prev = currentPageNum-1;
-				if (prev==0){
-					prev = 1;
-				}
-				var next = currentPageNum+1;
-				if (next>data.totalPageNum){
-					next = data.totalPageNum
-				}
-				
-				html2 += '<li class="page-item"><a class="page-link" href="<c:url value="/crew/detail/${crew.crewIdx}&'+prev+'"/>">&lt</a></li>';
-				for(var i=1 ; i <= data.totalPageNum; i++){
-					html2 += '<li class="page-item"><a href="<c:url value="/crew/detail/${crew.crewIdx}&'+i+'"/>" class="page-link">'+i+'</a></li>';
-				}
-				html2 += '<li class="page-item"><a class="page-link" href="<c:url value="/crew/detail/${crew.crewIdx}&'+next+'"/>">&gt</a></li>';
-				$('#paging').html(html2);
-			}
-		});                                                                                                                     
-	}
+const crewTag = '${crew.crewTag}';
+const crewIdx = '${crew.crewIdx}';
+const memberIdx = '${sessionScope.member.memberIdx}';
+const currentPageNum = parseInt('${cri.currentPageNum}');
 </script>
+<script src="<c:url value='/js/crew/detail.js'/>"></script>
 <%@ include file="/WEB-INF/frame/default/header.jsp"%>
 </head>
 <body>
@@ -100,7 +38,7 @@
 		<section>
 			<div class="box">
 				<div class="card">
-					<img src="<c:url value='/images/crew/${crew.crewPhoto}'/>" class="card-img-top" alt="...">
+					<img src="<c:url value='/images/crew/${crew.crewPhoto}'/>" class="card-img-top" alt="..." id="cardImg">
 						
 					<div class="card-body">
 					
@@ -113,7 +51,7 @@
 						</div>
 						
 						<p class="card-text">${crew.crewDiscription}</p>
-						<p class="crew_hashtag">${crew.crewTag}</p>
+						<ul class="crew_hashtag" id="crewHashTag"></ul>
 						
 						<div class="crew_information">
 							<span class="crew_captain">
@@ -129,13 +67,16 @@
 								<p>${crew.crewCommentNum}</p>
 							</span>
 						</div>
-						
 						<c:if test="${crew.isReg ne true}">
-							<div class="join_section">
-	              <a href="<c:url value='/crew/memberReg/${crew.crewIdx}'/>" class="btn btn-sm btn-light">가입하기</a>
+							<div class="join_section" id="joinToCrew">
+	              <button class="btn btn-light">가입하기</button>
 	            </div>
             </c:if>
-						
+            <c:if test="${crew.isReg eq true and sessionScope.member.memberIdx ne crew.memberIdx}">
+            	<div class="join_section" id="outFromCrew">
+            		<button class="btn btn-light">탈퇴하기</button>
+            	</div>
+            </c:if>
 					</div>
 				</div>
 				
