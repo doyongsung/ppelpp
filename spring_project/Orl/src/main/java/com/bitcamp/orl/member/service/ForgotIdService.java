@@ -23,7 +23,7 @@ public class ForgotIdService {
 		   
 		   dao=template.getMapper(Dao.class);
 		   
-		  if(membername != null && memberEmail != null && membername.trim().length() > 2 && memberEmail.trim().length() > 2) {
+		  if(membername != null && memberEmail != null && membername.trim().length() > 1 && memberEmail.trim().length() > 1) {
 			  findId=dao.selectByIdEmail(membername, memberEmail);
 			  
 		  }

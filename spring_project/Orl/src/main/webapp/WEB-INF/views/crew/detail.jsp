@@ -22,7 +22,7 @@
 <script>
 const crewTag = '${crew.crewTag}';
 const crewIdx = '${crew.crewIdx}';
-const memberIdx = '${sessionScope.member.memberIdx}';
+const memberIdx = '${sessionScope.memberVo.memberIdx}';
 const currentPageNum = parseInt('${cri.currentPageNum}');
 </script>
 <script src="<c:url value='/js/crew/detail.js'/>"></script>
@@ -44,7 +44,7 @@ const currentPageNum = parseInt('${cri.currentPageNum}');
 					
 						<div class="crew_name_section">
 							<h3 class="card-title">${crew.crewName}</h3>
-							<c:if test="${member.memberIdx eq crew.memberIdx}">
+							<c:if test="${memberVo.memberIdx eq crew.memberIdx}">
 							<a href='<c:url value="/crew/edit/${crew.crewIdx}"/>'
 								class="btn btn-sm color_blue text_bold">크루 관리</a>
 							</c:if>
@@ -72,7 +72,7 @@ const currentPageNum = parseInt('${cri.currentPageNum}');
 	              <button class="btn btn-light">가입하기</button>
 	            </div>
             </c:if>
-            <c:if test="${crew.isReg eq true and sessionScope.member.memberIdx ne crew.memberIdx}">
+            <c:if test="${crew.isReg eq true and sessionScope.memberVo.memberIdx ne crew.memberIdx}">
             	<div class="join_section" id="outFromCrew">
             		<button class="btn btn-light">탈퇴하기</button>
             	</div>

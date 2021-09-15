@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import com.bitcamp.orl.member.domain.Member;
 
 public interface Dao {
-	
 
     //회원 가입
     int insertMember(Member member);

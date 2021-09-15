@@ -47,7 +47,7 @@
 					html += '<td><img id="profile" src="<c:url value="/images/default.jpg"/>"></td>';
 					html += '<td id="nickname">'+item.memberNickName+'</td>';
 					html += '<td class="date">'+item.crewRegdate+'</td>';
-					if(item.memberIdx != '${sessionScope.member.memberIdx}'){
+					if(item.memberIdx != '${sessionScope.memberVo.memberIdx}'){
 						html += '<td><button class="deleteBtn" id="button">추방</button>';
 						html += '<input type="hidden" id="memberIdx" value="'+item.memberIdx+'"></td>';
 					} else {

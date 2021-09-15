@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 
-body {
-	font-family:var(--text-sans);
+#all {
+	font-family: var(--text-sans);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	height: 100vh;
 	background: url("../../images/member/main.jpg") no-repeat center;
 	background-size: cover;
 }
 
-body::before {
+#all::before {
 	content: "";
 	position: absolute;
 	z-index: 1;
@@ -20,7 +20,7 @@ body::before {
 	bottom: 0;
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.7);
-	height: 50rem;
+	height: 100vh;
 }
 
 .reg_box {
@@ -110,6 +110,8 @@ a:visited {
 	animation: warning .3s ease;
 	animation-iteration-count: 3;
 }
+
+
 /* label 색과 위치 */
 .int-area input:focus+label, .int-area input:valid+label, .int-area select:focus+label,
 	.int-area select:valid+label {
@@ -134,29 +136,28 @@ a:visited {
 	color: #E2E2E2;
 }
 
-.naver_btn {
-	width: 100%;
-	height: 40px;
-	background: #2DB400;
-	font-size: 15px;
-	font-weight: 600;
-	color: #fff;
-	border: none;
-	border-radius: 10px;
-	cursor: pointer;
-}
+
 
 .btn-area input {
-	margin-top: 10px;
-	width: 100%;
-	height: 40px;
+	margin-right:8px;
+	width: 188px;
+	height: 41px;
 	background-color: #FDEF7B;
 	font-size: 15px;
 	font-weight: 600;
 	color: black;
 	border: none;
-	border-radius: 10px;
+	border-radius: 3px;
 	cursor: pointer;
+}
+.loginbtn{
+	display:flex;
+	align-items:center;
+	margin-top:10px;
+	justify-content: center; 
+}
+#naver_id_login{
+	margin-top:4.5px;
 }
 
 .birth {
@@ -166,4 +167,18 @@ a:visited {
 
 .table_cell {
 	display: table-cell;
+}
+
+/*비동기통신*/
+.display_none {
+	display: none;
+}
+.color_yellow{
+	color:  #FDEF7B;
+}
+.color_red {
+	color: red;
+}
+#loadingimg,#loadingimg2,#loadingimg3 {
+	height: 20px;
 }

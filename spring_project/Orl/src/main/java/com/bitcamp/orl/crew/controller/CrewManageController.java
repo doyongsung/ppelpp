@@ -95,7 +95,7 @@ public class CrewManageController {
 			@RequestParam("crewName")String crewName,
 			Model model
 			) {
-		int result = service.deleteCrew(crewIdx, crewName);
+		int result = service.deleteCrew(crewIdx, crewName, request);
 		Crew crew = service.selectCrew(crewIdx);
 		
 		model.addAttribute("crew", crew);

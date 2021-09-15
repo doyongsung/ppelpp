@@ -1,4 +1,5 @@
 package com.bitcamp.orl.interceptor;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,7 +24,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 		// getSession(false) : 세션이 생성되어 있으면 해당 세션 리턴,
 		// 생성되어 있지 않으면 null을 리턴, 즉 객체가 생성되어있을 때만 사용 가능함
 		HttpSession session = request.getSession(false);
-		if (session != null && session.getAttribute("member") != null) {
+		if (session != null && session.getAttribute("memberVo") != null) {
 			return true;
 		}
 		

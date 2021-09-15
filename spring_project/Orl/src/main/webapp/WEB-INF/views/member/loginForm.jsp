@@ -47,16 +47,19 @@
 		</form>
 		
 		<div class="caption">
-			<a href="#">아이디 찾기 &nbsp|&nbsp</a> <a href="#">비밀번호 찾기</a>
+			<a href="<c:url value='/member/forgotId'/>">아이디 찾기 &nbsp|&nbsp</a> <a href="<c:url value='/member/forgotPw'/>">비밀번호 찾기</a>
 		</div>
-		<!-- 네이버로 로그인 영역
-		<form class="naver-login">
-			<input type="submit" value="네이버 로그인">
-		</form> -->
-		<!-- 회원가입 -->
-		<form class="join-us">
-			 <input type="button" value="JOIN US" onclick="location.href='<c:url value='/member/reg'/>'">
-		</form>
+       <div class="loginbtn">
+			<!-- 회원가입 -->
+			<form class="join-us">
+				 <input type="button" value="JOIN US" onclick="location.href='<c:url value='/member/reg'/>'">
+			</form>
+	       <div id="naver_id_login"><a href="${url}">
+	       <img width="189.5" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
+      </div>
+		
+		
+		
 	</section>
 	<Script>
 		let id = $('#id');

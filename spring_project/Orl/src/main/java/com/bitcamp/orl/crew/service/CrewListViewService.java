@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.SearchType;
-import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
@@ -27,27 +26,29 @@ public class CrewListViewService {
 			) {
 
 		List<Crew> myCrewList = null;
-		MemberDto memberVo = (MemberDto) request.getSession().getAttribute("memberVo");
-		if (memberVo != null) {
-			int memberIdx = memberVo.getMemberIdx();
+		MemberDto dto = (MemberDto) request.getSession().getAttribute("memberVo");
+		if (dto != null) {
+			int memberIdx = dto.getMemberIdx();
 			dao = template.getMapper(Dao.class);
 			myCrewList = dao.selectMyCrewList(memberIdx);
 		}
 		return myCrewList;
 	}
+
 	//오버로딩  09.06 세라
-			public List<Crew> getMyCrewList(
-					int memberIdx
-					){
-				
-				List<Crew> myCrewList = null;
-				dao = template.getMapper(Dao.class);
-				myCrewList = dao.selectMyCrewList(memberIdx);
-				
-				
-				return myCrewList;
-			};
+		public List<Crew> getMyCrewList(
+				int memberIdx
+				){
 			
+			List<Crew> myCrewList = null;
+			dao = template.getMapper(Dao.class);
+			myCrewList = dao.selectMyCrewList(memberIdx);
+			
+			
+			return myCrewList;
+		};
+		
+	
 	public List<Crew> getCrewListAll(int pageStart, int perPageNum) {
 		dao = template.getMapper(Dao.class);
 		return dao.selectAll(pageStart, perPageNum);
@@ -58,16 +59,17 @@ public class CrewListViewService {
 		return dao.selectCrewAll(searchType);
 	}
 	
+	public List<Crew> getCrewListAdmin(){
+		dao = template.getMapper(Dao.class);
+		return dao.selectCrewListByAdmin();
+	}
+	
+	
 	public int getCrewCount() {
 		return template.getMapper(Dao.class).CrewCount();
 	}
 	
 	public int getCrewCountForSearching(SearchType searchType) {
 		return template.getMapper(Dao.class).CrewCountForSearching(searchType);
-	}
-	
-	public List<Crew> getCrewListAdmin(){
-		dao = template.getMapper(Dao.class);
-		return dao.selectCrewListByAdmin();
 	}
 }

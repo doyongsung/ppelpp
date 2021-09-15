@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bitcamp</groupId>
 	<artifactId>orl</artifactId>
-	<name>orl</name>
+	<name>Orl</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -39,7 +39,12 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>	
-		
+		    <!-- 한글 파싱 -->      
+      <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+          <version>2.9.1</version>
+      </dependency> 
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -83,33 +88,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
-     <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>${javax.servlet.jsp-api-version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--    메일-->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.7</version>
-        </dependency>
-
-  <!-- naver -->
-        <dependency>
-            <groupId>com.github.scribejava</groupId>
-            <artifactId>scribejava-core</artifactId>
-            <version>2.8.1</version>
-        </dependency>
-      <dependency>
-            <groupId>com.github.jsurfer</groupId>
-            <artifactId>jsurfer-jsonsimple</artifactId>
-            <version>1.4.1</version>
-        </dependency>
-
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -135,7 +113,16 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	<!-- 파일업로드 1. commons-fileupload -->
+	
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency> 
+		
+		<!-- 파일업로드 1. commons-fileupload -->
       <dependency>
          <groupId>commons-fileupload</groupId>
          <artifactId>commons-fileupload</artifactId>
@@ -190,38 +177,41 @@
          <artifactId>spring-jdbc</artifactId>
          <version>${org.springframework-version}</version>
       </dependency>
-      
-
-      <!-- 한글 파싱 -->      
+		
+		<!-- 한글 파싱 -->      
       <dependency>
           <groupId>xerces</groupId>
           <artifactId>xercesImpl</artifactId>
           <version>2.9.1</version>
       </dependency> 
-      
-   	<!-- WebSocket -->
 		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-websocket</artifactId>
-			<version>${org.springframework-version}</version>
+		 <!--    메일-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+		
+		<!-- naver 아이디로 로그인 --> 
+		<dependency> 
+			<groupId>com.github.scribejava</groupId> 
+			<artifactId>scribejava-core</artifactId> 
+			<version>2.8.1</version> 
 		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
-		    <version>2.8.6</version>
-		</dependency>
-      
-		<!-- Test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>        
+	   <!--  https://mvnrepository.com/artifact/com.github.jsurfer/jsurfer-jsonsimple -->
+        <dependency>
+            <groupId>com.github.jsurfer</groupId>
+            <artifactId>jsurfer-jsonsimple</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+ 
+        <!--  https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+		       
 	</dependencies>
     <build>
         <plugins>

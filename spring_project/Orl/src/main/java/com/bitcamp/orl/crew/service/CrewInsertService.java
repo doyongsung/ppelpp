@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInsertRequest;
-import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
@@ -41,16 +40,16 @@ public class CrewInsertService {
 				crew.setCrewPhoto(newFile.getName());
 			}
 			
-		    MemberDto memberVo = (MemberDto)(request.getSession().getAttribute("memberVo"));
+			MemberDto dto = (MemberDto)(request.getSession().getAttribute("memberVo"));
 		    
-		    if (memberVo != null) {			
-		    	crew.setMemberIdx(memberVo.getMemberIdx());
-		    	crew.setMemberNickName(memberVo.getMemberNickname());
+		    if (dto != null) {			
+		    	crew.setMemberIdx(dto.getMemberIdx());
+		    	crew.setMemberNickName(dto.getMemberNickname());
 		    }
 		    
 			dao = template.getMapper(Dao.class);
 			dao.insertCrew(crew);
-			dao.insertCrewReg(memberVo.getMemberIdx(), crew.getCrewIdx());
+			dao.insertCrewReg(dto.getMemberIdx(), crew.getCrewIdx());
 		
 		} catch(Exception e) {
 			e.printStackTrace();

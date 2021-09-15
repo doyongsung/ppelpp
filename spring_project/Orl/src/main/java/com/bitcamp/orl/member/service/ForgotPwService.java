@@ -35,7 +35,7 @@ public class ForgotPwService {
 		   dao=template.getMapper(Dao.class);
 		   
 		  if(memberId!=null && membername != null && memberEmail != null&& 
-			  memberId.trim().length() > 2 && membername.trim().length() > 2
+			  memberId.trim().length() > 1 && membername.trim().length() > 1
 			  && memberEmail.trim().length() > 2) {
 			  
 			  

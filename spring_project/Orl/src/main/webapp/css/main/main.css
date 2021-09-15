@@ -263,10 +263,14 @@ button {
 }
 
 #home_4 {
-    width: 100%;
+	width:90%;
+	height:100vh;
     background-image: url(../../images/crew/메인4.png);
+	margin:0 auto;
 }
-
+#last{
+	background-color:var(--yello-color);
+}
 
 .home_4_mini {
     padding: 225px;
@@ -277,6 +281,10 @@ button {
     position: relative;
     width: 68%;
     padding-top: 20px;
+    vertical-align:middle
+}
+.lastImg{
+	vertical-align:middle
 }
 
 

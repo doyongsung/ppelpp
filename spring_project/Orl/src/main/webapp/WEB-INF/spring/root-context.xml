@@ -5,16 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
-		
-		   <!-- HikariCP: DataSource 설정 -->
+	
+	<!-- HikariCP: DataSource 설정 -->
    <bean 
    id="dataSource" 
    class="com.zaxxer.hikari.HikariDataSource"
    p:driverClassName="com.mysql.cj.jdbc.Driver"
    p:jdbcUrl="jdbc:mysql://mysql205.clcgupreyqqq.ap-northeast-2.rds.amazonaws.com:3306/final?serverTimezone=UTC"
-   p:username="bit"
-   p:password="bit"
+   p:username="bit" 
+   p:password="bit" 
    />
    
    <!-- MyBatis -->
@@ -33,4 +32,7 @@
    class="org.mybatis.spring.SqlSessionTemplate">
    <constructor-arg ref="sqlSessionFactoryBean"/>
    </bean>
+	
+	
+		
 </beans>

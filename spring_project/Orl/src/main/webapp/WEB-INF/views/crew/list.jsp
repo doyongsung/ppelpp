@@ -13,7 +13,6 @@
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <link rel="stylesheet" href="<c:url value='/css/crew/crew-list.css'/>">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
 let cList = [];
 const searchType = '${searchType}';
@@ -68,18 +67,22 @@ const	keyword = '${keyword}';
 							</select>
 							<div class="boxSearch">
 								<span class="icon">
-									<i id="searchType" class="fa fa-search" aria-hidden="true"></i>
+									<label for="button">
+                	<i id="searchType" class="fas fa-search"aria-hidden="true" ></i>
+                </label>
+                 <input type="submit" id="button" style="display:none">
 								</span>
 								<input id="search" class="search" type="text" name="keyword" placeholder="Type to search">
 							</div>
-						</div>
+						</div>   
+				
 					</div>
 				</form>
 			</div>
 			
 			<div id="cList">
 			</div>
-			<div id="paging-div">
+			<div class="paging-div">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination" id="pagination">
 					</ul>
@@ -88,60 +91,7 @@ const	keyword = '${keyword}';
 		
 		</div> <!-- container -->
 	</div>
-   <input type="button" onClick="sendLinkCustom();" value="Custom"/>
-    <input type="button" onClick="sendLinkDefault();" value="Default"/>
+
 	<%@ include file="/WEB-INF/frame/default/footer.jsp"%>
-
-<script type="text/javascript">
-    function sendLinkCustom() {
-        Kakao.init("4c67ad1e22af5dce9aa8353dfcdb85bd");
-        Kakao.Link.sendCustom({
-            templateId: 61617
-        });
-    }
-</script>
-
-<script>
-try {
-  function sendLinkDefault() {
-    Kakao.init('4c67ad1e22af5dce9aa8353dfcdb85bd')
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '딸기 치즈 케익',
-        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-        imageUrl:
-          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-        link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
-        },
-      },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845,
-      },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-        {
-          title: '앱으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-      ],
-    })
-  }
-; window.kakaoDemoCallback && window.kakaoDemoCallback() }
-catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
-</script>
 </body>
 </html>

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class CrewMemberList {
 	private int memberIdx;
 	private String memberId;
-	private String memberPhoto;
+	private String memberProfile;
 	private String memberNickName;
 	@JsonFormat(pattern = "yyyy.MM.dd. HH:mm")
 	private Timestamp memberBirth;
@@ -17,12 +17,12 @@ public class CrewMemberList {
 	
 	public CrewMemberList() {}
 	
-	public CrewMemberList(int memberIdx, String memberId, String memberPhoto, String memberNickName,
+	public CrewMemberList(int memberIdx, String memberId, String memberProfile, String memberNickName,
 			Timestamp memberBirth, Timestamp crewRegdate, int crewIdx) {
 		super();
 		this.memberIdx = memberIdx;
 		this.memberId = memberId;
-		this.memberPhoto = memberPhoto;
+		this.memberProfile = memberProfile;
 		this.memberNickName = memberNickName;
 		this.memberBirth = memberBirth;
 		this.crewRegdate = crewRegdate;
@@ -45,12 +45,12 @@ public class CrewMemberList {
 		this.memberId = memberId;
 	}
 
-	public String getMemberPhoto() {
-		return memberPhoto;
+	public String getMemberProfile() {
+		return memberProfile;
 	}
 
-	public void setMemberPhoto(String memberPhoto) {
-		this.memberPhoto = memberPhoto;
+	public void setMemberProfile(String memberProfile) {
+		this.memberProfile = memberProfile;
 	}
 
 	public String getMemberNickName() {
@@ -87,7 +87,7 @@ public class CrewMemberList {
 
 	@Override
 	public String toString() {
-		return "CrewMemberList [memberIdx=" + memberIdx + ", memberId=" + memberId + ", memberPhoto=" + memberPhoto
+		return "CrewMemberList [memberIdx=" + memberIdx + ", memberId=" + memberId + ", memberProfile=" + memberProfile
 				+ ", memberNickName=" + memberNickName + ", memberBirth=" + memberBirth + ", crewRegdate=" + crewRegdate
 				+ ", crewIdx=" + crewIdx + "]";
 	}

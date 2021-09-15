@@ -1,4 +1,3 @@
-
 var sel_file;
 var nickJ = /^[가-힣A-Za-z0-9]{4,12}$/;
 var checkNick = true;
@@ -37,7 +36,7 @@ $(document).ready(function () {
                     // data : Y / N
                     if (data == 'Y') {
                         $('#msg').html('사용가능');
-                        $('#msg').addClass('color_yellow');
+                        $('#msg').addClass('color_blue');
                         $('#msg').removeClass('display_none');
                         checkNick = true;
                     } else {

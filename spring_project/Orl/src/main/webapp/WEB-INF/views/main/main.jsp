@@ -29,9 +29,9 @@
             <div class="nav">
                 <ul>
           <li><a href="<c:url value='/main/main'/>">MAIN</a></li>
-					<li><a href="<c:url value='/'/>">HIKING</a></li>
+					<li><a href="<c:url value='/mountain/mountainAllInfo/'/>">MOUNTAIN</a></li>
 					<li><a href="<c:url value='/crew/list'/>">CREW</a></li>
-					<li><a href="<c:url value='/'/>">COMMUNITY</a></li>
+					<li><a href="<c:url value='/feed/feedmain'/>">FEED</a></li>
                     <div class="icon" onclick="menuToggle();">
                         <a href="#"><i class="far fa-user"></i></a>
                     </div>
@@ -44,8 +44,8 @@
 						<li><a href="<c:url value='/member/reg'/>">회원가입</a></li>
 					</c:if>
 					<c:if test="${sessionScope.member ne null}">
-						<li><a href="#">내 크루</a></li>
-						<li><a href="#">내 피드</a></li>
+						<li><a href="<c:url value='/crew/list'/>">내 크루</a></li>
+						<li><a href="<c:url value='/feed/userFeed/${sessionScope.memberVo.memberIdx}'/>">내 피드</a></li>
 						<li><a href="<c:url value='/member/mypage'/>">마이페이지</a></li>
 						<li><a href="<c:url value='/member/logout'/>">로그아웃</a></li>
 					</c:if>
@@ -53,7 +53,7 @@
             </div>
         </div>
                     <div class="home_video">
-                        <video loop autoplay="autoplay" muted="muted"src="<c:url value="/video/Hiking.mp4"/>"></video>
+                        <video loop autoplay="autoplay" muted="muted"src="<c:url value="/video/mountain.mp4"/>"></video>
                     </div>
                     <div class="home-content wrapper">
                         <h2 class="page-title">
@@ -96,15 +96,19 @@
             </div>
         </section>
         <section class="section">
+        <div id="last">
             <div id="home_4" class="big-bg">
                 <div class="home_4_mini">
-                    <img src="<c:url value='/images/crew/메인1.jpg'/>">
+                	<div class="lastImg">
+	                    <img src="<c:url value='/images/crew/메인1.jpg'/>">
+                	</div>
                     <div class="home_4_text">
                         <h1><br>당신의 하루를 공유해주세요</h1>
                         <p>HOW TO ENJOY YOUR HIKING TRIP?</p>
                     </div>
                 </div>
             </div>
+          </div>
         </section>
         <section class="section fp-auto-height">
         <%@ include file="/WEB-INF/frame/default/footer.jsp" %>

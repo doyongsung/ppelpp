@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Response;
 
 import org.springframework.util.StringUtils;
 
@@ -12,6 +11,7 @@ import com.bitcamp.orl.member.util.NaverLoginApi;
 import com.github.scribejava.core.builder.ServiceBuilder;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.github.scribejava.core.model.OAuthRequest;
+import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 
