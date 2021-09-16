@@ -12,6 +12,9 @@
 	display: flex;
 }
 
+.dropdown > .dropdown-button{
+	   
+}
 .row{
 	padding-top:30px;
 }
@@ -68,10 +71,18 @@ select:focus{
 }
 
 .curved {
-	padding: 5px;
+	padding:10px;
 	font-size: 12px;
 	border: none;
 	color: #aaa;
+	 margin-right: 15px;
+	
+	
+}
+
+.clicked{
+	background-color: rgb(253, 239, 123);
+  color: white;
 }
 
 .section {
@@ -96,7 +107,7 @@ select:focus{
 .section .dropdown {
 	margin-left: -70px;
 	margin-bottom: -25px;
-	padding-right: 44%;
+  padding-right: 500px;
 	padding-top: 20px;
 	padding-left: 65px;
 }

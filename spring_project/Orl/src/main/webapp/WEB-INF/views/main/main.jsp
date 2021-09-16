@@ -53,17 +53,16 @@
             </div>
         </div>
                     <div class="home_video">
-                        <video loop autoplay="autoplay" muted="muted"src="<c:url value="/video/mountain.mp4"/>"></video>
+                        <video loop autoplay="autoplay" muted="muted"src="<c:url value="/video/hikingg.mov"/>"></video>
                     </div>
                     <div class="home-content wrapper">
                         <h2 class="page-title">
-                            LET'S CLIMB TOGETHER
+                            <!-- LET'S <br>CLIMB <br>TOGETHER -->
+                             <img src="<c:url value='/images/crew/font.png'/>">
                         </h2>
-                        <p>
-                            산에 오르는(登) 것. 취미활동 목적의 놀이, 신체단련을 위한 운동이나 스포츠, 탐험 등 까지 전반을 아우르는 말이다. 산에 오르는 것 자체를 즐기는 것,
-                            다이어트나 체력 단련을 위한 운동, 정상의 경치를 즐기는 것, 하산의 상쾌함을 즐기는
-                            것, 체력을 소모한 뒤 산에서 먹는 식사를 즐기는 것</p>
-                        <a href="#">HIKING</a>
+                        <span class="main-button">
+                        <a href="<c:url value='/mountain/mountainAllInfo/'/>">MOUNTAIN</a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -91,7 +90,7 @@
                 <div class="home_3_text">
                     <h1>오늘은 새로운 산 어때요?<br>한국의 아름다운 산을 찾아보세요</h1>
                     <p></p>
-                    <BUtton class="button2"><a href="#">MOUNTAIN</a></BUtton>
+                    <BUtton class="button2"><a href="<c:url value='/crew/list'/>">MOUNTAIN</a></BUtton>
                 </div>
             </div>
         </section>
@@ -100,11 +99,10 @@
             <div id="home_4" class="big-bg">
                 <div class="home_4_mini">
                 	<div class="lastImg">
-	                    <img src="<c:url value='/images/crew/메인1.jpg'/>">
+	                    <a href="<c:url value='/feed/feedmain'/>"><img src="<c:url value='/images/crew/메인1.jpg'/>"></a>
                 	</div>
                     <div class="home_4_text">
-                        <h1><br>당신의 하루를 공유해주세요</h1>
-                        <p>HOW TO ENJOY YOUR HIKING TRIP?</p>
+                        <h1>당신의 하루를 공유해주세요</h1>
                     </div>
                 </div>
             </div>

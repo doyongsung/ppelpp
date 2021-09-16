@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitcamp.orl.crew.dao.Dao">
+
+	<!-- Select 의 결과를 매핑하는 설정 -->
+	<resultMap id="crewListResult"
+		type="com.bitcamp.orl.crew.domain.Crew">
+		<id column="crewIdx" property="crewIdx" />
+		<result column="crewName" property="crewName" />
+		<result column="crewPhoto" property="crewPhoto" />
+		<result column="crewDiscription" property="crewDiscription" />
+		<result column="crewCreatedate" property="crewCreatedate" />
+		<result column="crewTag" property="crewTag" />
+		<result column="memberIdx" property="memberIdx" />
+	</resultMap>
+
+<!-- 관리자에서 사용 -전체 크루 리스트 -->
+	<select 
+	id="selectCrewListByAdmin" 
+	resultMap="crewListResult">
+		select * from crew 
+		order by crewIdx desc, crewCreatedate desc
+	</select>
+
+	<!-- 전체 크루 리스트 -->
+	<select 
+	id="selectAll" 
+	resultMap="crewListResult">
+		select * from crew 
+		order by crewIdx desc, crewCreatedate desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<!-- 검색을 통한 크루 리스트 -->
+	<select id="selectCrewAll"
+		parameterType="com.bitcamp.orl.crew.domain.SearchType"
+		resultMap="crewListResult">
+		select * from crew
+		<where>
+			<if test="searchType == 'name'">
+				<include refid="searchName" />
+			</if>
+			<if test="searchType == 'nickName'">
+				<include refid="searchNickName" />
+			</if>
+			<if test="searchType == 'tag'">
+				<include refid="searchTag" />
+			</if>
+		</where>
+		order by crewIdx desc, crewCreatedate desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<sql id="searchName">
+		or crewName like concat('%', #{keyword} ,'%')
+	</sql>
+	<sql id="searchNickName">
+		or memberNickName like concat('%', #{keyword} ,'%')
+	</sql>
+	<sql id="searchTag">
+		or crewTag like concat('%', #{keyword} ,'%')
+	</sql>
+	
+	<!-- 게시물 총 개수 -->
+	<select id="CrewCount" resultType="int">
+	select count(*) from crew
+	</select>
+	
+	<!-- 검색결과에 대한 게시물 총 개수 -->
+	<select id="CrewCountForSearching" 
+	parameterType="com.bitcamp.orl.crew.domain.SearchType"
+	resultType="int">
+		select count(*) from crew
+		<where>
+			<if test="searchType == 'name'">
+				<include refid="searchName" />
+			</if>
+			<if test="searchType == 'nickName'">
+				<include refid="searchNickName" />
+			</if>
+			<if test="searchType == 'tag'">
+				<include refid="searchTag" />
+			</if>
+		</where>
+	</select>
+
+	<!-- 내가 가입한 크루 리스트 -->
+	<select 
+	id="selectMyCrewList"
+	resultMap="crewListResult">
+		select * 
+		from final.crew
+		where crewIdx in (select crewIdx from member natural join crewreg where memberIdx = #{memberIdx})
+	</select>
+
+	<!-- 해당 크루 하나 선택 -->
+	<select 
+	id="selectCrew" 
+	resultType="com.bitcamp.orl.crew.domain.Crew">
+		select * from crew where crewIdx = #{crewIdx}
+	</select>
+
+	<!-- 해당 크루의 크루원 수 -->
+	<select 
+	id="selectCrewMemberNum" 
+	resultType="int">
+		select count(*) from
+		crewreg where crewIdx = #{crewIdx}
+	</select>
+
+	<!-- 해당 크루의 댓글 수 -->
+	<select 
+	id="selectCrewCommentNum" 
+	resultType="int">
+		select count(*)
+		from crewComment where crewIdx = #{crewIdx}
+	</select>
+
+	<!-- 해당 크루에 내가 가입되어있는 지 여부 확인 -->
+	<select 
+	id="selectCountMemberToRegCrew" 
+	resultType="int">
+		select
+		count(*) from crewreg where memberIdx = #{memberIdx} and crewIdx =
+		#{crewIdx};
+	</select>
+
+	<!-- 크루 댓글 작성자 찾기 -->
+	<select 
+	id="selectMemberByMemberIdx"
+	resultType="com.bitcamp.orl.member.domain.Member">
+		select * from member where memberIdx = #{memberIdx}
+	</select>
+
+
+	<!-- Select 의 결과를 매핑하는 설정 -->
+	<resultMap id="crewCommentListResult"
+		type="com.bitcamp.orl.crew.domain.CrewComment">
+		<id column="crewCommentIdx" property="crewCommentIdx" />
+		<result column="crewComment" property="crewComment" />
+		<result column="crewCommentDate" property="crewCommentDate" />
+		<result column="memberIdx" property="memberIdx" />
+		<result column="crewIdx" property="crewIdx" />
+	</resultMap>
+
+	<!-- insert -->
+	<insert 
+	id="insertCrewReg"
+	parameterType="com.bitcamp.orl.crew.domain.CrewReg">
+		insert into crewreg (memberIdx, crewIdx)
+		values
+		(#{memberIdx}, #{crewIdx})
+	</insert>
+
+	<insert 
+	id="insertCrewComment"
+	parameterType="com.bitcamp.orl.crew.domain.CrewComment">
+		insert into crewComment (crewComment, memberIdx,
+		crewIdx)
+		values (#{crewComment}, #{memberIdx}, #{crewIdx})
+	</insert>
+
+	<!-- 크루 댓글 페이징 처리를 위한 select -->
+	<select 
+	id="selectCrewCommentPaging"
+	resultMap="crewCommentListResult">
+		select * from crewComment where crewIdx=#{crewIdx}
+		order by crewCommentIdx desc limit #{firstRow}, #{amountPerPage}
+	</select>
+
+	<!-- insert -->
+	<insert id="insertCrew" 
+	parameterType="com.bitcamp.orl.crew.domain.Crew"
+	useGeneratedKeys="true"
+	keyProperty="crewIdx">
+		insert into crew
+		(crewName,crewPhoto,crewDiscription,crewTag,memberIdx,memberNickName)
+		values (#{crewName}, #{crewPhoto}, #{crewDiscription}, #{crewTag},
+		#{memberIdx}, #{memberNickName})
+	</insert>
+
+	<!-- 크루 이름 중복 체크 -->
+	<select 
+	id="selectByCrewName" 
+	resultType="int">
+		select count(*) from
+		final.crew where crewName = #{crewName}
+	</select>
+	
+	<!-- delete -->
+	<delete
+	id="deleteCrew">
+		delete from crew where crewIdx = #{crewIdx};
+	</delete>
+	
+	<!-- update -->
+	<update
+	id="updateCrew">
+		update crew 
+		set crewName = #{crewName}, crewPhoto = #{crewPhoto}, crewDiscription = #{crewDiscription}, crewTag = #{crewTag}
+		where crewIdx = #{crewIdx};
+	</update>
+	
+	<!-- update -->
+	<update
+	id="updateCrewWithoutPhoto">
+		update crew 
+		set crewName = #{crewName}, crewDiscription = #{crewDiscription}, crewTag = #{crewTag}
+		where crewIdx = #{crewIdx};
+	</update>
+	
+	<!-- Select 의 결과를 매핑하는 설정 -->
+	<resultMap id="crewMemberListResult"
+		type="com.bitcamp.orl.crew.domain.CrewMemberList">
+		<id column="memberIdx" property="memberIdx" />
+		<result column="memberId" property="memberId" />
+		<result column="memberProfile" property="memberProfile" />
+		<result column="memberNickName" property="memberNickName" />
+		<result column="memberBirth" property="memberBirth" />
+		<result column="crewRegdate" property="crewRegdate" />
+		<result column="crewIdx" property="crewIdx" />
+	</resultMap>
+	
+	<!-- 크루 멤버들 리스트 -->
+	<select
+	id="selectCrewMemberList"
+	resultMap="crewMemberListResult">
+		select memberIdx, memberId, memberProfile, memberNickname, memberBirth, crewRegdate, crewIdx
+		from member natural join crewreg where crewIdx = #{crewIdx}
+	</select>
+	
+	<!-- 크루 멤버 추방 -->
+	<delete
+	id="deleteFromCrewMemberList">
+		delete from crewreg where memberIdx = #{memberIdx} and crewIdx = #{crewIdx}
+	</delete>
+	
+	<!-- 크루 댓글 삭제 -->
+	<delete
+	id="deleteCrewComment">
+		delete from crewComment where crewCommentIdx = #{crewCommentIdx}
+	</delete>
+	
+	<!-- 해당 댓글 정보 가져오기 : 수정을 위해서 -->
+	<select
+	id ="getCrewCommentInfo"
+	resultType="com.bitcamp.orl.crew.domain.CrewCommentInfo">
+		select crewCommentIdx, crewComment, crewCommentDate, memberIdx, crewIdx, memberNickname, memberProfile 
+		from crewComment natural join member
+		where crewCommentIdx = #{crewCommentIdx}
+	</select>
+	
+	<!-- 댓글 수정 -->
+	<update 
+	id="updateCrewComment">
+		update crewComment
+		set crewComment = #{crewComment}, crewCommentDate = default
+		where crewCommentIdx = #{crewCommentIdx};	
+	</update>
+
+
+	
+</mapper>

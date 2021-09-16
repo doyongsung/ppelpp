@@ -53,9 +53,11 @@ const	keyword = '${keyword}';
 			<div class="search-box">
 				<div class="dropdown">
 					<h1>CREW</h1>
-					<button class="curved" id="nameList">이름순으로 보기</button>
-					<button class="curved" id="newestList">최신순으로 보기</button>
-					<button class="curved" id="oldList">오랜된 순으로 보기</button>
+				<div class="dropdown-button">
+					<button class="curved" id="nameList">이름순 보기</button>
+					<button class="curved" id="newestList">최신순 보기</button>
+					<button class="curved" id="oldList">오래된 순 보기</button>
+				</div>
 				</div>
 				<form action="" name="frm" id="form">
 					<div class="search-drop">
@@ -93,5 +95,8 @@ const	keyword = '${keyword}';
 	</div>
 
 	<%@ include file="/WEB-INF/frame/default/footer.jsp"%>
+	<script>
+
+	</script>
 </body>
 </html>

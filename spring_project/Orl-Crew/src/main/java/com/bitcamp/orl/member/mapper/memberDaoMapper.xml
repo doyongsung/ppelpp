@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 인터페이스의 full name을 namespace로 설정해야한다!!! -->
+<mapper namespace="com.bitcamp.orl.member.dao.Dao">
+
+   <!-- insert 회원가입 -->
+   <insert
+         id="insertMember"
+         parameterType="com.bitcamp.orl.member.domain.Member"
+         useGeneratedKeys="true"
+         keyProperty="memberIdx">
+      insert into final.member (memberId,memberPw,memberName,memberEmail, memberNickname, memberBirth)
+      values(#{memberId},#{memberPw},#{memberName},#{memberEmail}, #{memberNickname}, #{memberBirth});
+   </insert>
+   <!-- Select 의 결과를 매핑하는 설정 -->
+   <resultMap id="memberListResult"
+            type="com.bitcamp.orl.member.domain.Member">
+      <id column="memberIdx" property="memberIdx" />
+      <result column="memberId" property="memberId" />
+      <result column="memberPw" property="memberPw" />
+      <result column="memberName" property="memberName" />
+      <result column="memberEmail" property="memberEmail" />
+      <result column="memberProfile" property="memberProfile" />
+      <result column="memberNickname" property="memberNickname" />
+      <result column="memberRegdate" property="memberRegdate" />
+      <result column="memberBirth" property="memberBirth" />
+   </resultMap>
+   <!-- sql tag 식별은 인터페이스의 메소드 이름과 일치 시킨다 -->
+
+   <!-- 전체 회원의 리스트 -->
+   <select
+         id="selectAll"
+         resultMap="memberListResult">
+      select * from member order by memberIdx
+   </select>
+
+   <!-- select 로그인 -->
+   <select
+         id="selectByIdPw"
+         resultType="com.bitcamp.orl.member.domain.Member">
+      select * from member
+      where memberId=#{memberId} and memberPw=#{memberPw}
+   </select>
+
+   <!-- select 아이디찾기 -->
+   <select
+         id="selectByIdEmail"
+         resultType="String">
+      select memberId from member
+      where memberName=#{memberName} and memberEmail=#{memberEmail}
+   </select>
+
+   <!-- select 비밀번호찾기 -->
+   <select
+         id="selectPw"
+         resultType="String">
+      select memberPw from member
+      where memberId=#{memberId} and memberName=#{memberName} and memberEmail=#{memberEmail}
+   </select>
+
+   <!--select id체크 -->
+   <select id="selectById" resultType="int">
+      select count(*) from member where memberId=#{memberId}
+   </select>
+   <!--select nickname체크 -->
+   <select id="selectByNickName" resultType="int">
+      select count(*) from member where memberNickname=#{memberNickname}
+   </select>
+
+   <!--select nickname체크 -->
+   <select id="selectByEmail" resultType="int">
+      select count(*) from member where memberEmail=#{email}
+   </select>
+
+   <!-- 회원 삭제 -->
+   <delete id="deleteMember">
+      delete from member where memberIdx=#{memberIdx}
+   </delete>
+
+   <!-- 회원정보수정 -->
+   <update id="updateMember"
+         parameterType="com.bitcamp.orl.member.domain.Member">
+      update member
+      set memberName=#{memberName}, memberPw=#{memberPw},memberEmail=#{memberEmail},
+         memberNickname=#{memberNickname}, memberBirth=#{memberBirth},memberProfile=#{memberProfile}
+      where memberIdx=#{memberIdx}
+   </update>
+
+   <!-- select -->
+   <select
+         id="selectByIdx"
+         resultType="com.bitcamp.orl.member.domain.Member">
+      select * from member
+      where memberIdx=#{idx}
+   </select>
+
+</mapper>

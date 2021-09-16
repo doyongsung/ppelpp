@@ -72,7 +72,7 @@
     width: 100%;
     min-height: 100vh;
     color: white;
-    padding-top: 15%;
+    padding-top: 200px;
     position: absolute;
     right: 55%;
     max-width: 750px;
@@ -101,13 +101,6 @@
     margin: 10px 0 42px;
 }
 
-.page-title {
-    font-size: 5rem;
-    text-transform: uppercase;
-    font-weight: normal;
-    position: relative;
-    z-index: 10;
-}
 
 
 #home .home_video video {
@@ -224,8 +217,7 @@ h1 {
 
 .home_4_text {
     position: absolute;
-    margin-top: -7%;
-    margin-left: 38%;
+ 
     color: white;
 }
 
@@ -411,6 +403,11 @@ ul {
     align-content: center;
     align-items: center;
     padding-right: 70px;
+}
+.main-button{
+    display: inline-block;
+    padding-left: 50px;
+    margin-top:-20px;
 }
 
 .header .menu a::after {
