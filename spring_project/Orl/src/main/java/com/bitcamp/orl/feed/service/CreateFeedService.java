@@ -1,26 +1,22 @@
 package com.bitcamp.orl.feed.service;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.*;
 
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+import org.mybatis.spring.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.web.multipart.*;
 
-import com.bitcamp.orl.feed.dao.FeedDao;
-import com.bitcamp.orl.feed.domain.Feed;
-import com.bitcamp.orl.feed.domain.FeedCreateRequest;
-import com.bitcamp.orl.member.domain.MemberDto;
+import com.bitcamp.orl.feed.dao.*;
+import com.bitcamp.orl.feed.domain.*;
+import com.bitcamp.orl.member.domain.*;
 
 @Service
 public class CreateFeedService {
-	
-	// 피드 게시 : insert
-	
-	private FeedDao dao;
+
+	FeedDao dao;
 
 	@Autowired
 	private SqlSessionTemplate template;
@@ -28,7 +24,7 @@ public class CreateFeedService {
 	// 파일 저장 경로
 	final String UPLOAD_URI = "/images/feed/feedw/uploadfile";
 
-	// 피드 게시
+	// 피드 작성
 	public int insert(FeedCreateRequest createRequest, HttpServletRequest request) {
 
 		int result = 0;
@@ -37,23 +33,20 @@ public class CreateFeedService {
 		try {
 			// 1. 파일 저장
 			// feed 객체 생성 -> 저장된 파일의 이름을 set
-			
-			System.out.println(createRequest);
 			Feed feed = createRequest.toFeed();
-			
 
 			if (createRequest.getBoardPhoto() != null && !createRequest.getBoardPhoto().isEmpty()) {
+				
 				// 파일 저장 메소드
 				newFile = saveFile(request, createRequest.getBoardPhoto());
 				feed.setBoardPhoto(newFile.getName());
 				System.out.println("파일 저장");
 			}
 
-			MemberDto memberVo = (MemberDto) (request.getSession().getAttribute("memberVo")); // 현재 세션의 member 객체 가져옴
+			MemberDto memberVo = (MemberDto) (request.getSession().getAttribute("memberVo"));
 
 			if (memberVo != null) {
-				feed.setMemberIdx(memberVo.getMemberIdx());
-				//feed.setMemberNickname(memberVo.getMemberNickname());
+				feed.setMemberIdx(memberVo.getMemberIdx());	//memberIdx 넣기
 			}
 
 			// 2. dao 저장
@@ -61,6 +54,7 @@ public class CreateFeedService {
 			result = dao.createFeed(feed);
 
 			System.out.println("new boardIdx => " + feed.getBoardIdx());
+//			System.out.println("nickname => " + feed.getMemberNickname());
 			System.out.println(feed);
 			// idx 값은 자식 테이블의 insert 시 외래키로 사용
 

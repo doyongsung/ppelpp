@@ -18,6 +18,7 @@ public class CrewDetailController {
 	@Autowired
 	private CrewDetailService service;
 	
+	//Crew Detail Page view 값을 주는 controller
 	@RequestMapping("/crew/detail")
 	public String getCrewDetail(
 			@RequestParam("crewIdx")int crewIdx,

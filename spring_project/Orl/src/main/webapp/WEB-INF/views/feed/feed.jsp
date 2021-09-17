@@ -6,36 +6,40 @@
 <head>
 <meta charset="UTF-8">
 <title>FEED</title>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="<c:url value='/css/default/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/feed/feedmain.css'/>">
-	<style>
-		.display_none{
-			display:none;
-		}
-	</style>
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.display_none {
+	display: none;
+}
+</style>
 </head>
 <body>
 
+	<!-- 전체 영역 -->
 	<div>
 		<div class="feedmain">
-		
-			<!-- <!— top blank START —> -->
+
+			<!-- 상단 여백 -->
 			<div class="top">
 				<div></div>
 				<div class="h1box">
-					<div>
-						<h1>FEED</h1>
-					</div>
+					<div><h1>FEED</h1></div>
 				</div>
 				<div></div>
 			</div>
-			<!-- <!— top blank END —> -->
-			
-			
+			<!-- 상단 여백 끝 -->
+
+
+
+			<!-- 메인 영역 시작 -->
 			<div class="main">
+				<!-- 메인-왼쪽 여백 -->
 				<div class="leftbox"></div>
+
+				<!-- 메인-중앙 영역 시작-->
 				<div class="mainbox">
 
 					<!-- 산 아이콘 -->
@@ -43,197 +47,225 @@
 						<img src="<c:url value="/images/feed/feedw/mountain.png"/>">
 					</div>
 
-					<!-- 네비 영역 시작 -->
+					<!--  피드 네비 시작 -->
 					<div class="feednav">
-						<!-- 피드 키워드 영역 최신/ 인기 -->
+					
+						<!-- 피드 정렬 버튼 -->
 						<div class="keyword">
 							<!-- 기본 정렬 (최신순) -->
 							<a id="currentFeedClick">최신</a>
 							<!-- 선택 정렬 (인기순) -->
 							<a id="likeFeedClick">인기</a>
 						</div>
-						<!-- 피드 키워드 영역  끝-->
-						
 
-						<!--피드 올리기 영역 0915 추가  -->
-						<!-- feed create button (Login status) -->
-						<c:if test="${sessionScope.memberVo ne null}">
-							<div class="div_createfeed">
-								<div>
-									<button class="modalbtn_createfeed">피드 올리기</button>
-								</div>
+						<!-- 피드 올리기 버튼 -->
+						<div class="div_createfeed">
+							<div>
+								<button class="modalbtn_createfeed" onclick="loginCheck(${sessionScope.memberVo.memberIdx})">피드 올리기</button>
 							</div>
-						</c:if>	
-						<!--피드 올리기 영역 끝 -->					
+						</div>
 
-						<!-- 피드 검색 후 jsp넘기기위해 form 추가 -->
+						<!-- 피드 검색 -->
 						<form action="<c:url value="/feed/feedSearch"/>" method="post">
 							<div class="search">
-								<input type="text" placeholder="search" name="mySearch">
+								<input type="text" placeholder="search" name="mySearch" autocomplete="off" required>
 								<button type="submit">
 									<img src="<c:url value="/images/feed/feedw/search.png"/>"
 										alt="search">
 								</button>
 							</div>
 						</form>
-						<!-- 피드 검색 영역 -->
+						<!-- 피드 검색 끝 -->
 
 					</div>
-					<!-- 네비 영역 끝 -->
+					<!-- 피드 네비 끝 -->
 					
-					<!-- 피드 최신순 정렬 영역  -->
+					<!-- 피드 갤러리 영역 -->
 					<div id="fBox" class="feedbox">
-						<!-- 비동기 통신으로 추가되는 부분 -->
+						<!-- feed list gallery ajax -->
 					</div>
-					<!-- 피드 최신순 정렬 영역 끝 -->
+					<!-- 피드 갤러리 끝 -->
 					
-
-					<!-- 피드 영역  좋아요 정렬 시작 -->
-					<div class="feedbox display_none" id="likeFeedGallery">
-
+					<!-- 인기순 정렬 -->
+		            <div class="feedbox display_none" id="likeFeedGallery">
+		            
 						<c:forEach var="feedOrderByLike" items="${feedOrderByLike}">
-
-							<div class="feed">
-								<div class="feedsize">
-									<button class="modalbtn_feedview" type="button" 
-									onclick="feedLoginCheck(${feedOrderByLike.memberIdx}, ${feedOrderByLike.boardIdx})">
-										<img
-											src="<c:url value="/images/feed/feedw/uploadfile/${feedOrderByLike.boardPhoto}"/>"
-											class="feedimg" alt="feedimg">
-									</button>
-								</div>
-								<div class="feedinfo">
-									<div class="nickname">
-										<a onclick="feedNicknameCheck(${feedOrderByLike.memberIdx})" href="#" class="nickname2">${feedOrderByLike.memberNickname}</a>
-									</div>
-									<div>
-										<button>
-											<img src="<c:url value="/images/feed/feedw/nolike.png"/>"
-												class="nolikeimg">
-										</button>
-									</div>
-								</div>
-							</div>
-
-						</c:forEach>
-
-					</div>
-					<!-- 피드 영역 좋아요 순 정렬 영역 끝 -->
-
+							<!-- 피드 하나 -->
+		                    <div class="feed">
+		                    	<!-- 피드 사진 -->
+		                        <div class="feedsize">
+		                        	<button class="modalbtn_feedview" type="button"
+		                              		onclick="location.href='feedview/${feedOrderByLike.memberIdx}&${feedOrderByLike.boardIdx}'">
+		                            	<img src="<c:url value="/images/feed/feedw/uploadfile/${feedOrderByLike.boardPhoto}"/>" class="feedimg" alt="feedimg">
+		                           	</button>
+		                        </div>
+		                        <!-- 피드 사진 끝 -->
+		                        
+		                        <!-- 피드 정보 -->
+		                        <div class="feedinfo">
+		                        
+		                        	<!-- 게시자 닉네임 -->
+		                           	<div class="nickname">
+		                            	<a href="<c:url value="/feed/userFeed/${feedOrderByLike.memberIdx}"/>" class="nickname2">${feedOrderByLike.memberNickname}</a>
+		                           	</div>
+		                           
+		                           	<!-- 게시자 좋아요 버튼 -->
+		                           	<%-- <div>
+		                              	<button>
+		                                 	<img src="<c:url value="/images/feed/feedw/nolike.png"/>" class="nolikeimg">
+		                              	</button>
+		                           	</div> --%>
+		                           
+		                        </div>
+		                        <!-- 피드 정보 끝 -->
+		                        
+		                     </div>
+		                     <!-- 피드 하나 끝 -->
+		                  </c:forEach>
+		                  
+		               </div>
+		               <!-- 인기순 정렬 끝 -->
 
 				</div>
+				<!-- 메인-중앙영역 끝 -->
+
+				<!-- 메인-오른쪽 여백 -->
 				<div class="rightbox"></div>
+
 			</div>
+			<!-- 메인 영역 끝 -->
+
+			<!-- 하단 여백 -->
 			<div class="bottom"></div>
+
 		</div>
 	</div>
-	
+	<!-- 전체 영역 끝 -->
+
+
+
+
 	<script>
-		// 인기를 클릭하면 좋아요 많은 수 정렬로 보여주기
-		$('#likeFeedClick').click(function(){
-			$('#likeFeedGallery').removeClass('display_none');
-			$('#fBox').addClass('display_none');
-			
-		});	
-		
-		// 다시 기본정렬 클릭  --> 비동기통신으로 가져오는 메서드 추가해야
-		$('#currentFeedClick').click(function(){
-			$('#fBox').removeClass('display_none');
-			$('#likeFeedGallery').addClass('display_none');
-			
+	
+		/* document ready 시작 */
+		$(document).ready(function() {
+	
+			/* 최신순 피드 ajax */
+			$.ajax({
+				url : '<c:url value="/feed/feedmain/selectNewFeed"/>',
+				type : 'get',
+				success : function(data) {
+	
+					console.log(data);
+					var memberIdx = '${sessionScope.memberVo.memberIdx}';
+					showNewFeed(data);
+				}
+			});
+			/* 최신순 피드 ajax */
+	
 		});
-	</script>
+		/* document ready 끝 */
 	
-	
-	<!-- 우리 언니 추가 ajax -->
-	<script>
-	/* NEW feed list */
-	function showNewFeed(list){
 		
-		var html = '';
-		console.log('show new feed');
 		
-		$.each(list, function(index, item){
+		/* 피드 정렬(최신) 시작 */
+		function showNewFeed(list) {
+
+			var html = '';
+
+			$.each(list, function(index, item) {
+
+					html += '<div class="feed">';
+					html += '	<div class="feedsize">';
+					html += '		<button class="modalbtn_feedview" type="button" onclick="feedLoginCheck('+ item.memberIdx + ', ' + item.boardIdx + ')">';
+					html += '			<img src="<c:url value="/images/feed/feedw/uploadfile/'+item.boardPhoto+'"/>" class="feedimg" alt="feedimg">';
+					html += '		</button>';
+					html += '	</div>';
+					html += '	<div class="feedinfo">';
+					html += '		<div class="nickname">';
+					html += '			<a onclick="feedNicknameCheck(' + item.memberIdx + ')" class="nickname2">' + item.memberNickname + '</a>';
+					html += '		</div>';
+/* 					html += '		<div>';
+					html += '			<button><img src="<c:url value="/images/feed/feedw/nolike.png"/>" class="nolikeimg"></button>';
+					html += '		</div>'; */
+					html += '	</div>';
+					html += '</div>';
+
+				})
+
+			$('#fBox').html(html);
+
+		};
+		/* 피드 정렬(최신) 끝 */
+		
+
+
+		/* 피드올리기 - 로그인 체크 */
+		function loginCheck(memberIdx) {
 			
-			html += '<div class="feed">';
-			html += '	<div class="feedsize">';
-			html += '		<button class="modalbtn_feedview" type="button" onclick="feedLoginCheck('+item.memberIdx+', '+item.boardIdx+')">';
-			html += '			<img src="<c:url value="/images/feed/feedw/uploadfile/'+item.boardPhoto+'"/>" class="feedimg" alt="feedimg">';
-			html += '		</button>';
-			html += '	</div>';
-			html += '	<div class="feedinfo">';
-			html += '		<div class="nickname">';
-			html += '			<a onclick="feedNicknameCheck('+item.memberIdx+')" class="nickname2">'+item.memberNickname+'</a>';
-			html += '		</div>';
-			html += '		<div>';
-			html += '			<button><img src="<c:url value="/images/feed/feedw/nolike.png"/>" class="nolikeimg"></button>';
-			html += '		</div>';
-			html += '	</div>';
-			html += '</div>';
-		
-		})
-		
-		$('#fBox').html(html);
-		
-		
-	}
-	
-	
-	$(document).ready(function(){
-		
-		/* NEW feed list ajax */
-		$.ajax({
-			url: '<c:url value="/feed/feedmain/selectNewFeed"/>',
-			type: 'get',
-			success: function(data){
-				
-				console.log(data);
-				var memberIdx = '${sessionScope.memberVo.memberIdx}';
-				showNewFeed(data);
+			var idx = memberIdx;
+			if(!idx) {
+				alert('로그인 후 이용 가능합니다');
+				location.href = '<c:url value="/member/login"/>';
+			} else {
+				return
 			}
-		});
-		/* NEW feed list ajax END */
+		}
 		
-	});
+		
 
+		/* 피드 상세보기 - 로그인 체크 */
+		function feedLoginCheck(memberIdx, boardIdx) {
 
-	/* NEW feed list END */
-					
-								
-		/* feedview login check */
-		function feedLoginCheck(memberIdx, boardIdx){
-									
 			var myIdx = '${sessionScope.memberVo.memberIdx}';
 			var memberIdx = memberIdx;
 			var boardIdx = boardIdx;
-									
-			if(!myIdx) {
-				alert('로그인 후 이용 가능합니다');
-				location.href='<c:url value="/member/login"/>';
-			} else {
-				location.href='<c:url value="/feed/feedview/'+memberIdx+'&'+boardIdx+'"/>';
-			}
-									
-		};
 
-		/* creator nickname check */
-		function feedNicknameCheck(memberIdx){
-									
+			if (!myIdx) {
+				alert('로그인 후 이용 가능합니다');
+				location.href = '<c:url value="/member/login"/>';
+			} else {
+				location.href = '<c:url value="/feed/feedview/'+memberIdx+'&'+boardIdx+'"/>';
+			}
+
+		};
+		
+		
+
+		/* 게시자 닉네임 - 로그인 체크 */
+		function feedNicknameCheck(memberIdx) {
+
 			/* login check */
 			var myIdx = '${sessionScope.memberVo.memberIdx}';
 			var memberIdx = memberIdx;
-									
-			if(!myIdx) {
+
+			if (!myIdx) {
 				alert('로그인 후 이용 가능합니다');
-				location.href='<c:url value="/member/login"/>';
+				location.href = '<c:url value="/member/login"/>';
 			} else {
-				ocation.href='<c:url value="/feed/userFeed/'+memberIdx+'"/>';
+				location.href = '<c:url value="/feed/userFeed/'+memberIdx+'"/>';
 			}
-									
+
 		}
-	
-	
+
+		
+		
+		// 인기를 클릭하면 좋아요 많은 수 정렬로 보여주기
+		$('#likeFeedClick').click(function() {
+			$('#likeFeedGallery').removeClass('display_none');
+			$('#fBox').addClass('display_none');
+
+		});
+
+		// 다시 기본정렬 클릭
+		$('#currentFeedClick').click(function() {
+			$('#fBox').removeClass('display_none');
+			$('#likeFeedGallery').addClass('display_none');
+
+		});
+		
 	</script>
+
 
 </body>
 </html>

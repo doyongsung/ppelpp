@@ -68,6 +68,17 @@ public class FeedManageService {
 		return result;
 	}
 
-	
+    // 산별 피드보기 (용민 작성)
+    public List<NewFeedList> getNewFeedByMountain(String mName) {
+		System.out.println("FeedManageService - New Feed List");
+		List<NewFeedList> newList = null;
 
+		dao = template.getMapper(FeedDao.class);
+		newList = dao.selectNewFeedByMountain(mName);
+
+		System.out.println("manage service load");
+
+		return newList;
+
+	}
 }

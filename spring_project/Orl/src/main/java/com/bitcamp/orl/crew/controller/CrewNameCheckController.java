@@ -14,6 +14,7 @@ public class CrewNameCheckController {
 	@Autowired
 	private CrewNameCheckService service;
 	
+	//이름 유효성 중복 check
 	@RequestMapping("/crew/nameCheck")
 	public String crewNameCheck(
 			@RequestParam("crewName") String crewName,

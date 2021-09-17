@@ -34,7 +34,7 @@ public class FeedSearchController {
 			) {
 		
 		// 검색 결과를 가져오기
-		
+		System.out.println("mySearch : " + mySearch);
 		// 닉네임으로 찾기 -> 닉네임, 프로필 사진 가져오기, memberIdx 
 		List<FeedSearchByNickname> searchByNickname = searchService.getSearchByNickname(mySearch);
 		

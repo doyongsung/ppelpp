@@ -1,0 +1,34 @@
+/*폰트 스타일넣기*/
+/*로고폰트*/
+@font-face {
+  font-family: "Cafe24SsurroundAir";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/*본문 폰트*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
+
+:root {
+  --background-color: #f8f8f8;
+  --yello-color: #fdef7b;
+  --footer-color: #cac0ae;
+  --point-color: #785024;
+  --text-sans: "Noto Sans KR ", sans-serif;
+  --text-logo: "Cafe24SsurroundAir";
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}

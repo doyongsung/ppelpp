@@ -21,6 +21,7 @@ public class CrewCommentRestController {
 	@Autowired
 	CrewCommentService commentService;
 	
+	//crew Detail Page에서 comment를 list로 받아오는 method
 	@RequestMapping("/crew/getCommentInfoList")
 	@CrossOrigin
 	public CrewCommentPagingDTO getCommentList(
@@ -35,6 +36,7 @@ public class CrewCommentRestController {
 		return dto;
 	}
 	
+	//crew Detail Page에서 한 댓글 정보를 확인할 때 member정보까지 가져오기 위해서 작성한 method
 	@RequestMapping("/crew/getCommentInfo")
 	@CrossOrigin
 	public CrewCommentInfo getCrewComment(
@@ -43,6 +45,7 @@ public class CrewCommentRestController {
 		return commentService.getCrewCommentInfo(crewCommentIdx);
 	}
 	
+	//crew Detail Page에서 댓글 입력 method
 	@RequestMapping("/crew/commentInsert")
 	@CrossOrigin
 	public String insertComment(
@@ -52,6 +55,7 @@ public class CrewCommentRestController {
 		return Integer.toString(commentService.insertCrewComment(request.getCrewComment(), session, request.getCrewIdx()));
 	}
 	
+	//crew Detail Page에서 댓글 삭제 method
 	@RequestMapping("crew/commentDelete")
 	@CrossOrigin
 	public String deleteMyComment(
@@ -60,6 +64,7 @@ public class CrewCommentRestController {
 		return Integer.toString(commentService.deleteCrewComment(crewCommentIdx));
 	}
 	
+	//crew Detail Page에서 댓글 수정 method
 	@RequestMapping("crew/commentUpdate")
 	@CrossOrigin
 	public String updateComment(

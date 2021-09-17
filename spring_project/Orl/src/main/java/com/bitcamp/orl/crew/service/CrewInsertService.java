@@ -25,6 +25,7 @@ public class CrewInsertService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
+	//크루 생성
 	public Crew insert(
 			CrewInsertRequest crewRequest,
 			HttpServletRequest request
@@ -32,6 +33,11 @@ public class CrewInsertService {
 			) {
 		File newFile = null;
 		Crew crew = crewRequest.toCrew();
+		
+		//크루 이름이 3글자 이상이 안되면 null 리턴
+		if(crewRequest.getCrewName().trim().length()<3) {
+			return null;
+		}
 		
 		try {
 			
@@ -62,6 +68,7 @@ public class CrewInsertService {
 		return crew;
 	}
 	
+	//파일 저장 method
 	public File saveFile(
 			HttpServletRequest request, 
 			MultipartFile file) {

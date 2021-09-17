@@ -13,7 +13,6 @@
 
 .feed_picture_con{
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .main_wrap_item{
@@ -93,6 +92,7 @@
 .feed_picture_item{
     width: 140px;
     height: 140px;
+    margin: 10px;
 }
 
 .main_wrap_item_1_bottom_con{

@@ -63,7 +63,7 @@ body {
 
 /*검색 결과 리스트*/
 .selectArea{
-	/* 마진 수정 */
+   /* 마진 수정 */
    margin:30px;
 }
 h3{
@@ -96,13 +96,14 @@ h3{
 }
 
 /* 추가 */
+
+
 .profileImg{
   width: 160px;
   display: block;
   margin: 0 auto;
-  border-radius: 5px;
-  cursor: pointer;	
-	
+  cursor: pointer;   
+  object-fit:cover;
 }
 
 .img:hover {

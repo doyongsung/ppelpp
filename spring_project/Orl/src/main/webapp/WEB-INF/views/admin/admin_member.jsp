@@ -70,19 +70,16 @@
       </div>
       <div class="modal-body selectList">
       
-      
-      
-      
+<%-- 
       <c:forEach items="${feedList}" var="fList">
-	      <c:if test="${memberList.memberIdx eq feedList.memberIdx}">
-	                <div class="item">
-	                	 <img class="img" src="<c:url value='/images/member/${list.memberProfile}'/>"  width="80px" height="80px">
-	                    <span># ${fList.boardIdx}</span>
-	                </div>
+	    	<c:if test="${memberList.memberIdx eq feedList.memberIdx}">
+	      	<div class="item">
+	        	<img class="img" src="<c:url value='/images/member/profile/${list.memberProfile}'/>"  width="80px" height="80px">
+	          <span># ${fList.boardIdx}</span>
+	        </div>
 	      </c:if>
       </c:forEach>
-               
-       
+ --%>       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" >save changes</button>

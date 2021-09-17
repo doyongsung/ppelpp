@@ -1,0 +1,170 @@
+@charset "UTF-8";
+.display_none {
+	display: none;
+}
+.color_blue {
+	color: blue;
+}
+.color_red {
+	color: red;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+.form-group input {
+  border: none;
+}
+
+#profile {
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+#crewphoto {
+  padding-right: 200px;
+}
+
+.section {
+  padding: 5% 0 5% 0;
+  display: flex;
+  justify-content: center;
+
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.nav2 {
+  text-align: left;
+  width: 20%;
+  min-width: 150px;
+  background-color: white;
+  padding: 10px 0 0 30px;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 8px 0 0 8px;
+}
+
+.text_bold {
+  font-weight: bold;
+}
+
+.edit_section {
+  min-width: 800px;
+  background-color: white;
+  padding: 35px 50px 35px 50px;
+  border-top: 1px solid rgb(220, 220, 220);
+  border-bottom: 1px solid rgb(220, 220, 220);
+  border-right: 1px solid rgb(220, 220, 220);
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hiking {
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+}
+
+.edit_section {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.edit_section input {
+	padding-left: 8px;
+  font-size: 15px;
+  height: 55px;
+  width: 300px;
+}
+
+.edit_section input[type="submit"] {
+  margin-top: 30px;
+  background-color: rgb(70, 70, 70);
+  max-width: 120px;
+  height: 40px;
+  line-height: 20px;
+  font-size: 15px;
+  float: right;
+}
+
+.edit_section input[type=file] {
+  margin-top: 20px;
+}
+
+#crewintro {
+  min-height: 180px;
+}
+
+.form-control-lg {
+  padding: 1.0rem 1.0rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.create {
+  padding-bottom: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+#tag-list {
+  border: none
+}
+
+.tag-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.tr_hashTag_area p {
+  margin-top: 70px;
+}
+
+.edit_section ul {
+  padding: 16px 0;
+}
+
+.edit_section ul li {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 14px;
+  letter-spacing: -.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.edit_section ul li.tag-item {
+  background-color: rgb(253, 239, 123);
+  color: #000;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 4px 7px;
+}
+
+.del-btn {
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 8px;
+}

@@ -43,11 +43,20 @@ public class NaverLoginController {
         this.naverLoginBO = naverLoginBO;
     }
 
-
- // 네이버 로그인 처리 메서드 : 네이버 로그인 성공 시 callback 호출 메소드
+  
+    //referer값을 쿠키에 저장해놓고  -> 사용완료하면 쿠키 만료시키는 처리
+    //네이버 로그인 처리 메서드 : 네이버 로그인 성공 시 callback 호출 메소드
     @RequestMapping(value = "/member/naverCallback", method = { RequestMethod.GET, RequestMethod.POST })
-    public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session, HttpServletRequest request, MemberRequest memberRequest)
-            throws IOException, ParseException, MessagingException {
+    public String callback(
+    		Model model, 
+    		@RequestParam String code, 
+    		@RequestParam String state, 
+    		HttpSession session, 
+    		HttpServletRequest request, 
+    		MemberRequest memberRequest)
+            throws IOException, 
+            ParseException, 
+            MessagingException {
  
         int result = 0;
         System.out.println("여기는 callback");
@@ -105,7 +114,6 @@ public class NaverLoginController {
 		//로그인처리
 		boolean loginChk=longinService.naverLogin(request, memberRequest.getMemberId(), memberRequest.getMemberPw());
 		model.addAttribute("loginChk", loginChk);
-		
 		
 		return "member/login";
         

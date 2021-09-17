@@ -1,15 +1,14 @@
 package com.bitcamp.orl.feed.service;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.*;
 
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.mybatis.spring.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
 
-import com.bitcamp.orl.feed.dao.FeedDao;
-import com.bitcamp.orl.feed.domain.FeedComment;
-import com.bitcamp.orl.feed.domain.FeedCommentRequest;
-import com.bitcamp.orl.member.domain.MemberDto;
+import com.bitcamp.orl.feed.dao.*;
+import com.bitcamp.orl.feed.domain.*;
+import com.bitcamp.orl.member.domain.*;
 
 @Service
 public class FeedCommentingService {

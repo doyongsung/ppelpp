@@ -16,7 +16,7 @@
 	<!-- header -->
 	<%@ include file="/WEB-INF/frame/default/header.jsp"%>
 	
-	<!-- modal_createfeed -->
+	<!-- 피드 올리기 모달창 -->
 	<div class="modal_createfeed">
 		<div class="modal_content_create">
 			<section class="container_create">
@@ -25,14 +25,12 @@
 		</div>
 	</div>
 
-	<!-- feed main -->
+	<!-- 메인 영역 -->
 	<%@ include file="/WEB-INF/views/feed/feed.jsp"%>
 	
 
 	<!-- footer -->
 	<%@ include file="/WEB-INF/frame/default/footer.jsp"%>
-	
-	
 
 </body>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메인-비디오</title>
+<link rel="stylesheet" th:href="@{/css/main/main.css}">
+<script src="https://kit.fontawesome.com/cccee664d4.js"
+	crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/main/fullpage.min.css}">
+<script th:src="@{/js/main/fullpage.min.js}"></script>
+<script src="@{/js/main/main.js}"></script>
+</head>
+<body>
+	<main id="fullpage">
+		<section class="section">
+			<!--헤더 네비-->
+			<div class="action">
+				<div id="home" class="big-bg">
+					<div class="header wrapper">
+						<div class="logo">
+							<span class="oly"><i class="fas fa-seedling"></i></span>
+							<h1>
+								<a th:href="@{/}">오를래</a>
+							</h1>
+						</div>
+						<div class="nav">
+							<ul>
+								<li><a th:href="@{/}">MAIN</a></li>
+								<li><a th:href="@{/mountain/mountainAllInfo}">MOUNTAIN</a></li>
+								<li><a th:href="@{/crew/list}">CREW</a></li>
+								<li><a th:href="@{/feed/feedmain}">FEED</a></li>
+								<div class="icon" onclick="menuToggle();">
+									<a href="#"><i class="far fa-user"></i></a>
+								</div>
+							</ul>
+						</div>
+						
+						<div class="menu">
+							<ul>
+									<li th:if="${session.memberVo}==null">
+										<a th:href="@{/member/login}">로그인</a>
+									</li>
+									<li th:if="${session.memberVo}==null">
+										<a th:href="@{/member/reg}">회원가입</a>
+									</li>
+									<li th:if="${session.memberVo}!=null">
+										<a th:href="@{/crew/list}">내 크루</a>
+									</li>
+									<li th:if="${session.memberVo}!=null">
+										<a th:href="@{/feed/userFeed/${sessionScope.memberVo.memberIdx}}">내 피드</a>
+									</li>
+									<li th:if="${session.memberVo}!=null">
+										<a th:href="@{/member/mypage}">마이페이지</a>
+									</li>
+									<li th:if="${session.memberVo}!=null">
+										<a th:href="@{/member/logout}">로그아웃</a>
+									</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="home_video">
+						<video loop autoplay="autoplay" muted="muted" th:src="@{/video/hikingg.mov}"></video>
+					</div>
+					<div class="home-content wrapper">
+						<h2 class="page-title">
+							<!-- LET'S <br>CLIMB <br>TOGETHER -->
+							<img th:src="@{/images/crew/font.png}">
+						</h2>
+						<span class="main-button"> <a
+							th:href="@{/mountain/mountainAllInfo}">MOUNTAIN</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+
+			<div id="home_2" class="big-bg">
+				<div class="card">
+					<img th:src="@{/images/crew/메인1.jpg}" align="right">
+				</div>
+				<div class="home_2_text">
+					<!-- <h1>WANNA JOIN OUR CREWS?<br>WE ARE ALWAYS WITH YOU</h1> -->
+					<h1>
+						혼자 오르지 않아도 괜찮아요.<br>당신과 함께할 크루를 찾아보세요!
+					</h1>
+					<p>WANNA JOIN OUR CREWS? WE ARE ALWAYS WITH YOU</p>
+					<BUtton class="button1">
+						<a th:href="@{/crew/list}">CREW</a>
+					</BUtton>
+				</div>
+			</div>
+		</section>
+		<section class="section">
+
+			<div id="home_3" class="big-bg">
+				<div class="card">
+					<img th:src="@{/images/crew/메인3.jpg}">
+				</div>
+				<div class="home_3_text">
+					<h1>
+						오늘은 새로운 산 어때요?<br>한국의 아름다운 산을 찾아보세요
+					</h1>
+					<p></p>
+					<a href="#">
+						<button class="button2">
+							MOUNTAIN
+						</button>
+					</a>
+				</div>
+			</div>
+		</section>
+		<section class="section">
+			<div id="last">
+				<div id="home_4" class="big-bg">
+					<div class="home_4_mini">
+						<div class="lastSection">
+							<div class="lastImg">
+								<img th:src="@{/images/crew/메인1.jpg}">
+								<div class="home_4_text">
+									<h1>당신의 하루를 공유해주세요</h1>
+									<p>HOW TO ENJOY YOUR HIKING TRIP?</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section fp-auto-height">
+		<th:block th:replace="frame/default/footer"></th:block>
+		</section>
+	</main>
+	<script>
+		function menuToggle() {
+			const toggleMenu = document.querySelector('.menu');
+			toggleMenu.classList.toggle('active')
+		}
+	</script>
+</body>
+</html>

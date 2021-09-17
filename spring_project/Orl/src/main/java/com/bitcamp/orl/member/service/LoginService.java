@@ -92,8 +92,7 @@ public class LoginService {
 
    public boolean chkURI(String uri) {
       boolean chk = true;
-
-      if (!uri.startsWith("/orl/member/login")) {
+      if (uri.startsWith("/orl/member/login")) {
          chk = false;
       }
       return chk;

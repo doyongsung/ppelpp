@@ -13,6 +13,12 @@
         url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
 }
 
+.main-button{
+    display: inline-block;
+    padding-left: 50px;
+    margin-top:-20px;
+}
+
 .material-icons {
     font-family: "Material Icons";
     font-weight: normal;
@@ -92,6 +98,7 @@
     transition: 0.2s;
 }
 
+
 .home-content a:hover {
     letter-spacing: 6px;
 }
@@ -101,6 +108,13 @@
     margin: 10px 0 42px;
 }
 
+.page-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    position: relative;
+    z-index: 10;
+}
 
 
 #home .home_video video {
@@ -217,8 +231,10 @@ h1 {
 
 .home_4_text {
     position: absolute;
- 
+    margin-top: -7%;
+    margin-left: 38%;
     color: white;
+    vertical-align:middle;
 }
 
 .home_4_text p,
@@ -265,20 +281,20 @@ button {
 }
 
 .home_4_mini {
-    padding: 225px;
+
     background: url(../images/메인4.png);
 }
 
 .home_4_mini img {
-    position: relative;
-    width: 68%;
-    padding-top: 20px;
-    vertical-align:middle
+     position: relative;
+    width: 54%;
+  
 }
 .lastImg{
-	vertical-align:middle
+	position: absolute;
+    top: 22%;
+    text-align: center;
 }
-
 
 div {
     text-align: center;
@@ -403,11 +419,6 @@ ul {
     align-content: center;
     align-items: center;
     padding-right: 70px;
-}
-.main-button{
-    display: inline-block;
-    padding-left: 50px;
-    margin-top:-20px;
 }
 
 .header .menu a::after {

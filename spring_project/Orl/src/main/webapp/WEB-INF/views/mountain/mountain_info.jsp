@@ -1,4 +1,3 @@
-<%@ page import="com.bitcamp.orl.mountain.domain.MountainDetailInfo" %>
 <%@ page import="com.bitcamp.orl.mountain.domain.MountainLocInfo" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mountain_Info</title>
     <link rel="stylesheet" href="<c:url value='/css/mountain/mountain_info.css'/>">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/frame/default/header.jsp" %>
@@ -45,43 +45,68 @@
                 </div>
             </div>
         </div>
-        
         <!-- 피드 사진 가져오기 -->
         <div class="main_wrap_item main_wrap_item_2 main_wrap_item_1_bottom_con">
             <div class="main_wrap_item_1_bottom_item main_wrap_item_1_bottom_item_1">
                 #${mountainLocInfo.mountainName}
             </div>
-            <div class="main_wrap_item_1_bottom_item main_wrap_item_1_bottom_item_2 feed_picture_con">
-                <div class="feed_picture_item feed_picture_item1">
-                    <img class="img" src="../images/mountain/3.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item feed_picture_item2">
-                    <img class="img" src="../images/mountain/4.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item feed_picture_item3">
-                    <img class="img" src="../images/mountain/5.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item feed_picture_item4">
-                    <img class="img" src="../images/mountain/6.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item feed_picture_item5">
-                    <img class="img" src="../images/mountain/7.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item feed_picture_item6">
-                    <img class="img" src="../images/mountain/8.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item feed_picture_item7">
-                    <img class="img" src="../images/mountain/9.png" width="100%" height="100%">
-                </div>
-                <div class="feed_picture_item8">
-                    <img class="img" src="../images/icons/rightside.png" width="30px">
-                </div>
-
+            <div id="feedByMountain"
+                 class="main_wrap_item_1_bottom_item main_wrap_item_1_bottom_item_2 feed_picture_con">
             </div>
         </div>
     </div>
-    
-    <!-- 지도  -->
+
+    <script>
+        function showFeedByMountainList(feedList) {
+            var getFeedList = [];
+            getFeedList = feedList;
+
+            var html = '';
+            $.each(getFeedList, function (index, item) {
+                if (index < 7) {
+                    html += '<div class="feed_picture_item feed_picture_item1">';
+                    html += '<a href="<c:url value="/feed/feedview/'+item.memberIdx+'&'+item.boardIdx+'"/>">';
+                    html += ' <img class="img" src="<c:url value="/images/feed/feedw/uploadfile/'+item.boardPhoto+'"/>" width="100%" height="100%">';
+                    html += '</a>';
+                    html += '</div>';
+                }
+            });
+            html += '<form id="formLoc" action="${pageContext.request.contextPath}/feed/feedSearch" method="POST">';
+            html += '<div class="feed_picture_item8">'
+            html += '<img onclick="setParamLoc(this.title)" class="img" title="${mountainLocInfo.mountainName}" src="<c:url value="/images/mountain/rightSide.png"/>" width="30px">'
+            html += '</div>';
+            html += '<input name="mySearch" id="mySearch" type="hidden" value="">'
+            html += '</form>';
+            $('#feedByMountain').html(html);
+        }
+
+
+        function setParamLoc(loc){
+            $("#mySearch").val(loc);
+            console.log(loc);
+            $("#formLoc").submit();
+        }
+
+        $(document).ready(function () {
+
+            var feedList = [];
+
+
+            // 시작할때 비동기 통신으로 지역별 산 리스트 받아와서 mList에 저장
+            $.ajax({
+                url: '<c:url value="/feed/feedmain/selectNewMountainFeed"/>',
+                type: 'GET',
+                data: {mName: '${mountainLocInfo.mountainName}'},
+                success: function (data) {
+                    feedList = data;
+                    showFeedByMountainList(feedList);
+                }
+
+            })
+
+        });
+    </script>
+    <!-- 지도-->
     <div id="map" class="map" style="width: 85%; height: 800px; margin: 0px auto ;">
         <%
             MountainLocInfo mountainLocInfo = (MountainLocInfo) request.getAttribute("mountainLocInfo");

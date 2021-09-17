@@ -14,6 +14,7 @@ public class CrewNameCheckService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
+	//크루 생성시 이름 중복여부 체크
 	public String crewNameCheck(String crewName) {
 		
 		String result = "Y";

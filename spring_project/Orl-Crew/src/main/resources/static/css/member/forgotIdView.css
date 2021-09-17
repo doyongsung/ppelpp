@@ -1,0 +1,126 @@
+@charset "UTF-8";
+*{
+    box-sizing:border-box;
+}
+
+
+#all{
+    font-family: var(--text-sans);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    /* no-repeat:배경이미지 반복X */
+     background:url("../../images/member/main.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#all::before{
+    content:"";
+    position:absolute; z-index:1;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color:rgba(0,0,0,0.7); 
+}
+
+/* section 영역 전체 */
+.show-id{
+    position:relative;
+    z-index:2;
+}
+
+.show-id h1{
+    font-size: 32px;
+    color:#FDEF7B;
+    text-align:center;
+    letter-spacing: 5px;
+
+    margin-bottom:30px;
+}
+
+.id-area{
+    width:350px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position:relative;
+    margin-bottom: 30px;
+}
+
+.id-table{
+    width:100%;
+    padding:20px 10px 10px;
+    text-align: center;
+
+    font-size:13px;
+    font-weight: lighter;
+    color:#fff;
+    background-color: transparent;
+
+}
+
+.id-table h5{
+    font-size:13px;
+    font-weight: lighter;
+    border-bottom:1px solid #999;
+    padding-bottom: 10px;
+}
+
+.id-table span{
+    font-size:20px;
+    font-weight: lighter;
+    color:#FDEF7B;
+}
+
+
+
+.a-area{
+    width:350px;
+    display:flex;
+    flex-direction: column;
+    margin-top:10px;
+}
+
+.search-pw{
+    width:100%;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+
+    font-size:13px;
+    color:#FDEF7B;
+    text-decoration: none;
+}
+
+
+
+.login{
+    width:100%;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+
+    background:#FDEF7B;
+
+    font-size:15px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color:black;
+
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer; 
+
+    text-decoration: none;
+
+}
+
+.login:visited{
+    color:black;
+}
+

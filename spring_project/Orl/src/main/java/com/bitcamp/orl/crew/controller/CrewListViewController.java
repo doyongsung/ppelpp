@@ -19,6 +19,7 @@ public class CrewListViewController {
 	@Autowired
 	CrewListViewService service;
 	
+	//Crew List view 주는 Controller
 	@RequestMapping("/crew/list")
 	public String getCrewList(
 			HttpServletRequest request,

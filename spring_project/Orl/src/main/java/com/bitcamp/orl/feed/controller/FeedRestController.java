@@ -1,25 +1,20 @@
 package com.bitcamp.orl.feed.controller;
 
-import java.util.List;
+import java.util.*;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.ibatis.annotations.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.ui.*;
+import org.springframework.web.bind.annotation.*;
 
-import com.bitcamp.orl.feed.domain.FeedComment;
-import com.bitcamp.orl.feed.domain.NewFeedList;
-import com.bitcamp.orl.feed.service.FeedCommentingService;
-import com.bitcamp.orl.feed.service.FeedManageService;
-import com.bitcamp.orl.member.domain.MemberDto;
+import com.bitcamp.orl.feed.domain.*;
+import com.bitcamp.orl.feed.service.*;
+import com.bitcamp.orl.member.domain.*;
 
 @RestController
 public class FeedRestController {
-	
-	//0915 우리 언니 추가
 	
 	@Autowired
 	FeedManageService manageService;
@@ -36,7 +31,6 @@ public class FeedRestController {
 		) {
 		
 		int result = 0;
-
 		int myIdx = ((MemberDto) request.getSession().getAttribute("memberVo")).getMemberIdx();
 
 		if(memberIdx == myIdx) {

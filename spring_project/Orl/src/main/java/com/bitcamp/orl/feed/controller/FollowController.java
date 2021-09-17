@@ -6,7 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -82,7 +85,7 @@ public class FollowController {
 		//결과 json
 		return followResult;
 	}
-	
+}	
 	// 비동기 통신 팔로워 리스트 출력  get 방식 -->jason 데이터 볼 수 있음
 //	@GetMapping("/feed/followerList/{memberIdx}")
 //	public List<FollowList> getFollowerList(
@@ -115,4 +118,4 @@ public class FollowController {
 
 
 
-}
+

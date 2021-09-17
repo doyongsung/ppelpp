@@ -11,7 +11,7 @@
    id="dataSource" 
    class="com.zaxxer.hikari.HikariDataSource"
    p:driverClassName="com.mysql.cj.jdbc.Driver"
-   p:jdbcUrl="jdbc:mysql://mysql205.clcgupreyqqq.ap-northeast-2.rds.amazonaws.com:3306/final?serverTimezone=UTC"
+   p:jdbcUrl="jdbc:mysql://mysql205.ccidazbyqjzz.ap-northeast-2.rds.amazonaws.com:3306/final?serverTimezone=UTC"
    p:username="bit" 
    p:password="bit" 
    />

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+*{
+    box-sizing:border-box;
+}
+
+#all{
+    font-family:  var(--text-sans);
+   display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+     background:url("../../images/member/main.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#all::before{
+    content:"";
+    position:absolute; z-index:1;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color:rgba(0,0,0,0.7); 
+}
+
+
+/* 전체 section영역 설정 */
+.forgot-pw{
+    position:relative;
+    z-index:2;
+    margin-top:30px;
+}
+/* 섹션 아래 forgot id 글씨 */
+.forgot-pw h1{
+    font-size: 32px;
+    color:#FDEF7B;
+    text-align:center;
+    letter-spacing: 5px;
+
+    margin-bottom:30px;
+}
+
+/* input박스 전체 사이즈, 위치 설정 */
+.input-area{
+    width:350px;
+    position: relative;
+}
+
+/* input 설정  */
+.input-area input{
+    width:100%;
+    padding:20px 10px 10px;
+    background-color: transparent;
+
+    border:none;
+    border-bottom: 1px solid #999;
+
+    font-size: 18px;
+    color:#fff;
+
+    margin-bottom: 20px;
+   
+}
+/* input label 설정->NAME, E-MAIL */
+.input-area label{
+    position:absolute;
+    left:10px;
+    top:15px;
+    font-size:18px;
+    color:#999;
+    transition: all .5s ease;
+}
+
+/* label 움직일때 설정: 색과 위치 */
+.input-area input:focus +label,
+.input-area input:valid+label{
+    top:-2px;
+    font-size:13px;
+    color:#166cea;
+}
+/*비번찾기*/
+.caption {
+	margin-top:20px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.caption a {
+	font-size: 15px;
+	color: #FDEF7B;
+	text-decoration: none;
+}
+/* 아이디 찾기 버튼 영역 */
+.btn-area{
+    margin-top:10px;
+}
+
+.btn-area input{
+    width:100%;
+    height:50px;
+    background:#FDEF7B;
+    font-size:15px;
+    font-weight: 600;
+    color:black;
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer;
+}

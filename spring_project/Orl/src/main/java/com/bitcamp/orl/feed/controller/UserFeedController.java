@@ -97,7 +97,7 @@ public class UserFeedController {
 	}
 	
 	
-	// 피드 올리기 후에!
+	// 피드 올리기 후에 !
 	@RequestMapping(value="/feed/userFeed/{memberIdx}", method = RequestMethod.POST)
 	public String upload(
 			@ModelAttribute("feedrequest") FeedCreateRequest feedrequest, 
@@ -151,10 +151,11 @@ public class UserFeedController {
 		model.addAttribute("feedGallery",feedGallery);
 		model.addAttribute("feedLikeGallery",feedLikeGallery);
 		model.addAttribute("myCrewList",myCrewList);
-
-		return "feed/userFeed";
+		
+		//0915 수정 insert중복되는 거 막기 위해 get방식으로 redirect 시키기
+		return "redirect:/feed/userFeed/"+memberIdx;
 	}
-	
+}	
 	//가장 첫번째 요청: 피드 보여주기 (세션에 저장된 idx 필요)
 	// 1. 사용자 닉네임 --해결
 	// 2. 게시물 개수 --해결
@@ -193,4 +194,4 @@ public class UserFeedController {
 //	}
 
 
-}
+
