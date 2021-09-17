@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#nameList').addClass('clicked');
 
     var curved = document.getElementsByClassName("curved");
 

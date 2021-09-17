@@ -1,5 +1,6 @@
 package com.bitcamp.orl.crew.controller;
 
+import javax.activation.CommandMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,12 @@ public class CrewInsertController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String reg(
 			CrewInsertRequest crewRequest, 
-			HttpServletRequest request, 
+			HttpServletRequest request,
 			Model model
+			
 			) {
+		
+		
 		Crew crew = insertService.insert(crewRequest, request);
 		CrewInfo crewinfo = detailService.getCrewInfo(request.getSession(), crew.getCrewIdx());
 		model.addAttribute("crew", crewinfo);

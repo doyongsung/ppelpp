@@ -31,8 +31,9 @@ td {
 }
 
 
-#crewphoto {
-  padding-right: 200px;
+
+#crewPhoto {
+    height: 20px;
 }
 
 .section {
@@ -66,7 +67,7 @@ td {
 
 .edit_section {
 	
-  min-width: 800px;
+  min-width: 950px;
   background-color: white;
   padding: 35px 50px 35px 50px;
   border-top: 1px solid rgb(220, 220, 220);
@@ -78,9 +79,10 @@ td {
 }
 
 .hiking {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   overflow: hidden;
+  object-fit:cover;
 }
 
 .edit_section {
@@ -89,25 +91,25 @@ td {
 
 .edit_section label {
   font-weight: bold;
-  min-width: 130px;
+  min-width: 115px;
   font-size: 17px;
 }
 
 .edit_section input {
   padding: 8px;
-  line-height: 40px;
   font-size: 15px;
   height: 55px;
 }
 
 .edit_section input[type="submit"] {
-  margin-top: 30px;
+  margin-top: 10px;
   background-color: rgb(70, 70, 70);
   max-width: 120px;
   height: 40px;
   line-height: 20px;
   font-size: 15px;
   float: right;
+  
 }
 
 .edit_section input[type=file] {
@@ -127,7 +129,7 @@ a {
 }
 
 .create {
-  padding-bottom: 50px;
+  padding-top: 30px;
 }
 
 * {
@@ -170,9 +172,10 @@ a {
 }
 
 form {
-  padding-top: 16px;
-  padding-left: 80px;
+  padding-top: 200px;
+  display:flex;
 }
+
 
 .edit_section ul li.tag-item {
   background-color: rgb(253, 239, 123);
@@ -181,7 +184,9 @@ form {
   display: inline-block;
   padding: 4px 7px;
 }
-
+.img{
+	border-radius: 10px;
+}
 .del-btn {
   font-size: 12px;
   font-weight: bold;

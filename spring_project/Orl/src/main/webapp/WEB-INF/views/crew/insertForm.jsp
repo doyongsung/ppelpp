@@ -21,11 +21,11 @@
 	<div class="section">
 		<div class="box">
     	<div class="edit_section">
+           	<div class="create">
+            	<h1>크루 생성</h1>
+            </div>
         <form method="post" enctype="multipart/form-data" id="tag-form">
         	 <table>
-           	<div class="create">
-            	<h1>생성하기</h1>
-            </div>
             <tr>
             	<td>
               	<label for="crewName">크루명</label>
@@ -40,8 +40,8 @@
           		<td>
 		            <label for="crewPhoto">크루 사진</label>
 		         	</td>
-		          <td>   
-		          	<img src="http://placehold.it/500x500" id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다." style="cursor: pointer;" onclick="doImgPop(this.src)"/>
+		          <td>
+		          	<img src="<c:url value="/images/crew/5050.png"/>" id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다." style="cursor: pointer;" onclick="doImgPop(this.src)"/>
 		            <input type="file" id="crewPhoto" name="crewPhoto" class="form-control form-control-lg" required="required">
 		         	</td>
 		        </tr>
@@ -50,7 +50,8 @@
 		          	<label for="crewDiscription">크루 소개글</label>
 		          </td>
 		         	<td>
-		          	<input type="text" id="crewintro" name="crewDiscription" class="form-control" placeholder="새로운 크루 소개글을 입력해주세요!" required="required">
+		          	<textarea id="crewintro" name="crewDiscription" class="form-control" placeholder="새로운 크루 소개글을 입력해주세요!" required="required"></textarea>
+		          	<div id="crewintro_cnt">(0 / 150)</div>
 		          </td>
 		        </tr>
 		        <tr>
@@ -67,7 +68,9 @@
 		          </td>
 		        </tr>
 		        <tr>
-           		<td>
+		        <td>
+		        </td>
+           		<td id="submit" >
               	<input type="submit" value="생성" class="form-control btn-secondary">
             	</td>
            	</tr>
@@ -77,5 +80,26 @@
    </div>
  </div>
 <%@ include file="/WEB-INF/frame/default/footer.jsp" %>
+<script>
+    $('#crewintro').on('keyup', function() {
+        $('#crewintro_cnt').html("("+$(this).val().length+" / 150)");
+ 
+        //글자 수를 0에 대입시켜서 바꿔보이게 150자이상작성하면 짤림
+        if($(this).val().length > 150) {  
+        	//substring으로 문자열을 0부터150까지만 나오고 자름
+            $(this).val($(this).val().substring(0, 150));
+            $('#crewintro_cnt').html("(150 / 150)");
+            alert("150자 이내로 작성해주세요")
+        }
+    });
+
+// 개행문자 = textarea의 엔터를 br태그로 바꿔서 db에 보냄 
+$("form").submit(function() {
+	var html = $("#crewintro").val().replace(/(?:\r\n|\r|\n)/g, '<br />');
+	
+});
+
+
+</script>
 </body>
 </html>

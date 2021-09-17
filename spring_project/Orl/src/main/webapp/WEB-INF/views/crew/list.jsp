@@ -54,19 +54,21 @@ const	keyword = '${keyword}';
 				<div class="dropdown">
 					<h1>CREW</h1>
 				<div class="dropdown-button">
-					<button class="curved" id="nameList">이름순 보기</button>
-					<button class="curved" id="newestList">최신순 보기</button>
+					<button class="curved nameList" id="nameList">최신순 보기</button>
+					<button class="curved" id="newestList">이름순 보기</button>
 					<button class="curved" id="oldList">오래된 순 보기</button>
 				</div>
 				</div>
 				<form action="" name="frm" id="form">
 					<div class="search-drop">
 						<div class="searchType">
-							<select name="searchType" id="selectSearch">
-								<option value="name">크루 이름</option>
+							<label for="selectbox">크루이름</label>
+							<select name="searchType" id="selectSearch" title="검색">
+						  	<option value="name" selected="selected">크루 이름</option>
 								<option value="nickName">닉네임</option>
 								<option value="tag">해시태그</option>
 							</select>
+						</div>   
 							<div class="boxSearch">
 								<span class="icon">
 									<label for="button">
@@ -74,9 +76,8 @@ const	keyword = '${keyword}';
                 </label>
                  <input type="submit" id="button" style="display:none">
 								</span>
-								<input id="search" class="search" type="text" name="keyword" placeholder="Type to search">
+								<input autocomplete="off" id="search" class="search" type="text" name="keyword" placeholder="Type to search">
 							</div>
-						</div>   
 				
 					</div>
 				</form>
@@ -95,7 +96,16 @@ const	keyword = '${keyword}';
 	</div>
 
 	<%@ include file="/WEB-INF/frame/default/footer.jsp"%>
+	
+	
 	<script>
+
+        
+	var select = $('.searchType select');
+	    select.change(function(){
+	        var select_name = $(this).children('option:selected').text();
+	        $(this).siblings("label").text(select_name);
+	    });
 
 	</script>
 </body>

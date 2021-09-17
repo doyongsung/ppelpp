@@ -50,7 +50,7 @@ const currentPageNum = parseInt('${cri.currentPageNum}');
 							</c:if>
 						</div>
 						
-						<p class="card-text">${crew.crewDiscription}</p>
+						<pre style="white-space:pre-wrap;" class="card-text">${crew.crewDiscription}</pre>
 						<ul class="crew_hashtag" id="crewHashTag"></ul>
 						
 						<div class="crew_information">

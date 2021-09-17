@@ -1,32 +1,79 @@
 @charset "UTF-8";
 
+
+
+/* select 추가  */
+.searchType{
+position:relative; 
+width:130px; 
+height:42px; 
+line-height:40px;
+border:1px solid #606976;
+border-radius:4px;
+text-transform:uppercase;
+background:#fff;
+}
+
+.searchType label{
+position:absolute;
+width:100%; 
+font-size:.86em; 
+color:#606976; 
+top:0; 
+left:0; 
+padding:0 5%;
+cursor: pointer;
+}
+
+.searchType label:after{
+	content:'▼'; 
+	width:40px; 
+	height:40px;
+	position:absolute; 
+	top:0; 
+	right:0; 
+	font-size:.76em; 
+	color:#fff; 
+	text-align:center;
+	background:#606976;
+	}
+	
+.searchType select{
+width:100%; 
+height:20px; 
+opacity:0; 
+filter:alpha(opacity=0); 
+-ms-filter:alpha(opacity=0);
+}
+
+/* 추가 끝 */
+
 .paging-div {
-	padding: 15px 320px 70px 10px;
+	padding: 75px 320px 0px 10px;
 	display: table;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 }
 
+
 .searchType {
 	display: flex;
 }
-
-.dropdown > .dropdown-button{
-	   
-}
-.row{
-	padding-top:30px;
+.dropdown >h1 {
+	padding-bottom:10px;
 }
 
 #selectSearch {
 	background: var(--background-color);
+	padding-top:40px;
 }
 
 .search-drop{
 	display:flex;
-	padding-top:80px;
-}
+	padding-top: 100px;
+  margin-right: -127px;
+  }
 
 .boxSearch input#search:hover, .container-1 input#search:focus,
 	.container-1 input#search:active {
@@ -41,8 +88,8 @@
 }
 
 .boxSearch input#search {
-	width: 300px;
-	height: 50px;
+	width: 200px;
+	height: 43px;
 	border: none;
 	font-size: 10pt;
 	float: left;
@@ -54,12 +101,14 @@
 	background: var(- -background-color);
 }
 
+
 .boxSearch .icon {
 	position: absolute;
-	margin-left: 270px;
-	margin-top: 15px;
+	margin-left: 170px;
+	margin-top: 11px;
 	z-index: 1;
 	color: #4f5b66;
+	
 }
 
 select {
@@ -67,7 +116,10 @@ select {
 }
 
 select:focus{
-	outline:none
+	outline:none;
+}
+input:focus{
+	outline:none;
 }
 
 .curved {
@@ -82,7 +134,7 @@ select:focus{
 
 .clicked{
 	background-color: rgb(253, 239, 123);
-  color: white;
+  color: black;
 }
 
 .section {
@@ -105,11 +157,9 @@ select:focus{
 }
 
 .section .dropdown {
-	margin-left: -70px;
-	margin-bottom: -25px;
-  padding-right: 500px;
-	padding-top: 20px;
-	padding-left: 65px;
+    padding-right: 480px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .section .select {
@@ -204,15 +254,16 @@ select:focus{
 
 .section .search-box {
 	padding-top: 25px;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 	display: flex;
 	justify-content: space-between;
+	margin: 5px;
 }
 
 .section .search-box:hover>.search-txt {
 	width: 160px;
 	padding: 0 6px;
-}
+}v
 
 .section .search-box:hover>.search-btn {
 	background: white;
@@ -297,8 +348,8 @@ select:focus{
 
 .section .article .article-crew {
 	text-align: center;
-	float: left;
-	padding: 10px;
+	float: left;	
+	padding: 20px 20px 0px 10px; 
 }
 
 .section div::after {

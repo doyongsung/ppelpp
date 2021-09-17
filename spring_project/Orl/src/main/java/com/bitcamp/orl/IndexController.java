@@ -10,7 +10,6 @@ public class IndexController {
    public String getIndexPage() {
       return "redirect:/main/main";
    }
-   
    @RequestMapping("/index")
    public void getIndex() {
    }

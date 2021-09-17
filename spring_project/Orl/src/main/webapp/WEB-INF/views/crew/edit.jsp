@@ -55,7 +55,7 @@
 						</tr>
 						<tr>
 							<td><label for="crewintro">크루 소개글</label></td>
-							<td><input type="text" id="crewintro" name="crewDiscription" class="form-control" value="${crew.crewDiscription}">
+							<td><textarea id="crewintro" name="crewDiscription" class="form-control"></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -83,4 +83,8 @@
 	</div>
 </body>
 <%@ include file="/WEB-INF/frame/default/footer.jsp"%>
+
+<script>
+$("textarea#crewintro").val("value", value.crewintro);
+</script>
 </html>
