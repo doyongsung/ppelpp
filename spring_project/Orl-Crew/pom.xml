@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bitcamp.orl</groupId>
-	<artifactId>orl1</artifactId>
+	<artifactId>DemoApp-1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>orl1</name>
-	<description>orl</description>
+	<name>DemoApp-1</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -61,11 +61,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- 메일 -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+
 		<!-- naver 아이디로 로그인 -->
 		<dependency>
 			<groupId>com.github.scribejava</groupId>

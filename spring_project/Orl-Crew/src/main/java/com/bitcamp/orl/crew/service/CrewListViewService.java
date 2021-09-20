@@ -21,6 +21,7 @@ public class CrewListViewService {
 	@Autowired
 	private SqlSessionTemplate template;
 
+	//내가 가입한 크루 리스트 가져오기
 	public List<Crew> getMyCrewList(
 			HttpServletRequest request
 			) {
@@ -34,41 +35,25 @@ public class CrewListViewService {
 		}
 		return myCrewList;
 	}
-
-	//오버로딩  09.06 세라
-		public List<Crew> getMyCrewList(
-				int memberIdx
-				){
-			
-			List<Crew> myCrewList = null;
-			dao = template.getMapper(CrewMapper.class);
-			myCrewList = dao.selectMyCrewList(memberIdx);
-			
-			
-			return myCrewList;
-		};
-		
 	
+	//검색하지 않았을 때 크루 리스트 가져오기(페이징 처리)
 	public List<Crew> getCrewListAll(int pageStart, int perPageNum) {
 		dao = template.getMapper(CrewMapper.class);
 		return dao.selectAll(pageStart, perPageNum);
 	}
 
+	//검색 결과가 있을 때 크루 리스트 가져오기(페이징 처리)
 	public List<Crew> getCrewListAll(SearchType searchType){
 		dao = template.getMapper(CrewMapper.class);
 		return dao.selectCrewAll(searchType);
 	}
 	
-	public List<Crew> getCrewListAdmin(){
-		dao = template.getMapper(CrewMapper.class);
-		return dao.selectCrewListByAdmin();
-	}
-	
-	
+	//크루 총 개수 계산(검색하지 않았을 때)
 	public int getCrewCount() {
 		return template.getMapper(CrewMapper.class).CrewCount();
 	}
 	
+	//크루 총 개수 계산(검색했을 때)
 	public int getCrewCountForSearching(SearchType searchType) {
 		return template.getMapper(CrewMapper.class).CrewCountForSearching(searchType);
 	}

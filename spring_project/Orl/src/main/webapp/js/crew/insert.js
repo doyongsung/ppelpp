@@ -1,17 +1,23 @@
-var sel_file;
-var nickJ = /^[가-힣A-Za-z0-9]{4,12}$/;
-var checkNick = true;
+let sel_file;
+let nickJ = /^[가-힣A-Za-z0-9]{4,12}$/;
+let checkNick = true;
 
-function form_submit(form) {
-    if (checkNick) {
-        form.submit();
-    } else {
-        return false;
-    }
-}
-
+let memberNickName;
 
 $(document).ready(function () {
+    
+    //로그인 한사람의 정보를 우선 가져옴
+    $.ajax({
+        url: url + '/crew/getMemberInfo',
+        type: 'get',
+        data: { memberIdx: memberIdx },
+        success: function (data) {
+            if (data != null) {
+                memberNickName = data.memberNickName
+            }
+        }
+    });
+
     // 비동기통신 스타일 속성
     $('#crewName').focusin(function () {
         $('#msg').addClass('display_none');
@@ -19,6 +25,7 @@ $(document).ready(function () {
         $('#msg').removeClass('color_red');
         $(this).val('');
     });
+
     //1. 아이디 유효성 체크
     $("#crewName").blur(function () {
         if (nickJ.test($(this).val())) {
@@ -26,13 +33,10 @@ $(document).ready(function () {
             $("#crewName_check").text('');
             // 유효성 체크 되면 비동기통신으로  id 중복 체크
             $.ajax({
-                url: 'http://localhost:8080/orl/crew/nameCheck',
+                url: url + '/crew/nameCheck',
                 type: 'get',
                 data: {
                     crewName: $(this).val()
-                },
-                beforeSend: function () {
-                    $('#loadingimg').removeClass('display_none');
                 },
                 success: function (data) {
                     // data : Y / N
@@ -59,16 +63,19 @@ $(document).ready(function () {
                 }
             });
         } else {
-            /*    alert('아이디는 4자 이상 12자 이하여야하며 ,대문자/소문자/숫자만 사용할 수 있습니다.'); */
+            /*  alert('아이디는 4자 이상 12자 이하여야하며 ,대문자/소문자/숫자만 사용할 수 있습니다.'); */
             $('#crewName_check').removeClass('display_none');
-            $('#crewName_check').text('닉네임을 다시 입력해주세요.');
+            $('#crewName_check').text('크루명을 다시 입력해주세요.');
             $('#crewName_check').css('color', '#f82a2aa3');
             checkNick = false;
         }
+
     });
+
+    // 사진이 바뀌면 사진 이미지 preview처리 함수 실행
     $("#crewPhoto").on("change", handleImgFileSelect);
 
-
+    //크루 소개글에서 키업 이벤트가 발생했을 시
     $('#crewintro').on('keyup', function () {
         $('#crewintro_cnt').html("(" + $(this).val().length + " / 150)");
 
@@ -81,13 +88,66 @@ $(document).ready(function () {
         }
     });
 
-    // 개행문자 = textarea의 엔터를 br태그로 바꿔서 db에 보냄 
-    $("form").submit(function () {
-        var html = $("#crewintro").val().replace(/(?:\r\n|\r|\n)/g, '<br />');
+    $('#submit').on('click', function () {
 
+        // 개행문자 = textarea의 엔터를 br태그로 바꿔서 db에 보냄 
+        $("#crewintro").val().replace(/(?:\r\n|\r|\n)/g, '<br />');
+
+
+        let formData = new FormData();
+        formData.append("crewName", $('#crewName').val());
+
+        let photoFile = $('#crewPhoto');
+        let file1;
+        if (photoFile != null) {
+            file1 = photoFile[0].files[0];
+        }
+        if (file1 != null) {
+            formData.append("crewPhoto", file1);
+        }
+
+        formData.append("crewDiscription", $('#crewintro').val());
+
+        var tags = document.getElementsByName('crewTag');
+        let tagString;
+        if(tags != null){
+            tagString = $(tags[0]).val();
+            for(var i = 1; i <tags.length ; i++){
+                tagString += ',';
+                tagString += ($(tags[i]).val());
+            }
+        }
+
+        formData.append("crewTag", tagString);
+        formData.append("memberIdx", memberIdx);
+        formData.append("memberNickName", memberNickName);
+
+        if (checkNick) {
+            $.ajax({
+                url: url + '/crew/createCrew',
+                type: 'post',
+                data: formData,
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                    if (data != null) {
+                        alert('크루 생성이 완료되었습니다.');
+                        window.location.href = url2 + '/crew/detail?crewIdx=' + data.crewIdx + '';
+                    } else {
+                        alert('유효한 정보를 입력해주세요.');
+                        history.go(-1);
+                    }
+                }
+            });
+        } else {
+            return false;
+        }
     });
 
 });//ready end
+
 
 //img preview
 function handleImgFileSelect(e) {
@@ -138,10 +198,10 @@ function viewImage(img) {
     imgWin.document.close();
 }
 
-///////////////////////hashtaging////////////////////
 
 $(document).ready(function () {
 
+    //해시 태그 처리
     var tag = {};
     var counter = 0;
 
@@ -150,11 +210,6 @@ $(document).ready(function () {
         tag[counter] = value;
         counter++; // del-btn 의 고유 id 가 된다.
     }
-
-    // 서버에 제공
-    $("#tag-form").on("submit", function (e) {
-        $(this).submit();
-    });
 
     $("#tag").on("keypress", function (e) {
         var self = $(this);
@@ -174,9 +229,11 @@ $(document).ready(function () {
                 // 해시태그가 중복되었는지 확인
                 if (result.length == 0) {
                     $("#tag-list").append("<li class='tag-item'>" + tagValue + "<span class='del-btn' idx='" + counter + "'>x" +
-                        "</span><input type='hidden' name='crewTag' id='rdTag' value=" + tagValue + "></li>");
+                        "</span><input type='hidden' name='crewTag' id='crewTag' value=" + tagValue + "></li>");
+
                     addTag(tagValue);
                     self.val("");
+
                 } else {
                     alert("태그값이 중복됩니다.");
                 }
@@ -184,6 +241,7 @@ $(document).ready(function () {
             e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
         }
     });
+
     // 삭제 버튼 
     // 인덱스 검사 후 삭제
     $(document).on("click", ".del-btn", function (e) {
@@ -191,4 +249,5 @@ $(document).ready(function () {
         tag[index] = "";
         $(this).parent().remove();
     });
-});
+
+});//ready end

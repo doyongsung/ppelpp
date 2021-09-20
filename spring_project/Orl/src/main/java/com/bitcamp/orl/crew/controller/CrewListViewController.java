@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.service.CrewListViewService;
+import com.bitcamp.orl.member.domain.MemberDto;
 
 @Controller
 public class CrewListViewController {
@@ -30,8 +31,12 @@ public class CrewListViewController {
 			) {
 		
 		//내 크루 리스트 처리
-		List<Crew> myCrewList = null;
-		myCrewList = service.getMyCrewList(request);
+		MemberDto dto = (MemberDto)request.getSession().getAttribute("memberVo");
+		List<Crew> myCrewList =  null;
+		
+		if(dto != null) {
+			myCrewList = service.getMyCrewList(dto.getMemberIdx());
+		}
 		
 		model.addAttribute("myCrewList", myCrewList);
 		model.addAttribute("searchType", searchType);

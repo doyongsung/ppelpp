@@ -28,12 +28,12 @@
 
             // 시작할때 비동기 통신으로 지역별 산 리스트 받아와서 mList에 저장
             $.ajax({
-                url: '<c:url value="/mountain/local"/>',
-                type: 'GET',
+                url: '${pageContext.request.contextPath}/mountain/local',
+                type: 'POST',
                 data: {loc: '${loc}'},
                 success: function (data) {
                     mList = data;
-                    mountainList(mList);
+                    mountainList(mList); 
                     map(mList);
                 }
 
@@ -41,7 +41,7 @@
 
             // 시작할때 비동기 통신으로 전국 산 리스트 받아와서 allList에 저장
             $.ajax({
-                url: '<c:url value="/mountain/all"/>',
+                url: '${pageContext.request.contextPath}/mountain/all',
                 type: 'GET',
                 success: function (data) {
                     console.log(data);
@@ -180,13 +180,13 @@
             $.each(mountainList, function (index, item) {
                 html += ' <div class="listings_item">';
                 html += ' <div class="listings_image">';
-                html += ' <img onclick="setParamLoc(this.title)" src="https://www.forest.go.kr/images/data/down/mountain/' + item.img + '" alt="" title="'+item.mountainName+'">';
+                html += ' <img style="cursor: pointer" onclick="setParamLoc(this.title)" src="https://www.forest.go.kr/images/data/down/mountain/' + item.img + '" alt="" title="'+item.mountainName+'">';
                 html += '</div>';
                 html += ' <div class="listings_content">';
                 html += ' <div class="listings_title">';
                 html += ' <div class="listings_text">';
                 html += '  <span class="greyText">${loc} 산 전체</span>';
-                html += ' <h2 onclick="setParamLoc(this.title)" title="'+item.mountainName+'">#' + item.mountainName + '</h2>';
+                html += ' <h2 style="cursor: pointer" onclick="setParamLoc(this.title)" title="'+item.mountainName+'">#' + item.mountainName + '</h2>';
                 html += '</div>';
                 html += '</div>';
                 html += '<div class="listings_description">';

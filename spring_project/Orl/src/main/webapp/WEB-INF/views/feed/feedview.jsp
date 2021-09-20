@@ -39,9 +39,7 @@
 			<section class="v_leftbox">
 
 				<!-- 피드 이미지 -->
-				<img
-					src="<c:url value="/images/feed/feedw/uploadfile/${selectFeedView.boardPhoto}"/>"
-					alt="feed-img">
+				<img src="<c:url value="/images/feed/feedw/uploadfile/${selectFeedView.boardPhoto}"/>" alt="feed-img">
 
 				<!-- 태그 버튼 -->
 				<button>
@@ -75,21 +73,19 @@
 
 					<!-- 게시자 프로필 사진 -->
 					<div class="v_photo">
-						<button
-							onclick="location.href = '<c:url value="/feed/userFeed/${selectFeedView.memberIdx}"/>'">
-							<img src="<c:url value="/images/member/profile/${member.memberProfile}"/>"
-								alt="profile-img">
+						<button onclick="location.href = '<c:url value="/feed/userfeed/${selectFeedView.memberIdx}"/>'">	<!-- 수정 (09.17.우리) -->
+							<img src="<c:url value="/images/member/profile/${selectFeedView.memberProfile}"/>" alt="profile-img">	<!-- 수정 (09.17.우리) -->
 						</button>
 					</div>
 
 					<!-- 게시자 닉네임 -->
-					<a href="<c:url value="/feed/userFeed/${selectFeedView.memberIdx}"/>"
-						class="v_nickname">${selectFeedView.memberNickname}</a>
+					<a href="<c:url value="/feed/userfeed/${selectFeedView.memberIdx}"/>" class="v_nickname">${selectFeedView.memberNickname}</a>	<!-- 수정(09.17.우리) -->
 
 					<!-- 게시 내용 -->
 					<div class="contents">
 						<!-- 게시글 -->
-						<p>${selectFeedView.boardDiscription}</p>
+						<%-- <p>${selectFeedView.boardDiscription}</p> --%>
+						<textarea readonly>${selectFeedView.boardDiscription}</textarea>
 						<!-- 해시태그 -->
 						<div>
 							<a class="hashtag">${selectFeedView.hashtag}</a>
@@ -139,7 +135,7 @@
 
 							<!-- 카톡 공유하기 -->
 							<a id="kakao-link-btn" class="share"
-								href="javascript:sendLink(${selectFeedView.memberIdx},${selectFeedView.boardIdx},${totalLikeCount})">
+								href="javascript:sendLink(${selectFeedView.memberIdx},${selectFeedView.boardIdx},${totalLikeCount});">
 								<img
 								src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
 							</a>
@@ -169,8 +165,7 @@
 
 							<!-- 게시 버튼 -->
 							<div class="submitbox">
-								<input type="submit" id="comment_submit" value="게시"
-									onclick="commentSubmit()">
+								<input type="submit" id="comment_submit" value="게시">	<!-- 수정 (09.17.우리) -->
 							</div>
 
 						</div>
@@ -203,11 +198,15 @@
 	/* document ready START */
     $(document).ready(function(){
 
+    	
+    	
         /* 뒤로 가기 (피드메인 or 유저 피드) */
         $('#pageBack').click(function(){
         	location.href = '<c:url value="/feed/feedmain"/>';
         });
 
+        
+        
         /* 피드 삭제 */
         $('.v_delete').click(function(){
             $.ajax({
@@ -241,6 +240,8 @@
         });
         /* 댓글 목록 끝 */
         
+        
+        
     });
     /* document ready END */
     
@@ -248,16 +249,31 @@
     
     /* boardMemberIdx */
 	let boardMemberIdx = '${boardMemberIdx}';
-	
-    /* 댓글 게시 */
-	function commentSubmit() {
-		alert('댓글이 게시되었습니다');
-    }
     
+	
+	
+	<!-- 이전 함수 삭제 + 새로 작성 (09.17.우리) -->
+	/* 댓글 빈값 체크 */
+    $('#comment_submit').click(function(){
+    	
+    	var comment = $('#comment').val();
+    	
+    	if(!comment){
+    		alert('댓글 내용을 입력해주세요');
+    		return false;
+    	} alert('게시되었습니다');
+    	
+    });
+    
+	
+	
     /* 댓글 게시자 프로필 사진으로 계정 이동 */
  	function showUserFeed(memberIdx) {
-		location.href='<c:url value="/feed/userFeed/'+memberIdx+'"/>';
+    	
+		location.href='<c:url value="/feed/userfeed/'+memberIdx+'"/>';	<!-- 수정 (09.17.우리) -->
 	}
+    
+    
     
     /* 댓글 목록 ajax 시작 */
     function showList(list, memberIdx){
@@ -274,7 +290,7 @@
 			html += '         </button>';
 			html += '      </div>';
 			html += '      <div class="comment">';
-			html += '         <a href="<c:url value="/feed/userFeed/'+item.memberIdx+'"/>" class="v_nickname">'+item.memberNickname+'</a>';
+			html += '         <a href="<c:url value="/feed/userfeed/'+item.memberIdx+'"/>" class="v_nickname">'+item.memberNickname+'</a>';	/* 수정 (09.17.우리) */
 			html += '         <p>'+item.comment+'</p>';
 			html += '      </div>';
 			html += '		<div class="cmt-space"></div>';
@@ -431,6 +447,9 @@
 	<script type="text/javascript">
      function sendLink(memberIdx,boardIdx,totalLikeCount) {
         /* hashtag도 파라미터로 받기 */
+        
+      const reurl = url;
+        
       Kakao.init("daeecdc3ce37abac4a9a3f8ad3e05b0a");
       
        Kakao.Link.sendDefault({
@@ -440,8 +459,8 @@
            description: '오를래',
            imageUrl:'https://ifh.cc/g/Mtgj7e.jpg',
            link: {
-             mobileWebUrl: 'http://localhost:8080/orl/feed/feedview/'+memberIdx+'&'+boardIdx,
-             webUrl: 'http://localhost:8080/orl/feed/feedview/'+memberIdx+'&'+boardIdx,
+             mobileWebUrl: '/feed/feedview/'+memberIdx+'&'+boardIdx,
+             webUrl: '/feed/feedview/'+memberIdx+'&'+boardIdx,
            },
          },
          social: {
@@ -453,8 +472,8 @@
            {
              title: '웹으로 보기',
              link: {
-               mobileWebUrl: 'http://localhost:8080/orl/feed/feedview/'+memberIdx+'&'+boardIdx,
-               webUrl: 'http://localhost:8080/orl/feed/feedview/'+memberIdx+'&'+boardIdx,
+               mobileWebUrl: '/feed/feedview/'+memberIdx+'&'+boardIdx,
+               webUrl: '/feed/feedview/'+memberIdx+'&'+boardIdx,
              },
            }
          ],

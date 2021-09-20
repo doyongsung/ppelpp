@@ -14,6 +14,7 @@ public class CrewInfo {
 	private String crewTag;
 	private int memberIdx; //크루장 
 	private String memberNickName;
+	private String memberProfile;
 	private int crewMemberNum;
 	private int crewCommentNum;
 	private boolean isReg;
@@ -28,6 +29,7 @@ public class CrewInfo {
 			String crewTag, 
 			int memberIdx, 
 			String memberNickName, 
+			String memberProfile,
 			int crewMemberNum, 
 			int crewCommentNum,
 			boolean isReg) {
@@ -39,6 +41,7 @@ public class CrewInfo {
 		this.crewTag = crewTag;
 		this.memberIdx = memberIdx;
 		this.memberNickName = memberNickName;
+		this.memberProfile = memberProfile;
 		this.crewMemberNum = crewMemberNum;
 		this.crewCommentNum = crewCommentNum;
 		this.isReg = isReg;
@@ -108,6 +111,14 @@ public class CrewInfo {
 		this.memberNickName = memberNickName;
 	}
 	
+	public String getMemberProfile() {
+		return memberProfile;
+	}
+
+	public void setMemberProfile(String memberProfile) {
+		this.memberProfile = memberProfile;
+	}
+
 	public int getCrewMemberNum() {
 		return crewMemberNum;
 	}

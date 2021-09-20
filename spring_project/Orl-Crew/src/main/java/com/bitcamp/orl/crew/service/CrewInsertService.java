@@ -3,8 +3,6 @@ package com.bitcamp.orl.crew.service;
 import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,44 +11,35 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInsertRequest;
 import com.bitcamp.orl.crew.mapper.CrewMapper;
-import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
 public class CrewInsertService {
 
-	final String UPLOAD_URI ="/images/crew";
-	
 	private CrewMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	public Crew insert(
-			CrewInsertRequest crewRequest,
-			HttpServletRequest request
-			
-			) {
+	//크루 생성
+	public Crew insert(CrewInsertRequest crewRequest) {
+		
 		File newFile = null;
 		Crew crew = crewRequest.toCrew();
+		dao = template.getMapper(CrewMapper.class);
+		
+		//크루 이름이 3글자 이상이 안되면 null 리턴
+		if(crewRequest.getCrewName().trim().length()<3) {
+			return null;
+		}
 		
 		try {
-			
 			if (crewRequest.getCrewPhoto() != null && !crewRequest.getCrewPhoto().isEmpty()) {
-				newFile = saveFile(request,crewRequest.getCrewPhoto());
+				newFile = saveFile(crewRequest.getCrewPhoto());
 				crew.setCrewPhoto(newFile.getName());
 			}
 			
-			MemberDto dto = (MemberDto)(request.getSession().getAttribute("memberVo"));
-		    
-		    if (dto != null) {			
-		    	crew.setMemberIdx(dto.getMemberIdx());
-		    	crew.setMemberNickName(dto.getMemberNickname());
-		    }
-		    
-			dao = template.getMapper(CrewMapper.class);
 			dao.insertCrew(crew);
-			dao.insertCrewReg(dto.getMemberIdx(), crew.getCrewIdx());
-		
+			dao.insertCrewReg(crew.getMemberIdx(), crew.getCrewIdx());
 		} catch(Exception e) {
 			e.printStackTrace();
 			if(newFile != null & newFile.exists()) {
@@ -58,25 +47,23 @@ public class CrewInsertService {
 				System.out.println("파일 삭제");
 			}
 		}
-		
 		return crew;
 	}
 	
-	public File saveFile(
-			HttpServletRequest request, 
-			MultipartFile file) {
+	//파일 저장 method
+	public File saveFile(MultipartFile file) {
 		
-		String path = request.getSession().getServletContext().getRealPath(UPLOAD_URI);
+		String path = "C:\\Users\\user\\Documents\\GitHub\\java205\\Spring_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Orl\\images\\crew";
 		File newDir = new File(path);
 		
 		if(!newDir.exists()) {
 			newDir.mkdir();
 			System.out.println("저장 폴더를 생성했습니다.");
 		}
+		System.out.println(newDir);
 		
 		String newFileName = System.currentTimeMillis() + file.getOriginalFilename();
 		File newFile = new File(newDir, newFileName);
-		
 		try {
 			file.transferTo(newFile);
 		} catch (IllegalStateException e) {

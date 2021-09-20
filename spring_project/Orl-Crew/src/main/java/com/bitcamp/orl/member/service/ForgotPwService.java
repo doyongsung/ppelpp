@@ -15,13 +15,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.orl.member.mapper.Dao;
+import com.bitcamp.orl.member.mapper.MemberMapper;
 
 @Service
 public class ForgotPwService {
 	
 
-	  private Dao dao;
+	  private MemberMapper dao;
 	   
 	   @Autowired
 	   private SqlSessionTemplate template;
@@ -32,7 +32,7 @@ public class ForgotPwService {
 		   
 		   String findPw=null;
 		   
-		   dao=template.getMapper(Dao.class);
+		   dao=template.getMapper(MemberMapper.class);
 		   
 		  if(memberId!=null && membername != null && memberEmail != null&& 
 			  memberId.trim().length() > 1 && membername.trim().length() > 1

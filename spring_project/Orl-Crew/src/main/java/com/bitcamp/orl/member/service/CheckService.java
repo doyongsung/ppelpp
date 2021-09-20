@@ -4,19 +4,19 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.orl.member.mapper.Dao;
+import com.bitcamp.orl.member.mapper.MemberMapper;
 
 @Service
 public class CheckService {
 
-   private Dao dao;
+   private MemberMapper dao;
    @Autowired
    private SqlSessionTemplate template;
    
    public String idCheck(String id) {
       
       String result ="Y";
-      dao=template.getMapper(Dao.class);
+      dao=template.getMapper(MemberMapper.class);
       
       if(dao.selectById(id)>0 ||id ==null || id.trim().equals("")) {
          result="N";
@@ -27,7 +27,7 @@ public class CheckService {
    public String nickNameCheck(String nickname) {
       
       String result ="Y";
-      dao=template.getMapper(Dao.class);
+      dao=template.getMapper(MemberMapper.class);
       
       if(dao.selectByNickName(nickname)>0 ||nickname ==null || nickname.trim().equals("")) {
          result="N";
@@ -38,7 +38,7 @@ public class CheckService {
    public String emailCheck(String email) {
 
       String result ="Y";
-      dao=template.getMapper(Dao.class);
+      dao=template.getMapper(MemberMapper.class);
 
       if(dao.selectByEmail(email)>0 ||email ==null || email.trim().equals("")) {
          result="N";

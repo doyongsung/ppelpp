@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.bitcamp.orl.crew.domain.Crew;
-import com.bitcamp.orl.crew.domain.CrewComment;
 import com.bitcamp.orl.crew.domain.CrewCommentInfo;
 import com.bitcamp.orl.crew.domain.CrewMemberList;
 import com.bitcamp.orl.crew.domain.SearchType;
@@ -18,9 +17,6 @@ public interface CrewMapper {
 	
 	//검색을 통한 crew 리스트 
 	List<Crew> selectCrewAll(SearchType searchType);
-	
-	//관리자 crew 전체 리스트
-	List<Crew> selectCrewListByAdmin();
 	
 	//크루 게시물 총 개수
 	int CrewCount();
@@ -53,7 +49,7 @@ public interface CrewMapper {
 	int insertCrewComment(@Param("crewComment")String crewComment, @Param("memberIdx")int memberIdx, @Param("crewIdx")int crewIdx);
 	
 	//한 특정 crew의 댓글 리스트 가져오기(페이징+)
-	List <CrewComment> selectCrewCommentPaging(@Param("crewIdx")int crewIdx, @Param("firstRow")int firstRow, @Param("amountPerPage")int amountPerPage);
+	List <CrewCommentInfo> selectCrewCommentPaging(@Param("crewIdx")int crewIdx, @Param("firstRow")int firstRow, @Param("amountPerPage")int amountPerPage);
 	
 	//크루 생성
 	int insertCrew(Crew crew);

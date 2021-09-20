@@ -17,6 +17,7 @@ public class CrewMemberMngService {
 	@Autowired
 	SqlSessionTemplate template;
 	
+	//크루원 리스트 가져오기
 	public List<CrewMemberList> getCrewMemberList(
 			int crewIdx
 			){
@@ -25,6 +26,7 @@ public class CrewMemberMngService {
 		return list;
 	}
 	
+	//크루원 추방
 	public int deleteCrewMemberFromList(
 			int memberIdx,
 			int crewIdx
@@ -35,6 +37,7 @@ public class CrewMemberMngService {
 		return resultCnt;
 	}
 	
+	//크루 가입
 	public int crewReg(
 			int memberIdx,
 			int crewIdx

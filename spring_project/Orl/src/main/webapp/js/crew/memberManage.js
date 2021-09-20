@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $('#crewMemberList').on('click', 'button', function () {
         $.ajax({
-            url: 'http://localhost:8080/orl/crew/deleteCrewMemberFromList',
+            url: url+'/crew/deleteCrewMemberFromList',
             type: 'get',
             data: {
                 memberIdx: $('input', $(this).parent()).val(),
@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 function getCrewMemberList() {
     $.ajax({
-        url: 'http://localhost:8080/orl/crew/getCrewMemberList',
+        url: url+'/crew/getCrewMemberList',
         type: 'GET',
         data: {
             crewIdx: crewIdx
@@ -36,7 +36,7 @@ function getCrewMemberList() {
             $.each(data, function (index, item) {
                 html += '<tr>';
                 html += '<td>' + Number(index + 1) + '</td>';
-                html += '<td><img id="profile" src="http://localhost:8080/orl/images/default.jpg"></td>';
+                html += '<td><img id="profile" src="'+url2+'/images/default.jpg"></td>';
                 html += '<td id="nickname">' + item.memberNickName + '</td>';
                 html += '<td class="date">' + item.crewRegdate + '</td>';
                 if (item.memberIdx != sessionMemberIdx) {

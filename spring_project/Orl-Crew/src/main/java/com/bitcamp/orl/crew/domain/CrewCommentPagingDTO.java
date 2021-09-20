@@ -2,6 +2,13 @@ package com.bitcamp.orl.crew.domain;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CrewCommentPagingDTO {
 	
 	private List<CrewCommentInfo> infoList;
@@ -39,30 +46,6 @@ public class CrewCommentPagingDTO {
 				this.totalPageNum += 1;
 			}
 		}
-	}
-	
-	public List<CrewCommentInfo> getInfoList() {
-		return infoList;
-	}
-
-	public int getTotalCommentNum() {
-		return totalCommentNum;
-	}
-
-	public int getTotalPageNum() {
-		return totalPageNum;
-	}
-
-	public CrewCommentCriteria getCri() {
-		return cri;
-	}
-
-	public int getStartRow() {
-		return startRow;
-	}
-
-	public int getEndRow() {
-		return endRow;
 	}
 
 }

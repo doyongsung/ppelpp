@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.bitcamp.orl.crew.dao.Dao">
+<mapper namespace="com.bitcamp.orl.crew.mapper.CrewMapper">
 
 	<!-- Select 의 결과를 매핑하는 설정 -->
 	<resultMap id="crewListResult"
@@ -135,15 +135,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member where memberIdx = #{memberIdx}
 	</select>
 
-
 	<!-- Select 의 결과를 매핑하는 설정 -->
 	<resultMap id="crewCommentListResult"
-		type="com.bitcamp.orl.crew.domain.CrewComment">
+		type="com.bitcamp.orl.crew.domain.CrewCommentInfo">
 		<id column="crewCommentIdx" property="crewCommentIdx" />
 		<result column="crewComment" property="crewComment" />
 		<result column="crewCommentDate" property="crewCommentDate" />
 		<result column="memberIdx" property="memberIdx" />
 		<result column="crewIdx" property="crewIdx" />
+		<result column="memberNickName" property="memberNickName" />
+		<result column="memberProfile" property="memberProfile" />
 	</resultMap>
 
 	<!-- insert -->
@@ -167,7 +168,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select 
 	id="selectCrewCommentPaging"
 	resultMap="crewCommentListResult">
-		select * from crewComment where crewIdx=#{crewIdx}
+		select crewCommentIdx, crewComment, crewCommentDate, memberIdx, crewIdx, memberNickName, memberProfile 
+		from crewComment natural join member  
+		where crewIdx=#{crewIdx}
 		order by crewCommentIdx desc limit #{firstRow}, #{amountPerPage}
 	</select>
 
@@ -178,8 +181,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	keyProperty="crewIdx">
 		insert into crew
 		(crewName,crewPhoto,crewDiscription,crewTag,memberIdx,memberNickName)
-		values (#{crewName}, #{crewPhoto}, #{crewDiscription}, #{crewTag},
-		#{memberIdx}, #{memberNickName})
+		values (#{crewName}, #{crewPhoto}, #{crewDiscription}, #{crewTag}, #{memberIdx}, #{memberNickName})
 	</insert>
 
 	<!-- 크루 이름 중복 체크 -->

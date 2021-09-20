@@ -1,5 +1,12 @@
 package com.bitcamp.orl.crew.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PageMaker {
 	
 	private CrewListCriteria cri;// page, perPageNum 을 가지고 있음
@@ -31,71 +38,5 @@ public class PageMaker {
         }
         prev = startPage ==1 ?false :true;// 1페이지면 이전 누를 수 없게 false
         next = endPage * cri.getPerPageNum() >= totalCount ?false :true;
-    }
-    
-    /* parameter로 안넘기고 비동기 통신으로 바꿔서 사용x
-    public String makeQuery(int page) {
-        UriComponents uriComponents = 
-        		UriComponentsBuilder.newInstance().queryParam("page", page)
-                .queryParam("perPageNum", cri.getPerPageNum()).build();
-        return uriComponents.toUriString();
-    }
-    */
-
-    // getter setter
-    public CrewListCriteria getCri() {
-        return cri;
-    }
- 
-    public int getTempEndPage() {
-        return tempEndPage;
-    }
- 
-    public void setCri(CrewListCriteria cri) {
-        this.cri = cri;
-    }
- 
-    public int getTotalCount() {
-        return totalCount;
-    }
- 
-    public int getStartPage() {
-        return startPage;
-    }
- 
-    public void setStartPage(int startPage) {
-        this.startPage = startPage;
-    }
- 
-    public int getEndPage() {
-        return endPage;
-    }
- 
-    public void setEndPage(int endPage) {
-        this.endPage = endPage;
-    }
- 
-    public boolean isPrev() {
-        return prev;
-    }
- 
-    public void setPrev(boolean prev) {
-        this.prev = prev;
-    }
- 
-    public boolean isNext() {
-        return next;
-    }
- 
-    public void setNext(boolean next) {
-        this.next = next;
-    }
- 
-    public int getDisplayPageNum() {
-        return displayPageNum;
-    }
- 
-    public void setDisplayPageNum(int displayPageNum) {
-        this.displayPageNum = displayPageNum;
     }
 }

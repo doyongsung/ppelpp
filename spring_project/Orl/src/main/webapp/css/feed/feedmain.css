@@ -8,6 +8,16 @@
 body {
 	background-color: #f8f8f8;
 }
+/* 스크롤 배경 */
+::-webkit-scrollbar {
+	background-color: white;
+}
+/* 스크롤 막대 */
+::-webkit-scrollbar-thumb {
+	height: 30px;
+	border-radius: 10px;
+	background-color: #fdef7b;
+}
 a {
 	text-decoration: none;
 	color: #000;

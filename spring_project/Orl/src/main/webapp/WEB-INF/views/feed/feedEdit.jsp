@@ -55,13 +55,13 @@
 	
 	                <!-- 게시자 프로필 사진 -->
 	                <div class="e_photo">
-	                    <button onclick="location.href = '<c:url value="/feed/userFeed/${selectFeedView.memberIdx}"/>'">
-	                        <img src="<c:url value="/images/member/profile/${member.memberProfile}"/>" alt="profile-img">
+	                    <button onclick="location.href = '<c:url value="/feed/userfeed/${selectFeedView.memberIdx}"/>'">	<!-- 수정 (09.17.우리) -->
+	                        <img src="<c:url value="/images/member/profile/${selectFeedView.memberProfile}"/>" alt="profile-img">	<!-- 수정 (09.16.우리) -->
 	                    </button>
 	                </div>
 	
 	                <!-- 게시자 닉네임 -->
-	                <a href="<c:url value="/feed/userFeed/${selectFeedView.memberIdx}"/>" class="e_nickname">${selectFeedView.memberNickname}</a>
+	                <a href="<c:url value="/feed/userfeed/${selectFeedView.memberIdx}"/>" class="e_nickname">${selectFeedView.memberNickname}</a>	<!-- 수정 (09.17.우리) -->
 	
 	            </div>
 	            <!-- 게시자 프로필 영역 끝 -->
@@ -72,7 +72,7 @@
 	            	<!-- 게시글 영역 -->
 		           	<div class="contentsbox">
 						<p>게시글</p>
-						<input type="text" value="${selectFeedView.boardDiscription}" name="boardDiscription" id="boardDiscription" autocomplete="off">
+						<textarea name="boardDiscription" id="boardDiscription" autocomplete="off">${selectFeedView.boardDiscription}</textarea>	<!-- 수정 (09.17.우리) -->
 					</div>
 					
 					<!-- 해시태그 영역 -->
@@ -105,11 +105,7 @@
 	<!-- 전체 영역 끝 -->
 	
 	
-	
-	<!-- footer -->
 	<%@ include file="/WEB-INF/frame/default/footer.jsp"%>
-
-
 
 	<script>
 	
@@ -119,8 +115,6 @@
 		}
 		
 	</script>
-	
-	
 	
 </body>
 </html>

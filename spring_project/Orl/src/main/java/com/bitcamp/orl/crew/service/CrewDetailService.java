@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.orl.crew.dao.Dao;
 import com.bitcamp.orl.crew.domain.Crew;
 import com.bitcamp.orl.crew.domain.CrewInfo;
+import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberDto;
 
 @Service
@@ -27,7 +28,9 @@ public class CrewDetailService {
 		
 		CrewInfo crewinfo = getCrew(crewIdx).crewToCrewInfo();
 		MemberDto dto = (MemberDto)session.getAttribute("memberVo");
+		Member crewCap = dao.selectMemberByMemberIdx(crewinfo.getMemberIdx());
 		
+		crewinfo.setMemberProfile(crewCap.getMemberProfile());
 		crewinfo.setCrewMemberNum(getCrewMemberNum(crewIdx));
 		crewinfo.setCrewCommentNum(getCrewCommentNum(crewIdx));
 		

@@ -5,7 +5,7 @@
       "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 인터페이스의 full name을 namespace로 설정해야한다!!! -->
-<mapper namespace="com.bitcamp.orl.member.dao.Dao">
+<mapper namespace="com.bitcamp.orl.member.dao.MemberMapper">
 
    <!-- insert 회원가입 -->
    <insert

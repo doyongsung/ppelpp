@@ -5,21 +5,34 @@
 	padding: 0%;
 	margin: 0%;
 }
-
 a {
 	text-decoration: none;
 	color: #000;
 }
-
 button, input {
 	border: 0;
 	background-color: #00ff0000;
 }
-
 button:hover, input:hover, a:hover {
 	cursor: pointer;
 }
-
+textarea {
+	border: 0px;
+	resize: none;
+}
+textarea:focus {
+	outline: none;
+}
+/* 스크롤 배경 */
+::-webkit-scrollbar {
+	background-color: white;
+}
+/* 스크롤 막대 */
+::-webkit-scrollbar-thumb {
+	height: 30px;
+	border-radius: 10px;
+	background-color: #fdef7b;
+}
 .background {
 	height: 1100px;
 	background-color: #f8f8f8;
@@ -94,8 +107,8 @@ button:hover, input:hover, a:hover {
 
 .e_profile img {
 	margin: 30%;
-	width: 100%;
-	height: 100%;
+	width: 60px;	/* 수정 (09.17.우리) */
+	height: 60px;	/* 수정 (09.17.우리) */
 	object-fit: cover;
 	border-radius: 50%;
 	padding: 3px;
@@ -116,35 +129,43 @@ button:hover, input:hover, a:hover {
 
 /* 게시글 수정 영역 */
 .contentsbox {
-	height: 310px;
+	height: 270px;
 	position: relative;
 }
 .contentsbox>p {
 	position: absolute;
 	left: 27px;
-	top: 25px;
+	top: 45px;
 }
 /* 입력 상자 */
-.contentsbox>input {
+.contentsbox>textarea {
 	position: absolute;
 	left: 90px;
 	top: 25px;
 	border: 1px solid gray;
 	border-radius: 6px;
 	padding-left: 20px;
-	padding-top: 2px;
+	padding-top: 20px;
 	width: 320px;
-	height: 250px;
+	height: 200px;
+	line-height: 150%;
+	font-size: 15px;
+}
+/* 게시글 placeholder */
+textarea::placeholder {
+	position:absolute;
+	top: 20px;
 }
 
 /* 해시태그 수정 영역 */
 .hashtagbox {
-	height: 50px;
+	height: 70px;
 	position: relative;
 }
 .hashtagbox>p {
 	position: absolute;
 	left: 18px;
+	top: 25px;
 }
 /* 입력 상자 */
 .hashtagbox>input {
@@ -153,21 +174,24 @@ button:hover, input:hover, a:hover {
 	bottom: 20px;
 	border: 1px solid gray;
 	border-radius: 6px;
-	padding-left: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
 	padding-top: 2px;
 	width: 320px;
 	height: 33px;
+	font-size: 14px;
 }
 
 /* 태그 수정 영역 */
 .tagbox {
-	height: 70px;
+	height: 80px;
 	border-bottom: 1px solid gainsboro;
 	position: relative;
 }
 .tagbox>p {
 	position: absolute;
 	left: 32px;
+	top: 30px;
 }
 /* 입력 상자 */
 .tagbox>input {
@@ -180,13 +204,14 @@ button:hover, input:hover, a:hover {
 	padding-top: 2px;
 	width: 320px;
 	height: 33px;
+	font-size: 15px;
 }
 
 /* 게시 버튼 영역 */
 .submit {
-	height: 100px;
+	height: 120px;
 	position: relative;
-
+    
 }
 /* 게시 버튼 */
 .submit>input {

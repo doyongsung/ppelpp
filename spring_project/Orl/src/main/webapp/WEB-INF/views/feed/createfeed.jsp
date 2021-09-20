@@ -11,6 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
+
 <body>
 
 	<!-- 피드 작성 폼 -->
@@ -37,8 +38,8 @@
 				
 					<!-- 작성자 프로필 -->
 					<div class="c_photo">
-						<button onclick="location.href = '<c:url value="/feed/userFeed/${sessionScope.memberVo.memberIdx}"/>'">
-							<img src="<c:url value="/images/member/profile/${member.memberProfile}"/>" alt="profile-img">
+						<button onclick="location.href = '<c:url value="/feed/userfeed/${sessionScope.memberVo.memberIdx}"/>'">	<!-- 수정(09.17.우리) -->
+							<img src="<c:url value="/images/member/profile/${member.memberProfile}"/>" alt="profile-img">	<!-- 수정(09.17.우리) -->
 						</button>
 					</div>
 					
@@ -60,7 +61,7 @@
 					<!-- 게시글 입력 -->
 					<div class="contentsbox">
 						<p>게시글</p>
-						<input type="text" placeholder="게시글을 입력해주세요" name="boardDiscription" id="boardDiscription" autocomplete="off">
+						<textarea placeholder="게시글을 입력해주세요" name="boardDiscription" id="boardDiscription" autocomplete="off"></textarea>	<!-- 수정 (09.17.우리) -->
 					</div>
 					
 					<!-- 해시태그 입력 -->
@@ -144,15 +145,13 @@
 			
 		});
 		
+		/* 게시글 입력창 줄바꿈 */
+		$('#boardDiscription').click(function(){
+			var html = $('#boardDiscription').val().replace(/(?:\r\n|\r|\n)/g, '<br />');
+		});
+		
 	</script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-

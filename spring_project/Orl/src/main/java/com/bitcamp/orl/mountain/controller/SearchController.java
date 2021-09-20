@@ -26,7 +26,7 @@ public class SearchController {
 		) {
 		
 		String search =null;
-		search=request.getParameter("mysearch"); 
+		search=request.getParameter("mysearch").trim(); 
 		
 	
 			List<MountainLocInfo> mountainListByName = null;

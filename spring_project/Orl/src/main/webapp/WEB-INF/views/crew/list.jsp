@@ -20,13 +20,12 @@
 	let cList = [];
 	const searchType = '${searchType}';
 	const keyword = '${keyword}';
+	/*부트서버*/
+	const url = 'http://localhost:8081';
+	/*뷰 서버*/	
+	const url2 = '${pageContext.request.contextPath}';
 </script>
 <script src="<c:url value='/js/crew/list.js'/>"></script>
-<style>
-#home .header h1 {
-    margin-bottom: 0;
-}
-</style>
 </head>
 <%@ include file="/WEB-INF/frame/default/header.jsp"%>
 <body>

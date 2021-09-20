@@ -27,7 +27,12 @@
 					<li><a href="<c:url value='/crew/list'/>">CREW</a></li>
 					<li><a href="<c:url value='/feed/feedmain'/>">FEED</a></li>
 					<li><div class="icon" onclick="menuToggle();">
-							<a href="#"><i class="far fa-user"></i></a>
+						    <c:if test="${sessionScope.memberVo eq null}">
+                                <i class="far fa-user"></i>
+                            </c:if>
+                            <c:if test="${sessionScope.memberVo ne null }">
+                                <i class="fas fa-user"></i>
+                            </c:if>
 						</div></li>
 				</ul>
 			</div>
@@ -39,7 +44,7 @@
 					</c:if>
 					<c:if test="${sessionScope.memberVo ne null }">
 						<li><a href="<c:url value='/crew/list'/>">내 크루</a></li>
-						<li><a href="<c:url value='/feed/userFeed/${sessionScope.memberVo.memberIdx}'/>">내 피드</a></li>
+						<li><a href="<c:url value='/feed/userfeed/${sessionScope.memberVo.memberIdx}'/>">내 피드</a></li>
 						<li><a href="<c:url value='/member/mypage'/>">마이페이지</a></li>
 						<li><a href="<c:url value='/member/logout'/>">로그아웃</a></li>
 					</c:if>

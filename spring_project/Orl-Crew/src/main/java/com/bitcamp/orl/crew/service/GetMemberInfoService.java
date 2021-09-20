@@ -5,24 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.crew.mapper.CrewMapper;
+import com.bitcamp.orl.member.domain.Member;
 
 @Service
-public class CrewNameCheckService {
-	
-	private CrewMapper dao;
+public class GetMemberInfoService {
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	//크루 생성시 이름 중복여부 체크
-	public String crewNameCheck(String crewName) {
-		
-		String result = "Y";
-		dao = template.getMapper(CrewMapper.class);
-		
-		if(dao.selectByCrewName(crewName)>0) {
-			result="N";
-		}
-		return result;
+	public Member getMemberInfo(int memberIdx) {
+		return template.getMapper(CrewMapper.class).selectMemberByMemberIdx(memberIdx);
 	}
 }

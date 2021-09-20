@@ -10,15 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Orl1ApplicationTests {
+class DemoApp1ApplicationTests {
 
-	
 	@Autowired
 	private DataSource dataSource;
-	
+
 	private Connection conn;
 	
-
 	@Test
 	void contextLoads() {
 	}
@@ -30,6 +28,6 @@ class Orl1ApplicationTests {
 		conn = dataSource.getConnection();
 		System.out.println("Connection >>>>>>> " + conn);
 		conn.close();
+	}
 
-}
 }

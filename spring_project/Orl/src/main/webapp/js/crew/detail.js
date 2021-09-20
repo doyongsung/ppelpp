@@ -37,16 +37,15 @@ $(document).ready(function(){
         var formData = new FormData();
         formData.append("crewIdx", $('#crewIdx').val());
         formData.append("crewComment", $('#crewComment').val());
+		formData.append("memberIdx", memberIdx);
         $.ajax({
-            url: 'http://localhost:8080/orl/crew/commentInsert',
+            url: url+'/crew/commentInsert',
             type: 'post',
             data: formData,
-            processData: false,
-            contentType: false,
-            cache: false,
             success : function(data){
                 if(data==0){
-                    alert('로그인 여부를 확인해주세요.');}
+                    alert('로그인 여부를 확인해주세요.');
+				}
                 commentList();
             }
         })
@@ -58,7 +57,7 @@ $(document).ready(function(){
 			window.location.href="/orl/member/login?referer=/orl/crew/detail?crewIdx="+crewIdx+"";
 		} else {
 			$.ajax({
-				url: 'http://localhost:8080/orl/crew/joinToCrewMemberList',
+				url: url+'/crew/joinToCrewMemberList',
 				type: 'get',
 				data: {
 					memberIdx : memberIdx,
@@ -69,7 +68,7 @@ $(document).ready(function(){
 						alert('가입에 실패했습니다.');
 					} else if(data==1){
 						alert('크루에 가입하셨습니다.');
-						window.location.href="http://localhost:8080/orl/crew/detail?crewIdx="+crewIdx+"";
+						window.location.href=""+url2+"/crew/detail?crewIdx="+crewIdx+"";
 					}
 				}
 			});	
@@ -82,7 +81,7 @@ $(document).ready(function(){
 			window.location.href="/orl/member/login?referer=/orl/crew/detail?crewIdx="+crewIdx+"";
 		} else {
 			$.ajax({
-				url: 'http://localhost:8080/orl/crew/deleteCrewMemberFromList',
+				url: url+'/crew/deleteCrewMemberFromList',
 				type: 'get',
 				data: {
 					memberIdx : memberIdx,
@@ -93,7 +92,7 @@ $(document).ready(function(){
 						alert('탈퇴에 실패했습니다.');
 					} else if(data==1){
 						alert('해당 크루를 탈퇴했습니다.');
-						window.location.href="http://localhost:8080/orl/crew/detail?crewIdx="+crewIdx+"";
+						window.location.href=""+url2+"/crew/detail?crewIdx="+crewIdx+"";
 					}
 				}
 			});
@@ -114,11 +113,11 @@ function commentToggle(parameter){
 //Comment edit.
 function editComment(parameter){
     $.ajax({
-        url: 'http://localhost:8080/orl/crew/getCommentInfo',
+        url: url+'/crew/getCommentInfo',
         type: 'GET',
         data: {crewCommentIdx : parameter},
         success: function(data){
-            var html = '<td><img id="profile" src="http://localhost:8080/orl/images/default.jpg"></td>';
+            var html = '<td><img id="profile" src="'+url2+'/images/member/profile/'+data.memberProfile+'"></td>';
             html += '<td><p id="nickname">'+data.memberNickName+'</p>';
             html += '<input class="form-control" id="newCrewComment" type="text" value="'+data.crewComment+'"></td>';
             html += '<td><p><br></p><a href="javascript:commentList()" class="tag-item">취소</a>';
@@ -127,11 +126,9 @@ function editComment(parameter){
         }
     });
 }
-
-//Comment update.
 function updateComment(parameter){
     $.ajax({
-        url: 'http://localhost:8080/orl/crew/commentUpdate',
+        url: url+'/crew/commentUpdate',
         type: 'post',
         data: {
             crewComment: $('#newCrewComment').val(),
@@ -149,7 +146,7 @@ function updateComment(parameter){
 //Comment delete.
 function deleteComment(parameter){
     $.ajax({
-        url: 'http://localhost:8080/orl/crew/commentDelete',
+        url: url+'/crew/commentDelete',
         type: 'GET',
         data: {crewCommentIdx : parameter},
         success: function(data){
@@ -161,7 +158,7 @@ function deleteComment(parameter){
 //HTML output function.
 function commentList(parameter){
 	$.ajax({
-		url: 'http://localhost:8080/orl/crew/getCommentInfoList',
+		url: url+'/crew/getCommentInfoList',
 		type: 'GET',
 		data: {
 			crewIdx: crewIdx,
@@ -182,15 +179,24 @@ function commentList(parameter){
 				
 			// 있는 경우 Comment 정보 반복문으로 처리
 			$.each(data.infoList, function(index, item){
-				html += '<tr id="'+item.crewCommentIdx+'"><td><img id="profile" src="http://localhost:8080/orl/images/default.jpg"></td>';
-				html +=	'<td><p id="nickname">'+item.memberNickName+'</p>';
+				html += '<tr id="'+item.crewCommentIdx+'">';
+				html += '<td>';
+				if(memberIdx != '') {
+					html += '<a href="'+url2+'/feed/userfeed/'+item.memberIdx+'">';
+				}
+				html += '<img id="profile" src="'+url2+'/images/member/profile/'+item.memberProfile+'"></a></td>';
+				html +=	'<td>';
+				if(memberIdx != '') {
+					html += '<a href="'+url2+'/feed/userfeed/'+item.memberIdx+'">';
+				}
+				html += '<p id="nickname">'+item.memberNickName+'</p></a>';
 				html += '<p class="content">'+item.crewComment+'</p>';
 				html += '<p class="date">'+item.crewCommentDate+'</p></td>';
 				html += '<td>';
 			    if(memberIdx == item.memberIdx){
 					html += '<div class="commentMenuBox">';
 					html += '<div class="icon" onclick="commentToggle('+item.crewCommentIdx+');">';
-					html += '<a href="#"><img id="commentMng" src="http://localhost:8080/orl/images/crew/icon.png"></a>';
+					html += '<a href="#"><img id="commentMng" src="'+url2+'/images/crew/icon.png"></a>';
 					html +=	'<div id="cmid" class="commentMenu commentMenu'+item.crewCommentIdx+'"><ul id="commentMenu'+item.crewCommentIdx+'"></ul></div>';						html += '</div>';
 					html += '</div>';
 				}

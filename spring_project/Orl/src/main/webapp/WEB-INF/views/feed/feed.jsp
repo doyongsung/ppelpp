@@ -70,8 +70,7 @@
 							<div class="search">
 								<input type="text" placeholder="search" name="mySearch" autocomplete="off" required>
 								<button type="submit">
-									<img src="<c:url value="/images/feed/feedw/search.png"/>"
-										alt="search">
+									<img src="<c:url value="/images/feed/feedw/search.png"/>" alt="search">
 								</button>
 							</div>
 						</form>
@@ -106,8 +105,8 @@
 		                        
 		                        	<!-- 게시자 닉네임 -->
 		                           	<div class="nickname">
-		                            	<a href="<c:url value="/feed/userFeed/${feedOrderByLike.memberIdx}"/>" class="nickname2">${feedOrderByLike.memberNickname}</a>
-		                           	</div>
+		                            	<a href="<c:url value="/feed/userfeed/${feedOrderByLike.memberIdx}"/>" class="nickname2">${feedOrderByLike.memberNickname}</a>
+		                           	</div>						<!-- 09.17.세라 -->
 		                           
 		                           	<!-- 게시자 좋아요 버튼 -->
 		                           	<%-- <div>
@@ -243,7 +242,7 @@
 				alert('로그인 후 이용 가능합니다');
 				location.href = '<c:url value="/member/login"/>';
 			} else {
-				location.href = '<c:url value="/feed/userFeed/'+memberIdx+'"/>';
+				location.href = '<c:url value="/feed/userfeed/'+memberIdx+'"/>';	/* 09.17.우리 */
 			}
 
 		}

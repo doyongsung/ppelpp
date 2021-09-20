@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberRequest;
-import com.bitcamp.orl.member.mapper.Dao;
+import com.bitcamp.orl.member.mapper.MemberMapper;
 
 @Service
 public class RegService {
 	
-	private Dao dao;
+	private MemberMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
@@ -30,7 +30,7 @@ public class RegService {
 	        member.setMemberNickname(memberRequest.getMemberNickname());
 			member.setMemberBirth(memberRequest.getMemberBirth());
 			
-			dao = template.getMapper(Dao.class);
+			dao = template.getMapper(MemberMapper.class);
 			
 			resultCnt=dao.insertMember(member);
 			
@@ -49,7 +49,7 @@ public class RegService {
 		
 		int resultCnt=0;
 		
-		dao = template.getMapper(Dao.class);
+		dao = template.getMapper(MemberMapper.class);
 			
 		resultCnt=dao.insertMember(member);
 			

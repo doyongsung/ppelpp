@@ -17,9 +17,14 @@
 <script defer src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous"></script>
-<script defer type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+const memberIdx = '${sessionScope.memberVo.memberIdx}';
+/*부트서버*/
+const url = 'http://localhost:8081';
+/*뷰 서버*/	
+const url2 = '${pageContext.request.contextPath}';
+</script>
 <script src="<c:url value='/js/crew/insert.js'/>"></script>
 </head>
 <body>
@@ -34,26 +39,23 @@
 					<table>
 						<tr>
 							<td><label for="crewName">크루명</label></td>
-							<td><input type="text" id="crewName" name="crewName"
-								class="form-control" required="required">
-								<div id="msg" class="display_none"></div> <font
-								id="crewName_check" size="2"></font></td>
+							<td><input type="text" id="crewName" name="crewName" class="form-control" required="required">
+								<div id="msg" class="display_none"></div>
+								<font id="crewName_check" size="2"></font></td>
 						</tr>
 						<tr>
 							<td><label for="crewPhoto">크루 사진</label></td>
-							<td><img src="<c:url value="/images/crew/defaultCrew.png"/>"
-								id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다."
-								style="cursor: pointer;" onclick="doImgPop(this.src)" /> <input
-								type="file" id="crewPhoto" name="crewPhoto"
-								class="form-control form-control-lg" required="required">
+							<td><img src="<c:url value="/images/crew/defaultCrew.png"/>" 
+								id="img" class="hiking" title="클릭하시면 원본크기로 보실 수 있습니다." style="cursor: pointer;" onclick="doImgPop(this.src)" />
+								<input type="file" id="crewPhoto" name="crewPhoto" class="form-control form-control-lg" required="required">
 							</td>
 						</tr>
 						<tr>
 							<td><label for="crewDiscription">크루 소개글</label></td>
-							<td><textarea id="crewintro" name="crewDiscription"
-									class="form-control" placeholder="새로운 크루 소개글을 입력해주세요!"
-									required="required"></textarea>
-								<div id="crewintro_cnt">(0 / 150)</div></td>
+							<td>
+								<textarea id="crewintro" name="crewDiscription" class="form-control" placeholder="새로운 크루 소개글을 입력해주세요!" required="required"></textarea>
+								<div id="crewintro_cnt">(0 / 150)</div>
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -66,15 +68,13 @@
 							<td>
 								<ul id="tag-list"></ul>
 								<div class="form-group">
-									<input type="text" id="tag" size="7" placeholder="#"
-										style="width: 300px;" />
+									<input type="text" id="tag" size="7" placeholder="#" style="width: 300px;" />
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td id="submit"><input type="submit" value="생성"
-								class="form-control btn-secondary"></td>
+							<td><input id="submit" type="button" value="생성" class="form-control btn-secondary"></td>
 						</tr>
 					</table>
 				</form>

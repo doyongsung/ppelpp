@@ -12,13 +12,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberEditRequest;
-import com.bitcamp.orl.member.mapper.Dao;
+import com.bitcamp.orl.member.mapper.MemberMapper;
 
 @Service
 public class MypageService {
    final String PROFILE_URI ="/images/member/profile";
 
-   private Dao dao;
+   private MemberMapper dao;
    
    @Autowired
    private SqlSessionTemplate template;
@@ -26,7 +26,7 @@ public class MypageService {
    public Member getMemberSelectByIdx(int memberIdx){
 
       Member member = null;
-      dao = template.getMapper(Dao.class);
+      dao = template.getMapper(MemberMapper.class);
 
       member = dao.selectByIdx(memberIdx);
 
@@ -53,7 +53,7 @@ public class MypageService {
          editMember.setMemberNickname(memberEditRequest.getMemberNickname());
          editMember.setMemberBirth(memberEditRequest.getBirth());
 
-         dao = template.getMapper(Dao.class);
+         dao = template.getMapper(MemberMapper.class);
          resultCnt = dao.updateMember(member);
 
       } catch (IllegalStateException e) {
@@ -75,7 +75,7 @@ public class MypageService {
 		   
 		   if(newPw.equals(newPw2)) {
 			   member.setMemberPw(newPw);
-			   dao=template.getMapper(Dao.class);
+			   dao=template.getMapper(MemberMapper.class);
 			   resultCnt=dao.updateMember(member);
 		   }
 	   }

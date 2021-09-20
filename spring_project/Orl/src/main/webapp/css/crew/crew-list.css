@@ -212,9 +212,6 @@ input:focus {
 	font-weight: bold;
 }
 
-h1{
-	font-weight:0;
-}
 .section .card-body a {
 	background: rgb(253, 239, 123);
 	border: none;

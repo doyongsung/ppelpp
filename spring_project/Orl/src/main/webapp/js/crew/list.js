@@ -74,7 +74,7 @@ $(document).ready(function () {
 function getList(parameter1, parameter2, parameter3) {
     if (parameter2 == '') {
         $.ajax({
-            url: 'http://localhost:8080/orl/crew/searchList',
+            url: url+'/crew/searchList',
             type: 'get',
             data: {
                 page: parameter3,
@@ -86,7 +86,7 @@ function getList(parameter1, parameter2, parameter3) {
         });
     } else {
         $.ajax({
-            url: 'http://localhost:8080/orl/crew/searchList',
+            url: url+'/crew/searchList',
             type: 'get',
             data: {
                 searchType: parameter1,
@@ -110,8 +110,8 @@ function crewList(parameter1, parameter2) {
         html += '<div class="card shadow">';
         html += '<div class="inner">';
         html += '<div>';
-        html += '<a href="http://localhost:8080/orl/crew/detail?crewIdx=' + item.crewIdx + '">';
-        html += '<img src="http://localhost:8080/orl/images/crew/' + item.crewPhoto + '" class="card-img-top" alt="card image cap">';
+        html += '<a href="'+url2+'/crew/detail?crewIdx=' + item.crewIdx + '">';
+        html += '<img src="'+url2+'/images/crew/' + item.crewPhoto + '" class="card-img-top" alt="card image cap">';
         html += '<div class="card-body text-left">';
         html += '<h4 class="card-title">크루 이름: ' + item.crewName + '</h4>';
         html += '<p class="card-text">크루장: ' + item.memberNickName + '</p>';
@@ -134,6 +134,7 @@ function crewList(parameter1, parameter2) {
         html += '</div>';
         $('#cList').html(html);
     });
+    
     //
     if (parameter2 == null) {
         return;

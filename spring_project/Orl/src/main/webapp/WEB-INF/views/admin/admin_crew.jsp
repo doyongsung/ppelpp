@@ -20,7 +20,7 @@
 
 <div class="container">
   <h2>크루 관리</h2>
-  <p> 찾을 내용을 입력해주세요. Type something in the input field to search the table for first names, last names or emails:</p>  
+  <p> 크루를 검색해보세요 !</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
   <table class="table table-bordered table-striped table-hover">
@@ -42,55 +42,42 @@
       <tr>
         <td>${list.crewIdx}</td>
         <td>${list.crewName}</td>
-        <td><img src="<c:url value='/images/crew/${list.crewPhoto}'/>" style="width:100px"></td>
+        <td><img src="<c:url value='/images/crew/${list.crewPhoto}'/>" style="width:100px; height:100px"></td>
         <td style="max-width:350px;overflow:auto">${list.crewDiscription}</td>
         <td style="max-width:100px">${list.crewCreatedate}</td>
-        <td style="max-width:300px">${list.crewTag}</td>
+        <td style="max-width:200px">${list.crewTag}</td>
         <td><p class="text-center">${list.memberNickName}</p></td>
-        <td>
+        <td style="width:50px">
              <a id = "deleteId" href="<c:url value='/admin/crew/delete?crewIdx=${list.crewIdx}'/>" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
         </td>
            <td>
         	
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal${list.crewIdx}" style="width:110px; height:40px; font-size:15px; font-weight:bold; background-color:cadetblue;">크루원 목록</button>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal${list.crewIdx}" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">피드 미리보기</h4>
+        <h4 class="modal-title">크루원 보기</h4>
       </div>
       <div class="modal-body selectList">
-                <div class="item">
-	                 <img class="img" src="" alt="" width="80px" height="80px">
-                    <span>#이름</span>
-                </div>
-                 <div class="item">
-	                 <img class="img" src="" alt="" width="80px" height="80px">
-                    <span>#이름</span>
-                </div>
-                 <div class="item">
-	                 <img class="img" src="" alt="" width="80px" height="80px">
-                    <span>#이름</span>
-                </div>
-      			 <div class="item">
-	                 <img class="img" src="" alt="" width="80px" height="80px">
-                    <span>#이름</span>
-                </div>
-      			 <div class="item">
-	                 <img class="img" src="" alt="" width="80px" height="80px">
-                    <span>#이름</span>
-                </div>
+          <c:forEach items="${crewRegList}" var="cList">
+	      <c:if test="${list.crewIdx eq cList.crewIdx}">
+	                <div class="item">
+	                	 <img alt="" class="img" src="<c:url value='/images/member/profile/${cList.memberProfile}'/>"  width="80px" height="80px" style="border-radius:50%">
+	                    <span># ${cList.memberNickName}</span>
+	                </div>
+	      </c:if>
+      </c:forEach>     
        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" >save changes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
       </div>
     </div>
 
@@ -114,7 +101,7 @@
         <!-- <div class="delete pull-right">
        		<input class="btn btn-default" type="submit" value="일괄삭제">
         </div> -->
-        <div class="pres">
+      <!--   <div class="pres">
             <h4 class="hidden">현재 페이지</h4>
             <div><span>1</span> / 1 pages</div>
         </div>
@@ -134,7 +121,7 @@
 		    </li>
 		  </ul>
 	</nav>
-     </div>   
+     </div>    -->
 </div>
 
 

@@ -6,12 +6,12 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.orl.member.mapper.Dao;
+import com.bitcamp.orl.member.mapper.MemberMapper;
 
 @Service
 public class ForgotIdService {
 
-	  private Dao dao;
+	  private MemberMapper dao;
 	   
 	   @Autowired
 	   private SqlSessionTemplate template;
@@ -21,7 +21,7 @@ public class ForgotIdService {
 		         ) {
 		   String findId=null;
 		   
-		   dao=template.getMapper(Dao.class);
+		   dao=template.getMapper(MemberMapper.class);
 		   
 		  if(membername != null && memberEmail != null && membername.trim().length() > 1 && memberEmail.trim().length() > 1) {
 			  findId=dao.selectByIdEmail(membername, memberEmail);

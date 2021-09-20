@@ -23,6 +23,7 @@ public class CrewManageService {
 	@Autowired
 	SqlSessionTemplate template;
 	
+	//해당 페이지에 접근할 권한이 있는지(크루장인지) 확인하기
 	public boolean isHaveAuth(
 			int crewIdx,
 			HttpServletRequest request
@@ -42,6 +43,7 @@ public class CrewManageService {
 		return chk;
 	}
 	
+	//한 크루 선택
 	public Crew selectCrew(
 			int crewIdx
 			) {
@@ -50,6 +52,7 @@ public class CrewManageService {
 		return crew;
 	}
 	
+	//크루 수정
 	public int updateCrew(
 			CrewInsertRequest crewRequest,
 			HttpServletRequest request,
@@ -61,8 +64,16 @@ public class CrewManageService {
 		
 		CrewInsertService insertservice = new CrewInsertService();
 		try {
+			
+			
+			//크루 수정 시 파일을 넣었을 때
 			if (crewRequest.getCrewPhoto() != null && !crewRequest.getCrewPhoto().isEmpty()) {
-				newFile = insertservice.saveFile(request, crewRequest.getCrewPhoto());
+				//기존 파일을 선택해서 삭제(default있으면 걸러지게 처리)
+				selectThatFile(request, crewIdx).delete();
+				
+				//새로운 파일 저장
+				newFile = insertservice.saveFile(crewRequest.getCrewPhoto());
+				//DB에 업데이트
 				resultCnt = dao.updateCrew(
 						crewRequest.getCrewName(), 
 						newFile.getName(), 
@@ -70,12 +81,17 @@ public class CrewManageService {
 						crewRequest.getCrewTag(),
 						crewIdx);
 			} else {
+				
+				
+				//크루 수정 시 파일을 넣지 않았을 때
 				resultCnt = dao.updateCrewWithoutPhoto(
 						crewRequest.getCrewName(), 
 						crewRequest.getCrewDiscription(), 
 						crewRequest.getCrewTag(),
 						crewIdx);
 			}
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 			if(newFile != null && newFile.exists()) {
@@ -86,6 +102,7 @@ public class CrewManageService {
 		return resultCnt;
 	}
 	
+	//크루 삭제
 	public int deleteCrew(
 			int crewIdx,
 			String crewName,
@@ -93,11 +110,32 @@ public class CrewManageService {
 			) {
 		int resultCnt = 0;
 		dao = template.getMapper(CrewMapper.class);
-		
 		Crew crew = selectCrew(crewIdx);
-		if(crew.getCrewName().contentEquals(crewName)) {
+		
+		//크루이름이 일치할 때 삭제
+		if(crew.getCrewName().equals(crewName)) {
+			selectThatFile(request, crewIdx).delete();
 			resultCnt = dao.deleteCrew(crewIdx);
 		}
 		return resultCnt;
+	}
+	
+	//크루 idx로 현재 크루 사진 파일 선택
+	public File selectThatFile(
+			HttpServletRequest request,
+			int crewIdx
+			) {
+		dao = template.getMapper(CrewMapper.class);
+		String path = request.getSession().getServletContext().getRealPath(UPLOAD_URI);
+		File Dir = new File(path);
+		File file = null;
+		Crew crew = dao.selectCrew(crewIdx);
+		try {
+			String crewPhoto = crew.getCrewPhoto();
+			file = new File(Dir, crewPhoto);
+		} catch(NullPointerException e) {
+			e.printStackTrace();
+		}
+		return file;
 	}
 }

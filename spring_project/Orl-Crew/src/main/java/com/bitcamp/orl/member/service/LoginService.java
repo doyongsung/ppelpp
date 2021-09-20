@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.orl.member.domain.Member;
 import com.bitcamp.orl.member.domain.MemberDto;
-import com.bitcamp.orl.member.mapper.Dao;
+import com.bitcamp.orl.member.mapper.MemberMapper;
 import com.bitcamp.orl.member.util.CookieBox;
 
 @Service
 public class LoginService {
    
-   private Dao dao;
+   private MemberMapper dao;
    
    @Autowired
    private SqlSessionTemplate template;
@@ -35,7 +35,7 @@ public class LoginService {
       cookieChk(response, reid, memberId);
       loginChk=false;
       
-      dao = template.getMapper(Dao.class);
+      dao = template.getMapper(MemberMapper.class);
       Member member=null;
       if (memberId != null && memberPw != null && memberId.trim().length() > 2 && memberPw.trim().length() > 2) {
          member = dao.selectByIdPw(memberId, memberPw);
@@ -56,7 +56,7 @@ public class LoginService {
 	      
 	      loginChk=false;
 	      
-	      dao = template.getMapper(Dao.class);
+	      dao = template.getMapper(MemberMapper.class);
 	      Member member=null;
 	      if (memberId != null && memberPw != null && memberId.trim().length() > 2 && memberPw.trim().length() > 2) {
 	         member = dao.selectByIdPw(memberId, memberPw);
@@ -92,8 +92,7 @@ public class LoginService {
 
    public boolean chkURI(String uri) {
       boolean chk = true;
-
-      if (!uri.startsWith("/orl/member/login")) {
+      if (uri.startsWith("/orl/member/login")) {
          chk = false;
       }
       return chk;

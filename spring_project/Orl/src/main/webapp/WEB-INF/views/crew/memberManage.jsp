@@ -10,6 +10,10 @@
 <script>
 let crewIdx = '${crew.crewIdx}';
 let sessionMemberIdx = '${sessionScope.memberVo.memberIdx}';
+/*부트서버*/
+const url = 'http://localhost:8081';
+/*뷰 서버*/	
+const url2 = '${pageContext.request.contextPath}';
 </script>
 <script src="<c:url value='/js/crew/memberManage.js'/>"></script>
 <%@ include file="/WEB-INF/frame/default/header.jsp"%>

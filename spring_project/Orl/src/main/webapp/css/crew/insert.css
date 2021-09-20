@@ -74,6 +74,7 @@ td {
   border-bottom: 1px solid rgb(220, 220, 220);
   border-right: 1px solid rgb(220, 220, 220);
   border-radius: 0 8px 8px 0;
+  display: flex;
   justify-content: flex-start;
 }
 
@@ -103,15 +104,14 @@ td {
 .edit_section input[type="submit"] {
   margin-top: 10px;
   background-color: rgb(70, 70, 70);
-  max-width: 180px;
+  max-width: 120px;
   height: 40px;
   line-height: 20px;
   font-size: 15px;
+  float: right;
   
 }
-#submit {
-    padding-top: 80px;
-}
+
 .edit_section input[type=file] {
   margin-top: 20px;
 }
@@ -130,16 +130,6 @@ a {
 
 .create {
   padding-top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.create img{
-	weight:150px;
-	height:150px;
-    display:flex;
-    margin-top:-30px;
-    
 }
 
 * {
@@ -182,9 +172,8 @@ a {
 }
 
 form {
-  padding-top: 50px;
+  padding-top: 200px;
   display:flex;
-  padding-left: 40px;
 }
 
 

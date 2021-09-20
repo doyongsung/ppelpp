@@ -4,6 +4,13 @@ import java.sql.Timestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CrewComment {
 	private int crewCommentIdx;
 	private String crewComment;
@@ -11,56 +18,6 @@ public class CrewComment {
 	private Timestamp crewCommentDate;
 	private int memberIdx;
 	private int crewIdx;
-	
-	public CrewComment() {}
-	
-	public CrewComment(int crewCommentIdx, String crewComment, Timestamp crewCommentDate, int memberIdx, int crewIdx) {
-		this.crewCommentIdx = crewCommentIdx;
-		this.crewComment = crewComment;
-		this.crewCommentDate = crewCommentDate;
-		this.memberIdx = memberIdx;
-		this.crewIdx = crewIdx;
-	}
-
-	public int getCrewCommentIdx() {
-		return crewCommentIdx;
-	}
-
-	public void setCrewCommentIdx(int crewCommentIdx) {
-		this.crewCommentIdx = crewCommentIdx;
-	}
-
-	public String getCrewComment() {
-		return crewComment;
-	}
-
-	public void setCrewComment(String crewComment) {
-		this.crewComment = crewComment;
-	}
-
-	public Timestamp getCrewCommentDate() {
-		return crewCommentDate;
-	}
-
-	public void setCrewCommentDate(Timestamp crewCommentDate) {
-		this.crewCommentDate = crewCommentDate;
-	}
-
-	public int getMemberIdx() {
-		return memberIdx;
-	}
-
-	public void setMemberIdx(int memberIdx) {
-		this.memberIdx = memberIdx;
-	}
-
-	public int getCrewIdx() {
-		return crewIdx;
-	}
-
-	public void setCrewIdx(int crewIdx) {
-		this.crewIdx = crewIdx;
-	}
 	
 	public CrewCommentInfo CommentToInfo() {
 		CrewCommentInfo info = new CrewCommentInfo(crewCommentIdx, 
